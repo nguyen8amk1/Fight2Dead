@@ -63,7 +63,7 @@ namespace TestSocket
 					string[] tokens = command.Split(':');
 					string[] xy = tokens[2].Split(',');
 					if(clients.Count > 1) {
-						string formatString = string.Format("{0},{1}", xy[0], xy[1]);
+						string formatString = string.Format("pid:1:{0},{1}", xy[0], xy[1]);
 						sendToClient(formatString, clients[1].endPoint);
 						Console.WriteLine("Send to client " + clients[1].endPoint.Address + ":" + clients[1].endPoint.Port);
 					}
