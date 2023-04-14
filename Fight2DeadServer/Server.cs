@@ -63,65 +63,20 @@ namespace TestSocket
 					string[] tokens = command.Split(':');
 					string[] xy = tokens[2].Split(',');
 					if(clients.Count > 1) {
-						string formatString = string.Format("pid:1:{0},{1}", xy[0], xy[1]);
+						string formatString = string.Format("{0},{1}", xy[0], xy[1]);
 						sendToClient(formatString, clients[1].endPoint);
 						Console.WriteLine("Send to client " + clients[1].endPoint.Address + ":" + clients[1].endPoint.Port);
 					}
 				}
 				else if(command.StartsWith("id:2")) {
-					// TODO: 
+					string[] tokens = command.Split(':');
+					string[] xy = tokens[2].Split(',');
+					if(clients.Count > 1) {
+						string formatString = string.Format("{0},{1}", xy[0], xy[1]);
+						sendToClient(formatString, clients[0].endPoint);
+						Console.WriteLine("Send to client " + clients[0].endPoint.Address + ":" + clients[0].endPoint.Port);
+					}
 				}
-            }
-        }
-
-		// currently not using 
-        private void serveClient(ClientInfo clientInfo)
-        {
-			clients.Add(clientInfo);
-			foreach(ClientInfo c in clients) {
-				Console.WriteLine(c.ToString());
-			}
-
-			Console.WriteLine("Client id is " + clientInfo.id);
-			string formatString = string.Format("Client Thread with id: {0} is listening to {1}:{2}", clientInfo.endPoint.Address.ToString(), clientInfo.id.ToString(), clientInfo.endPoint.Port);
-			Console.WriteLine(formatString);
-
-            while (true)
-            {
-                byte[] bytes = listener.Receive(ref clientInfo.endPoint);
-                string position = Encoding.ASCII.GetString(bytes);
-                // Console.WriteLine(position);
-
-                // extract x, y 
-                string[] tokens = position.Split(',');
-                float x = float.Parse(tokens[0]);
-                float y = float.Parse(tokens[1]);
-
-                // checking 
-                bool isPlayer1 = clientInfo.id == 1;
-                bool isPlayer2 = clientInfo.id == 2;
-
-                // FIXME: why player1 keep sending to himself
-                // something with the thread ??
-                if (isPlayer1)
-                {
-                    // TODO: check if the player 2 is available or not 
-                    bool player2IsAvailable = clients.Count >= 2;
-                    if (!player2IsAvailable)
-                    {
-                        continue;
-                    }
-					
-                    formatString = string.Format("{0},{1}", x.ToString(), y.ToString());
-                    int player2Index = 2 - 1;
-                    sendToClient(formatString, clients[player2Index].endPoint);
-                }
-                else if (isPlayer2)
-                {
-                    formatString = string.Format("{0},{1}", x.ToString(), y.ToString());
-                    int player1Index = 1 - 1;
-                    sendToClient(formatString, clients[player1Index].endPoint);
-                }
             }
         }
 

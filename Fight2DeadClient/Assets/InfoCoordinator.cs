@@ -23,7 +23,9 @@ public class InfoCoordinator : MonoBehaviour
     private float x = -100, y = -100;
     public GameObject player1;
     public GameObject player2;
+
     private int whatPlayer = 0;
+    private int whatPlayerPos = 0;
 
     // TODO: implement a selective control system of some kind 
 
@@ -71,15 +73,13 @@ public class InfoCoordinator : MonoBehaviour
                 y = float.Parse(tokens[1]);
 
                 // TODO: set the x, y of opponent player object 
-                bool isPlayer1Pos = false;
-                bool isPlayer2Pos = true;
-
-                if(isPlayer1Pos)
+                if(id == 1)
 				{
+                    whatPlayerPos = 2;
 				}
-                else if(isPlayer2Pos)
+                if(id == 2)
 				{
-
+                    whatPlayerPos = 1;
 				}
             }
         }
@@ -94,6 +94,7 @@ public class InfoCoordinator : MonoBehaviour
 
     void Update()
     {
+        // this is for room creation 
         if(whatPlayer == 1)
 		{
             player1.AddComponent(Type.GetType("ControlScript"));
@@ -110,5 +111,15 @@ public class InfoCoordinator : MonoBehaviour
             whatPlayer = 0; 
             // TODO: set all the fields in the ControlScript as well  
 		} 
+
+        // this is for updating the position 
+        if(whatPlayerPos == 1)
+		{
+            player1.transform.position = new Vector3(x, y, 0); 
+		}
+        if(whatPlayerPos == 2)
+		{
+            player2.transform.position = new Vector3(x, y, 0); 
+		}
     }
 }
