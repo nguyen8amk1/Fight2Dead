@@ -13,17 +13,15 @@ public class ServerCommunicator : MonoBehaviour
     // Start is called before the first frame update
     // TODO: 
     // cho nhan roomid, playerid 
-    private string SERVER_IP;
-    private const int PORT = 8080;
-    private UdpClient serverSocket = new UdpClient();
-    private int roomId, playerId; 
+    private ServerConnection connection = ServerConnection.Instance;
+    private int roomId, playerId;
+    private bool tns = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        SERVER_IP = getLocalIPAddress();
         Debug.Log("Sending command to server");
-        sendToServer("command:connect");
+        connection.sendToServer("command:connect");
 
         Thread listenToServerThread = new Thread(new ThreadStart(listenToServer));
         listenToServerThread.Start();
@@ -33,28 +31,23 @@ public class ServerCommunicator : MonoBehaviour
     {
         while (true)
         {
-            IPEndPoint remoteEndPoint = new IPEndPoint(IPAddress.Parse(SERVER_IP), PORT);
-            int listeningPort = ((IPEndPoint)serverSocket.Client.LocalEndPoint).Port;
-            Debug.Log("Listening for server at port " + listeningPort);
-            byte[] bytes = serverSocket.Receive(ref remoteEndPoint);
-            string message = Encoding.ASCII.GetString(bytes);
-
-            Debug.Log(message);
+            string message = connection.receiveMessage();
             if(message.StartsWith("rid:"))
 			{
                 // message format: rid:x,pid:x
                 // TODO: get room id and player id 
                 string[] idKeyPairs = message.Split(',');
-                foreach (string s in idKeyPairs)
-                {
-                    string[] idNum = s.Split(':');
-                    roomId = Int32.Parse(idNum[0]);
-                    playerId = Int32.Parse(idNum[1]);
-                }
+				string[] ridPair = idKeyPairs[0].Split(':');
+                string[] pidPair = idKeyPairs[1].Split(':');
 
-				// TODO: pass that to the next scene as well 
+				roomId = Int32.Parse(ridPair[1]);
+				playerId = Int32.Parse(pidPair[1]);
 
-                toNextScene();
+                // TODO: pass roomid and playerid to the next scene as well 
+                LobbyGetState.roomId = roomId;
+                LobbyGetState.playerId = playerId;
+
+                tns = true;   
                 break;
 			}
 		}
@@ -62,38 +55,12 @@ public class ServerCommunicator : MonoBehaviour
 
 	private void toNextScene()
 	{
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 	}
-
-	private void sendToServer(string message)
-    {
-        byte[] bytes = Encoding.ASCII.GetBytes(message);
-        serverSocket.Send(bytes, bytes.Length, SERVER_IP, PORT);
-    }
-    // Update is called once per frame
-
-    private string getLocalIPAddress()
-    {
-        {
-            IPHostEntry host;
-            string localIP = "?";
-            host = Dns.GetHostEntry(Dns.GetHostName());
-
-            foreach (IPAddress ip in host.AddressList)
-            {
-                if (ip.AddressFamily == AddressFamily.InterNetwork)
-                {
-                    localIP = ip.ToString();
-                }
-            }
-            return localIP;
-        }
-    }
-
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(tns)
+			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

@@ -26,6 +26,8 @@ namespace TestSocket
 
             switch (currentState)
             {
+                // TODO: handle the lobby scene message
+
                 case State.RECEIVE_POSITION:
                 {
                     // send to players 2, player1's pos 

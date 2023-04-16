@@ -34,6 +34,8 @@ namespace TestSocket
                 
                 currentState = nextState(command);
 
+                Console.WriteLine(command);
+
                 switch (currentState)
                 {
                     case State.RECEIVE_NEW_CONNECTION:
@@ -47,6 +49,8 @@ namespace TestSocket
                     }
                     break;
                     case State.RECEIVE_ROOM_PACKET: {
+                        // TODO: guide the message to the right room 
+
                         // get roomid 
                         // index = roomid -1 
                         // remove the room part in the command string 
@@ -74,7 +78,7 @@ namespace TestSocket
                 // send packet with rid to both clients
                 foreach(ClientInfo c in clients) {
                     string formatedString = string.Format("rid:{0},pid:{1}", roomId, c.id);
-                    sendToClient("rid:" + roomId, c.endPoint);
+                    sendToClient(formatedString, c.endPoint);
                 }
 
                 roomId++;
