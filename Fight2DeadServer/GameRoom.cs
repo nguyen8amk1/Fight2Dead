@@ -26,7 +26,19 @@ namespace TestSocket
 
             switch (currentState)
             {
-                // TODO: handle the lobby scene message
+                case State.RECEIVE_FROM_LOBBY: {
+                    string[] tokens = command.Split(',');
+                    int pid = Int32.Parse(MessageParser.getValueFrom(tokens[1]));
+                    int stat = Int32.Parse(MessageParser.getValueFrom(tokens[2]));
+
+                    string formatedString = string.Format("pid:{0} va stat:{1}", pid, stat);
+                    Console.WriteLine(formatedString);
+
+                    string formatedMessage = string.Format("pid:{0},stat:{1}", pid, stat);
+
+                    sendToEveryOneElse(pid, formatedMessage);
+                } 
+                break;
 
                 case State.RECEIVE_POSITION:
                 {
@@ -37,15 +49,10 @@ namespace TestSocket
                     string x = xy[0];
                     string y = xy[1];
 
-                    // TODO: this can be refactor even more 
-                    if (command.StartsWith("id:1"))
-                    {
-                        sendPosToClientWithId(2, x, y);
-                    }
-                    else if (command.StartsWith("id:2"))
-                    {
-                        sendPosToClientWithId(1, x, y);
-                    }
+                    string formatedString = string.Format("{0},{1}", x, y);
+
+                    // @FIXME: NOT WORKING AT THE MOMENT 
+                    sendToEveryOneElse(1, formatedString);
                     break;
                 }
                 default:
@@ -53,9 +60,13 @@ namespace TestSocket
             }
         }
 
-        private void sendPosToClientWithId(int id, string x, string y) {
-            string formatString = string.Format("{0},{1}", x, y);
-            sendToClient(formatString, clients[id-1].endPoint);
+        // TODO: refactor this to something more roburst;
+        private void sendToEveryOneElse(int pid, string message) {
+            foreach(ClientInfo c in clients) {
+                if(c.id == pid) 
+                    continue;
+                sendToClient(message, c.endPoint);
+            }
         }
 
         private State nextState(string command) {

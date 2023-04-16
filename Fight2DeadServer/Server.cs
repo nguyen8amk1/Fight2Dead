@@ -49,15 +49,12 @@ namespace TestSocket
                     }
                     break;
                     case State.RECEIVE_ROOM_PACKET: {
-                        // TODO: guide the message to the right room 
+                        string[] tokens = command.Split(',');
+                        int rid = Int32.Parse(tokens[0].Split(':')[1]);
+                        int index = rid - 1;
+                        command = command.Substring(tokens[0].Length+1); // remove the rid part from the command
 
-                        // get roomid 
-                        // index = roomid -1 
-                        // remove the room part in the command string 
-                        Console.WriteLine("Receive Room packet");
-                        // int rid = ;
-                        // int index = rid - 1;
-                        // rooms[index].process(command);
+                        rooms[index].process(command);
                     } 
                     break;
                     default:

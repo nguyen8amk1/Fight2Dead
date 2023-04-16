@@ -15,29 +15,39 @@ public class LobbyGetState : MonoBehaviour
     public string player2Status;
     public static int roomId, playerId;
     private bool ready = false;
-
-    public void isClicked()
+    private bool opponentReady = false;
+    private int count = 1;
+	private void Start()
 	{
-        ready = !ready;
-        string message = $"rid:{roomId},pid:{playerId},s:l,stat:{Convert.ToInt32(ready)}";
-        connection.sendToServer(message);
         // listen to server 
         Thread listenToServerThread = new Thread(new ThreadStart(listenToServer));
         listenToServerThread.Start();
+	}
 
+	public void isClicked()
+	{
+        ready = !ready;
+        string message = $"rid:{roomId},s:l,pid:{playerId},stat:{Convert.ToInt32(ready)}";
+        connection.sendToServer(message);
 
         if(ready) {
-            changePlayer1Status("Ready");
+            changeOwnStatus("Ready");
         } else
 		{
-            changePlayer1Status("Not ready");
+            changeOwnStatus("Not ready");
 		}
 	}
 
-	private void changePlayer1Status(string status)
+	private void changeOwnStatus(string status)
+	{
+        // TODO: change the text on screen 
+		Debug.Log("Own status " + status);
+	}
+
+    private void changeOtherStatus(string status)
 	{
         // TODO: 
-		Debug.Log(status);
+		Debug.Log("Others " + status);
 	}
 
 	private void listenToServer()
@@ -45,13 +55,36 @@ public class LobbyGetState : MonoBehaviour
         while (true)
         {
             string message = connection.receiveMessage();
-			// TODO: nhan message tu server thi: "pid:{oppid},1" 
+            // nhan message tu server thi: "pid:{oppid},stat:{1}" 
+            string[] tokens = message.Split(',');
+            int pid = Int32.Parse(getValue(tokens[0]));
+            int stat = Int32.Parse(getValue(tokens[1]));
+
+            opponentReady = stat == 1;
+            count = 0;
         }
     }
 
-    // Update is called once per frame
-    void Update()
+	private string getValue(string s)
+	{
+        return s.Split(':')[1];
+	}
+
+	// Update is called once per frame
+	void Update()
     {
+        if(count == 0)
+		{
+            if(opponentReady)
+			{
+                changeOtherStatus("Ready");
+			}
+            else
+			{
+                changeOtherStatus("Not Ready");
+			}
+            count = 1;
+		}
 
         
     }

@@ -5,6 +5,7 @@ namespace TestSocket
         NEW,
         RECEIVE_NEW_CONNECTION,
         RECEIVE_ROOM_PACKET, 
+        RECEIVE_FROM_LOBBY, 
         RECEIVE_POSITION 
     
     };
