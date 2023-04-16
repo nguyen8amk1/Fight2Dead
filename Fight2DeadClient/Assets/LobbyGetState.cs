@@ -18,7 +18,6 @@ public class LobbyGetState : MonoBehaviour
 
     public void isClicked()
 	{
-        // TODO: an nut thi gui message theo format: "rid:{rid},pid:{pid},s:{state},stat:1"
         ready = !ready;
         string message = $"rid:{roomId},pid:{playerId},s:l,stat:{Convert.ToInt32(ready)}";
         connection.sendToServer(message);
@@ -28,15 +27,20 @@ public class LobbyGetState : MonoBehaviour
 
 
         if(ready) {
-            // TODO: 
-            Debug.Log("change text to ready ");
+            changePlayer1Status("Ready");
         } else
 		{
-            Debug.Log("change text to not ready ");
+            changePlayer1Status("Not ready");
 		}
 	}
 
-    private void listenToServer()
+	private void changePlayer1Status(string status)
+	{
+        // TODO: 
+		Debug.Log(status);
+	}
+
+	private void listenToServer()
     {
         while (true)
         {
