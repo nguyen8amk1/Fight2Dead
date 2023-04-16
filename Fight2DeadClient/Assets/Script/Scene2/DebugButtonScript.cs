@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class DebugButtonScript : MonoBehaviour
 {
-        public void Return()
+	public void Return()
     {
-            Debug.Log("Button Pressed");
+        Debug.Log("GO TO WAITING SCENE");
     }
 }
