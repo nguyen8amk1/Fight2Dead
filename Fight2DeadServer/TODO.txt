@@ -1,8 +1,8 @@
 TONIGHT: 
     REFACTOR TO STATE MACHINE [X]
-    CONVERT TO MULTITHREAD [] 
+    WORK ON PLAYER MATCHING   []
 
-WORK ON PLAYER MATCHING   []
+CONVERT TO MULTITHREAD [] 
 
 // TODO: detect khi nao nguoi choi tat connection de thao ra khoi list 
 ATTACH THE LAN SERVER CODE TO CLIENT  [] 

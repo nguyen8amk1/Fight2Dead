@@ -17,29 +17,16 @@ namespace TestSocket
         private State currentState = State.NEW;
         private int clientId = 1;
 
+        // TODO: PLAYER MATCHING
+        // con che do 2 nguoi choi, 4 nguoi choi 
+        // HOW IT'S GONNA WORK, hien tai chi co 1 phong duy nhat 
+
         public Server()
         {
         }
 
         public void go()
         {
-
-            // GOAL: REFACTOR TO STATE MACHINE  
-            // STATES: 
-            // waiting, receive_new_connect, receive_pos 
-
-            // NOTE: 
-            // right now there is only 1 room for all the players 
-            // and the room players is also fixed, with id 1 and 2 
-            // so the first player join in and get id 1
-            // second player join in and get id 2 
-            // when the player id=1 moves it send it's position to the server
-            // and the server send player id=1 to player id=2
-            // when the player id=2 moves it send it's position to the server
-            // and the server send player id=1 to player id=1
-            
-
-            // TODO: refactor to CHATGPT 
             while (true)
             {
                 Console.WriteLine("Server is listening...");
@@ -49,7 +36,6 @@ namespace TestSocket
                 
                 currentState = nextState(command);
 
-                // DO THE WORK
                 switch (currentState)
                 {
                     case State.RECEIVE_NEW_CONNECTION:
