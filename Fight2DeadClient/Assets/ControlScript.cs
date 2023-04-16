@@ -14,7 +14,7 @@ public class ControlScript : MonoBehaviour
 	public float speed = 3;
     public float x = -100, y = -100;
     public int id = -1; 
-    public const string SERVER_IP = "192.168.162.212";
+    public string SERVER_IP = "";
     public const int PORT = 8080;
     public UdpClient serverSocket;
 
@@ -74,6 +74,7 @@ public class ControlScript : MonoBehaviour
 
 	private void sendToServer(string message)
 	{
+        Debug.Log("Send to server");
         byte[] bytes = Encoding.ASCII.GetBytes(message);
         serverSocket.Send(bytes, bytes.Length, SERVER_IP, PORT);
 	}

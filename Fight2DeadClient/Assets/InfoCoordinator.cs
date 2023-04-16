@@ -29,7 +29,6 @@ public class InfoCoordinator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
 		SERVER_IP = getLocalIPAddress();
         Debug.Log("Sending command to server");
         sendToServer("command:connect");
@@ -117,6 +116,7 @@ public class InfoCoordinator : MonoBehaviour
             player1.AddComponent(Type.GetType("ControlScript"));
             player1.GetComponent<ControlScript>().id = id;
             player1.GetComponent<ControlScript>().serverSocket = serverSocket;
+            player1.GetComponent<ControlScript>().SERVER_IP = SERVER_IP;
             whatPlayer = 0;
 		} 
         else if(whatPlayer == 2)
@@ -124,6 +124,7 @@ public class InfoCoordinator : MonoBehaviour
             player2.AddComponent(Type.GetType("ControlScript"));
             player2.GetComponent<ControlScript>().id = id;
             player2.GetComponent<ControlScript>().serverSocket = serverSocket;
+            player2.GetComponent<ControlScript>().SERVER_IP = SERVER_IP;
             whatPlayer = 0; 
 		} 
 
