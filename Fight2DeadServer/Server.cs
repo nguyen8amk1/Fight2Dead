@@ -7,12 +7,6 @@ using System.Threading;
 using System.Collections.Generic;
 
 
-// PLAN: 
-// given players their id 
-// this is fixed 2 players socket server
-// create a thread for each player
-// the player1 move the player 2 see the updated position on the screen (mot chieu)
-
 namespace TestSocket
 {
     public class Server
@@ -32,10 +26,6 @@ namespace TestSocket
 
         public void go()
         {
-            // FOR NOT USE FIXED IP
-            // string serverIP = "192.168.162.212";
-
-            // listen for connections  
 
             int clientId = 1;
 
@@ -47,6 +37,21 @@ namespace TestSocket
                 IPEndPoint remoteIPEndPoint = new IPEndPoint(IPAddress.Any, 0);
                 byte[] bytes = listener.Receive(ref remoteIPEndPoint);
                 string command = Encoding.ASCII.GetString(bytes);
+
+
+                // GOAL: REFACTOR TO STATE MACHINE  
+                // STATES: 
+                // waiting, receive_connect, receive_pos 
+
+                // NOTE: 
+                // right now there is only 1 room for all the players 
+                // and the room players is also fixed, with id 1 and 2 
+                // so the first player join in and get id 1
+                // second player join in and get id 2 
+                // when the player id=1 moves it send it's position to the server
+                // and the server send player id=1 to player id=2
+                // when the player id=2 moves it send it's position to the server
+                // and the server send player id=1 to player id=1
 
 				Console.WriteLine(command);
 				// room creation 
@@ -85,24 +90,6 @@ namespace TestSocket
             byte[] bytes = Encoding.ASCII.GetBytes(message);
             Console.WriteLine("Sending to " + endPoint.Address.ToString() + ":" + endPoint.Port);
             listener.Send(bytes, bytes.Length, endPoint.Address.ToString(), endPoint.Port);
-        }
-        // this gonna remain unused :v 
-        private static string getLocalIPAddress()
-        {
-            {
-                IPHostEntry host;
-                string localIP = "?";
-                host = Dns.GetHostEntry(Dns.GetHostName());
-
-                foreach (IPAddress ip in host.AddressList)
-                {
-                    if (ip.AddressFamily == AddressFamily.InterNetwork)
-                    {
-                        localIP = ip.ToString();
-                    }
-                }
-                return localIP;
-            }
         }
     }
 }

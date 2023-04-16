@@ -10,13 +10,12 @@ using UnityEngine;
 
 public class InfoCoordinator : MonoBehaviour
 {
-    // TODO: decide which player can be controlled using id (find a way to attach the control code to player 
-    // this is the main object that communicate with the server
-    // move info to appropriate players
+    // TODO: refactor to state machine 
+    // the states are: 
 
     // Start is called before the first frame update
     public float speed = 3;
-    private const string SERVER_IP = "192.168.162.212";
+    private string SERVER_IP;
     private const int PORT = 8080;
     private UdpClient serverSocket = new UdpClient();
     private int id = -1;
@@ -27,11 +26,11 @@ public class InfoCoordinator : MonoBehaviour
     private int whatPlayer = 0;
     private int whatPlayerPos = 0;
 
-    // TODO: implement a selective control system of some kind 
-
     // Start is called before the first frame update
     void Start()
     {
+
+		SERVER_IP = getLocalIPAddress();
         Debug.Log("Sending command to server");
         sendToServer("command:connect");
 
@@ -92,6 +91,24 @@ public class InfoCoordinator : MonoBehaviour
 	}
     // Update is called once per frame
 
+    private string getLocalIPAddress()
+    {
+        {
+            IPHostEntry host;
+            string localIP = "?";
+            host = Dns.GetHostEntry(Dns.GetHostName());
+
+            foreach (IPAddress ip in host.AddressList)
+            {
+                if (ip.AddressFamily == AddressFamily.InterNetwork)
+                {
+                    localIP = ip.ToString();
+                }
+            }
+            return localIP;
+        }
+    }
+
     void Update()
     {
         // this is for room creation 
@@ -101,7 +118,6 @@ public class InfoCoordinator : MonoBehaviour
             player1.GetComponent<ControlScript>().id = id;
             player1.GetComponent<ControlScript>().serverSocket = serverSocket;
             whatPlayer = 0;
-            // TODO: set all the fields in the ControlScript as well  
 		} 
         else if(whatPlayer == 2)
 		{
@@ -109,7 +125,6 @@ public class InfoCoordinator : MonoBehaviour
             player2.GetComponent<ControlScript>().id = id;
             player2.GetComponent<ControlScript>().serverSocket = serverSocket;
             whatPlayer = 0; 
-            // TODO: set all the fields in the ControlScript as well  
 		} 
 
         // this is for updating the position 
