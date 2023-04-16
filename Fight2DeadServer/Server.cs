@@ -19,38 +19,6 @@ namespace TestSocket
         private int roomId = 1;
 
         private List<GameRoom> rooms = new List<GameRoom>();
-
-        // TODO: PLAYER MATCHING
-        // con che do 2 nguoi choi, 4 nguoi choi 
-        // hien tai dang lam che do global
-        // list tong nguoi choi 
-        // TINH HINH HIEN TAI: 
-        // 1 phong choi duy nhat 
-        // 2 nguoi choi
-
-        // Goal: 
-        // hien tai chi la che do 2 nguoi 
-        // hien tai chi co 1 phong 
-        // neu du 2 nguoi roi -> luu 2 nguoi vao phong 
-
-        // moi phong la 1 thread rieng 
-        // nguoi choi an nut online -> cho nguoi choi 2 
-        // tim duoc nguoi choi con lai -> ca 2 cung vao lobby -> 2 nguoi dc luu vao phong rieng 
-
-        // so this server is only for player matching into room 
-
-        // STEPS
-        // luu tat ca nguoi connect vao list 
-        // thuc hien matching  (dung bat ki thuat toan nao)
-        // lay ra 2 nguoi trong list dua vao room 
-        // sau do chay room trong thread rieng 
-
-        // REFACTOR: 
-        // move this into a room  
-        // tao client moi thi van la server 
-        // game room bat dau tu lobby -> game (nhan ready nay kia, chon nhan vat, position)
-        // -> van la single thread
-
         public Server()
         {
         }
@@ -104,10 +72,10 @@ namespace TestSocket
                 rooms.Add(room);
 
                 // send packet with rid to both clients
-                string formatedString = string.Format("rid:{0},pid{1}", roomId, clients[0].id);
-                sendToClient("rid:" + roomId, clients[0].endPoint);
-                formatedString = string.Format("rid:{0},pid{1}", roomId, clients[1].id);
-                sendToClient("rid:" + roomId, clients[1].endPoint);
+                foreach(ClientInfo c in clients) {
+                    string formatedString = string.Format("rid:{0},pid:{1}", roomId, c.id);
+                    sendToClient("rid:" + roomId, c.endPoint);
+                }
 
                 roomId++;
 

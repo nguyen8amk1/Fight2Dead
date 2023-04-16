@@ -16,6 +16,7 @@ public class ServerCommunicator : MonoBehaviour
     private string SERVER_IP;
     private const int PORT = 8080;
     private UdpClient serverSocket = new UdpClient();
+    private int roomId, playerId; 
 
     // Start is called before the first frame update
     void Start()
@@ -39,11 +40,22 @@ public class ServerCommunicator : MonoBehaviour
             string message = Encoding.ASCII.GetString(bytes);
 
             Debug.Log(message);
-            // TODO: get room id and player id 
             if(message.StartsWith("rid:"))
 			{
-                // TODO: change scene to Lobby 
+                // message format: rid:x,pid:x
+                // TODO: get room id and player id 
+                string[] idKeyPairs = message.Split(',');
+                foreach (string s in idKeyPairs)
+                {
+                    string[] idNum = s.Split(':');
+                    roomId = Int32.Parse(idNum[0]);
+                    playerId = Int32.Parse(idNum[1]);
+                }
+
+				// TODO: pass that to the next scene as well 
+
                 toNextScene();
+                break;
 			}
 		}
     }
