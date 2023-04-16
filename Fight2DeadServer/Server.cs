@@ -16,10 +16,21 @@ namespace TestSocket
         private List<ClientInfo> clients = new List<ClientInfo>();
         private State currentState = State.NEW;
         private int clientId = 1;
+        private List<GameRoom> rooms = new List<GameRoom>();
 
         // TODO: PLAYER MATCHING
         // con che do 2 nguoi choi, 4 nguoi choi 
-        // HOW IT'S GONNA WORK, hien tai chi co 1 phong duy nhat 
+        // hien tai dang lam che do global
+        // list tong nguoi choi 
+        // TINH HINH HIEN TAI: 
+        // 1 phong choi duy nhat 
+        // 2 nguoi choi
+
+        // Goal: 
+        // hien tai chi la che do 2 nguoi 
+        // hien tai chi co 1 phong 
+        // nguoi choi an nut online -> cho nguoi choi 2 
+        // tim duoc nguoi choi con lai -> ca 2 cung vao lobby  
 
         public Server()
         {
