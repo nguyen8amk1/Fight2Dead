@@ -4,7 +4,8 @@ namespace TestSocket
     {
         NEW,
         RECEIVE_NEW_CONNECTION,
-        RECEIVE_POSITION
+        RECEIVE_ROOM_PACKET, 
+        RECEIVE_POSITION 
     
     };
 }

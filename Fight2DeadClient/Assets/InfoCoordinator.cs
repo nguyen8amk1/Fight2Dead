@@ -13,6 +13,8 @@ public class InfoCoordinator : MonoBehaviour
     // TODO: refactor to state machine 
     // the states are: 
 
+    // TODOO: add roomid into string;
+
     // Start is called before the first frame update
     public float speed = 3;
     private string SERVER_IP;
@@ -49,8 +51,10 @@ public class InfoCoordinator : MonoBehaviour
             byte[] bytes = serverSocket.Receive(ref remoteEndPoint);
             string message = Encoding.ASCII.GetString(bytes);
 
+            // TODO: get room id 
             // server return id
-            if (message.StartsWith("id:"))
+            // phai vao dc phong thi moi co id 
+            if (message.StartsWith("rid:"))
             {
                 Debug.Log("Parse the id");
                 string[] tokens = message.Split(':');
