@@ -16,7 +16,6 @@ public sealed class ServerConnection
 
     private static ServerConnection instance = null;
     private static readonly object padlock = new object();
-    private int val;
 
     private ServerConnection()
 	{

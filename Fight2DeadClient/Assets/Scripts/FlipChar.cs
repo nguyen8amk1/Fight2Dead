@@ -7,9 +7,15 @@ public class FlipChar : MonoBehaviour
     public string _currentDirection = "left";
     public GameObject characters;
     private bool isFlipped = false;
+
+
     // Start is called before the first frame update
     public void flipChar()
     {
+        // TODO: this code is for showing different sides between p1, and p2 
+
+        Debug.Log("Flip character");
+
         if (!isFlipped)
         {
             characters.transform.localScale = new Vector3(2.4f, 3.1f, 1);
@@ -26,6 +32,7 @@ public class FlipChar : MonoBehaviour
         }
         
     }
+
     void changeDirection(string direction)
     {
         if (_currentDirection != direction)

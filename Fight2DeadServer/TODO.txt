@@ -1,7 +1,9 @@
 TODAY: 
+    PUT THE SOCKET CODE TO THE CHOOSE CHARACTER SCENE [] (1h) -- gui thong tin chon nhan vat cho server
+    PUT THE SOCKET CODE TO THE CHOOSE MAP SCENE [] (1h) -- gui thong tin chon map cho server
+
     STANDARDIZE THE MESSAGE SENDING BETWEEN CLIENT AND SERVER  [] (1h)
     REFACTOR THE STATE MACHINE SYSTEM INTO  CLASSES [] (3h) -- may be there is something to do with the message format of client/servers
-    PUT THE SOCKET CODE TO THE CHOOSE CHARACTER SCENE [] (2h)-- gui thong tin chon nhan vat cho server
 
     tong cong: 6 tieng (oke)
 

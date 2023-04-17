@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 public class PrintButton : MonoBehaviour
 {
+    // TODO: gui thong tin nhan vat cho server 
+
     string[] charName = new string[] { "Ryu", "Four Arms", "Heatblast", "Venom" };
     public void OnButtonClick()
     {
