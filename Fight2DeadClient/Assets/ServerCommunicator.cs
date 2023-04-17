@@ -53,14 +53,10 @@ public class ServerCommunicator : MonoBehaviour
 		}
     }
 
-	private void toNextScene()
-	{
-	}
-
     // Update is called once per frame
     void Update()
     {
-        if(tns)
-			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        if (tns)
+            Util.toNextScene();
     }
 }

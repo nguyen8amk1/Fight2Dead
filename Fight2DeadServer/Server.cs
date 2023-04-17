@@ -84,6 +84,8 @@ namespace TestSocket
                 unmatchedClients.RemoveAt(unmatchedClients.Count -1);
                 unmatchedClients.RemoveAt(unmatchedClients.Count -1);
 
+                // wrap the clientId part 
+                clientId = 1;
             } else {
                 ClientInfo lastestClient = unmatchedClients[unmatchedClients.Count -1];
                 string formatedString = string.Format("You're id= {0} waiting for another player to match with you!!!", lastestClient.id);

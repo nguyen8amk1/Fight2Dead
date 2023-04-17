@@ -390,8 +390,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 761029b21e8657c4796ee62c92f20b0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1Status: 
-  player2Status: 
+  player1StatusTextObj: {fileID: 741413282}
+  player2StatusTextObj: {fileID: 1569174907}
 --- !u!4 &610371731
 Transform:
   m_ObjectHideFlags: 0

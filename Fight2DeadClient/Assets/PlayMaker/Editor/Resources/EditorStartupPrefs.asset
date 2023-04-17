@@ -15,6 +15,6 @@ MonoBehaviour:
   welcomeScreenVersion: '1.9.6 '
   playmakerVersion: 
   showWelcomeScreen: 1
-  showUpgradeGuide: 1
+  showUpgradeGuide: 0
   lastAutoUpdateSignature: 2021.3.19f1__D:/Programming/UnityProject/Fight2Dead/Fight2DeadClient/Assets__0.0.0.0
   useLegacyNetworking: 0

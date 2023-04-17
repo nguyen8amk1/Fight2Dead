@@ -6,6 +6,9 @@ using System.Text;
 using System.Threading;
 using System.Collections.Generic;
 
+// all the scenes we have to go through: 
+// Menu -> Matching -> Lobby -> Choose character -> Choose man choi -> Preview -> game 
+
 namespace TestSocket
 {
     public class GameRoom
@@ -23,7 +26,7 @@ namespace TestSocket
         State currentState = State.NEW;
         public void process(string command) {
             currentState = nextState(command);
-
+            
             switch (currentState)
             {
                 case State.RECEIVE_FROM_LOBBY: {
@@ -40,6 +43,7 @@ namespace TestSocket
                 } 
                 break;
 
+                // @FIXME: NOT WORKING AT THE MOMENT 
                 case State.RECEIVE_POSITION:
                 {
                     // send to players 2, player1's pos 
@@ -51,7 +55,6 @@ namespace TestSocket
 
                     string formatedString = string.Format("{0},{1}", x, y);
 
-                    // @FIXME: NOT WORKING AT THE MOMENT 
                     sendToEveryOneElse(1, formatedString);
                     break;
                 }

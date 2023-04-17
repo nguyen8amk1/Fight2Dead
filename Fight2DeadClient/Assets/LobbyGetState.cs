@@ -4,21 +4,32 @@ using System.Collections.Generic;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LobbyGetState : MonoBehaviour
 {
     private ServerConnection connection = ServerConnection.Instance;
 
-    // this is the text on the screen, will be changed 
-    public string player1Status;
-    public string player2Status;
     public static int roomId, playerId;
     private bool ready = false;
     private bool opponentReady = false;
     private int count = 1;
+
+    // TODO: change the name, it's confusing 
+    // text component 
+    public GameObject player1StatusTextObj;
+    private TextMeshProUGUI player1StatusText;
+
+    public GameObject player2StatusTextObj;
+    private TextMeshProUGUI player2StatusText;
+
 	private void Start()
 	{
+        player1StatusText = player1StatusTextObj.GetComponent<TextMeshProUGUI>();
+        player2StatusText = player2StatusTextObj.GetComponent<TextMeshProUGUI>();
+
         // listen to server 
         Thread listenToServerThread = new Thread(new ThreadStart(listenToServer));
         listenToServerThread.Start();
@@ -30,24 +41,30 @@ public class LobbyGetState : MonoBehaviour
         string message = $"rid:{roomId},s:l,pid:{playerId},stat:{Convert.ToInt32(ready)}";
         connection.sendToServer(message);
 
-        if(ready) {
-            changeOwnStatus("Ready");
-        } else
+        bool isPlayer1 = playerId == 1;
+        bool isPlayer2 = playerId == 2;
+
+        TextMeshProUGUI textMesh = null;       
+
+        if(isPlayer1)
 		{
-            changeOwnStatus("Not ready");
+            textMesh = player1StatusText;
+		} else if(isPlayer2)
+		{
+            textMesh = player2StatusText;
+		}
+
+		if(ready) {
+			changeStatus(textMesh, "Ready");
+		} else
+		{
+			changeStatus(textMesh, "Not ready");
 		}
 	}
 
-	private void changeOwnStatus(string status)
+	private void changeStatus(TextMeshProUGUI textMesh, string status)
 	{
-        // TODO: change the text on screen 
-		Debug.Log("Own status " + status);
-	}
-
-    private void changeOtherStatus(string status)
-	{
-        // TODO: 
-		Debug.Log("Others " + status);
+        textMesh.text = status;
 	}
 
 	private void listenToServer()
@@ -75,17 +92,41 @@ public class LobbyGetState : MonoBehaviour
     {
         if(count == 0)
 		{
+			bool isPlayer1 = playerId == 1;
+			bool isPlayer2 = playerId == 2;
+
+			TextMeshProUGUI textMesh = null;       
+
+			if(isPlayer1)
+			{
+				textMesh = player2StatusText;
+			} else if(isPlayer2)
+			{
+				textMesh = player1StatusText;
+			}
+
+
             if(opponentReady)
 			{
-                changeOtherStatus("Ready");
+                changeStatus(textMesh, "Ready");
 			}
             else
 			{
-                changeOtherStatus("Not Ready");
+                changeStatus(textMesh, "Not Ready");
 			}
             count = 1;
 		}
 
+        if(allPlayerReady())
+		{
+            Util.toNextScene();
+		}
         
     }
+
+	private bool allPlayerReady()
+	{
+        return  player1StatusText.text.Equals("Ready") && 
+				player2StatusText.text.Equals("Ready");
+	}
 }
