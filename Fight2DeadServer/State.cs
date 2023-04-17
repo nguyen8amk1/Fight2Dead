@@ -6,6 +6,8 @@ namespace TestSocket
         NEW,
         RECEIVE_NEW_CONNECTION,
         RECEIVE_ROOM_PACKET, 
+
+        // room packets
         RECEIVE_FROM_LOBBY, 
         RECEIVE_CHOOSE_CHARACTER_INFO,
         RECEIVE_CHOOSE_STAGE_INFO,

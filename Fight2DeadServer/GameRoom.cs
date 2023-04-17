@@ -7,7 +7,7 @@ using System.Threading;
 using System.Collections.Generic;
 
 // all the scenes we have to go through: 
-// Menu -> Matching -> Lobby -> Choose character -> Choose man choi -> Preview -> game 
+// Menu -> Matching -> Lobby -> Choose character -> Choose man choi -> Loading Screen -> game 
 
 namespace TestSocket
 {
@@ -43,6 +43,16 @@ namespace TestSocket
                 } 
                 break;
 
+                case State.RECEIVE_CHOOSE_CHARACTER_INFO: {
+                    // TODO: handle character choice
+                } 
+                break;
+
+                case State.RECEIVE_CHOOSE_STAGE_INFO: {
+                    // TODO: handle room choice for each player
+                } 
+                break;
+
                 // @FIXME: NOT WORKING AT THE MOMENT 
                 case State.RECEIVE_POSITION:
                 {
@@ -63,7 +73,6 @@ namespace TestSocket
             }
         }
 
-        // TODO: refactor this to something more roburst;
         private void sendToEveryOneElse(int pid, string message) {
             foreach(ClientInfo c in clients) {
                 if(c.id == pid) 

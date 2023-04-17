@@ -1,13 +1,18 @@
 TODAY: 
-    INSTEAD OF USING PID USE P1, P2, P3,...
+    STANDARDIZE THE MESSAGE SENDING BETWEEN CLIENT AND SERVER  [] (1h)
+    REFACTOR THE STATE MACHINE SYSTEM INTO  CLASSES [] (3h) -- may be there is something to do with the message format of client/servers
+    PUT THE SOCKET CODE TO THE CHOOSE CHARACTER SCENE [] (2h)-- gui thong tin chon nhan vat cho server
+
+    tong cong: 6 tieng (oke)
+
+TODO: 
+    DETECT KHI NAO NGUOI CHOI TAT CONNECTION DE THAO RA KHOI LIST 
+    ATTACH THE LAN SERVER CODE TO CLIENT  [] 
+    CREATE A BUILD SCRIPT []
+    
+DONE: 
+    INSTEAD OF USING PID USE P1, P2, P3,... [X]
     HANDLE THE LOBBY SCENE MESSAGE [X]
-
-// TODO: detect khi nao nguoi choi tat connection de thao ra khoi list 
-ATTACH THE LAN SERVER CODE TO CLIENT  [] 
-CREATE A BUILD SCRIPT []
-
-SEND POS [X]
-MATCHING IN GLOBAL[X]
-
-REFACTOR TO STATE MACHINE [X]
-WORK ON PLAYER MATCHING   [X]
+    SEND POS [X]
+    MATCHING IN GLOBAL[X]
+    REFACTOR TO STATE MACHINE [X]
