@@ -5,10 +5,17 @@ namespace TestSocket
     public class MessageParser 
     {
         public static State parse(string message) {
+            Console.WriteLine("About to parse message: " + message);
+
             bool receiveNewConnection = message.Equals("command:connect");
             bool receivePositionWithId = message.StartsWith("pid:");
             bool receiveRoomPacket = message.StartsWith("rid:");
-            bool receiveFromLobby = message.StartsWith("s:");
+
+            bool receiveFromLobby = message.StartsWith("s:l");
+
+            // TODO: figure out how to do this 
+            bool receiveChosenCharacterInfo = message.StartsWith("s:ch");
+            // bool receiveChosenStageInfo = false;
 
             if (receiveNewConnection) {
                 return State.RECEIVE_NEW_CONNECTION;
@@ -25,6 +32,15 @@ namespace TestSocket
             {
                 return State.RECEIVE_FROM_LOBBY;
             }
+            else if (receiveChosenCharacterInfo)
+            {
+                Console.WriteLine("This is character info");
+                return State.RECEIVE_CHOOSE_CHARACTER_INFO;
+            }
+            // else if (receiveChosenStageInfo)
+            // {
+            //     return State.RECEIVE_CHOOSE_STAGE_INFO;
+            // }
 
             throw new Exception("Message not regconized");
         }

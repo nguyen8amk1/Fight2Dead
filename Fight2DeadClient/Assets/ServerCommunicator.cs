@@ -11,11 +11,10 @@ using UnityEngine.SceneManagement;
 public class ServerCommunicator : MonoBehaviour
 {
     // Start is called before the first frame update
-    // TODO: 
-    // cho nhan roomid, playerid 
     private ServerConnection connection = ServerConnection.Instance;
     private int roomId, playerId;
     private bool tns = false;
+    private PlayerInfo playerInfo = PlayerInfo.Instance;
 
     // Start is called before the first frame update
     void Start()
@@ -35,17 +34,12 @@ public class ServerCommunicator : MonoBehaviour
             if(message.StartsWith("rid:"))
 			{
                 // message format: rid:x,pid:x
-                // TODO: get room id and player id 
                 string[] idKeyPairs = message.Split(',');
 				string[] ridPair = idKeyPairs[0].Split(':');
                 string[] pidPair = idKeyPairs[1].Split(':');
 
-				roomId = Int32.Parse(ridPair[1]);
-				playerId = Int32.Parse(pidPair[1]);
-
-                // TODO: pass roomid and playerid to the next scene as well 
-                LobbyGetState.roomId = roomId;
-                LobbyGetState.playerId = playerId;
+				playerInfo.RoomId = Int32.Parse(ridPair[1]);
+				playerInfo.PlayerId = Int32.Parse(pidPair[1]);
 
                 tns = true;   
                 break;
