@@ -11,7 +11,7 @@ using UnityEngine.SceneManagement;
 public class LobbyGetState : MonoBehaviour
 {
     private ServerConnection connection = ServerConnection.Instance;
-    private PlayerInfo playerInfo = PlayerInfo.Instance;
+    private GameState playerInfo = GameState.Instance;
 
     private bool ready = false;
     private bool opponentReady = false;
@@ -24,6 +24,7 @@ public class LobbyGetState : MonoBehaviour
 
     public GameObject player2StatusTextObj;
     private TextMeshProUGUI player2StatusText;
+    private Thread listenToServerThread;
 
 	private void Start()
 	{
@@ -31,7 +32,7 @@ public class LobbyGetState : MonoBehaviour
         player2StatusText = player2StatusTextObj.GetComponent<TextMeshProUGUI>();
 
         // listen to server 
-        Thread listenToServerThread = new Thread(new ThreadStart(listenToServer));
+        listenToServerThread = new Thread(new ThreadStart(listenToServer));
         listenToServerThread.Start();
 	}
 
@@ -71,6 +72,7 @@ public class LobbyGetState : MonoBehaviour
     {
         while (true)
         {
+            Debug.Log("VAILONCHIMEN");
             string message = connection.receiveMessage();
             // nhan message tu server thi: "pid:{oppid},stat:{1}" 
             string[] tokens = message.Split(',');
@@ -120,6 +122,7 @@ public class LobbyGetState : MonoBehaviour
         if(allPlayerReady())
 		{
             Util.toNextScene();
+			listenToServerThread.Abort();
 		}
         
     }

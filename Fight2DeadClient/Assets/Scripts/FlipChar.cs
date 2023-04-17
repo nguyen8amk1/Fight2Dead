@@ -6,13 +6,13 @@ public class FlipChar : MonoBehaviour
 {   
     public string _currentDirection = "left";
     public GameObject characters;
-    private PlayerInfo playerInfo = PlayerInfo.Instance;
+
+    private GameState playerInfo = GameState.Instance;
 
 	private void Start()
 	{
         flipChar();	
 	}
-	// TODO: this code is for showing different sides between p1, and p2 
 
 	// Start is called before the first frame update
 	public void flipChar()

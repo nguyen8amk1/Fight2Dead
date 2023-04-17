@@ -30,6 +30,8 @@ namespace TestSocket
             switch (currentState)
             {
                 case State.RECEIVE_FROM_LOBBY: {
+                    // TODO: may be refactor this into a general function 
+
                     string[] tokens = command.Split(',');
                     int pid = Int32.Parse(MessageParser.getValueFrom(tokens[1]));
                     int stat = Int32.Parse(MessageParser.getValueFrom(tokens[2]));
@@ -44,7 +46,14 @@ namespace TestSocket
                 break;
 
                 case State.RECEIVE_CHOOSE_CHARACTER_INFO: {
-                    // TODO: handle character choice
+                    // format: $"s:ch,pid:{pid},ch:{charName}";
+                    string[] tokens = command.Split(',');
+                    int pid = Int32.Parse(MessageParser.getValueFrom(tokens[1]));
+                    string charName = MessageParser.getValueFrom(tokens[2]);
+
+                    string formatedMessage = string.Format("pid:{0},cn:{1}", pid, charName);
+
+                    sendToEveryOneElse(pid, formatedMessage);
                 } 
                 break;
 

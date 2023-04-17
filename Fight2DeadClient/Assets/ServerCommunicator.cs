@@ -14,7 +14,8 @@ public class ServerCommunicator : MonoBehaviour
     private ServerConnection connection = ServerConnection.Instance;
     private int roomId, playerId;
     private bool tns = false;
-    private PlayerInfo playerInfo = PlayerInfo.Instance;
+    private GameState gameState = GameState.Instance;
+    private Thread listenToServerThread;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +23,7 @@ public class ServerCommunicator : MonoBehaviour
         Debug.Log("Sending command to server");
         connection.sendToServer("command:connect");
 
-        Thread listenToServerThread = new Thread(new ThreadStart(listenToServer));
+        listenToServerThread = new Thread(new ThreadStart(listenToServer));
         listenToServerThread.Start();
     }
 
@@ -38,8 +39,8 @@ public class ServerCommunicator : MonoBehaviour
 				string[] ridPair = idKeyPairs[0].Split(':');
                 string[] pidPair = idKeyPairs[1].Split(':');
 
-				playerInfo.RoomId = Int32.Parse(ridPair[1]);
-				playerInfo.PlayerId = Int32.Parse(pidPair[1]);
+				gameState.RoomId = Int32.Parse(ridPair[1]);
+				gameState.PlayerId = Int32.Parse(pidPair[1]);
 
                 tns = true;   
                 break;
@@ -51,6 +52,10 @@ public class ServerCommunicator : MonoBehaviour
     void Update()
     {
         if (tns)
+		{
             Util.toNextScene();
+            listenToServerThread.Abort();
+		}
+
     }
 }

@@ -2,22 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public sealed class PlayerInfo 
+public sealed class GameState 
 {
-    // TODO: this class will be a singleton contains all the infos about the client: 
-    // including: playerid, roomid
-    private static PlayerInfo instance = null;
+    private static GameState instance = null;
     private static readonly object padlock = new object();
     private int roomId;
     private int playerId;
 
-    private PlayerInfo()
+    private string[] characterNames = new string[4];
+	public int charNameCount = 0;
+
+	private GameState()
     {
         roomId = 0;
         playerId = 0;
     }
 
-    public static PlayerInfo Instance
+    public static GameState Instance
     {
         get
         {
@@ -25,7 +26,7 @@ public sealed class PlayerInfo
             {
                 if (instance == null)
                 {
-                    instance = new PlayerInfo();
+                    instance = new GameState();
                 }
                 return instance;
             }
@@ -43,4 +44,13 @@ public sealed class PlayerInfo
         get { return playerId; }
         set { playerId = value; }
     }
+
+    // Add character name to the list
+    public void addCharacterName(int index, string name)
+    {
+        characterNames[index] = name;
+        charNameCount++;
+    }
+
+    // Get list of character names
 }

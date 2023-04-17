@@ -15,7 +15,7 @@ namespace TestSocket
 
             // TODO: figure out how to do this 
             bool receiveChosenCharacterInfo = message.StartsWith("s:ch");
-            // bool receiveChosenStageInfo = false;
+            bool receiveChosenStageInfo = message.StartsWith("stg:");
 
             if (receiveNewConnection) {
                 return State.RECEIVE_NEW_CONNECTION;
@@ -37,10 +37,10 @@ namespace TestSocket
                 Console.WriteLine("This is character info");
                 return State.RECEIVE_CHOOSE_CHARACTER_INFO;
             }
-            // else if (receiveChosenStageInfo)
-            // {
-            //     return State.RECEIVE_CHOOSE_STAGE_INFO;
-            // }
+            else if (receiveChosenStageInfo)
+            {
+                return State.RECEIVE_CHOOSE_STAGE_INFO;
+            }
 
             throw new Exception("Message not regconized");
         }

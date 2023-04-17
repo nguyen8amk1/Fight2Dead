@@ -1,6 +1,6 @@
 TODAY: 
-    PUT THE SOCKET CODE TO THE CHOOSE CHARACTER SCENE [] (1h) -- gui thong tin chon nhan vat cho server
     PUT THE SOCKET CODE TO THE CHOOSE MAP SCENE [] (1h) -- gui thong tin chon map cho server
+    DONG HET TAT CA CAC THREAD O CAC SCENE KIA []
 
     STANDARDIZE THE MESSAGE SENDING BETWEEN CLIENT AND SERVER  [] (1h)
     REFACTOR THE STATE MACHINE SYSTEM INTO  CLASSES [] (3h) -- may be there is something to do with the message format of client/servers
@@ -8,11 +8,12 @@ TODAY:
     tong cong: 6 tieng (oke)
 
 TODO: 
-    DETECT KHI NAO NGUOI CHOI TAT CONNECTION DE THAO RA KHOI LIST 
+    DETECT KHI NAO NGUOI CHOI TAT CONNECTION DE THAO RA KHOI LIST []
     ATTACH THE LAN SERVER CODE TO CLIENT  [] 
     CREATE A BUILD SCRIPT []
     
 DONE: 
+    PUT THE SOCKET CODE TO THE CHOOSE CHARACTER SCENE [X] (1h) -- gui thong tin chon nhan vat cho server
     INSTEAD OF USING PID USE P1, P2, P3,... [X]
     HANDLE THE LOBBY SCENE MESSAGE [X]
     SEND POS [X]
