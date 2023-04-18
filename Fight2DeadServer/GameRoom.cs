@@ -22,6 +22,14 @@ namespace TestSocket
             this.clients = clients;
         }
 
+        // RIGHT NOW THERE ARE 2 KINDS OF MESSAGE
+        // server message: prefix - "command:{command}" -> com:{command}
+
+        // room message: prefix - "rid:{rid}" -> rid:{rid}
+        // in room message there are different kinds of message as well: 
+        // message from different scene: 
+        // lobby, choose character, choose map, game  
+
         public void process(string message) {
             IRoomState messageState = factory.createMessageRoomState(message);
             messageState.serve(message, clients);

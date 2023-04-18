@@ -72,7 +72,6 @@ public class LobbyGetState : MonoBehaviour
     {
         while (true)
         {
-            Debug.Log("VAILONCHIMEN");
             string message = connection.receiveMessage();
             // nhan message tu server thi: "pid:{oppid},stat:{1}" 
             string[] tokens = message.Split(',');
