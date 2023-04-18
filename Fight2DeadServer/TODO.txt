@@ -1,9 +1,9 @@
 TODAY: 
-    PUT THE SOCKET CODE TO THE CHOOSE MAP SCENE [] (1h) -- gui thong tin chon map cho server
-    DONG HET TAT CA CAC THREAD O CAC SCENE KIA []
-
     STANDARDIZE THE MESSAGE SENDING BETWEEN CLIENT AND SERVER  [] (1h)
     REFACTOR THE STATE MACHINE SYSTEM INTO  CLASSES [] (3h) -- may be there is something to do with the message format of client/servers
+
+    PUT THE SOCKET CODE TO THE CHOOSE MAP SCENE [] (1h) -- gui thong tin chon map cho server
+    DONG HET TAT CA CAC THREAD O CAC SCENE KIA []
 
     tong cong: 6 tieng (oke)
 

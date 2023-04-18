@@ -5,6 +5,19 @@ namespace TestSocket
     public class MessageParser 
     {
         public static State parse(string message) {
+            // RIGHT NOW THERE ARE 2 KINDS OF MESSAGE
+            // server message: prefix - "command:{command}"
+            // room message: prefix - "rid:{rid}"
+            // in room message there are different kinds of message as well: 
+            // message from different scene: 
+            // lobby, choose character, choose map, game  
+
+            // GOAL: 
+            // each time there is a new state, the only thing i need to do is
+            // USE FACTORY METHOD DESIGN PATTERN 
+
+            // each state for handle each message gonna be a class 
+
             Console.WriteLine("About to parse message: " + message);
 
             bool receiveNewConnection = message.Equals("command:connect");
