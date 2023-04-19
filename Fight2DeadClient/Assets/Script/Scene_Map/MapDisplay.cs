@@ -21,11 +21,16 @@ public class MapDisplay : MonoBehaviour
     private bool allPlayersChosen = false;
     private bool otherPlayerMakeChoice = false;
     private bool hostPlayerMakeChoice = false;
-
+       
 	private void Start()
 	{
         listenToServerThread = new Thread(new ThreadStart(listenToServer));
         listenToServerThread.Start();
+	}
+
+	private void OnApplicationQuit()
+	{
+        connection.quitGame();
 	}
 
 	private void listenToServer()
@@ -35,12 +40,23 @@ public class MapDisplay : MonoBehaviour
 
             string message = connection.receiveMessage();
 
-            // nhan message tu server thi: "pid:{oppid},stat:{1}" 
+            // nhan message tu server thi: "pid:{oppid},mapName:{1}" 
             string[] tokens = message.Split(',');
             int pid = Int32.Parse(Util.getValueFrom(tokens[0]));
             string mapName = Util.getValueFrom(tokens[1]);
 
+            // TODO: check if is message with map name or quit message
+
             otherPlayerMakeChoice = !string.IsNullOrEmpty(mapName);
+
+            // TODO: check for quit message from other players
+            // format: "pid:{},st:quit"
+            /*
+            if()
+			{
+
+			}
+            */
 		}
 	}
 
@@ -50,7 +66,7 @@ public class MapDisplay : MonoBehaviour
 	    if(allPlayersChosen)
 		{
             // TODO: to next scene 
-            Debug.Log("To next scene");
+            Util.toNextScene();
             listenToServerThread.Abort();
             // Test only
             allPlayersChosen = false;

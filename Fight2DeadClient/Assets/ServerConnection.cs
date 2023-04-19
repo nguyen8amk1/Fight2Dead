@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Net;
@@ -16,6 +17,7 @@ public sealed class ServerConnection
 
     private static ServerConnection instance = null;
     private static readonly object padlock = new object();
+    private GameState gameState = GameState.Instance;
 
     private ServerConnection()
 	{
@@ -52,7 +54,13 @@ public sealed class ServerConnection
         return message;
     }
 
-    public void sendToServer(string message)
+	public void quitGame()
+	{
+        string message = $"rid:{gameState.RoomId},quit,pid:{gameState.PlayerId}";
+        sendToServer(message);
+	}
+
+	public void sendToServer(string message)
     {
         byte[] bytes = Encoding.ASCII.GetBytes(message);
         serverSocket.Send(bytes, bytes.Length, SERVER_IP, PORT);

@@ -22,6 +22,7 @@ namespace TestSocket {
             bool receiveFromLobby = message.StartsWith("s:l");
             bool receiveChosenCharacterInfo = message.StartsWith("s:ch");
             bool receiveChosenStageInfo = message.StartsWith("stg:");
+            bool receiveQuitGameMessage = message.StartsWith("quit");
 
             if (receiveFromLobby)
             {
@@ -38,6 +39,10 @@ namespace TestSocket {
             else if (receivePositionWithId)
             {
                 return new PositionMessageState();
+            }
+            else if (receiveQuitGameMessage)
+            {
+                return new CloseConnectionState();
             }
 
             throw new Exception("Message not regconized");
