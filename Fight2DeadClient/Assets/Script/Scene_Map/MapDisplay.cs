@@ -51,6 +51,7 @@ public class MapDisplay : MonoBehaviour
 
             // TODO: check for quit message from other players
             // format: "pid:{},st:quit"
+
             /*
             if()
 			{
