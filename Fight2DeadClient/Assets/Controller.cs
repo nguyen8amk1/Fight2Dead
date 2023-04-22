@@ -111,29 +111,102 @@ public class Controller : MonoBehaviour
 
     private GlobalTimingStates currentState = GlobalTimingStates.STATIC;
 
-    // TODO: figure out a way to dynamically set the right character for the right corner
-    // TEST ONLY
-    private Sprite[] chosenCharacters = new Sprite[] {
-    }; 
+    // RULES: 
+    // left team1, right team2 
 
-    void Start()
+    // p1, p2 -> left -- p1 top, p2 bottom 
+    // p3, p4 -> right -- p3 top, p4 bottom
+
+    // TODO: accessing game assets using script 
+    // @Test
+    Dictionary<string, Sprite> allPlayerSprites = new Dictionary<string, Sprite>();
+
+    // 24 sprites :)), no fun at all 
+    public Sprite IshidaTopLeft;
+    public Sprite IshidaTopRight;
+    public Sprite IshidaBottomLeft;
+    public Sprite IshidaBottomRight;
+
+    public Sprite VenomTopLeft;
+    public Sprite VenomTopRight;
+    public Sprite VenomBottomLeft;
+    public Sprite VenomBottomRight;
+
+    public Sprite CapATopLeft;
+    public Sprite CapATopRight;
+    public Sprite CapABottomLeft;
+    public Sprite CapABottomRight;
+
+    public Sprite RyuTopLeft;
+    public Sprite RyuTopRight;
+    public Sprite RyuBottomLeft;
+    public Sprite RyuBottomRight;
+
+    public Sprite KenTopLeft;
+    public Sprite KenTopRight;
+    public Sprite KenBottomLeft;
+    public Sprite KenBottomRight;
+
+    // imagin this array gonna be given by the last scene  
+    private string[] chosenCharacters = new string[] {
+        "ken",
+        "capa", 
+        "venom",
+        "ryu" 
+    };
+
+    private GameObject[] ps;
+
+	void Start()
     {
-        // configure the chosen character sprites; 
-
-
         Application.targetFrameRate = 60;
-        Background.GetComponent<SpriteRenderer>().sprite = staticFrame;
 
-		explosionFrames = new Sprite[] {
-			explosionFrame0, 
-			explosionFrame1, 
-			explosionFrame2, 
-			explosionFrame3, 
-			explosionFrame4, 
-			explosionFrame5, 
-			explosionFrame6 
-		};
+        initPlayerSprites();
+        matchPlayerWithTheRightSprite();
 
+        initBackground();
+        initVSFrames();
+
+        initMovingGameObjectsPosition();
+        hideNeccesaryGameObject();
+    }
+
+	private void hideNeccesaryGameObject()
+	{
+
+        V.SetActive(false);
+        S.SetActive(false);
+        VF.SetActive(false);
+        SF.SetActive(false);
+
+        p1.SetActive(false);
+        p2.SetActive(false);
+        p3.SetActive(false);
+        p4.SetActive(false);
+	}
+
+	private void initMovingGameObjectsPosition()
+	{
+        p1.transform.position = p1Src;
+        p2.transform.position = p2Src;
+        p3.transform.position = p3Src;
+        p4.transform.position = p4Src;
+
+        V.transform.position = VSrc;
+        S.transform.position = SSrc;
+
+        V.transform.localScale = VScaleSrc;
+        S.transform.localScale = SScaleSrc;
+
+        VF.transform.localScale = VFScale;
+        SF.transform.localScale = SFScale;
+
+        VF.transform.position = VFPos;
+        SF.transform.position = SFPos;
+	}
+
+	private void initVSFrames()
+	{
 		VFrames = new Sprite[] {
 			VFrame0, 
 			VFrame1, 
@@ -153,128 +226,212 @@ public class Controller : MonoBehaviour
 			SFrame5, 
 			SFrame6 
 		};
+	}
 
+	private void initBackground()
+	{
+        Background.GetComponent<SpriteRenderer>().sprite = staticFrame;
+        
+		explosionFrames = new Sprite[] {
+			explosionFrame0, 
+			explosionFrame1, 
+			explosionFrame2, 
+			explosionFrame3, 
+			explosionFrame4, 
+			explosionFrame5, 
+			explosionFrame6 
+		};
+	}
 
-        p1.transform.position = p1Src;
-        p2.transform.position = p2Src;
-        p3.transform.position = p3Src;
-        p4.transform.position = p4Src;
+	private void matchPlayerWithTheRightSprite()
+	{
+		ps = new GameObject[] {
+				p1, 
+				p2, 
+				p3, 
+				p4 
+		};
 
-        V.transform.position = VSrc;
-        S.transform.position = SSrc;
+        for(int i = 0; i < chosenCharacters.Length; i++)
+		{
+            string name = chosenCharacters[i];
+            string key = constructCharacterKeyName(name, i);
+            Sprite sprite = allPlayerSprites[key];
+            setPlayerSprite(i, sprite);
+		}
+	}
 
-        V.transform.localScale = VScaleSrc;
-        S.transform.localScale = SScaleSrc;
+	private void initPlayerSprites()
+	{
+        allPlayerSprites.Add("ishida_top_left", IshidaTopLeft);
+        allPlayerSprites.Add("ishida_bottom_left", IshidaBottomLeft);
+        allPlayerSprites.Add("ishida_top_right", IshidaTopRight);
+        allPlayerSprites.Add("ishida_bottom_right", IshidaBottomRight);
 
-        VF.transform.localScale = VFScale;
-        SF.transform.localScale = SFScale;
+        allPlayerSprites.Add("capa_top_left", CapATopLeft);
+        allPlayerSprites.Add("capa_bottom_left", CapABottomLeft);
+        allPlayerSprites.Add("capa_top_right", CapATopRight);
+        allPlayerSprites.Add("capa_bottom_right", CapABottomRight);
 
-        VF.transform.position = VFPos;
-        SF.transform.position = SFPos;
+        allPlayerSprites.Add("ken_top_left", KenTopLeft);
+        allPlayerSprites.Add("ken_bottom_left", KenBottomLeft);
+        allPlayerSprites.Add("ken_top_right", KenTopRight);
+        allPlayerSprites.Add("ken_bottom_right", KenBottomRight);
 
-        V.SetActive(false);
-        S.SetActive(false);
-        VF.SetActive(false);
-        SF.SetActive(false);
+        allPlayerSprites.Add("venom_top_left", VenomTopLeft);
+        allPlayerSprites.Add("venom_bottom_left", VenomBottomLeft);
+        allPlayerSprites.Add("venom_top_right", VenomTopRight);
+        allPlayerSprites.Add("venom_bottom_right", VenomBottomRight);
 
-        p1.SetActive(false);
-        p2.SetActive(false);
-        p3.SetActive(false);
-        p4.SetActive(false);
-    }
+        allPlayerSprites.Add("ryu_top_left", RyuTopLeft);
+        allPlayerSprites.Add("ryu_bottom_left", RyuBottomLeft);
+        allPlayerSprites.Add("ryu_top_right", RyuTopRight);
+        allPlayerSprites.Add("ryu_bottom_right", RyuBottomRight);
+	}
 
-    // Update is called once per frame
-    void Update()
+	private void setPlayerSprite(int i, Sprite sprite)
+	{
+		ps[i].GetComponent<SpriteRenderer>().sprite = sprite;
+	}
+
+	private string constructCharacterKeyName(string name, int index)
+	{
+        // so the order is:  
+        // top left, bottom left, top right, bottom right 
+        string[] locs = new string[] { 
+            "top_left", 
+            "bottom_left", 
+            "top_right", 
+            "bottom_right" 
+        };
+        return $"{name}_{locs[index]}";
+
+        throw new Exception("Can't construct character keyname with index value = " + index); 
+	}
+
+	// Update is called once per frame
+	void Update()
     {
         if(currentState == GlobalTimingStates.STATIC)
 		{
-            float t = (float)(timingVar/staticDuration);
-
-            if(t >= 1) { 
-				timingVar = 0;
-				currentState = GlobalTimingStates.QUAD_IN;
-            }
+            handleStaticState();
 		}
 
         else if(currentState == GlobalTimingStates.QUAD_IN)
 		{
-			p1.SetActive(true);
-			p2.SetActive(true);
-			p3.SetActive(true);
-			p4.SetActive(true);
-
-            float t = (float)(timingVar/quadInDuration);
-			p1.transform.position = Vector3.Lerp(p1Src, p1Dest, t);
-			p2.transform.position = Vector3.Lerp(p2Src, p2Dest, t);
-			p3.transform.position = Vector3.Lerp(p3Src, p3Dest, t);
-			p4.transform.position = Vector3.Lerp(p4Src, p4Dest, t);
-
-            if(t >= 1) { 
-				timingVar = 0;
-				currentState = GlobalTimingStates.VS_IN;
-            }
+            handleQuadInState();
 		}
 
         else if(currentState == GlobalTimingStates.VS_IN)
 		{
-			V.SetActive(true);
-			S.SetActive(true);
-
-            float t = (float)(timingVar/vsInDuration);
-			V.transform.localScale = Vector3.Lerp(VScaleSrc, VScaleDest, t);
-			V.transform.position = Vector3.Lerp(VSrc, VDest, t);
-
-			S.transform.localScale = Vector3.Lerp(SScaleSrc, SScaleDest, t);
-			S.transform.position = Vector3.Lerp(SSrc, SDest, t);
-            if(t >= 1) { 
-				timingVar = 0;
-				currentState = GlobalTimingStates.TO_VS_FILL;
-            }
-
+            handleVSInState();
 		}
         else if(currentState == GlobalTimingStates.TO_VS_FILL)
 		{
-            float t = (float)(timingVar/vsFillDuration);
-
-            V.SetActive(false);
-            S.SetActive(false);
-
-			VF.SetActive(true);
-			SF.SetActive(true);
-
-            if(t >= 1) { 
-				timingVar = 0;
-				currentState = GlobalTimingStates.EXPLODE;
-            }
+            handleToVSFillState();
 		}
         else if(currentState == GlobalTimingStates.EXPLODE)
 		{
-            float t = (float)(timingVar/explodeDuration);
-
-            int index = (int)Math.Floor(t*explosionFrames.Length);
-            Debug.Log("t: " + t + " index: " + index);
-            if(index < 7)
-			{
-				Sprite frame = explosionFrames[index];
-				Background.GetComponent<SpriteRenderer>().sprite = frame;
-
-                frame = VFrames[index];
-                VF.GetComponent<SpriteRenderer>().sprite = frame;
-                frame = SFrames[index];
-                SF.GetComponent<SpriteRenderer>().sprite = frame;
-			}
-
-            if(t >= 1) { 
-				timingVar = 0;
-				currentState = GlobalTimingStates.TRANSITION;
-            }
+            handleExplodeState();
 		}
         else if(currentState == GlobalTimingStates.TRANSITION)
 		{
-			// TODO: add some filter at the end of scene 
-
+            handleTransitionState();
 		}
 
         timingVar += Time.deltaTime;
     }
+
+	private void handleTransitionState()
+	{
+        // TODO: add some filter at the end of the scene 
+        Debug.Log("NOW WE DO THE TRANSITION STATE");
+	}
+
+	private void handleExplodeState()
+	{
+		float t = (float)(timingVar/explodeDuration);
+
+		int index = (int)Math.Floor(t*explosionFrames.Length);
+		Debug.Log("t: " + t + " index: " + index);
+		if(index < 7)
+		{
+			Sprite frame = explosionFrames[index];
+			Background.GetComponent<SpriteRenderer>().sprite = frame;
+
+			frame = VFrames[index];
+			VF.GetComponent<SpriteRenderer>().sprite = frame;
+
+			frame = SFrames[index];
+			SF.GetComponent<SpriteRenderer>().sprite = frame;
+		}
+
+		if(t >= 1) { 
+			timingVar = 0;
+			currentState = GlobalTimingStates.TRANSITION;
+		}
+	}
+
+	private void handleToVSFillState()
+	{
+		float t = (float)(timingVar/vsFillDuration);
+
+		V.SetActive(false);
+		S.SetActive(false);
+
+		VF.SetActive(true);
+		SF.SetActive(true);
+
+		if(t >= 1) { 
+			timingVar = 0;
+			currentState = GlobalTimingStates.EXPLODE;
+		}
+	}
+
+	private void handleVSInState()
+	{
+		V.SetActive(true);
+		S.SetActive(true);
+
+		float t = (float)(timingVar/vsInDuration);
+		V.transform.localScale = Vector3.Lerp(VScaleSrc, VScaleDest, t);
+		V.transform.position = Vector3.Lerp(VSrc, VDest, t);
+
+		S.transform.localScale = Vector3.Lerp(SScaleSrc, SScaleDest, t);
+		S.transform.position = Vector3.Lerp(SSrc, SDest, t);
+
+		if(t >= 1) { 
+			timingVar = 0;
+			currentState = GlobalTimingStates.TO_VS_FILL;
+		}
+	}
+
+	private void handleQuadInState()
+	{
+		p1.SetActive(true);
+		p2.SetActive(true);
+		p3.SetActive(true);
+		p4.SetActive(true);
+
+		float t = (float)(timingVar/quadInDuration);
+		p1.transform.position = Vector3.Lerp(p1Src, p1Dest, t);
+		p2.transform.position = Vector3.Lerp(p2Src, p2Dest, t);
+		p3.transform.position = Vector3.Lerp(p3Src, p3Dest, t);
+		p4.transform.position = Vector3.Lerp(p4Src, p4Dest, t);
+
+		if(t >= 1) { 
+			timingVar = 0;
+			currentState = GlobalTimingStates.VS_IN;
+		}
+	}
+
+	private void handleStaticState()
+	{
+		float t = (float)(timingVar/staticDuration);
+
+		if(t >= 1) { 
+			timingVar = 0;
+			currentState = GlobalTimingStates.QUAD_IN;
+		}
+	}
 }
