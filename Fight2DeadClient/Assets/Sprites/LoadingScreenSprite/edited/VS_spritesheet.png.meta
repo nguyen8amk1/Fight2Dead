@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -115,7 +115,301 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: VS_spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 8
+        width: 191
+        height: 259
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdca293f23666164785cb934be4a246c
+      internalID: 2032527718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VS_spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 0
+        width: 163
+        height: 276
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfd2b738f3c510143b03cebf3743d322
+      internalID: -837039606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VS_spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 8
+        width: 192
+        height: 259
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d461029fd78a81547b2cf775d79f1271
+      internalID: 153140970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VS_spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 0
+        width: 162
+        height: 276
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a613d36e894959b498e1fccdc7946066
+      internalID: -1469729789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VS_spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 715
+        y: 8
+        width: 190
+        height: 259
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b675d4d1abcf5b14ea44bb06ca6a32ee
+      internalID: 1757046111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VS_spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 0
+        width: 162
+        height: 276
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e81e42edccbda8b40bc726fa0cd272b4
+      internalID: -744010278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VS_spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 1072
+        y: 8
+        width: 190
+        height: 259
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef9a60bd988442742ab9949a19d56e06
+      internalID: 742226076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VS_spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 1268
+        y: 0
+        width: 163
+        height: 276
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e5d7882731acac4d813341f2cee76a2
+      internalID: -710139050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VS_spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 1429
+        y: 8
+        width: 190
+        height: 259
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36f625f23e7aed049b7270947b37a12f
+      internalID: 1488467710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VS_spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 1626
+        y: 0
+        width: 161
+        height: 276
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f6b8729b709e3742a68027201c51272
+      internalID: 936777722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VS_spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 1786
+        y: 8
+        width: 190
+        height: 259
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c84635a9c0c9e1b44875753e622bbd18
+      internalID: 1072967266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VS_spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 1983
+        y: 0
+        width: 162
+        height: 276
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2d62ea4a64fd3f47833410a7f720e1d
+      internalID: 1724365751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VS_spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 2143
+        y: 8
+        width: 190
+        height: 259
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba54e7770c2d9224bad92eb097e720b2
+      internalID: 344615185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VS_spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 2339
+        y: 0
+        width: 162
+        height: 276
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84f5c99af9f95ff409ce5cabd213845d
+      internalID: -1362330446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -126,7 +420,21 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      VS_spritesheet_0: 2032527718
+      VS_spritesheet_1: -837039606
+      VS_spritesheet_10: 1072967266
+      VS_spritesheet_11: 1724365751
+      VS_spritesheet_12: 344615185
+      VS_spritesheet_13: -1362330446
+      VS_spritesheet_2: 153140970
+      VS_spritesheet_3: -1469729789
+      VS_spritesheet_4: 1757046111
+      VS_spritesheet_5: -744010278
+      VS_spritesheet_6: 742226076
+      VS_spritesheet_7: -710139050
+      VS_spritesheet_8: 1488467710
+      VS_spritesheet_9: 936777722
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
