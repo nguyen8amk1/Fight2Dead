@@ -5,37 +5,38 @@ using UnityEngine;
 
 public class Controller : MonoBehaviour
 {
-    // currently doing: make the earth background animated (1h) [] 
+    // CURRENTLY DOING: None
+
+    // TODO: make the earth background animated (1h) [] 
 		// find a moving stars field sprite sheet [X]
 		// cut the earth out [X]
-		// create a starfield gif []
-		// put it on the animated stars field []
-		// animated every frame []
+		// create a starfield gif [X]
+		// put the gif on Unity with the earth image on top []
 
-	// TODO: make the earth background animated (1h) []
-		// find a moving stars field sprite sheet []
-		// cut the earth out and put it on the animated stars field []
-		// animated every frame []
-
+    // @Later
 	// TODO: add some delay to simulate if server take a long time (2h) []
 		// STATE ORDER
 		// @Ideas: should we add to each scene 1 more frame time ?? 
 		// -> total of 2s of loading screen 
 
-		// static -> quad in -> (delay ??) -> vs in -> vs fill in -> explode -> transition orange background -> transition white background 
-		// delay right after the Quad In scene 
+		// static (delay) -> quad in -> vs in -> vs fill in -> explode -> transition orange background -> transition white background 
+		// static scene is the delay 
 
 	// @Later
 	// TODO: add sound effects (1h) []
 		// PLAY THE SOUND IN SEPERATE THREAD ?? 
 
+    // @Later
 	// TODO: find sound effects (2h) []
 		// how many sounds are there: 
-		// 4ps in ->  nhac  (téo téo teo) [] (about 2s), force to wait for 2s ?? 
-		// tieng no -> tieng no chill (no "dung" nhung ma khong qua to) []
-		// tieng transition -> deo biet ?? (hien tai chua can)
+			// nhac delay: normal theme song 
+			// 4ps in ->  nhac  (téo téo teo) [] (about 2s), force to wait for 2s ?? (VERSUS SOUNDTRACK)
+			// tieng no -> tieng no chill (no "dung" nhung ma khong qua to) [] (boom sound effect)
 
-	// -> chay xuyen suot ko duoc giat cuc -> gop lai thanh 1 sound, hoac choi cung 1 lan 
+			// tieng transition -> deo biet ?? (hien tai chua can) [] ()
+
+
+		// -> chay xuyen suot ko duoc giat cuc -> gop lai thanh 1 sound, hoac choi cung 1 lan 
 	// -> chay trong multiple scene 
 
 	// STATES 
@@ -125,6 +126,7 @@ public class Controller : MonoBehaviour
     public Sprite explosionFrame5;
     public Sprite explosionFrame6;
 
+    // VS fill frames 
     public Sprite VFrame0;
     public Sprite VFrame1;
     public Sprite VFrame2;
@@ -187,6 +189,8 @@ public class Controller : MonoBehaviour
 
 	public Sprite orangeBackgroundSprite;
 	public Sprite whiteBackgroundSprite;
+
+    public GameObject earth;
 
     // imagin this array gonna be given by the last scene  
     private string[] chosenCharacters = new string[] {
@@ -271,7 +275,7 @@ public class Controller : MonoBehaviour
 
 	private void initBackground()
 	{
-        Background.GetComponent<SpriteRenderer>().sprite = staticFrame;
+        //Background.GetComponent<SpriteRenderer>().sprite = ;
 
         Background.transform.position = backgroundPos;
         Background.transform.localScale = backgroundScale;
@@ -376,6 +380,7 @@ public class Controller : MonoBehaviour
 		}
         else if(currentState == GlobalTimingStates.EXPLODE)
 		{
+            earth.SetActive(false);
             handleExplodeState();
 		}
         else if(currentState == GlobalTimingStates.TRANSITION_ORANGE_BACKGROUND) 
@@ -523,10 +528,50 @@ public class Controller : MonoBehaviour
 	private void handleStaticState()
 	{
 		float t = (float)(timingVar/staticDuration);
+        // @Note: still wait for 6 frames for this static duration 
+        // even when all the clients have been good 
+
+        // TODO: verify the connections of clients 
+        // if all are good move on the the next state
+        // while doing wait for verify 
+        Debug.Log("THIS THE STATIC STATE");
+
+        // @Test: for now just do the static duration = 20 frames -> testing the circle 
+        animateWaitingCircle();
+
 
 		if(t >= 1) { 
+            /*
+			bool allPlayersGood = checkIfAllPlayersIsConnectedGood();
+			if(allPlayersGood)
+			{
+			} else
+			{
+                // TODO: wait for another 5 seconds;
+                // then if all still not good then fail to go to the next scene  
+                staticDuration += ut(10);
+			}
+            */
+
 			timingVar = 0;
 			currentState = GlobalTimingStates.QUAD_IN;
 		}
+	}
+
+	private bool checkIfAllPlayersIsConnectedGood()
+	{
+        Debug.Log("CHECK ALL PLAYERS CONNECTED GOOD");
+
+        // @Test
+        return false;
+	}
+
+	private void animateWaitingCircle()
+	{
+        // TODO: do the circle animation
+        // find the circle animation gif []
+        // display that on Unity []
+
+        Debug.Log("ANIMATING THE WAITING CIRCLE");
 	}
 }
