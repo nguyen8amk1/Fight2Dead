@@ -5,23 +5,41 @@ using UnityEngine;
 
 public class Controller : MonoBehaviour
 {
-    // TODO: add sound effects (1h) []
-    // how many sounds are there: 
+    // currently doing: make the earth background animated (1h) [] 
+		// find a moving stars field sprite sheet [X]
+		// cut the earth out [X]
+		// create a starfield gif []
+		// put it on the animated stars field []
+		// animated every frame []
 
-    // 4ps in ->  nhac 
-    // tieng no -> tieng no chill
-    // tieng transition -> deo biet ??
-    // -> chay xuyen suot ko duoc giat cuc -> gop lai thanh 1 sound, hoac choi cung 1 lan 
-    // -> chay trong multiple scene 
+	// TODO: make the earth background animated (1h) []
+		// find a moving stars field sprite sheet []
+		// cut the earth out and put it on the animated stars field []
+		// animated every frame []
 
-    // TODO: make the earth background animated (1h) []
-    // TODO: add some delay of the server take a long time 
+	// TODO: add some delay to simulate if server take a long time (2h) []
+		// STATE ORDER
+		// @Ideas: should we add to each scene 1 more frame time ?? 
+		// -> total of 2s of loading screen 
 
+		// static -> quad in -> (delay ??) -> vs in -> vs fill in -> explode -> transition orange background -> transition white background 
+		// delay right after the Quad In scene 
 
-    // CHAY MAX GA THI XONG HET 3 TASKS
+	// @Later
+	// TODO: add sound effects (1h) []
+		// PLAY THE SOUND IN SEPERATE THREAD ?? 
 
-    // STATES 
-    enum GlobalTimingStates
+	// TODO: find sound effects (2h) []
+		// how many sounds are there: 
+		// 4ps in ->  nhac  (téo téo teo) [] (about 2s), force to wait for 2s ?? 
+		// tieng no -> tieng no chill (no "dung" nhung ma khong qua to) []
+		// tieng transition -> deo biet ?? (hien tai chua can)
+
+	// -> chay xuyen suot ko duoc giat cuc -> gop lai thanh 1 sound, hoac choi cung 1 lan 
+	// -> chay trong multiple scene 
+
+	// STATES 
+	enum GlobalTimingStates
 	{
         // here we use 1/24 frame time 
         STATIC,  // 6 frametime 
@@ -375,7 +393,6 @@ public class Controller : MonoBehaviour
 	private void handleTransitionOrangeBackgroundState()
 	{
         hideNeccesaryGameObject();
-        // TODO: HIDE EVERYTHING
 
 		float t = (float)(timingVar/transitionOrangeBgDuration);
         changeBackground(orangeBackgroundSprite);
@@ -406,6 +423,8 @@ public class Controller : MonoBehaviour
 
 	private void handleExplodeState()
 	{
+        playExplodeSoundtrack();
+
 		float t = (float)(timingVar/explodeDuration);
 
 		int index = (int)Math.Floor(t*explosionFrames.Length);
@@ -434,6 +453,11 @@ public class Controller : MonoBehaviour
 			timingVar = 0;
 			currentState = GlobalTimingStates.TRANSITION_ORANGE_BACKGROUND;
 		}
+	}
+
+	private void playExplodeSoundtrack()
+	{
+        // TODO: play explode soundtrack
 	}
 
 	private void handleToVSFillState()
@@ -487,6 +511,13 @@ public class Controller : MonoBehaviour
 			timingVar = 0;
 			currentState = GlobalTimingStates.VS_IN;
 		}
+
+        playQuadInSoundtrack();
+	}
+
+	private void playQuadInSoundtrack()
+	{
+        // TODO: play quad in soundtrack
 	}
 
 	private void handleStaticState()
