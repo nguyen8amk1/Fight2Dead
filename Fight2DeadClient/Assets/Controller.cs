@@ -79,6 +79,10 @@ public class Controller : MonoBehaviour
     private Vector3 VFScale = new Vector3(1.540453f, 1.540453f, 1.540453f);
     private Vector3 SFScale = new Vector3(1.501732f, 1.501732f, 1.501732f);
     
+    // Background
+    private Vector3 backgroundPos = new Vector3(0, 0, 0);
+    private Vector3 backgroundScale = new Vector3(1.956057f, 1.956057f, 1.956057f);
+    
     // Explosion 
     public GameObject p1;
     public GameObject p2;
@@ -250,6 +254,9 @@ public class Controller : MonoBehaviour
 	private void initBackground()
 	{
         Background.GetComponent<SpriteRenderer>().sprite = staticFrame;
+
+        Background.transform.position = backgroundPos;
+        Background.transform.localScale = backgroundScale;
         
 		explosionFrames = new Sprite[] {
 			explosionFrame0, 
