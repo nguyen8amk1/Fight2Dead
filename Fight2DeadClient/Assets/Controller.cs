@@ -5,6 +5,22 @@ using UnityEngine;
 
 public class Controller : MonoBehaviour
 {
+    // TODO: add sound effects (1h) []
+    // how many sounds are there: 
+
+    // 4ps in
+    // tieng no 
+    // tieng transition
+    // -> chay xuyen suot ko duoc giat cuc -> gop lai thanh 1 sound, hoac choi cung 1 lan 
+    // -> chay trong multiple scene 
+
+
+    // TODO: make the earth background animated (1h) []
+    // TODO: add some delay of the server take a long time 
+
+
+    // CHAY MAX GA THI XONG HET 3 TASKS
+
     // STATES 
     enum GlobalTimingStates
 	{
@@ -14,7 +30,8 @@ public class Controller : MonoBehaviour
         VS_IN,  // 7 frametime
         TO_VS_FILL,  // 1 frametime
         EXPLODE,  // 6 frametime
-        TRANSITION // 10 frametime
+        TRANSITION_ORANGE_BACKGROUND, // 1 frametime
+        TRANSITION_WHITE_BACKGROUND // 9 frametime
 	};
 
     private double staticDuration = ut(6);
@@ -22,7 +39,8 @@ public class Controller : MonoBehaviour
     private double vsInDuration = ut(7);
     private double vsFillDuration = ut(1);
 	private double explodeDuration = ut(6); 
-	private double transitionDuration = ut(10); 
+	private double transitionOrangeBgDuration = ut(1);
+	private double transitionWhiteBgDuration = ut(9);
 
 	private static double ut(int v)
 	{
@@ -117,7 +135,6 @@ public class Controller : MonoBehaviour
     // p1, p2 -> left -- p1 top, p2 bottom 
     // p3, p4 -> right -- p3 top, p4 bottom
 
-    // TODO: accessing game assets using script 
     // @Test
     Dictionary<string, Sprite> allPlayerSprites = new Dictionary<string, Sprite>();
 
@@ -146,6 +163,9 @@ public class Controller : MonoBehaviour
     public Sprite KenTopRight;
     public Sprite KenBottomLeft;
     public Sprite KenBottomRight;
+
+	public Sprite orangeBackgroundSprite;
+	public Sprite whiteBackgroundSprite;
 
     // imagin this array gonna be given by the last scene  
     private string[] chosenCharacters = new string[] {
@@ -334,18 +354,48 @@ public class Controller : MonoBehaviour
 		{
             handleExplodeState();
 		}
-        else if(currentState == GlobalTimingStates.TRANSITION)
-		{
-            handleTransitionState();
+        else if(currentState == GlobalTimingStates.TRANSITION_ORANGE_BACKGROUND) 
+        {
+            handleTransitionOrangeBackgroundState();
+		}
+        else if(currentState == GlobalTimingStates.TRANSITION_WHITE_BACKGROUND) 
+        {
+            handleTransitionWhiteBackgroundState();
 		}
 
         timingVar += Time.deltaTime;
     }
 
-	private void handleTransitionState()
+	private void handleTransitionOrangeBackgroundState()
 	{
-        // TODO: add some filter at the end of the scene 
-        Debug.Log("NOW WE DO THE TRANSITION STATE");
+        hideNeccesaryGameObject();
+        // TODO: HIDE EVERYTHING
+
+		float t = (float)(timingVar/transitionOrangeBgDuration);
+        changeBackground(orangeBackgroundSprite);
+
+		if(t >= 1) { 
+			timingVar = 0;
+			currentState = GlobalTimingStates.TRANSITION_WHITE_BACKGROUND;
+		}
+	}
+
+	private void handleTransitionWhiteBackgroundState()
+	{
+		float t = (float)(timingVar/transitionWhiteBgDuration);
+        changeBackground(whiteBackgroundSprite);
+
+		if(t >= 1) { 
+			timingVar = 0;
+            // move to next scene ;
+            // currentState = GlobalTimingStates.TO_VS_FILL;
+            Debug.Log("TO NEXT SCENE");
+		}
+	}
+
+	private void changeBackground(Sprite sprite)
+	{
+        Background.GetComponent<SpriteRenderer>().sprite = sprite;
 	}
 
 	private void handleExplodeState()
@@ -366,9 +416,17 @@ public class Controller : MonoBehaviour
 			SF.GetComponent<SpriteRenderer>().sprite = frame;
 		}
 
+        // TODO: the last 3 frames darken to dark orange
+        /*
+        if(t >= )
+		{
+
+		}
+        */
+
 		if(t >= 1) { 
 			timingVar = 0;
-			currentState = GlobalTimingStates.TRANSITION;
+			currentState = GlobalTimingStates.TRANSITION_ORANGE_BACKGROUND;
 		}
 	}
 
