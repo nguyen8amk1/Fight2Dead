@@ -7,7 +7,6 @@ public class PrintButton : MonoBehaviour
     string[] charName = new string[] { "Ryu", "Four Arms", "Heatblast", "Venom" };
     public void OnButtonClick()
     {
-        Debug.Log("Hello World\n");
         if (MainCharacter.selectVal == 0)
             Debug.Log(charName[0]);
         else if (MainCharacter.selectVal == 1)
