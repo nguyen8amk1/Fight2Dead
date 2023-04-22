@@ -8,12 +8,11 @@ public class Controller : MonoBehaviour
     // TODO: add sound effects (1h) []
     // how many sounds are there: 
 
-    // 4ps in
-    // tieng no 
-    // tieng transition
+    // 4ps in ->  nhac 
+    // tieng no -> tieng no chill
+    // tieng transition -> deo biet ??
     // -> chay xuyen suot ko duoc giat cuc -> gop lai thanh 1 sound, hoac choi cung 1 lan 
     // -> chay trong multiple scene 
-
 
     // TODO: make the earth background animated (1h) []
     // TODO: add some delay of the server take a long time 
