@@ -9,14 +9,17 @@ public class MainCharacter : MonoBehaviour
     public static int currentPlayer = 1;
     public GameObject characterSelect;
     public GameObject playerPosition;
-    private Vector3 startMaker;
+
+    private Vector3 startMaker = new Vector3(0, 0, 0);
     private Vector3 endMaker = new Vector3(6.7f, -1.8f, 0);
-    public float moveDuration = 3.0f; 
+    private float moveDuration = 2; 
     private float timingVar = 0;
+    private bool enterHit = false;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        Application.targetFrameRate = 60;    
     }
 
     public void Char0()
@@ -38,18 +41,10 @@ public class MainCharacter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timingVar += Time.deltaTime;
-
         if (Input.GetKeyDown(KeyCode.Return))
         {
+            enterHit = true;
 
-            float t = (float)(timingVar / moveDuration);
-            currentPlayer = 2;
-            selectVal = 0;
-            characterSelect.SetActive(true);
-            playerPosition.transform.localScale = new Vector3(2.4f, 3.1f, 1);
-            playerPosition.transform.position = Vector3.Lerp(startMaker, endMaker, t);
-            Debug.Log("Enter Pressed");
         }
 
         switch (currentPlayer)
@@ -119,6 +114,27 @@ public class MainCharacter : MonoBehaviour
             default:
                 break;
         }
-        
+
+        if(enterHit)
+		{
+            float speed = 1;
+            float t = (float)(timingVar / .5f);
+            // Debug.Log("timingvar: " + timingVar + "moveDuration: " + moveDuration);
+
+            currentPlayer = 2;
+            selectVal = 0;
+            characterSelect.SetActive(true);
+            playerPosition.transform.localScale = new Vector3(2.4f, 3.1f, 1);
+            playerPosition.transform.position = Vector3.Lerp(startMaker, endMaker, t);
+
+            Debug.Log("Enter Pressed");
+            if(t >= 1)
+			{
+                enterHit = false;
+			}
+
+			timingVar += Time.deltaTime*speed;
+		}
+
     }
 }

@@ -1025,7 +1025,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1291816638
 Transform:
   m_ObjectHideFlags: 0
@@ -1998,6 +1998,7 @@ MonoBehaviour:
   char3_2: {fileID: 1282473833}
   characterSelect: {fileID: 1291816637}
   playerPosition: {fileID: 1299206199}
+  moveDuration: 3
 --- !u!1 &2051416158
 GameObject:
   m_ObjectHideFlags: 0
