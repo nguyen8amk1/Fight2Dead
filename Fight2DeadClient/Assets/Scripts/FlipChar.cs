@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FlipChar : MonoBehaviour
 {   
-    public string _currentDirection = "left";
+    //public string _currentDirection = "left";
     public GameObject characters;
     private bool isFlipped = false;
     // Start is called before the first frame update
@@ -26,7 +26,7 @@ public class FlipChar : MonoBehaviour
         }
         
     }
-    void changeDirection(string direction)
+    /*void changeDirection(string direction)
     {
         if (_currentDirection != direction)
         {
@@ -41,5 +41,5 @@ public class FlipChar : MonoBehaviour
                 _currentDirection = "left";
             }
         }
-    }
+    }*/
 }
