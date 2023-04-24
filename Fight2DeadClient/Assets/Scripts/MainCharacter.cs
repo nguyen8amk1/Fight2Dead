@@ -55,6 +55,7 @@ public class MainCharacter : MonoBehaviour
 
 
 	// Update is called once per frame
+    /*
 	void Update()
         Application.targetFrameRate = 60;    
     }
@@ -75,9 +76,12 @@ public class MainCharacter : MonoBehaviour
     {
         MainCharacter.selectVal = 3;
     }
+    */
+
     // Update is called once per frame
     void Update()
     {
+        Application.targetFrameRate = 60;    
         if (Input.GetKeyDown(KeyCode.Return))
         {
             enterHit = true;
