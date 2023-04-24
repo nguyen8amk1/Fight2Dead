@@ -3918,8 +3918,8 @@ MonoBehaviour:
   char3_1: {fileID: 2041559809}
   char4_1: {fileID: 712076043}
   char5_1: {fileID: 1924812104}
-  characterSelect: {fileID: 1355394285}
-  playerPosition: {fileID: 1366726116}
+  characterSelect1: {fileID: 1355394285}
+  playerPosition1: {fileID: 1366726116}
 --- !u!114 &1909229510
 MonoBehaviour:
   m_ObjectHideFlags: 0
