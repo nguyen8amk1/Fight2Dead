@@ -5,7 +5,7 @@ namespace TestSocket
     public class PositionMessageState : IRoomState
     {
         private ServerConnection connection = ServerConnection.getInstance();
-        public void serve(string message, List<ClientInfo> clients)
+        public void serve(string message, Dictionary<string, ClientInfo> clients, int roomId)
         {
             // send to players 2, player1's pos 
             // state: receive position

@@ -12,7 +12,6 @@ namespace TestSocket
         private ServerGlobalData globalData = ServerGlobalData.getInstance();
 
         public void serve(string message) {
-            // TODO: 
             Console.WriteLine("Connection Received, player id is " + globalData.ClientId);
 
             ClientInfo client = new ClientInfo(globalData.ClientId, globalData.NewlyAddedClientRemoteIPEndPoint);
@@ -25,15 +24,15 @@ namespace TestSocket
         private void playerMatching() {
             if(globalData.UnmatchedClients.Count >= 2) {
                 int lastIndex = globalData.UnmatchedClients.Count - 1;
-                List<ClientInfo> clients = new List<ClientInfo> { 
-                    globalData.UnmatchedClients[lastIndex -1], 
-                    globalData.UnmatchedClients[lastIndex]};
+                Dictionary<string, ClientInfo> clients = new Dictionary<string, ClientInfo>(); 
+                clients.Add("1", globalData.UnmatchedClients[lastIndex -1]);
+                clients.Add("2", globalData.UnmatchedClients[lastIndex]);
 
                 GameRoom room = new GameRoom(globalData.RoomId, clients);
-                globalData.Rooms.Add(room);
+                globalData.Rooms.Add(globalData.RoomId.ToString(), room);
 
                 // send packet with rid to both clients
-                foreach(ClientInfo c in clients) {
+                foreach(var c in clients.Values) {
                     string formatedString = string.Format("rid:{0},pid:{1}", globalData.RoomId, c.id);
                     connection.sendToClient(formatedString, c.endPoint);
                 }

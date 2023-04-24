@@ -6,7 +6,7 @@ namespace TestSocket
     public class FromLobbyState : IRoomState
     {
         private ServerConnection connection = ServerConnection.getInstance();
-        public void serve(string message, List<ClientInfo> clients)
+        public void serve(string message, Dictionary<string, ClientInfo> clients, int roomId)
         {
             string[] tokens = message.Split(',');
             int pid = Int32.Parse(Util.getValueFrom(tokens[1]));

@@ -25,6 +25,7 @@ public class LobbyGetState : MonoBehaviour
     public GameObject player2StatusTextObj;
     private TextMeshProUGUI player2StatusText;
     private Thread listenToServerThread;
+	private GameState globalGameState = GameState.Instance;
 
 	private void Start()
 	{
@@ -37,7 +38,9 @@ public class LobbyGetState : MonoBehaviour
 	}
 	private void OnApplicationQuit()
 	{
-		 // TODO: send to server 	
+		// TODO: send to server 	
+		string quitMessage = $"rid:{globalGameState.RoomId},quit,pid:{globalGameState.PlayerId}";
+		connection.sendToServer(quitMessage);
 	}
 
 	public void isClicked()
@@ -77,13 +80,20 @@ public class LobbyGetState : MonoBehaviour
         while (true)
         {
             string message = connection.receiveMessage();
-            // nhan message tu server thi: "pid:{oppid},stat:{1}" 
-            string[] tokens = message.Split(',');
-            int pid = Int32.Parse(getValue(tokens[0]));
-            int stat = Int32.Parse(getValue(tokens[1]));
+			string[] tokens = message.Split(',');
+			int pid = Int32.Parse(getValue(tokens[0]));
+			bool isQuitMessage = tokens[1].StartsWith("s:q");
+			if(isQuitMessage)
+			{
+				Debug.Log($"Player with id:{pid} quit the game");
+			} else
+			{
+				// nhan message tu server thi: "pid:{oppid},stat:{1}" 
+				int stat = Int32.Parse(getValue(tokens[1]));
 
-            opponentReady = stat == 1;
-            count = 0;
+				opponentReady = stat == 1;
+				count = 0;
+			}
         }
     }
 

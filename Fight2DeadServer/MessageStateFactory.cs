@@ -23,11 +23,11 @@ namespace TestSocket {
         }  
 
         public IRoomState createMessageRoomState(string message) {
+            bool receiveQuitGameMessage = message.StartsWith("quit");
             bool receivePositionWithId = message.StartsWith("pid:");
             bool receiveFromLobby = message.StartsWith("s:l");
             bool receiveChosenCharacterInfo = message.StartsWith("s:ch");
             bool receiveChosenStageInfo = message.StartsWith("stg:");
-            bool receiveQuitGameMessage = message.StartsWith("stg:q");
 
             // TODO: we should remove the start with part as well 
 

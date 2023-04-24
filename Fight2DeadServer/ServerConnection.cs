@@ -44,9 +44,9 @@ namespace TestSocket
             return new InitialData(message, remoteIPEndPoint);
         }
 
-        public void sendToEveryOneElse(int pid, string message, List<ClientInfo> clients)
+        public void sendToEveryOneElse(int pid, string message, Dictionary<string, ClientInfo> clients)
         {
-            foreach (ClientInfo c in clients)
+            foreach (var c in clients.Values)
             {
                 if (c.id == pid)
                     continue;

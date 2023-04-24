@@ -13,13 +13,15 @@ namespace TestSocket
 {
     public class GameRoom
     {
-        private List<ClientInfo> clients;
+        private Dictionary<string, ClientInfo> clients;
 
         private MessageStateFactory factory = new MessageStateFactory();
         private ServerConnection connection = ServerConnection.getInstance();
+        private int roomId; 
 
-        public GameRoom(int roomId, List<ClientInfo> clients) {
+        public GameRoom(int roomId, Dictionary<string, ClientInfo> clients) {
             this.clients = clients;
+            this.roomId = roomId;
         }
 
         // RIGHT NOW THERE ARE 2 KINDS OF MESSAGE
@@ -32,7 +34,7 @@ namespace TestSocket
 
         public void process(string message) {
             IRoomState messageState = factory.createMessageRoomState(message);
-            messageState.serve(message, clients);
+            messageState.serve(message, clients, roomId);
         }
 
     }

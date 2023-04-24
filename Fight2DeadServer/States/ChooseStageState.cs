@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace TestSocket {
     public class ChooseStageState : IRoomState {
         private ServerConnection connection = ServerConnection.getInstance();
-        public void serve(string message, List<ClientInfo> clients) {
+        public void serve(string message, Dictionary<string, ClientInfo> clients, int roomId) {
             // receive format: "stg:{},pid:{}"
             // send format: "pid:{},mn:{}"
 

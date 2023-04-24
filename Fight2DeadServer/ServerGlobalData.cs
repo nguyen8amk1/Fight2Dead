@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.NetworkInformation;
@@ -14,7 +15,7 @@ namespace TestSocket
         private int clientId = 1;
         private int roomId = 1;
         private List<ClientInfo> unmatchedClients = new List<ClientInfo>();
-        private List<GameRoom> rooms = new List<GameRoom>();
+        private Dictionary<string, GameRoom> rooms = new Dictionary<string, GameRoom>();
         private IPEndPoint newlyAddedClientRemoteIPEndPoint;
 
         private static ServerGlobalData instance = null;
@@ -69,7 +70,15 @@ namespace TestSocket
             }
         }
 
-        public List<GameRoom> Rooms
+        public void removeRoom(int roomId) {
+            if(rooms.ContainsKey(roomId.ToString())) {
+                rooms.Remove(roomId.ToString());
+            } else {
+                throw new Exception("Room id not exist!!!!");
+            }
+        }
+
+        public Dictionary<string, GameRoom> Rooms
         {
             get
             {

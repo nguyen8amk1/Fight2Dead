@@ -8,7 +8,7 @@ namespace TestSocket {
 
         public void serve(string message) {
             // receive format: "quit"
-            string formatedString = string.Format("Player {0} don't want to match any more", globalData.ClientId);
+            string formatedString = string.Format("Player {0} don't want to match any more", globalData.ClientId-1);
             Console.WriteLine(formatedString);
             globalData.removeLastUnmatchedClient();
             globalData.ClientId -= 1;

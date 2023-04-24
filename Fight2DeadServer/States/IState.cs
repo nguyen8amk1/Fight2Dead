@@ -7,6 +7,6 @@ namespace TestSocket
     }
     
     public interface IRoomState {
-        void serve(string message, List<ClientInfo> clients);
+        void serve(string message, Dictionary<string, ClientInfo> clients, int roomId);
     }
 }

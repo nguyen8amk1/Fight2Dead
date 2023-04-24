@@ -26,8 +26,13 @@ public class ServerCommunicator : MonoBehaviour
         listenToServerThread = new Thread(new ThreadStart(listenToServer));
         listenToServerThread.Start();
     }
+	private void OnApplicationQuit()
+	{
+        string quitMessage = "quit"; 
+        connection.sendToServer(quitMessage);
+	}
 
-    private void listenToServer()
+	private void listenToServer()
     {
         while (true)
         {
