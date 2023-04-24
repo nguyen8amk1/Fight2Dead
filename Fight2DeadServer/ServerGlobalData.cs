@@ -81,6 +81,11 @@ namespace TestSocket
             }
         }
 
+        public void removeLastUnmatchedClient() {
+            int lastIndex = unmatchedClients.Count - 1;
+            unmatchedClients.RemoveAt(lastIndex);
+        }
+
         public IPEndPoint NewlyAddedClientRemoteIPEndPoint
         {
             get

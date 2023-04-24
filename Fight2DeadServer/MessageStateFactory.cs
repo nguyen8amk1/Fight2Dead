@@ -5,6 +5,7 @@ namespace TestSocket {
         public IState createMessageState(string message) {
             bool receiveNewConnection = message.Equals("command:connect");
             bool receiveRoomPacket = message.StartsWith("rid:");
+            bool receiveQuitGameMessage = message.StartsWith("quit");
 
             if (receiveNewConnection) {
                 return new NewConnectionState();
@@ -12,6 +13,10 @@ namespace TestSocket {
             else if (receiveRoomPacket)
             {
                 return new FromRoomMessageState();
+            }
+            else if (receiveQuitGameMessage)
+            {
+                return new CloseConnectionWhenMatchingState();
             }
 
             throw new Exception("Message not regconized");
@@ -22,7 +27,9 @@ namespace TestSocket {
             bool receiveFromLobby = message.StartsWith("s:l");
             bool receiveChosenCharacterInfo = message.StartsWith("s:ch");
             bool receiveChosenStageInfo = message.StartsWith("stg:");
-            bool receiveQuitGameMessage = message.StartsWith("quit");
+            bool receiveQuitGameMessage = message.StartsWith("stg:q");
+
+            // TODO: we should remove the start with part as well 
 
             if (receiveFromLobby)
             {
@@ -42,7 +49,7 @@ namespace TestSocket {
             }
             else if (receiveQuitGameMessage)
             {
-                return new CloseConnectionState();
+                return new InRoomCloseConnectionState();
             }
 
             throw new Exception("Message not regconized");

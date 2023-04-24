@@ -9,7 +9,6 @@ namespace TestSocket
 {
     public sealed class ServerConnection
     {
-        // TODO: setup the singleton
         private const int listeningPort = 8080;
         private UdpClient listener = null;
         private static ServerConnection instance = null;
