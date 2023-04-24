@@ -12,20 +12,27 @@ public class FlipChar : MonoBehaviour
     {
         if (!isFlipped)
         {
-            characters.transform.localScale = new Vector3(2.4f, 3.1f, 1);
+            //characters.transform.localScale = new Vector3(2.4f, 3.1f, 1);
+            characters.transform.localScale = new Vector3(7f, 7f, 1);
             characters.transform.position = new Vector3(-7.95f, -1.98f, 0);
             characters.transform.Rotate(0, 180, 0);
             isFlipped = true;
         }
         else
         {
-            characters.transform.localScale = new Vector3(2.4f, 3.1f, 1);
+            //characters.transform.localScale = new Vector3(2.4f, 3.1f, 1);
+            characters.transform.localScale = new Vector3(7f, 7f, 1);
             characters.transform.position = new Vector3(6.7f, -1.8f, 0);
             characters.transform.Rotate(0, -180, 0);
             isFlipped = false;
         }
         
     }
+    public void rotate()
+    {
+        characters.transform.Rotate(0, -180, 0);
+    }    
+    
     /*void changeDirection(string direction)
     {
         if (_currentDirection != direction)

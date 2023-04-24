@@ -10,9 +10,8 @@ public class MainCharacter : MonoBehaviour
     public GameObject characterSelect;
     public GameObject playerPosition;
 
-    private Vector3 startMaker = new Vector3(0, 0, 0);
+    private Vector3 startMaker = new Vector3(3.7f, -1.8f, 0);
     private Vector3 endMaker = new Vector3(6.7f, -1.8f, 0);
-    private float moveDuration = 2; 
     private float timingVar = 0;
     private bool enterHit = false;
 
@@ -45,6 +44,21 @@ public class MainCharacter : MonoBehaviour
         {
             enterHit = true;
 
+        }
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            selectVal = (selectVal + 1) % 4; 
+        }
+        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            selectVal = (selectVal - 1 + 4) % 4; 
+        }else if(Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            selectVal = (selectVal + 2) % 4;
+        }
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            selectVal = (selectVal -2 + 4) % 4;
         }
 
         switch (currentPlayer)
@@ -117,7 +131,7 @@ public class MainCharacter : MonoBehaviour
 
         if(enterHit)
 		{
-            float speed = 1;
+            float speed = 3.0f;
             float t = (float)(timingVar / .5f);
             // Debug.Log("timingvar: " + timingVar + "moveDuration: " + moveDuration);
 
