@@ -50,7 +50,6 @@ public class PrintButton : MonoBehaviour
 
 	public void OnButtonClick()
     {
-        string chosenCharacter = "SOS";
         if (MainCharacter.selectVal == 0)
             chosenCharacter=(charName[0]);
         else if (MainCharacter.selectVal == 1)
