@@ -1,0 +1,2 @@
+put the quit code to the connection singleton (2h) []
+-> reuse the quit code for every scene 
