@@ -23,7 +23,8 @@ namespace TestSocket {
         }  
 
         public IRoomState createMessageRoomState(string message) {
-            bool receiveQuitGameMessage = message.StartsWith("quit");
+            bool receiveGlobalQuitGameMessage = message.StartsWith("gbl:quit");
+            bool receiveLANQuitGameMessage = message.StartsWith("lan:quit");
             bool receivePositionWithId = message.StartsWith("pid:");
             bool receiveFromLobby = message.StartsWith("s:l");
             bool receiveChosenCharacterInfo = message.StartsWith("s:ch");
@@ -47,9 +48,13 @@ namespace TestSocket {
             {
                 return new PositionMessageState();
             }
-            else if (receiveQuitGameMessage)
+            else if (receiveGlobalQuitGameMessage)
             {
-                return new InRoomCloseConnectionState();
+                return new InRoomGlobalCloseConnectionState();
+            }
+            else if (receiveLANQuitGameMessage)
+            {
+                return new InRoomLANCloseConnectionState();
             }
 
             throw new Exception("Message not regconized");
