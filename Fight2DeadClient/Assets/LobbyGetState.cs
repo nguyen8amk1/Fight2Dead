@@ -36,6 +36,7 @@ public class LobbyGetState : MonoBehaviour
         listenToServerThread = new Thread(new ThreadStart(listenToServer));
         listenToServerThread.Start();
 	}
+
 	private void OnApplicationQuit()
 	{
 		// TODO: send to server 	

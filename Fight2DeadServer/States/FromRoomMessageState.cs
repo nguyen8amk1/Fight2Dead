@@ -17,7 +17,6 @@ namespace TestSocket
                 Console.WriteLine("Key: " + item.Key + ", Value: " + item.Value);
             }
 
-            // FIXME: index string is not equal to the key of room  
             globalData.Rooms[rid.ToString()].process(message);
         }
     }

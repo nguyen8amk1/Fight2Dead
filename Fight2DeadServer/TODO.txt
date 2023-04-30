@@ -1,10 +1,46 @@
 TODAY: 
+    REFACTOR THE CLIENT NETWORKING CODE TO STATIC METHODS IN THE SERVERCONNECTION SINGLETONS (2h) [] 
+    -> HOW MANY MESSAGE TYPES TO SEND: 
+    a basic message is send like this on the client: 
+
+    // this is pretty much it   
+    string message = "";
+    connection.sendToServer(message);
+
+    -> create 2 static classes (Game Message, Room Message); (TODO)
+
+    -> 8 messages:
+
+    Game Messages:
+    -> New connection  
+    -> Close connection
+    -> From room message 
+
+    Room Messages: 
+    -> Choose Character
+    -> Choose Stage 
+    -> Lobby Message 
+    -> In room Global close connection
+    -> In room LAN close connection
+    
+
+
+
+
+
+    MOVE ALL THE SCRIPTS TO SCRIPTS FOLDER (1h) []
+    CREATE SOME CLASS THAT HANDLE THE COMMON QUIT MESSAGE (LAN/GLOBAL QUIT) 
+
     MODITFY THE CLIENT TO MATCH WITH THE SERVER (2h) [] 
+
     SO CURRENTLY THE GAME IS IN LAN MODE NOW, MODIFY THE GAME CLIENT TO LAN MODE [] (1h)
     -> both of these is on the client side 
 
 TODO: 
-    DETECT KHI NAO NGUOI CHOI TAT CONNECTION DE THAO RA KHOI LIST LAN MODE [X] (2h)
+    THE CLIENT WHO WANTS TO JOIN ROOM ON LAN WILL HAVE TO BE ABLE TO SEARCH AND FIND OUT IF THERE IS ANY ROOM SOME HOW (2h) []
+        SO THE CLIENT IN LAN MODE HAVE 2 CHOICES: CREATE ROOM OR JOIN ROOM -> 2 DIFFERENT MESSAGE TYPES
+    THE CLIENT WHO WANTS TO JOIN ROOM ON GLOBAL THEN IT'S EASIER SINCE THERE WILL ONLY A SINGLE IP (1h) []
+
     UNIFIED ALL THE ASSETS OF THE SCENES AND CONNECT THEM TO EACH OTHER [] (2h)
     APPLY SSL INTO THE TRANSMISSION [] (2h)
     REGISTER, LOGIN, LOGOUT [] (3h)
@@ -19,7 +55,7 @@ TODO:
     CREATE A BUILD SCRIPT []
     
 DONE: 
-    DETECT KHI NAO NGUOI CHOI TAT CONNECTION DE THAO RA KHOI LIST GLOBAL MODE [X]
+    DETECT KHI NAO NGUOI CHOI TAT CONNECTION DE THAO RA KHOI LIST GLOBAL AND LAN MODE [X]
     WAIT TO FINISH THE CHOOSE MAP SCENE [X] (1h)
     PUT THE SOCKET CODE TO THE CHOOSE MAP SCENE [X] (1h) -- gui thong tin chon map cho server
     STANDARDIZE THE MESSAGE SENDING BETWEEN CLIENT AND SERVER  [X] (1h)
