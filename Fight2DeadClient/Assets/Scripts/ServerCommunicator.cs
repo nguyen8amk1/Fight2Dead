@@ -20,16 +20,19 @@ public class ServerCommunicator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Sending command to server");
-        connection.sendToServer("command:connect");
+        Debug.Log("Sending establish new connection message to server");
+        GameMessageSender.sendEstablishNewConnectionWithServerMessage();
+
+        // set game mode to global
+        gameState.onlineMode = "GLOBAL";
 
         listenToServerThread = new Thread(new ThreadStart(listenToServer));
         listenToServerThread.Start();
     }
+
 	private void OnApplicationQuit()
 	{
-        string quitMessage = "quit"; 
-        connection.sendToServer(quitMessage);
+        GameMessageSender.sendCloseConnectionWithServerMessage();
 	}
 
 	private void listenToServer()

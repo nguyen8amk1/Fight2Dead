@@ -11,6 +11,8 @@ public sealed class GameState
 
     private string[] characterNames = new string[4];
 	public int charNameCount = 0;
+	public string onlineMode = "NONE";
+	public string isRoomOwner = "false";
 
 	private GameState()
     {

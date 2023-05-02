@@ -11,7 +11,6 @@ using UnityEngine.SceneManagement;
 public class LobbyGetState : MonoBehaviour
 {
     private ServerConnection connection = ServerConnection.Instance;
-    private GameState playerInfo = GameState.Instance;
 
     private bool ready = false;
     private bool opponentReady = false;
@@ -39,19 +38,17 @@ public class LobbyGetState : MonoBehaviour
 
 	private void OnApplicationQuit()
 	{
-		// TODO: send to server 	
-		string quitMessage = $"rid:{globalGameState.RoomId},quit,pid:{globalGameState.PlayerId}";
-		connection.sendToServer(quitMessage);
+		RoomMessageSender.sendCloseConnection();
 	}
 
 	public void isClicked()
 	{
         ready = !ready;
-        string message = $"rid:{playerInfo.RoomId},s:l,pid:{playerInfo.PlayerId},stat:{Convert.ToInt32(ready)}";
-        connection.sendToServer(message);
 
-        bool isPlayer1 = playerInfo.PlayerId == 1;
-        bool isPlayer2 = playerInfo.PlayerId == 2;
+        RoomMessageSender.sendLobbyMessage(ready);
+
+        bool isPlayer1 = globalGameState.PlayerId == 1;
+        bool isPlayer2 = globalGameState.PlayerId == 2;
 
         TextMeshProUGUI textMesh = null;       
 
@@ -108,8 +105,8 @@ public class LobbyGetState : MonoBehaviour
     {
         if(count == 0)
 		{
-			bool isPlayer1 = playerInfo.PlayerId == 1;
-			bool isPlayer2 = playerInfo.PlayerId == 2;
+			bool isPlayer1 = globalGameState.PlayerId == 1;
+			bool isPlayer2 = globalGameState.PlayerId == 2;
 
 			TextMeshProUGUI textMesh = null;       
 

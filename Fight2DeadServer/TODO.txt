@@ -1,32 +1,8 @@
+NOTE: FOR NOW LEAVE THE LISTEN TO SERVER METHOD JUST LIKE IT IS  
+
 TODAY: 
-    REFACTOR THE CLIENT NETWORKING CODE TO STATIC METHODS IN THE SERVERCONNECTION SINGLETONS (2h) [] 
-    -> HOW MANY MESSAGE TYPES TO SEND: 
-    a basic message is send like this on the client: 
-
-    // this is pretty much it   
-    string message = "";
-    connection.sendToServer(message);
-
-    -> create 2 static classes (Game Message, Room Message); (TODO)
-
-    -> 8 messages:
-
-    Game Messages:
-    -> New connection  
-    -> Close connection
-    -> From room message 
-
-    Room Messages: 
-    -> Choose Character
-    -> Choose Stage 
-    -> Lobby Message 
-    -> In room Global close connection
-    -> In room LAN close connection
-    
-
-
-
-
+    REFACTOR THE LISTEN TO SERVER METHOD USING LAMDA OR SOMETHING LIKE THAT (1h) [] 
+    HANDLE SOME IMPORTANT MESSAGE PASSING IN SCENES LIKE (WHAT IF THE MESSAGE GET LOST WHILE SENDING): LOBBY, CHARACTER CHOOSE...  (2h) []
 
     MOVE ALL THE SCRIPTS TO SCRIPTS FOLDER (1h) []
     CREATE SOME CLASS THAT HANDLE THE COMMON QUIT MESSAGE (LAN/GLOBAL QUIT) 
@@ -55,6 +31,7 @@ TODO:
     CREATE A BUILD SCRIPT []
     
 DONE: 
+    REFACTOR THE CLIENT NETWORKING CODE TO STATIC METHODS IN THE SERVERCONNECTION SINGLETONS (2h) [X] 
     DETECT KHI NAO NGUOI CHOI TAT CONNECTION DE THAO RA KHOI LIST GLOBAL AND LAN MODE [X]
     WAIT TO FINISH THE CHOOSE MAP SCENE [X] (1h)
     PUT THE SOCKET CODE TO THE CHOOSE MAP SCENE [X] (1h) -- gui thong tin chon map cho server
