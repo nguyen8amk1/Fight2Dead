@@ -22,7 +22,8 @@ namespace TestSocket
         }
 
         private void playerMatching() {
-            if(globalData.UnmatchedClients.Count >= 2) {
+            bool haveEnoughClients = globalData.UnmatchedClients.Count >= 2;
+            if(haveEnoughClients) {
                 int lastIndex = globalData.UnmatchedClients.Count - 1;
                 Dictionary<string, ClientInfo> clients = new Dictionary<string, ClientInfo>(); 
                 clients.Add("1", globalData.UnmatchedClients[lastIndex -1]);

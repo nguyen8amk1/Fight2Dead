@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameMessageSender
+public class GameMessageHandler
 {
     private static ServerConnection connection = ServerConnection.Instance; 
 

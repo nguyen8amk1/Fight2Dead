@@ -26,26 +26,41 @@ public class LobbyGetState : MonoBehaviour
     private Thread listenToServerThread;
 	private GameState globalGameState = GameState.Instance;
 
+	public delegate void MessageHandlerLambda(string[] tokens);
+
 	private void Start()
 	{
         player1StatusText = player1StatusTextObj.GetComponent<TextMeshProUGUI>();
         player2StatusText = player2StatusTextObj.GetComponent<TextMeshProUGUI>();
 
-        // listen to server 
-        listenToServerThread = new Thread(new ThreadStart(listenToServer));
+		initListenToServerThread();
+	}
+
+	private void initListenToServerThread()
+	{
+		RoomMessageHandler.MessageHandlerLambda messageHandler = (string[] tokens) =>
+		{
+			// TODO: put any process of the tokens here
+			// received format: "pid:{oppid},stat:{1}" 
+			int stat = Int32.Parse(getValue(tokens[1]));
+			opponentReady = stat == 1;
+			count = 0;
+		};
+
+        listenToServerThread = new Thread(() => RoomMessageHandler.listenToServer(messageHandler));
         listenToServerThread.Start();
 	}
 
 	private void OnApplicationQuit()
 	{
-		RoomMessageSender.sendCloseConnection();
+		RoomMessageHandler.sendCloseConnection();
 	}
 
 	public void isClicked()
 	{
         ready = !ready;
 
-        RoomMessageSender.sendLobbyMessage(ready);
+        RoomMessageHandler.sendLobbyMessage(ready);
 
         bool isPlayer1 = globalGameState.PlayerId == 1;
         bool isPlayer2 = globalGameState.PlayerId == 2;
@@ -72,37 +87,6 @@ public class LobbyGetState : MonoBehaviour
 	{
         textMesh.text = status;
 	}
-
-	delegate void MessageHandlerLambda(string[] tokens);
-	private void listenToServer()
-    {
-        while (true)
-        {
-            string message = connection.receiveMessage();
-			string[] tokens = message.Split(',');
-
-			// TODO: convert the following to lambda 
-			//messageHandler(tokens);
-			MessageHandlerLambda messageHandler = (string[] tokens) =>
-			{
-				int pid = Int32.Parse(getValue(tokens[0]));
-				bool isQuitMessage = tokens[1].StartsWith("s:q");
-				if (isQuitMessage)
-				{
-					Debug.Log($"Player with id:{pid} quit the game");
-				}
-				else
-				{
-					// nhan message tu server thi: "pid:{oppid},stat:{1}" 
-					int stat = Int32.Parse(getValue(tokens[1]));
-
-					opponentReady = stat == 1;
-					count = 0;
-				}
-			};
-			messageHandler(tokens);
-        }
-    }
 
 	private string getValue(string s)
 	{

@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 109519577}
   - component: {fileID: 109519576}
   m_Layer: 0
-  m_Name: ServerCommunicator
+  m_Name: MessageHandler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

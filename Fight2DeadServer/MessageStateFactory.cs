@@ -28,7 +28,7 @@ namespace TestSocket {
             bool receivePositionWithId = message.StartsWith("pid:");
             bool receiveFromLobby = message.StartsWith("s:l");
             bool receiveChosenCharacterInfo = message.StartsWith("s:ch");
-            bool receiveChosenStageInfo = message.StartsWith("stg:");
+            bool receiveChosenMapInfo = message.StartsWith("stg:");
 
             // TODO: we should remove the start with part as well 
 
@@ -40,9 +40,9 @@ namespace TestSocket {
             {
                 return new ChooseCharacterState();
             }
-            else if (receiveChosenStageInfo)
+            else if (receiveChosenMapInfo)
             {
-                return new ChooseStageState();
+                return new ChooseMapState();
             }
             else if (receivePositionWithId)
             {

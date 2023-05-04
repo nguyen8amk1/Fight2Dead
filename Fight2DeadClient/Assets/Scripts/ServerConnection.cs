@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 using UnityEngine;
 
 // THIS GONNA BE A SINGLETON, kinda :v
@@ -18,9 +19,6 @@ public sealed class ServerConnection
     private static ServerConnection instance = null;
     private static readonly object padlock = new object();
     private GameState gameState = GameState.Instance;
-
-    // TODO: create a common listen_to_server method  
-	public delegate void MessageHandlerLambda(string[] tokens);
 
     private ServerConnection()
 	{

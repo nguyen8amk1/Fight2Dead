@@ -1,2 +1,27 @@
+/*
+TODO: Determine what the client received and format for each of them 
+
+How many scenes with network and its received format:  
+	WAITING FOR MATCH, received format: "rid:{},pid:{}" 
+
+	LOBBY, received format: "pid:{},stat{}"
+
+	CHOOSE CHARACTER, received format: "pid:{},cn:{}" // cn = character name
+
+	MAP SELECT, received format: "pid:{},mn:{}" // mn = map name 
+
+	LOADING SCREEN, received format: "" // 
+
+Which scenes actually received quit status of other players -> scenes after having rooms (Server other clients quit message to client)
+(lobby, choose character, map select)
+
+-> TODO: HANDLE OTHER CLIENTS QUIT MESSAGES TO THIS CLIENT 
+
+
+[CLIENT TO SERVER PLAYER'S QUIT MESSAGE] ALREADY HANDLED 
+
+ */
+
 put the quit code to the connection singleton (2h) []
 -> reuse the quit code for every scene 
+

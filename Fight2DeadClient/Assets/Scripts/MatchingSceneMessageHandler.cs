@@ -8,7 +8,7 @@ using System.Threading;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ServerCommunicator : MonoBehaviour
+public class MatchingSceneMessageHandler : MonoBehaviour
 {
     // Start is called before the first frame update
     private ServerConnection connection = ServerConnection.Instance;
@@ -17,29 +17,38 @@ public class ServerCommunicator : MonoBehaviour
     private GameState gameState = GameState.Instance;
     private Thread listenToServerThread;
 
+
     // Start is called before the first frame update
     void Start()
     {
         Debug.Log("Sending establish new connection message to server");
-        GameMessageSender.sendEstablishNewConnectionWithServerMessage();
+        GameMessageHandler.sendEstablishNewConnectionWithServerMessage();
 
         // set game mode to global
         gameState.onlineMode = "GLOBAL";
 
+        initListenToServerThread();
+    }
+
+	private void initListenToServerThread()
+	{
         listenToServerThread = new Thread(new ThreadStart(listenToServer));
         listenToServerThread.Start();
-    }
+	}
 
 	private void OnApplicationQuit()
 	{
-        GameMessageSender.sendCloseConnectionWithServerMessage();
+        GameMessageHandler.sendCloseConnectionWithServerMessage();
 	}
 
 	private void listenToServer()
     {
+        // TODO: somehow refactor this code to a messageHandler lambda
         while (true)
         {
             string message = connection.receiveMessage();
+            string[] tokens = message.Split(',');
+
             if(message.StartsWith("rid:"))
 			{
                 // message format: rid:x,pid:x

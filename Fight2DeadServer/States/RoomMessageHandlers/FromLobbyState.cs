@@ -12,6 +12,7 @@ namespace TestSocket
             int pid = Int32.Parse(Util.getValueFrom(tokens[1]));
             int stat = Int32.Parse(Util.getValueFrom(tokens[2]));
 
+            // @Debug: This is just for debug
             string formatedString = string.Format("pid:{0} va stat:{1}", pid, stat);
             Console.WriteLine(formatedString);
 
