@@ -384,7 +384,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 418111927}
-  - component: {fileID: 418111926}
+  - component: {fileID: 418111929}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -392,7 +392,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &418111926
+--- !u!4 &418111927
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418111925}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &418111929
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -401,7 +416,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 418111925}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b70ec97df5e6490469df7d9f58c1965c, type: 3}
+  m_Script: {fileID: 11500000, guid: 3786b20b515568c459fa6c9b04e38cd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   p1: {fileID: 621361373}
@@ -458,21 +473,6 @@ MonoBehaviour:
   orangeBackgroundSprite: {fileID: 21300000, guid: 044df612d5d487340907e39178dcf1ac, type: 3}
   whiteBackgroundSprite: {fileID: 21300000, guid: b30b7a06c89406f49b1505648f2e36b1, type: 3}
   earth: {fileID: 1947183374}
---- !u!4 &418111927
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 418111925}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

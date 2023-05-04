@@ -3,45 +3,45 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Controller : MonoBehaviour
+public class LoadingSceneController : MonoBehaviour
 {
     // CURRENTLY DOING: None
 
     // TODO: make the earth background animated (1h) [] 
-		// find a moving stars field sprite sheet [X]
-		// cut the earth out [X]
-		// create a starfield gif [X]
-		// put the gif on Unity with the earth image on top []
+    // find a moving stars field sprite sheet [X]
+    // cut the earth out [X]
+    // create a starfield gif [X]
+    // put the gif on Unity with the earth image on top []
 
     // @Later
-	// TODO: add some delay to simulate if server take a long time (2h) []
-		// STATE ORDER
-		// @Ideas: should we add to each scene 1 more frame time ?? 
-		// -> total of 2s of loading screen 
+    // TODO: add some delay to simulate if server take a long time (2h) []
+    // STATE ORDER
+    // @Ideas: should we add to each scene 1 more frame time ?? 
+    // -> total of 2s of loading screen 
 
-		// static (delay) -> quad in -> vs in -> vs fill in -> explode -> transition orange background -> transition white background 
-		// static scene is the delay 
-
-	// @Later
-	// TODO: add sound effects (1h) []
-		// PLAY THE SOUND IN SEPERATE THREAD ?? 
+    // static (delay) -> quad in -> vs in -> vs fill in -> explode -> transition orange background -> transition white background 
+    // static scene is the delay 
 
     // @Later
-	// TODO: find sound effects (2h) []
-		// how many sounds are there: 
-			// nhac delay: normal theme song 
-			// 4ps in ->  nhac  (téo téo teo) [] (about 2s), force to wait for 2s ?? (VERSUS SOUNDTRACK)
-			// tieng no -> tieng no chill (no "dung" nhung ma khong qua to) [] (boom sound effect)
+    // TODO: add sound effects (1h) []
+    // PLAY THE SOUND IN SEPERATE THREAD ?? 
 
-			// tieng transition -> deo biet ?? (hien tai chua can) [] ()
+    // @Later
+    // TODO: find sound effects (2h) []
+    // how many sounds are there: 
+    // nhac delay: normal theme song 
+    // 4ps in ->  nhac  (téo téo teo) [] (about 2s), force to wait for 2s ?? (VERSUS SOUNDTRACK)
+    // tieng no -> tieng no chill (no "dung" nhung ma khong qua to) [] (boom sound effect)
+
+    // tieng transition -> deo biet ?? (hien tai chua can) [] ()
 
 
-		// -> chay xuyen suot ko duoc giat cuc -> gop lai thanh 1 sound, hoac choi cung 1 lan 
-	// -> chay trong multiple scene 
+    // -> chay xuyen suot ko duoc giat cuc -> gop lai thanh 1 sound, hoac choi cung 1 lan 
+    // -> chay trong multiple scene 
 
-	// STATES 
-	enum GlobalTimingStates
-	{
+    // STATES 
+    enum GlobalTimingStates
+    {
         // here we use 1/24 frame time 
         STATIC,  // 6 frametime 
         QUAD_IN, // 15 frametime
@@ -50,23 +50,23 @@ public class Controller : MonoBehaviour
         EXPLODE,  // 6 frametime
         TRANSITION_ORANGE_BACKGROUND, // 1 frametime
         TRANSITION_WHITE_BACKGROUND // 9 frametime
-	};
+    };
 
     private double staticDuration = ut(6);
-	private double quadInDuration = ut(15); 
+    private double quadInDuration = ut(15);
     private double vsInDuration = ut(7);
     private double vsFillDuration = ut(1);
-	private double explodeDuration = ut(6); 
-	private double transitionOrangeBgDuration = ut(1);
-	private double transitionWhiteBgDuration = ut(9);
+    private double explodeDuration = ut(6);
+    private double transitionOrangeBgDuration = ut(1);
+    private double transitionWhiteBgDuration = ut(9);
 
-	private static double ut(int v)
-	{
-        return v*(1.0/24.0);
-	}
+    private static double ut(int v)
+    {
+        return v * (1.0 / 24.0);
+    }
 
     // 4 player
-    private static Vector3 p1Src= new Vector3(12.12f, -4.98f, 0);
+    private static Vector3 p1Src = new Vector3(12.12f, -4.98f, 0);
     private static Vector3 p2Src = new Vector3(9.74f, 6.77f, 0);
     private static Vector3 p3Src = new Vector3(-12.01f, -5.13f, 0);
     private static Vector3 p4Src = new Vector3(-12.01f, 5.8f, 0);
@@ -81,7 +81,7 @@ public class Controller : MonoBehaviour
     private static Vector3 VSrc = new Vector3(-9.09f, 0.55f, 0);
     private static Vector3 VDest = new Vector3(-1.8f, 0.1475f, 0);
 
-	private static Vector3 SSrc = new Vector3(10.38f, 0.47f, 0);
+    private static Vector3 SSrc = new Vector3(10.38f, 0.47f, 0);
     private static Vector3 SDest = new Vector3(1.95f, 0.11f, 0);
 
     // VS scale: 
@@ -97,11 +97,11 @@ public class Controller : MonoBehaviour
 
     private Vector3 VFScale = new Vector3(1.540453f, 1.540453f, 1.540453f);
     private Vector3 SFScale = new Vector3(1.501732f, 1.501732f, 1.501732f);
-    
+
     // Background
     private Vector3 backgroundPos = new Vector3(0, 0, 0);
     private Vector3 backgroundScale = new Vector3(1.956057f, 1.956057f, 1.956057f);
-    
+
     // Explosion 
     public GameObject p1;
     public GameObject p2;
@@ -187,22 +187,22 @@ public class Controller : MonoBehaviour
     public Sprite KenBottomLeft;
     public Sprite KenBottomRight;
 
-	public Sprite orangeBackgroundSprite;
-	public Sprite whiteBackgroundSprite;
+    public Sprite orangeBackgroundSprite;
+    public Sprite whiteBackgroundSprite;
 
     public GameObject earth;
 
     // imagin this array gonna be given by the last scene  
     private string[] chosenCharacters = new string[] {
         "ken",
-        "capa", 
+        "capa",
         "venom",
-        "ryu" 
+        "ryu"
     };
 
     private GameObject[] ps;
 
-	void Start()
+    void Start()
     {
         Application.targetFrameRate = 60;
 
@@ -216,8 +216,8 @@ public class Controller : MonoBehaviour
         hideNeccesaryGameObject();
     }
 
-	private void hideNeccesaryGameObject()
-	{
+    private void hideNeccesaryGameObject()
+    {
 
         V.SetActive(false);
         S.SetActive(false);
@@ -228,10 +228,10 @@ public class Controller : MonoBehaviour
         p2.SetActive(false);
         p3.SetActive(false);
         p4.SetActive(false);
-	}
+    }
 
-	private void initMovingGameObjectsPosition()
-	{
+    private void initMovingGameObjectsPosition()
+    {
         p1.transform.position = p1Src;
         p2.transform.position = p2Src;
         p3.transform.position = p3Src;
@@ -248,69 +248,69 @@ public class Controller : MonoBehaviour
 
         VF.transform.position = VFPos;
         SF.transform.position = SFPos;
-	}
+    }
 
-	private void initVSFrames()
-	{
-		VFrames = new Sprite[] {
-			VFrame0, 
-			VFrame1, 
-			VFrame2, 
-			VFrame3, 
-			VFrame4, 
-			VFrame5, 
-			VFrame6 
-		};
+    private void initVSFrames()
+    {
+        VFrames = new Sprite[] {
+            VFrame0,
+            VFrame1,
+            VFrame2,
+            VFrame3,
+            VFrame4,
+            VFrame5,
+            VFrame6
+        };
 
-		SFrames = new Sprite[] {
-			SFrame0, 
-			SFrame1, 
-			SFrame2, 
-			SFrame3, 
-			SFrame4, 
-			SFrame5, 
-			SFrame6 
-		};
-	}
+        SFrames = new Sprite[] {
+            SFrame0,
+            SFrame1,
+            SFrame2,
+            SFrame3,
+            SFrame4,
+            SFrame5,
+            SFrame6
+        };
+    }
 
-	private void initBackground()
-	{
+    private void initBackground()
+    {
         //Background.GetComponent<SpriteRenderer>().sprite = ;
 
         Background.transform.position = backgroundPos;
         Background.transform.localScale = backgroundScale;
-        
-		explosionFrames = new Sprite[] {
-			explosionFrame0, 
-			explosionFrame1, 
-			explosionFrame2, 
-			explosionFrame3, 
-			explosionFrame4, 
-			explosionFrame5, 
-			explosionFrame6 
-		};
-	}
 
-	private void matchPlayerWithTheRightSprite()
-	{
-		ps = new GameObject[] {
-				p1, 
-				p2, 
-				p3, 
-				p4 
-		};
+        explosionFrames = new Sprite[] {
+            explosionFrame0,
+            explosionFrame1,
+            explosionFrame2,
+            explosionFrame3,
+            explosionFrame4,
+            explosionFrame5,
+            explosionFrame6
+        };
+    }
 
-        for(int i = 0; i < chosenCharacters.Length; i++)
-		{
+    private void matchPlayerWithTheRightSprite()
+    {
+        ps = new GameObject[] {
+                p1,
+                p2,
+                p3,
+                p4
+        };
+
+        for (int i = 0; i < chosenCharacters.Length; i++)
+        {
             string name = chosenCharacters[i];
             string key = constructCharacterKeyName(name, i);
             Sprite sprite = allPlayerSprites[key];
             setPlayerSprite(i, sprite);
-		}
-	}
+        }
+    }
 
-	private void initPlayerSprites()
-	{
+    private void initPlayerSprites()
+    {
         allPlayerSprites.Add("ishida_top_left", IshidaTopLeft);
         allPlayerSprites.Add("ishida_bottom_left", IshidaBottomLeft);
         allPlayerSprites.Add("ishida_top_right", IshidaTopRight);
@@ -335,116 +335,118 @@ public class Controller : MonoBehaviour
         allPlayerSprites.Add("ryu_bottom_left", RyuBottomLeft);
         allPlayerSprites.Add("ryu_top_right", RyuTopRight);
         allPlayerSprites.Add("ryu_bottom_right", RyuBottomRight);
-	}
+    }
 
-	private void setPlayerSprite(int i, Sprite sprite)
-	{
-		ps[i].GetComponent<SpriteRenderer>().sprite = sprite;
-	}
+    private void setPlayerSprite(int i, Sprite sprite)
+    {
+        ps[i].GetComponent<SpriteRenderer>().sprite = sprite;
+    }
 
-	private string constructCharacterKeyName(string name, int index)
-	{
+    private string constructCharacterKeyName(string name, int index)
+    {
         // so the order is:  
         // top left, bottom left, top right, bottom right 
-        string[] locs = new string[] { 
-            "top_left", 
-            "bottom_left", 
-            "top_right", 
-            "bottom_right" 
+        string[] locs = new string[] {
+            "top_left",
+            "bottom_left",
+            "top_right",
+            "bottom_right"
         };
         return $"{name}_{locs[index]}";
 
-        throw new Exception("Can't construct character keyname with index value = " + index); 
-	}
+        throw new Exception("Can't construct character keyname with index value = " + index);
+    }
 
-	// Update is called once per frame
-	void Update()
+    // Update is called once per frame
+    void Update()
     {
-        if(currentState == GlobalTimingStates.STATIC)
-		{
+        if (currentState == GlobalTimingStates.STATIC)
+        {
             handleStaticState();
-		}
+        }
 
-        else if(currentState == GlobalTimingStates.QUAD_IN)
-		{
+        else if (currentState == GlobalTimingStates.QUAD_IN)
+        {
             handleQuadInState();
-		}
+        }
 
-        else if(currentState == GlobalTimingStates.VS_IN)
-		{
+        else if (currentState == GlobalTimingStates.VS_IN)
+        {
             handleVSInState();
-		}
-        else if(currentState == GlobalTimingStates.TO_VS_FILL)
-		{
+        }
+        else if (currentState == GlobalTimingStates.TO_VS_FILL)
+        {
             handleToVSFillState();
-		}
-        else if(currentState == GlobalTimingStates.EXPLODE)
-		{
+        }
+        else if (currentState == GlobalTimingStates.EXPLODE)
+        {
             earth.SetActive(false);
             handleExplodeState();
-		}
-        else if(currentState == GlobalTimingStates.TRANSITION_ORANGE_BACKGROUND) 
+        }
+        else if (currentState == GlobalTimingStates.TRANSITION_ORANGE_BACKGROUND)
         {
             handleTransitionOrangeBackgroundState();
-		}
-        else if(currentState == GlobalTimingStates.TRANSITION_WHITE_BACKGROUND) 
+        }
+        else if (currentState == GlobalTimingStates.TRANSITION_WHITE_BACKGROUND)
         {
             handleTransitionWhiteBackgroundState();
-		}
+        }
 
         timingVar += Time.deltaTime;
     }
 
-	private void handleTransitionOrangeBackgroundState()
-	{
+    private void handleTransitionOrangeBackgroundState()
+    {
         hideNeccesaryGameObject();
 
-		float t = (float)(timingVar/transitionOrangeBgDuration);
+        float t = (float)(timingVar / transitionOrangeBgDuration);
         changeBackground(orangeBackgroundSprite);
 
-		if(t >= 1) { 
-			timingVar = 0;
-			currentState = GlobalTimingStates.TRANSITION_WHITE_BACKGROUND;
-		}
-	}
+        if (t >= 1)
+        {
+            timingVar = 0;
+            currentState = GlobalTimingStates.TRANSITION_WHITE_BACKGROUND;
+        }
+    }
 
-	private void handleTransitionWhiteBackgroundState()
-	{
-		float t = (float)(timingVar/transitionWhiteBgDuration);
+    private void handleTransitionWhiteBackgroundState()
+    {
+        float t = (float)(timingVar / transitionWhiteBgDuration);
         changeBackground(whiteBackgroundSprite);
 
-		if(t >= 1) { 
-			timingVar = 0;
+        if (t >= 1)
+        {
+            timingVar = 0;
             // move to next scene ;
             // currentState = GlobalTimingStates.TO_VS_FILL;
             Debug.Log("TO NEXT SCENE");
-		}
-	}
+        }
+    }
 
-	private void changeBackground(Sprite sprite)
-	{
+    private void changeBackground(Sprite sprite)
+    {
         Background.GetComponent<SpriteRenderer>().sprite = sprite;
-	}
+    }
 
-	private void handleExplodeState()
-	{
+    private void handleExplodeState()
+    {
         playExplodeSoundtrack();
 
-		float t = (float)(timingVar/explodeDuration);
+        float t = (float)(timingVar / explodeDuration);
 
-		int index = (int)Math.Floor(t*explosionFrames.Length);
-		Debug.Log("t: " + t + " index: " + index);
-		if(index < 7)
-		{
-			Sprite frame = explosionFrames[index];
-			Background.GetComponent<SpriteRenderer>().sprite = frame;
+        int index = (int)Math.Floor(t * explosionFrames.Length);
+        Debug.Log("t: " + t + " index: " + index);
+        if (index < 7)
+        {
+            Sprite frame = explosionFrames[index];
+            Background.GetComponent<SpriteRenderer>().sprite = frame;
 
-			frame = VFrames[index];
-			VF.GetComponent<SpriteRenderer>().sprite = frame;
+            frame = VFrames[index];
+            VF.GetComponent<SpriteRenderer>().sprite = frame;
 
-			frame = SFrames[index];
-			SF.GetComponent<SpriteRenderer>().sprite = frame;
-		}
+            frame = SFrames[index];
+            SF.GetComponent<SpriteRenderer>().sprite = frame;
+        }
 
         // TODO: the last 3 frames darken to dark orange
         /*
@@ -454,80 +456,84 @@ public class Controller : MonoBehaviour
 		}
         */
 
-		if(t >= 1) { 
-			timingVar = 0;
-			currentState = GlobalTimingStates.TRANSITION_ORANGE_BACKGROUND;
-		}
-	}
+        if (t >= 1)
+        {
+            timingVar = 0;
+            currentState = GlobalTimingStates.TRANSITION_ORANGE_BACKGROUND;
+        }
+    }
 
-	private void playExplodeSoundtrack()
-	{
+    private void playExplodeSoundtrack()
+    {
         // TODO: play explode soundtrack
-	}
+    }
 
-	private void handleToVSFillState()
-	{
-		float t = (float)(timingVar/vsFillDuration);
+    private void handleToVSFillState()
+    {
+        float t = (float)(timingVar / vsFillDuration);
 
-		V.SetActive(false);
-		S.SetActive(false);
+        V.SetActive(false);
+        S.SetActive(false);
 
-		VF.SetActive(true);
-		SF.SetActive(true);
+        VF.SetActive(true);
+        SF.SetActive(true);
 
-		if(t >= 1) { 
-			timingVar = 0;
-			currentState = GlobalTimingStates.EXPLODE;
-		}
-	}
+        if (t >= 1)
+        {
+            timingVar = 0;
+            currentState = GlobalTimingStates.EXPLODE;
+        }
+    }
 
-	private void handleVSInState()
-	{
-		V.SetActive(true);
-		S.SetActive(true);
+    private void handleVSInState()
+    {
+        V.SetActive(true);
+        S.SetActive(true);
 
-		float t = (float)(timingVar/vsInDuration);
-		V.transform.localScale = Vector3.Lerp(VScaleSrc, VScaleDest, t);
-		V.transform.position = Vector3.Lerp(VSrc, VDest, t);
+        float t = (float)(timingVar / vsInDuration);
+        V.transform.localScale = Vector3.Lerp(VScaleSrc, VScaleDest, t);
+        V.transform.position = Vector3.Lerp(VSrc, VDest, t);
 
-		S.transform.localScale = Vector3.Lerp(SScaleSrc, SScaleDest, t);
-		S.transform.position = Vector3.Lerp(SSrc, SDest, t);
+        S.transform.localScale = Vector3.Lerp(SScaleSrc, SScaleDest, t);
+        S.transform.position = Vector3.Lerp(SSrc, SDest, t);
 
-		if(t >= 1) { 
-			timingVar = 0;
-			currentState = GlobalTimingStates.TO_VS_FILL;
-		}
-	}
+        if (t >= 1)
+        {
+            timingVar = 0;
+            currentState = GlobalTimingStates.TO_VS_FILL;
+        }
+    }
 
-	private void handleQuadInState()
-	{
-		p1.SetActive(true);
-		p2.SetActive(true);
-		p3.SetActive(true);
-		p4.SetActive(true);
+    private void handleQuadInState()
+    {
+        p1.SetActive(true);
+        p2.SetActive(true);
+        p3.SetActive(true);
+        p4.SetActive(true);
 
-		float t = (float)(timingVar/quadInDuration);
-		p1.transform.position = Vector3.Lerp(p1Src, p1Dest, t);
-		p2.transform.position = Vector3.Lerp(p2Src, p2Dest, t);
-		p3.transform.position = Vector3.Lerp(p3Src, p3Dest, t);
-		p4.transform.position = Vector3.Lerp(p4Src, p4Dest, t);
+        float t = (float)(timingVar / quadInDuration);
+        p1.transform.position = Vector3.Lerp(p1Src, p1Dest, t);
+        p2.transform.position = Vector3.Lerp(p2Src, p2Dest, t);
+        p3.transform.position = Vector3.Lerp(p3Src, p3Dest, t);
+        p4.transform.position = Vector3.Lerp(p4Src, p4Dest, t);
 
-		if(t >= 1) { 
-			timingVar = 0;
-			currentState = GlobalTimingStates.VS_IN;
-		}
+        if (t >= 1)
+        {
+            timingVar = 0;
+            currentState = GlobalTimingStates.VS_IN;
+        }
 
         playQuadInSoundtrack();
-	}
+    }
 
-	private void playQuadInSoundtrack()
-	{
+    private void playQuadInSoundtrack()
+    {
         // TODO: play quad in soundtrack
-	}
+    }
 
-	private void handleStaticState()
-	{
-		float t = (float)(timingVar/staticDuration);
+    private void handleStaticState()
+    {
+        float t = (float)(timingVar / staticDuration);
         // @Note: still wait for 6 frames for this static duration 
         // even when all the clients have been good 
 
@@ -540,7 +546,8 @@ public class Controller : MonoBehaviour
         animateWaitingCircle();
 
 
-		if(t >= 1) { 
+        if (t >= 1)
+        {
             /*
 			bool allPlayersGood = checkIfAllPlayersIsConnectedGood();
 			if(allPlayersGood)
@@ -553,25 +560,25 @@ public class Controller : MonoBehaviour
 			}
             */
 
-			timingVar = 0;
-			currentState = GlobalTimingStates.QUAD_IN;
-		}
-	}
+            timingVar = 0;
+            currentState = GlobalTimingStates.QUAD_IN;
+        }
+    }
 
-	private bool checkIfAllPlayersIsConnectedGood()
-	{
+    private bool checkIfAllPlayersIsConnectedGood()
+    {
         Debug.Log("CHECK ALL PLAYERS CONNECTED GOOD");
 
         // @Test
         return false;
-	}
+    }
 
-	private void animateWaitingCircle()
-	{
+    private void animateWaitingCircle()
+    {
         // TODO: do the circle animation
         // find the circle animation gif []
         // display that on Unity []
 
         Debug.Log("ANIMATING THE WAITING CIRCLE");
-	}
+    }
 }

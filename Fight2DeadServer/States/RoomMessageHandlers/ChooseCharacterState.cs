@@ -7,7 +7,7 @@ namespace TestSocket
     {
         private ServerConnection connection = ServerConnection.getInstance();
 
-        public void serve(string message, List<ClientInfo> clients)
+        public void serve(string message, Dictionary<string, ClientInfo> clients, int roomId)
         {
             // format: $"s:ch,pid:{pid},ch:{charName}";
             string[] tokens = message.Split(',');

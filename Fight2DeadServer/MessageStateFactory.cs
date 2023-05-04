@@ -23,11 +23,12 @@ namespace TestSocket {
         }  
 
         public IRoomState createMessageRoomState(string message) {
+            bool receiveGlobalQuitGameMessage = message.StartsWith("gbl:quit");
+            bool receiveLANQuitGameMessage = message.StartsWith("lan:quit");
             bool receivePositionWithId = message.StartsWith("pid:");
             bool receiveFromLobby = message.StartsWith("s:l");
             bool receiveChosenCharacterInfo = message.StartsWith("s:ch");
-            bool receiveChosenStageInfo = message.StartsWith("stg:");
-            bool receiveQuitGameMessage = message.StartsWith("stg:q");
+            bool receiveChosenMapInfo = message.StartsWith("stg:");
 
             // TODO: we should remove the start with part as well 
 
@@ -39,17 +40,21 @@ namespace TestSocket {
             {
                 return new ChooseCharacterState();
             }
-            else if (receiveChosenStageInfo)
+            else if (receiveChosenMapInfo)
             {
-                return new ChooseStageState();
+                return new ChooseMapState();
             }
             else if (receivePositionWithId)
             {
                 return new PositionMessageState();
             }
-            else if (receiveQuitGameMessage)
+            else if (receiveGlobalQuitGameMessage)
             {
-                return new InRoomCloseConnectionState();
+                return new InRoomGlobalCloseConnectionState();
+            }
+            else if (receiveLANQuitGameMessage)
+            {
+                return new InRoomLANCloseConnectionState();
             }
 
             throw new Exception("Message not regconized");
