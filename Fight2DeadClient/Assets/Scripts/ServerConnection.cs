@@ -19,6 +19,9 @@ public sealed class ServerConnection
     private static readonly object padlock = new object();
     private GameState gameState = GameState.Instance;
 
+    // TODO: create a common listen_to_server method  
+	public delegate void MessageHandlerLambda(string[] tokens);
+
     private ServerConnection()
 	{
         SERVER_IP = getLocalIPAddress();
@@ -84,6 +87,4 @@ public sealed class ServerConnection
             return localIP;
         }
     }
-
-
 }
