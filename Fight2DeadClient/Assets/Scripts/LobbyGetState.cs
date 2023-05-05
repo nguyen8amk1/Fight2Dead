@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class LobbyGetState : MonoBehaviour
@@ -16,13 +17,14 @@ public class LobbyGetState : MonoBehaviour
     private bool opponentReady = false;
     private int count = 1;
 
-    // TODO: change the name, it's confusing 
-    // text component 
-    public GameObject player1StatusTextObj;
-    private TextMeshProUGUI player1StatusText;
+	// TODO: change the name, it's confusing 
+	// text component 
+	public Image player1ReadyImg;
+	public Image player2ReadyImg;
 
-    public GameObject player2StatusTextObj;
-    private TextMeshProUGUI player2StatusText;
+	public Sprite readySprite;
+	public Sprite notReadySprite;
+
     private Thread listenToServerThread;
 	private GameState globalGameState = GameState.Instance;
 
@@ -30,8 +32,8 @@ public class LobbyGetState : MonoBehaviour
 
 	private void Start()
 	{
-        player1StatusText = player1StatusTextObj.GetComponent<TextMeshProUGUI>();
-        player2StatusText = player2StatusTextObj.GetComponent<TextMeshProUGUI>();
+		player1ReadyImg.sprite = notReadySprite;
+		player2ReadyImg.sprite = notReadySprite;
 
 		initListenToServerThread();
 	}
@@ -42,6 +44,7 @@ public class LobbyGetState : MonoBehaviour
 		{
 			// TODO: put any process of the tokens here
 			// received format: "pid:{oppid},stat:{1}" 
+
 			int stat = Int32.Parse(getValue(tokens[1]));
 			opponentReady = stat == 1;
 			count = 0;
@@ -65,27 +68,33 @@ public class LobbyGetState : MonoBehaviour
         bool isPlayer1 = globalGameState.PlayerId == 1;
         bool isPlayer2 = globalGameState.PlayerId == 2;
 
-        TextMeshProUGUI textMesh = null;       
+		Image image = null;
 
         if(isPlayer1)
 		{
-            textMesh = player1StatusText;
+			image = player1ReadyImg;
 		} else if(isPlayer2)
 		{
-            textMesh = player2StatusText;
+			image = player2ReadyImg;
 		}
 
 		if(ready) {
-			changeStatus(textMesh, "Ready");
+			changeStatus(image, true);
 		} else
 		{
-			changeStatus(textMesh, "Not ready");
+			changeStatus(image, false);
 		}
 	}
 
-	private void changeStatus(TextMeshProUGUI textMesh, string status)
+	private void changeStatus(Image image, bool ready2Play)
 	{
-        textMesh.text = status;
+		if(ready2Play)
+		{
+			image.sprite = readySprite;
+		} else
+		{
+			image.sprite = notReadySprite;
+		} 
 	}
 
 	private string getValue(string s)
@@ -101,24 +110,24 @@ public class LobbyGetState : MonoBehaviour
 			bool isPlayer1 = globalGameState.PlayerId == 1;
 			bool isPlayer2 = globalGameState.PlayerId == 2;
 
-			TextMeshProUGUI textMesh = null;       
+			Image image = null;
 
 			if(isPlayer1)
 			{
-				textMesh = player2StatusText;
+				image = player2ReadyImg;
 			} else if(isPlayer2)
 			{
-				textMesh = player1StatusText;
+				image = player1ReadyImg;
 			}
 
 
             if(opponentReady)
 			{
-                changeStatus(textMesh, "Ready");
+                changeStatus(image, true);
 			}
             else
 			{
-                changeStatus(textMesh, "Not Ready");
+                changeStatus(image, false);
 			}
             count = 1;
 		}
@@ -133,7 +142,6 @@ public class LobbyGetState : MonoBehaviour
 
 	private bool allPlayerReady()
 	{
-        return  player1StatusText.text.Equals("Ready") && 
-				player2StatusText.text.Equals("Ready");
+		return ready && opponentReady;
 	}
 }
