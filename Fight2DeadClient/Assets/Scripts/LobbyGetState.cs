@@ -25,6 +25,9 @@ public class LobbyGetState : MonoBehaviour
 	public Sprite readySprite;
 	public Sprite notReadySprite;
 
+	public Image player1Avatar; 
+	public Image player2Avatar; 
+
     private Thread listenToServerThread;
 	private GameState globalGameState = GameState.Instance;
 
