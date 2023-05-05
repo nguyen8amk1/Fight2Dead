@@ -5,7 +5,7 @@ using System.Net;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
 
-namespace TestSocket {
+namespace GameSocketServer {
     public class InitialData {
         public string message; 
         public IPEndPoint remoteIPEndPoint;

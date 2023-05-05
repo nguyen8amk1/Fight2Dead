@@ -1,6 +1,6 @@
 using System;
 
-namespace TestSocket {
+namespace GameSocketServer {
     public class MessageStateFactory {
         public IState createMessageState(string message) {
             bool receiveNewConnection = message.Equals("command:connect");

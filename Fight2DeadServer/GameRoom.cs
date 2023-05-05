@@ -9,7 +9,7 @@ using System.Collections.Generic;
 // all the scenes we have to go through: 
 // Menu -> Matching -> Lobby -> Choose character -> Choose man choi -> Loading Screen -> game 
 
-namespace TestSocket
+namespace GameSocketServer
 {
     public class GameRoom
     {

@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace TestSocket
+namespace GameSocketServer
 {
     public class FromLobbyState : IRoomState
     {

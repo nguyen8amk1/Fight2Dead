@@ -5,7 +5,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Collections.Generic;
 
-namespace TestSocket
+namespace GameSocketServer
 {
     public sealed class ServerConnection
     {

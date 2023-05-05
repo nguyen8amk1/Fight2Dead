@@ -1,6 +1,6 @@
 using System;
 
-namespace TestSocket
+namespace GameSocketServer
 {
     public class FromRoomMessageState : IState
     {

@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace TestSocket {
+namespace GameSocketServer {
     public class ChooseMapState : IRoomState {
         private ServerConnection connection = ServerConnection.getInstance();
         public void serve(string message, Dictionary<string, ClientInfo> clients, int roomId) {
