@@ -1,22 +1,25 @@
 TODAY: 
-    HANDLE SOME IMPORTANT MESSAGE PASSING IN SCENES LIKE (WHAT IF THE MESSAGE GET LOST WHILE SENDING): LOBBY, CHARACTER CHOOSE...  (2h) []
-        -> TRY TO IMPLEMENT HOW TCP WORKS, OR USE TCP ITSELF :V 
-        -> THE INPUT IS SERVER'S IP/PORT AND CLIENT'S IP/PORT
-
-        -> EVERYTHING BEFORE THE ACTUAL PLAYING SCENE (MENU, WAITING FOR MATCH, LOBBY, CHOOSE CHARACTER, MAP SELECT, LOADING SCREEN) SHOULD BE TCP 
-        -> THE ONLY UDP IS THE PLAYING SCENE 
-    CONVERT PRE-PLAYING SCENES TO USE TCP (2h) [] 
-
-    tong cong: 2h 
+    FIX THE POSITION MESSAGE FIRST (1h) [] 
+    UPDATE THE SERVER TO HANDLE TCP MESSAGES FROM CLIENT (4h) []
+    tong cong: 4h (8h -> 12h)
     
 TODO: 
-    UPDATE THE GRADIENT AND THE COLOR OF THE BLACKSTRIP OF THE LOBBY SCENE (1h) []
-    SEND QUIT MESSAGE TO OTHER SCENES RATHER THAN JUST LOBBY (2h) []
-    -> (CHOOSE CHARACTER, MAP SELECT, LOADING SCREEN)
     IMPLEMENT LAN MODE (2h) [] 
 
-    CONNECT ALL THE CHOICE BETWEEN EACH SCENE (choose character, choose map) (2h) []
+    SOMETHING WRONG WITH THE QUIT MESSAGE, SOME TIME THE SERVER WILL GET EXCEPTION (2h) []
+        (
+            Unhandled Exception: System.Exception: Message not regconized
+                at GameSocketServer.MessageStateFactory.createMessageRoomState(String message)
+                at GameSocketServer.GameRoom.process(String message)
+                at GameSocketServer.FromRoomMessageState.serve(String message)
+                at GameSocketServer.Server.go()
+                at GameSocketServer.Server.Main(String[] args)
+        ) 
 
+
+    UPDATE THE BACKGROUND, THE GRADIENT AND THE COLOR OF THE BLACKSTRIP OF THE LOBBY SCENE (2h) []
+
+    CONNECT ALL THE CHOICE BETWEEN EACH SCENE (choose character, choose map) (2h) []
 
     CHECK NETWORK STATUS OF CLIENTS (2h) [] 
     

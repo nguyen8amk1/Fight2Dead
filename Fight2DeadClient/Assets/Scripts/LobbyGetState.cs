@@ -11,6 +11,7 @@ using UnityEngine.SceneManagement;
 
 public class LobbyGetState : MonoBehaviour
 {
+
     private ServerConnection connection = ServerConnection.Instance;
 
     private bool ready = false;

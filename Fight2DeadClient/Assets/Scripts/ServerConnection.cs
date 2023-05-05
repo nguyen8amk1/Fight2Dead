@@ -8,8 +8,6 @@ using System.Threading;
 using UnityEngine;
 
 // THIS GONNA BE A SINGLETON, kinda :v
-// TODO: refactor all the server connection to this class  
-
 public sealed class ServerConnection
 {
     private static string SERVER_IP;

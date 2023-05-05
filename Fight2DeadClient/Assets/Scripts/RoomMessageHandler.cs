@@ -35,7 +35,6 @@ public class RoomMessageHandler
         }
 	}
 
-
     public static void sendLobbyMessage(bool stat) 
     { 
         string lobbyStatMessage = $"rid:{globalGameState.RoomId},s:l,pid:{globalGameState.PlayerId},stat:{Convert.ToInt32(stat)}";

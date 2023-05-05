@@ -1,3 +1,40 @@
+TODAY: 
+    CONVERT PRE-PLAYING SCENES TO USE TCP (2h) [] 
+
+	(ONLY THE GAME CODE WILL USE UDP)
+	CURRENTLY EVERYTHING IN THIS GAME IS USING UDP, NOW WE GONNA MIGRATE TO TCP 
+
+	-> MAYBE WE SHOULD CREATE: 
+		TCPServerConnection use by (menu, matching, lobby, choose character, choose map, loading screen) pretty much all scenes so far :v 
+		and UDPServerConnection use by (the actual game scene) 
+
+		there are only 1 main connection though TCP or UDP 
+		but we can swap the 2 if we needed 
+		-> there are 1 time we gonna swap from TCP to UDP: after the loading scene 
+
+
+
+	// UPDATE THE SENDING MESSAGE CODE TO TCP 
+	// IN ALL THE SCENES - basically :v 
+	// CONNECT WITH THE ORIGINAL GAMEPLAY SCENE TO PLAY
+
+
+    HANDLE SOME IMPORTANT MESSAGE PASSING IN SCENES LIKE (WHAT IF THE MESSAGE GET LOST WHILE SENDING): LOBBY, CHARACTER CHOOSE...  (2h) []
+        -> TRY TO IMPLEMENT HOW TCP WORKS, OR USE TCP ITSELF :V 
+        -> THE INPUT IS SERVER'S IP/PORT AND CLIENT'S IP/PORT
+
+        -> EVERYTHING BEFORE THE ACTUAL PLAYING SCENE (MENU, WAITING FOR MATCH, LOBBY, CHOOSE CHARACTER, MAP SELECT, LOADING SCREEN) SHOULD BE TCP 
+        -> THE ONLY UDP IS THE PLAYING SCENE 
+
+
+
+
+	FIX THE CHOOSE CHARACTER SCENE AND THE CHOOSE MAP SCENE AS WELL (2h) [] (9h -> 11h)
+
+TODO: 
+
+DONE: 
+	// ACTUALLY FIX THE SAMPLE GAMEPLAY SCENE FIRST :v  (1h) [X] 
 /*
 TODO: Determine what the client received and format for each of them 
 
