@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace GameSocketServer {
     public class InRoomGlobalCloseConnectionState : IRoomState {
-        private ServerConnection connection = ServerConnection.getInstance();
+        private UDPServerConnection connection = UDPServerConnection.getInstance();
         private ServerGlobalData globalData = ServerGlobalData.getInstance();
 
         // -> When quit:   

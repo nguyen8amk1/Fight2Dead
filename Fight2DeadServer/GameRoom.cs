@@ -16,7 +16,7 @@ namespace GameSocketServer
         private Dictionary<string, ClientInfo> clients;
 
         private MessageStateFactory factory = new MessageStateFactory();
-        private ServerConnection connection = ServerConnection.getInstance();
+        private UDPServerConnection connection = UDPServerConnection.getInstance();
         private int roomId; 
 
         public GameRoom(int roomId, Dictionary<string, ClientInfo> clients) {

@@ -5,7 +5,7 @@ namespace GameSocketServer
 {
     public class ChooseCharacterState : IRoomState
     {
-        private ServerConnection connection = ServerConnection.getInstance();
+        private UDPServerConnection connection = UDPServerConnection.getInstance();
 
         public void serve(string message, Dictionary<string, ClientInfo> clients, int roomId)
         {

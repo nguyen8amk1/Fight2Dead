@@ -7,22 +7,22 @@ using System.Collections.Generic;
 
 namespace GameSocketServer
 {
-    public sealed class ServerConnection
+    public sealed class UDPServerConnection
     {
         private const int listeningPort = 8080;
         private UdpClient listener = null;
-        private static ServerConnection instance = null;
+        private static UDPServerConnection instance = null;
 
-        private ServerConnection()
+        private UDPServerConnection()
         {
             listener = new UdpClient(listeningPort);
         }
 
-        public static ServerConnection getInstance()
+        public static UDPServerConnection getInstance()
         {
             if (instance == null)
             {
-                instance = new ServerConnection();
+                instance = new UDPServerConnection();
             }
             return instance;
         }

@@ -9,7 +9,7 @@ namespace GameSocketServer
 {
     public class Server
     {
-        private ServerConnection connection = ServerConnection.getInstance(); 
+        private UDPServerConnection connection = UDPServerConnection.getInstance(); 
         private ServerGlobalData globalData = ServerGlobalData.getInstance();
         private MessageStateFactory factory = new MessageStateFactory();
 
@@ -19,6 +19,7 @@ namespace GameSocketServer
 
         public void go()
         {
+            // TODO: the conversion from TCP to UDP will happen here.
             while (true)
             {
                 InitialData data = connection.receiveData();

@@ -5,7 +5,7 @@ namespace GameSocketServer
 {
     public class PositionMessageState : IRoomState
     {
-        private ServerConnection connection = ServerConnection.getInstance();
+        private UDPServerConnection connection = UDPServerConnection.getInstance();
         public void serve(string message, Dictionary<string, ClientInfo> clients, int roomId)
         {
             // send to players 2, player1's pos 

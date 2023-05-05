@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace GameSocketServer {
     public class ChooseMapState : IRoomState {
-        private ServerConnection connection = ServerConnection.getInstance();
+        private UDPServerConnection connection = UDPServerConnection.getInstance();
         public void serve(string message, Dictionary<string, ClientInfo> clients, int roomId) {
             // receive format: "stg:{},pid:{}"
             // send format: "pid:{},mn:{}"
