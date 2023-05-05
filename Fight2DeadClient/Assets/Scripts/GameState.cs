@@ -14,6 +14,9 @@ public sealed class GameState
 	public string onlineMode = "NONE";
 	public string isRoomOwner = "false";
 
+	public string player1Name = "NoName";
+	public string player2Name = "NoName";
+
 	private GameState()
     {
         roomId = 0;
