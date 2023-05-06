@@ -8,7 +8,7 @@ public class CharacterSelect : MonoBehaviour
         char1_1, char2_1, char3_1, char4_1, char5_1, char6_1, char7_1, char8_1, char0_2, char1_2,
         char2_2, char3_2, char4_2, char5_2, char6_2, char7_2, char8_2, char0_3,
         char1_3, char2_3, char3_3, char4_3, char5_3, char6_3, char7_3, char8_3;
-    public static float selectVal = 0;
+    public static int selectVal = 0;
     public static int currentPlayer = 1;
     public GameObject characterSelect1, characterSelect2;
     public GameObject playerPosition1, playerPosition2;
@@ -21,6 +21,8 @@ public class CharacterSelect : MonoBehaviour
     private bool enterHit = false;
     private int enterCount = 0;
     private float speed = 3.0f;
+    string[] charName = new string[] { "Cap", "Venom", "Sasori", "Ishida", "Ken", "Ryu",
+        "Link","Reborn","Jotaro" };
     // Start is called before the first frame update
     void Start()
     {
@@ -89,39 +91,39 @@ public class CharacterSelect : MonoBehaviour
         }
         if (selectVal == 0)
         {
-            pointer.transform.position = new Vector3(256.9f, 238, 0);
+            pointer.transform.position = new Vector3(266, 242.6f, 0);
         }
         else if (selectVal == 1)
         {
-            pointer.transform.position = new Vector3(336.8f, 238, 0);
+            pointer.transform.position = new Vector3(345.5f, 242.6f, 0);
         }
         else if (selectVal == 2)
         {
-            pointer.transform.position = new Vector3(415.4f, 238, 0);
+            pointer.transform.position = new Vector3(424.14f, 242.6f, 0);
         }
         else if (selectVal == 3)
         {
-            pointer.transform.position = new Vector3(256.9f, 187.3f, 0);
+            pointer.transform.position = new Vector3(266, 191.6f, 0);
         }
         else if (selectVal == 4)
         {
-            pointer.transform.position = new Vector3(336.8f, 187.3f, 0);
+            pointer.transform.position = new Vector3(345.5f, 191.6f, 0);
         }
         else if (selectVal == 5)
         {
-            pointer.transform.position = new Vector3(415.4f, 187.3f, 0);
+            pointer.transform.position = new Vector3(424.14f, 191.6f, 0);
         }
         else if (selectVal == 6)
         {
-            pointer.transform.position = new Vector3(256.9f, 137.32f, 0);
+            pointer.transform.position = new Vector3(266f, 142.2f, 0);
         }
         else if (selectVal == 7)
         {
-            pointer.transform.position = new Vector3(336.8f, 137.32f, 0);
+            pointer.transform.position = new Vector3(345.5f, 142.2f, 0);
         }
         else if (selectVal == 8)
         {
-            pointer.transform.position = new Vector3(415.4f, 137.32f, 0);
+            pointer.transform.position = new Vector3(424.14f, 142.2f, 0);
         }
         switch (currentPlayer)
         {
@@ -558,9 +560,8 @@ public class CharacterSelect : MonoBehaviour
             float t = (float)(timingVar / .5f);
             if (enterCount == 1)
             {
-
-                currentPlayer = 2;
-                selectVal = 0;
+                Debug.Log("P1, " + charName[selectVal]);
+                currentPlayer = 2;                
                 characterSelect1.SetActive(true);
                 playerPosition1.transform.localScale = new Vector3(3.5f, 3.5f, 1);
                 playerPosition1.transform.position = Vector3.Lerp(startMaker, endMaker, t);
@@ -571,9 +572,8 @@ public class CharacterSelect : MonoBehaviour
             }
             else if (enterCount == 2)
             {
-
-                currentPlayer = 3;
-                selectVal = 0;
+                Debug.Log("P1, " + charName[selectVal]);
+                currentPlayer = 3;                
                 if (t >= 1)
                 {
                     enterHit = false;
@@ -581,9 +581,8 @@ public class CharacterSelect : MonoBehaviour
             }
             else if (enterCount == 3)
             {
-
+                Debug.Log("P2, " + charName[selectVal]);
                 currentPlayer = 4;
-                selectVal = 0;
                 characterSelect2.SetActive(true);
                 playerPosition2.transform.localScale = new Vector3(3.5f, 3.5f, 1);
                 playerPosition2.transform.position = Vector3.Lerp(startMaker_1, endMaker_1, t);
@@ -592,6 +591,10 @@ public class CharacterSelect : MonoBehaviour
                     enterHit = false;
                 }
             }
+            else if(enterCount ==4)
+            {
+                Debug.Log("P2, " + charName[selectVal]);
+            }    
             timingVar += Time.deltaTime * speed;
         }
         else timingVar = 0;
