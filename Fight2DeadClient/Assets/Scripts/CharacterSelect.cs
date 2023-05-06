@@ -12,6 +12,7 @@ public class CharacterSelect : MonoBehaviour
     public static int currentPlayer = 1;
     public GameObject characterSelect1, characterSelect2;
     public GameObject playerPosition1, playerPosition2;
+    public GameObject pointer;
     private Vector3 startMaker = new Vector3(-4.65f, -2.1f, 0);
     private Vector3 endMaker = new Vector3(-7.5f, -2.1f, 0);
     private Vector3 startMaker_1 = new Vector3(4.65f, -2.1f, 0);
@@ -69,7 +70,6 @@ public class CharacterSelect : MonoBehaviour
         {
             enterHit = true;
             enterCount++;
-            Debug.Log(enterCount);
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
@@ -87,7 +87,42 @@ public class CharacterSelect : MonoBehaviour
         {
             selectVal = (selectVal + 3) % 9;
         }
-
+        if (selectVal == 0)
+        {
+            pointer.transform.position = new Vector3(256.9f, 238, 0);
+        }
+        else if (selectVal == 1)
+        {
+            pointer.transform.position = new Vector3(336.8f, 238, 0);
+        }
+        else if (selectVal == 2)
+        {
+            pointer.transform.position = new Vector3(415.4f, 238, 0);
+        }
+        else if (selectVal == 3)
+        {
+            pointer.transform.position = new Vector3(256.9f, 187.3f, 0);
+        }
+        else if (selectVal == 4)
+        {
+            pointer.transform.position = new Vector3(336.8f, 187.3f, 0);
+        }
+        else if (selectVal == 5)
+        {
+            pointer.transform.position = new Vector3(415.4f, 187.3f, 0);
+        }
+        else if (selectVal == 6)
+        {
+            pointer.transform.position = new Vector3(256.9f, 137.32f, 0);
+        }
+        else if (selectVal == 7)
+        {
+            pointer.transform.position = new Vector3(336.8f, 137.32f, 0);
+        }
+        else if (selectVal == 8)
+        {
+            pointer.transform.position = new Vector3(415.4f, 137.32f, 0);
+        }
         switch (currentPlayer)
         {
             case 1:
@@ -300,7 +335,7 @@ public class CharacterSelect : MonoBehaviour
                         break;
                     default:
                         break;
-                }             
+                }
                 break;
             case 3:
                 switch (selectVal)
