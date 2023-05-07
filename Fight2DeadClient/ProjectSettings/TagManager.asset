@@ -3,20 +3,21 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Character
+  - 
   - Water
   - UI
   - Map
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Enemy
+  - Ground
+  - Damageable
+  - Dead
+  - Player
   - 
   - 
   - 
@@ -46,4 +47,10 @@ TagManager:
     locked: 0
   - name: Map
     uniqueID: 2689962389
+    locked: 0
+  - name: Enemy
+    uniqueID: 4086562189
+    locked: 0
+  - name: Player
+    uniqueID: 2104990943
     locked: 0
