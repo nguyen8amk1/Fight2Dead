@@ -28,6 +28,9 @@ public class CharacterSelect : MonoBehaviour
         "Link","Reborn","Jotaro" };
     private bool P1Log1 = false, P1Log2 = false, P2Log1 = false, P2Log2 = false;
     // Start is called before the first frame update
+
+    private GameState globalGameState = GameState.Instance;
+
     [Header("Switch Player")]
     public int ID = 1;
     void Start()
@@ -273,6 +276,7 @@ public class CharacterSelect : MonoBehaviour
             if (!P1Log1)
             {
                 Debug.Log("P1_char1: " + charName[selectVal]);
+                globalGameState.chosenCharacters[0] = charName[selectVal];
                 P1Log1 = true;
             }
             P2.SetActive(true);
@@ -398,6 +402,7 @@ public class CharacterSelect : MonoBehaviour
             if (!P1Log2)
             {
                 Debug.Log("P1_char2: " + charName[selectVal]);
+                globalGameState.chosenCharacters[1] = charName[selectVal];
                 P1Log2 = true;
             }
         }
@@ -519,6 +524,7 @@ public class CharacterSelect : MonoBehaviour
             if (!P2Log1)
             {
                 Debug.Log("P2_char1: " + charName[selectVal]);
+                globalGameState.chosenCharacters[3] = charName[selectVal];
                 P2Log1 = true;
             }
             P4.SetActive(true);
@@ -644,6 +650,7 @@ public class CharacterSelect : MonoBehaviour
             if (!P2Log2)
             {
                 Debug.Log("P2_char2: " + charName[selectVal]);
+                globalGameState.chosenCharacters[3] = charName[selectVal];
                 P2Log2 = true;
             }
         }
