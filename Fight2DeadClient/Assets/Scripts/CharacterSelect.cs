@@ -21,16 +21,18 @@ public class CharacterSelect : MonoBehaviour
     private Vector3 endMaker_1 = new Vector3(7.5f, -2.7f, 0);
     private float timingVar = 0;
     private float timingVar_1 = 0;
+    private float speed = 3.0f;
     private bool enterHitP1 = false, enterHitP2 = false;
     private int enterCount1 = 0, enterCount2 = 0;
-    private float speed = 3.0f;
     string[] charName = new string[] { "Cap", "Venom", "Sasori", "Ishida", "Ken", "Ryu",
         "Link","Reborn","Jotaro" };
+    private bool P1Log1 = false, P1Log2 = false, P2Log1 = false, P2Log2 = false;
     // Start is called before the first frame update
     [Header("Switch Player")]
     public int ID = 1;
     void Start()
     {
+
         Application.targetFrameRate = 60;
     }
 
@@ -81,7 +83,7 @@ public class CharacterSelect : MonoBehaviour
                 enterHitP1 = true;
                 enterCount1++;
             }
-            else if (ID == 2)
+            if (ID == 2)
             {
                 enterHitP2 = true;
                 enterCount2++;
@@ -157,7 +159,7 @@ public class CharacterSelect : MonoBehaviour
         }
         else pointer8.SetActive(false);
 
-        if (ID == 1 && !enterHitP1)
+        if (ID == 1 && enterCount1 == 0)
         {
             P1.SetActive(true);
             switch (selectVal)
@@ -265,10 +267,15 @@ public class CharacterSelect : MonoBehaviour
                     break;
             }
         }
-        if (enterHitP1 && enterCount1 == 1)
+
+        if (enterCount1 == 1)
         {
+            if (!P1Log1)
+            {
+                Debug.Log("P1_char1: " + charName[selectVal]);
+                P1Log1 = true;
+            }
             P2.SetActive(true);
-            Debug.Log("P1_Char1: " + charName[selectVal]);
             switch (selectVal)
             {
                 case 0:
@@ -373,25 +380,32 @@ public class CharacterSelect : MonoBehaviour
                 default:
                     break;
             }
+        }
+
+        if (enterCount1 == 1)
+        {
             float t = (float)(timingVar / .5f);
-            P2.transform.localScale = new Vector3(3f, 3.5f, 1);
-            P2.transform.position = Vector3.Lerp(startMaker, endMaker, t);
+            P1.transform.localScale = new Vector3(3f, 3.5f, 1);
+            P1.transform.position = Vector3.Lerp(startMaker, endMaker, t);
             if (t >= 1)
             {
                 enterHitP1 = false;
             }
             timingVar += Time.deltaTime * speed;
         }
-        if (enterHitP1 && enterCount1 == 2)
+        else if (enterCount1 == 2)
         {
-            Debug.Log("P1_char2: " + charName[selectVal]);
+            if (!P1Log2)
+            {
+                Debug.Log("P1_char2: " + charName[selectVal]);
+                P1Log2 = true;
+            }
         }
+        else timingVar = 0;
 
+        ////////////////////////////////////////
 
-        /////////////////////////////////////////////////////
-
-
-        if (ID == 2 && !enterHitP2)
+        if (ID == 2 && enterCount2 == 0)
         {
             currentPlayer = 2;
             P3.SetActive(true);
@@ -500,19 +514,14 @@ public class CharacterSelect : MonoBehaviour
                     break;
             }
         }
-        if (enterHitP2 == true && enterCount2 == 1)
+        if (enterCount2 == 1)
         {
-            P4.SetActive(true);
-            Debug.Log("P2_char1: " + charName[selectVal]);
-
-            float t = (float)(timingVar_1 / .5f);
-            P4.transform.localScale = new Vector3(3f, 3.5f, 1);
-            P4.transform.position = Vector3.Lerp(startMaker_1, endMaker_1, t);
-            if (t >= 1)
+            if (!P2Log1)
             {
-                enterHitP2 = false;
+                Debug.Log("P2_char1: " + charName[selectVal]);
+                P2Log1 = true;
             }
-            timingVar_1 += Time.deltaTime * speed;
+            P4.SetActive(true);
             switch (selectVal)
             {
                 case 0:
@@ -618,9 +627,25 @@ public class CharacterSelect : MonoBehaviour
                     break;
             }
         }
-        if (enterHitP2 && enterCount2 == 2)
+
+        if (enterCount2 == 1)
         {
-            Debug.Log("P2_char2: " + charName[selectVal]);
+            float t = (float)(timingVar_1 / .5f);
+            P3.transform.localScale = new Vector3(3f, 3.5f, 1);
+            P3.transform.position = Vector3.Lerp(startMaker_1, endMaker_1, t);
+            if (t >= 1)
+            {
+                enterHitP2 = false;
+            }
+            timingVar_1 += Time.deltaTime * speed;
+        }
+        else if (enterCount2 == 2)
+        {
+            if (!P2Log2)
+            {
+                Debug.Log("P2_char2: " + charName[selectVal]);
+                P2Log2 = true;
+            }
         }
     }
 }

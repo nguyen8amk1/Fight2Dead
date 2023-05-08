@@ -7903,7 +7903,7 @@ MonoBehaviour:
   characterSelect2: {fileID: 0}
   playerPosition1: {fileID: 0}
   playerPosition2: {fileID: 0}
-  ID: 1
+  ID: 2
 --- !u!1 &1924812104
 GameObject:
   m_ObjectHideFlags: 0
