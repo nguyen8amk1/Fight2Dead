@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 565332702ccfe0f4ea07df68e21ed7ac
+guid: e1f312f957628954ca12877ba080934d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,127 +105,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sasori_walk_0
+      name: sasori_3_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 715
+        width: 231
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eef7dd9be7a931a469a5095c3d644a7b
+      internalID: 1414682517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sasori_3_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 482
+        width: 231
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6786f857a8e64b148b556a31271e5930
+      internalID: 771100126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sasori_3_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 197
+        width: 231
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8859c13eef610d34d80120f7197fa6bf
+      internalID: 1540914534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sasori_3_3
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 127
+        width: 231
         height: 103
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e4f0567b92b369a4d8f51e5f5a3c5f82
-      internalID: 862559331
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sasori_walk_1
-      rect:
-        serializedVersion: 2
-        x: 150
-        y: 0
-        width: 132
-        height: 103
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 12e9ac01b59e4714b95ba4d8350f641e
-      internalID: 639599602
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sasori_walk_2
-      rect:
-        serializedVersion: 2
-        x: 310
-        y: 1
-        width: 132
-        height: 102
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0cdc792e3055e5344bce5ee49796c350
-      internalID: -1102888626
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sasori_walk_3
-      rect:
-        serializedVersion: 2
-        x: 511
-        y: 0
-        width: 125
-        height: 103
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2cc8bf750026dae4883b380d6e2c4a54
-      internalID: -202224844
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sasori_walk_4
-      rect:
-        serializedVersion: 2
-        x: 685
-        y: 0
-        width: 133
-        height: 103
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c8037b364a1e5a648b5613df9adb7a2c
-      internalID: -1915509047
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sasori_walk_5
-      rect:
-        serializedVersion: 2
-        x: 857
-        y: 0
-        width: 130
-        height: 103
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 87933672bb2e45041bbd64a20fcacba6
-      internalID: 32981006
+      spriteID: 631b31fafac720b438fc61b6a44a0340
+      internalID: 517716236
       vertices: []
       indices: 
       edges: []
@@ -241,12 +199,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      sasori_walk_0: 862559331
-      sasori_walk_1: 639599602
-      sasori_walk_2: -1102888626
-      sasori_walk_3: -202224844
-      sasori_walk_4: -1915509047
-      sasori_walk_5: 32981006
+      sasori_3_0: 1414682517
+      sasori_3_1: 771100126
+      sasori_3_2: 1540914534
+      sasori_3_3: 517716236
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
