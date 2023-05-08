@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 565332702ccfe0f4ea07df68e21ed7ac
+guid: d53c728c417a92949ae62f0101968a05
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,127 +105,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sasori_walk_0
+      name: sasori_id_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 45
         y: 0
-        width: 127
+        width: 129
         height: 103
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e4f0567b92b369a4d8f51e5f5a3c5f82
-      internalID: 862559331
+      spriteID: be34ee8b9a092734894da15c251f2dab
+      internalID: -1442762804
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sasori_walk_1
+      name: sasori_id_1
       rect:
         serializedVersion: 2
-        x: 150
+        x: 193
         y: 0
-        width: 132
+        width: 129
         height: 103
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 12e9ac01b59e4714b95ba4d8350f641e
-      internalID: 639599602
+      spriteID: 61f87f8f10d6e86469a3f8afa7f39f9d
+      internalID: 865253179
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sasori_walk_2
+      name: sasori_id_2
       rect:
         serializedVersion: 2
-        x: 310
-        y: 1
-        width: 132
-        height: 102
+        x: 350
+        y: 0
+        width: 129
+        height: 103
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0cdc792e3055e5344bce5ee49796c350
-      internalID: -1102888626
+      spriteID: 2eeddca64a1649043b595ff8ace0c103
+      internalID: 612653371
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sasori_walk_3
+      name: sasori_id_3
       rect:
         serializedVersion: 2
-        x: 511
+        x: 519
         y: 0
-        width: 125
+        width: 129
         height: 103
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2cc8bf750026dae4883b380d6e2c4a54
-      internalID: -202224844
+      spriteID: 7684ba74e0d00ae40a6485248a1d945b
+      internalID: 655480821
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sasori_walk_4
+      name: sasori_id_4
       rect:
         serializedVersion: 2
-        x: 685
+        x: 694
         y: 0
-        width: 133
+        width: 129
         height: 103
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c8037b364a1e5a648b5613df9adb7a2c
-      internalID: -1915509047
+      spriteID: 8b7bff20f906529498df1cd8c92aacbf
+      internalID: -253580682
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sasori_walk_5
+      name: sasori_id_5
       rect:
         serializedVersion: 2
-        x: 857
+        x: 880
         y: 0
-        width: 130
+        width: 129
         height: 103
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 87933672bb2e45041bbd64a20fcacba6
-      internalID: 32981006
+      spriteID: 572d36e5b1571a4459052d508cb38144
+      internalID: 1461003971
       vertices: []
       indices: 
       edges: []
@@ -241,12 +241,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      sasori_walk_0: 862559331
-      sasori_walk_1: 639599602
-      sasori_walk_2: -1102888626
-      sasori_walk_3: -202224844
-      sasori_walk_4: -1915509047
-      sasori_walk_5: 32981006
+      sasori_id_0: -536141698
+      sasori_id_1: -1442762804
+      sasori_id_2: 865253179
+      sasori_id_3: 612653371
+      sasori_id_4: 655480821
+      sasori_id_5: -253580682
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

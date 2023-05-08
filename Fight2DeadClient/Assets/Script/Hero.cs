@@ -95,12 +95,12 @@ public class Hero : MonoBehaviour
 
         // -- Handle Animations --
 
-        //Hurt
-        if (Input.GetKeyDown("q"))
-            m_animator.SetTrigger("Hurt");
+        // //Hurt
+        // if (Input.GetKeyDown("q"))
+        //     m_animator.SetTrigger("Hurt");
 
         //Attack
-        else if (Input.GetMouseButtonDown(0) && m_timeSinceAttack > 0.25f)
+        if (Input.GetMouseButtonDown(0) && m_timeSinceAttack > 0.25f)
         {
             m_currentAttack++;
 
