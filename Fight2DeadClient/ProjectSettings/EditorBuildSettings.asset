@@ -17,9 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Lobby.unity
     guid: aeaa2bdfd770974459213544f4905a3b
-  - enabled: 0
-    path: Assets/Scenes/ChooseCharacterScene.unity
-    guid: c7378e269a9fbf44db32bf46b4cd8151
+  - enabled: 1
+    path: Assets/Scenes/CharSelect.unity
+    guid: f00d776738caf1346b9331c2341a2e6c
   - enabled: 1
     path: Assets/Scenes/Map Select.unity
     guid: 61bf55b6d564d1a45b748a7e386dcc7e

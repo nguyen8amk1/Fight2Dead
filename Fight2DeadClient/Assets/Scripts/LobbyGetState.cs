@@ -47,9 +47,9 @@ public class LobbyGetState : MonoBehaviour
 
 	private int currentChoice = 0;
 	private Color blackStripChosenColor = new Color(255, 255, 255, 255);
-
 	// FIXME: this not chosen color is too dark 
 	private Color blackStripNotChosenColor = new Color(0, 0, 0, 136);
+
 	private Color notChosenColor = new Color(255, 255, 255);
 	private Color chosenColor = new Color(0, 0, 0);
 
