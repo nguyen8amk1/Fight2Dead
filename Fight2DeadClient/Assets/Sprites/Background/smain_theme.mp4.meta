@@ -11,7 +11,7 @@ VideoClipImporter:
   encodeAlpha: 0
   flipVertical: 1
   flipHorizontal: 1
-  importAudio: 1
+  importAudio: 0
   targetSettings:
     0:
       enableTranscoding: 1

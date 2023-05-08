@@ -6,10 +6,11 @@ public class FloatingFace : MonoBehaviour
 {
     public GameObject face0, face1, face2, face3, face4, face5, face6, face7, face8,
         face0_1, face1_1, face2_1, face3_1, face4_1, face5_1, face6_1, face7_1, face8_1;
+    
     private Vector3 startMaker = new Vector3(-17.0f, -5.0f, 0);
-    private Vector3 endMaker = new Vector3(-5.75f, -5.0f, 0);
+    private Vector3 endMaker = new Vector3(-6.15f, -5.0f, 0);
     private Vector3 startMaker_1 = new Vector3(17.0f, -5.0f, 0);
-    private Vector3 endMaker_1 = new Vector3(5.75f, -5.0f, 0);
+    private Vector3 endMaker_1 = new Vector3(6.3f, -5.0f, 0);
     private float timingVar = 0;
     private float speed = 2.0f;
     // Start is called before the first frame update
