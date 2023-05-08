@@ -1064,7 +1064,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &278863703
 Transform:
   m_ObjectHideFlags: 0
@@ -5627,7 +5627,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1366726118
 Transform:
   m_ObjectHideFlags: 0
@@ -7886,6 +7886,10 @@ MonoBehaviour:
   char6_3: {fileID: 1900987899}
   char7_3: {fileID: 674792430}
   char8_3: {fileID: 431929471}
+  P1: {fileID: 1366726116}
+  P2: {fileID: 1355394285}
+  P3: {fileID: 278863702}
+  P4: {fileID: 1434540174}
   pointer0: {fileID: 1563000269}
   pointer1: {fileID: 868951860}
   pointer2: {fileID: 1739426819}
@@ -7895,10 +7899,11 @@ MonoBehaviour:
   pointer6: {fileID: 25506702}
   pointer7: {fileID: 1608626472}
   pointer8: {fileID: 278076576}
-  characterSelect1: {fileID: 1355394285}
-  characterSelect2: {fileID: 1434540174}
-  playerPosition1: {fileID: 1366726116}
-  playerPosition2: {fileID: 278863702}
+  characterSelect1: {fileID: 0}
+  characterSelect2: {fileID: 0}
+  playerPosition1: {fileID: 0}
+  playerPosition2: {fileID: 0}
+  ID: 1
 --- !u!1 &1924812104
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,6 +13,8 @@ public class CharacterSelect : MonoBehaviour
         pointer8;
     public static int selectVal = 0;
     public static int currentPlayer = 1;
+    public GameObject characterSelect1, characterSelect2;
+    public GameObject playerPosition1, playerPosition2;
     private Vector3 startMaker = new Vector3(-4.8f, -2.7f, 0);
     private Vector3 endMaker = new Vector3(-7.5f, -2.7f, 0);
     private Vector3 startMaker_1 = new Vector3(4.9f, -2.7f, 0);
@@ -372,15 +374,15 @@ public class CharacterSelect : MonoBehaviour
                     break;
             }
             float t = (float)(timingVar / .5f);
-            P1.transform.localScale = new Vector3(3f, 3.5f, 1);
-            P1.transform.position = Vector3.Lerp(startMaker, endMaker, t);
+            P2.transform.localScale = new Vector3(3f, 3.5f, 1);
+            P2.transform.position = Vector3.Lerp(startMaker, endMaker, t);
             if (t >= 1)
             {
                 enterHitP1 = false;
             }
             timingVar += Time.deltaTime * speed;
         }
-        else if (enterHitP1 && enterCount1 == 2)
+        if (enterHitP1 && enterCount1 == 2)
         {
             Debug.Log("P1_char2: " + charName[selectVal]);
         }
@@ -498,10 +500,19 @@ public class CharacterSelect : MonoBehaviour
                     break;
             }
         }
-        if (enterHitP2 && enterCount2 == 1)
+        if (enterHitP2 == true && enterCount2 == 1)
         {
             P4.SetActive(true);
-            Debug.Log("P1_char1_2: " + charName[selectVal]);
+            Debug.Log("P2_char1: " + charName[selectVal]);
+
+            float t = (float)(timingVar_1 / .5f);
+            P4.transform.localScale = new Vector3(3f, 3.5f, 1);
+            P4.transform.position = Vector3.Lerp(startMaker_1, endMaker_1, t);
+            if (t >= 1)
+            {
+                enterHitP2 = false;
+            }
+            timingVar_1 += Time.deltaTime * speed;
             switch (selectVal)
             {
                 case 0:
@@ -606,16 +617,8 @@ public class CharacterSelect : MonoBehaviour
                 default:
                     break;
             }
-            float t = (float)(timingVar_1 / .5f);
-            P3.transform.localScale = new Vector3(3f, 3.5f, 1);
-            P3.transform.position = Vector3.Lerp(startMaker_1, endMaker_1, t);
-            if (t >= 1)
-            {
-                enterHitP2 = false;
-            }
-            timingVar_1 += Time.deltaTime * speed;
         }
-        else if (enterHitP2 && enterCount2 == 2)
+        if (enterHitP2 && enterCount2 == 2)
         {
             Debug.Log("P2_char2: " + charName[selectVal]);
         }
