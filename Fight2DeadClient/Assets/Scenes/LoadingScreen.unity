@@ -450,10 +450,10 @@ MonoBehaviour:
   SFrame4: {fileID: 936777722, guid: 0412142ec4e5b584ba5577f20e825266, type: 3}
   SFrame5: {fileID: 1724365751, guid: 0412142ec4e5b584ba5577f20e825266, type: 3}
   SFrame6: {fileID: -1362330446, guid: 0412142ec4e5b584ba5577f20e825266, type: 3}
-  IshidaTopLeft: {fileID: 21300000, guid: bb6f60eec914937459319b4e2ac31e6c, type: 3}
-  IshidaTopRight: {fileID: 21300000, guid: 6d6777a51bb20bb42923c7f99ce96a65, type: 3}
-  IshidaBottomLeft: {fileID: 21300000, guid: 7521767fa8958664491ea809a50d501f, type: 3}
-  IshidaBottomRight: {fileID: 21300000, guid: 6164fa09a70d99f4ea9262177f927659, type: 3}
+  GaaraTopLeft: {fileID: 21300000, guid: 2fbcc8ed55dd4424c9fc9f620d944daf, type: 3}
+  GaaraTopRight: {fileID: 21300000, guid: abd5edca685ec3142a4ba27617794291, type: 3}
+  GaaraBottomLeft: {fileID: 21300000, guid: b366327f6ae909745a4b59e186cc2921, type: 3}
+  GaaraBottomRight: {fileID: 21300000, guid: 8120f1ccf601635439b4fc5d8d43fc97, type: 3}
   VenomTopLeft: {fileID: 21300000, guid: 6c27aa08cf17d3c4181febd00a32ac12, type: 3}
   VenomTopRight: {fileID: 21300000, guid: 45218c824db6fdf4c8dbb7bcc7def019, type: 3}
   VenomBottomLeft: {fileID: 21300000, guid: 4e59dbb10a3669844b1243a0eaf29d98, type: 3}
@@ -470,6 +470,22 @@ MonoBehaviour:
   KenTopRight: {fileID: 21300000, guid: 51c4aa2b06e3a414a9e2699c39b4db37, type: 3}
   KenBottomLeft: {fileID: 21300000, guid: dcb73962557db4c4f9f2f553d9b50c41, type: 3}
   KenBottomRight: {fileID: 21300000, guid: 4f52f60d038df29498c62703ae783d82, type: 3}
+  JotaroTopLeft: {fileID: 21300000, guid: 56ffedd4f865e4448a6d9def9cfc4065, type: 3}
+  JotaroTopRight: {fileID: 21300000, guid: 11acfd91ccf1b6f49ad24ac0dc516fd5, type: 3}
+  JotaroBottomLeft: {fileID: 21300000, guid: 3424ba04d5206164296c3f1964ff254a, type: 3}
+  JotaroBottomRight: {fileID: 21300000, guid: ab86267b89b66f443873428f3293c0ec, type: 3}
+  LinkTopLeft: {fileID: 21300000, guid: b67809a65bdf6154a8afcc9f6aa45862, type: 3}
+  LinkTopRight: {fileID: 21300000, guid: 44877ccc60a552a4a90a2f290922666f, type: 3}
+  LinkBottomLeft: {fileID: 21300000, guid: de604bf16017d14439bb56d440496879, type: 3}
+  LinkBottomRight: {fileID: 21300000, guid: 2fcafee385ecdbe4a998a01c66374825, type: 3}
+  RebornTopLeft: {fileID: 21300000, guid: 6c38a842011048344bc91ac7aabed9cc, type: 3}
+  RebornTopRight: {fileID: 21300000, guid: e5c56ed189410c943a8dbaff7c85acce, type: 3}
+  RebornBottomLeft: {fileID: 21300000, guid: c05bd829c4e03d24ebc0212d3e6d180a, type: 3}
+  RebornBottomRight: {fileID: 21300000, guid: f0306c3c3efc6214b83dc50eac9103cd, type: 3}
+  SasoriTopLeft: {fileID: 21300000, guid: 4883a20f39b179b429cd1c941b1f8371, type: 3}
+  SasoriTopRight: {fileID: 21300000, guid: 798348e727b6a2f45820d1a0b097a422, type: 3}
+  SasoriBottomLeft: {fileID: 21300000, guid: 550b5f46180ff91459aac2db4953acb7, type: 3}
+  SasoriBottomRight: {fileID: 21300000, guid: 0fb3f0ae3e36c4d4da5915bbba14fe19, type: 3}
   orangeBackgroundSprite: {fileID: 21300000, guid: 044df612d5d487340907e39178dcf1ac, type: 3}
   whiteBackgroundSprite: {fileID: 21300000, guid: b30b7a06c89406f49b1505648f2e36b1, type: 3}
   earth: {fileID: 1947183374}

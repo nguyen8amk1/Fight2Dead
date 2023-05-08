@@ -24,11 +24,15 @@ public class CharacterSelect : MonoBehaviour
     private bool enterHitP1 = false, enterHitP2 = false;
     private int enterCount1 = 0, enterCount2 = 0;
     private float speed = 3.0f;
+
     string[] charName = new string[] { "Cap", "Venom", "Sasori", "Ishida", "Ken", "Ryu",
         "Link","Reborn","Jotaro" };
+
     // Start is called before the first frame update
     [Header("Switch Player")]
     public int ID = 1;
+
+    private GameState globalGameState = GameState.Instance; 
     void Start()
     {
         Application.targetFrameRate = 60;

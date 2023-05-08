@@ -17,6 +17,13 @@ public sealed class GameState
 	public string player1Name = "NoName";
 	public string player2Name = "NoName";
 
+	public string[] chosenCharacters = new string[] {
+														"jotaro",
+														"reborn",
+														"gaara",
+														"sasori"
+													};
+
 	private GameState()
     {
         roomId = 0;

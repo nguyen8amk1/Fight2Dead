@@ -162,10 +162,10 @@ public class LoadingSceneController : MonoBehaviour
     Dictionary<string, Sprite> allPlayerSprites = new Dictionary<string, Sprite>();
 
     // 24 sprites :)), no fun at all 
-    public Sprite IshidaTopLeft;
-    public Sprite IshidaTopRight;
-    public Sprite IshidaBottomLeft;
-    public Sprite IshidaBottomRight;
+    public Sprite GaaraTopLeft;
+    public Sprite GaaraTopRight;
+    public Sprite GaaraBottomLeft;
+    public Sprite GaaraBottomRight;
 
     public Sprite VenomTopLeft;
     public Sprite VenomTopRight;
@@ -187,24 +187,43 @@ public class LoadingSceneController : MonoBehaviour
     public Sprite KenBottomLeft;
     public Sprite KenBottomRight;
 
+    public Sprite JotaroTopLeft;
+    public Sprite JotaroTopRight;
+    public Sprite JotaroBottomLeft;
+    public Sprite JotaroBottomRight;
+
+    public Sprite LinkTopLeft;
+    public Sprite LinkTopRight;
+    public Sprite LinkBottomLeft;
+    public Sprite LinkBottomRight;
+
+    public Sprite RebornTopLeft;
+    public Sprite RebornTopRight;
+    public Sprite RebornBottomLeft;
+    public Sprite RebornBottomRight;
+
+    public Sprite SasoriTopLeft;
+    public Sprite SasoriTopRight;
+    public Sprite SasoriBottomLeft;
+    public Sprite SasoriBottomRight;
+
     public Sprite orangeBackgroundSprite;
     public Sprite whiteBackgroundSprite;
 
     public GameObject earth;
 
     // imagin this array gonna be given by the last scene  
-    private string[] chosenCharacters = new string[] {
-        "ken",
-        "capa",
-        "venom",
-        "ryu"
-    };
-
+    private string[] chosenCharacters; 
     private GameObject[] ps;
+    private GameState globalGameState = GameState.Instance;
 
     void Start()
     {
         Application.targetFrameRate = 60;
+        // get chosen player
+        chosenCharacters = globalGameState.chosenCharacters;
+
+
 
         initPlayerSprites();
         matchPlayerWithTheRightSprite();
@@ -311,10 +330,10 @@ public class LoadingSceneController : MonoBehaviour
 
     private void initPlayerSprites()
     {
-        allPlayerSprites.Add("ishida_top_left", IshidaTopLeft);
-        allPlayerSprites.Add("ishida_bottom_left", IshidaBottomLeft);
-        allPlayerSprites.Add("ishida_top_right", IshidaTopRight);
-        allPlayerSprites.Add("ishida_bottom_right", IshidaBottomRight);
+        allPlayerSprites.Add("gaara_top_left", GaaraTopLeft);
+        allPlayerSprites.Add("gaara_bottom_left", GaaraBottomLeft);
+        allPlayerSprites.Add("gaara_top_right", GaaraTopRight);
+        allPlayerSprites.Add("gaara_bottom_right", GaaraBottomRight);
 
         allPlayerSprites.Add("capa_top_left", CapATopLeft);
         allPlayerSprites.Add("capa_bottom_left", CapABottomLeft);
@@ -335,6 +354,27 @@ public class LoadingSceneController : MonoBehaviour
         allPlayerSprites.Add("ryu_bottom_left", RyuBottomLeft);
         allPlayerSprites.Add("ryu_top_right", RyuTopRight);
         allPlayerSprites.Add("ryu_bottom_right", RyuBottomRight);
+
+        allPlayerSprites.Add("jotaro_top_left", JotaroTopLeft);
+        allPlayerSprites.Add("jotaro_bottom_left", JotaroBottomLeft);
+        allPlayerSprites.Add("jotaro_top_right", JotaroTopRight);
+        allPlayerSprites.Add("jotaro_bottom_right", JotaroBottomRight);
+
+        allPlayerSprites.Add("reborn_top_left", RebornTopLeft);
+        allPlayerSprites.Add("reborn_bottom_left", RebornBottomLeft);
+        allPlayerSprites.Add("reborn_top_right", RebornTopRight);
+        allPlayerSprites.Add("reborn_bottom_right", RebornBottomRight);
+
+        allPlayerSprites.Add("sasori_top_left", SasoriTopLeft);
+        allPlayerSprites.Add("sasori_bottom_left", SasoriBottomLeft);
+        allPlayerSprites.Add("sasori_top_right", SasoriTopRight);
+        allPlayerSprites.Add("sasori_bottom_right", SasoriBottomRight);
+
+        allPlayerSprites.Add("link_top_left", LinkTopLeft);
+        allPlayerSprites.Add("link_bottom_left", LinkBottomLeft);
+        allPlayerSprites.Add("link_top_right", LinkTopRight);
+        allPlayerSprites.Add("link_bottom_right", LinkBottomRight);
+
     }
 
     private void setPlayerSprite(int i, Sprite sprite)
@@ -420,6 +460,7 @@ public class LoadingSceneController : MonoBehaviour
             // move to next scene ;
             // currentState = GlobalTimingStates.TO_VS_FILL;
             Debug.Log("TO NEXT SCENE");
+            Util.toNextScene();
         }
     }
 
