@@ -224,7 +224,6 @@ public class LoadingSceneController : MonoBehaviour
         chosenCharacters = globalGameState.chosenCharacters;
 
 
-
         initPlayerSprites();
         matchPlayerWithTheRightSprite();
 

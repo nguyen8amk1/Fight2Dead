@@ -67,13 +67,17 @@ public class RoomMessageHandler
 		}
     }
 
-    public static void sendChooseCharacterMessage() 
+    public static void sendChooseCharacterMessage(int pn, string charName) 
     {
         // TODO:
+        // send format: "rid:{},cn:{},pid:{}"
+        connection.sendToServer($"rid:{globalGameState.RoomId},cn:{charName},pn:{pn},pid:{globalGameState.PlayerId}");
     }
    
-    public static void sendChooseStageMessage() 
+    public static void sendChooseMapMessage(string mapName) 
     { 
         // TODO: 
+        // send format: "stg:{},pid:{}"
+        connection.sendToServer($"rid:{globalGameState.RoomId},stg:test,pid:{globalGameState.PlayerId}");
     }
 }

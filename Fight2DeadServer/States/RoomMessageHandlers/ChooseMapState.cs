@@ -9,7 +9,7 @@ namespace GameSocketServer {
             // send format: "pid:{},mn:{}"
 
             // get the name of the map 
-            string[] tokens = message.Split();
+            string[] tokens = message.Split(',');
             string mapName  = Util.getValueFrom(tokens[0]);
             int pid      = Int32.Parse(Util.getValueFrom(tokens[1]));
             string formatedMessage = string.Format("pid:{0},mn:{1}", pid, mapName);

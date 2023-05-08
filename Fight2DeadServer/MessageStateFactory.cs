@@ -27,7 +27,7 @@ namespace GameSocketServer {
             bool receiveLANQuitGameMessage = message.StartsWith("lan:quit");
             bool receivePositionWithId = message.StartsWith("pid:");
             bool receiveFromLobby = message.StartsWith("s:l");
-            bool receiveChosenCharacterInfo = message.StartsWith("s:ch");
+            bool receiveChosenCharacterInfo = message.StartsWith("cn:");
             bool receiveChosenMapInfo = message.StartsWith("stg:");
 
             // TODO: we should remove the start with part as well 

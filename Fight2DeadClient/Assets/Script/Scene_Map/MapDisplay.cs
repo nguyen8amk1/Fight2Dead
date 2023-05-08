@@ -14,8 +14,7 @@ public class MapDisplay : MonoBehaviour
 
     // TODO: send the message for map  
     // format: "rid:{roomId},stg:{},pid:{}"
-    private GameState playerInfo = GameState.Instance;
-    private ServerConnection connection = ServerConnection.Instance;
+    private GameState globalGameState = GameState.Instance;
     private Thread listenToServerThread;
 
     private bool allPlayersChosen = false;
@@ -24,41 +23,23 @@ public class MapDisplay : MonoBehaviour
        
 	private void Start()
 	{
-        listenToServerThread = new Thread(new ThreadStart(listenToServer));
+        initListenToServerThread();
+	}
+	private void initListenToServerThread()
+	{
+		RoomMessageHandler.MessageHandlerLambda messageHandler = (string[] tokens) =>
+		{
+            // received format: 
+            otherPlayerMakeChoice = true;
+		};
+
+        listenToServerThread = new Thread(() => RoomMessageHandler.listenToServer(messageHandler));
         listenToServerThread.Start();
 	}
 
 	private void OnApplicationQuit()
 	{
-        connection.quitGame();
-	}
-
-	private void listenToServer()
-	{
-        while(true)
-		{
-
-            string message = connection.receiveMessage();
-
-            // nhan message tu server thi: "pid:{oppid},mapName:{1}" 
-            string[] tokens = message.Split(',');
-            int pid = Int32.Parse(Util.getValueFrom(tokens[0]));
-            string mapName = Util.getValueFrom(tokens[1]);
-
-            // TODO: check if is message with map name or quit message
-
-            otherPlayerMakeChoice = !string.IsNullOrEmpty(mapName);
-
-            // TODO: check for quit message from other players
-            // format: "pid:{},st:quit"
-
-            /*
-            if()
-			{
-
-			}
-            */
-		}
+        RoomMessageHandler.sendCloseConnection();
 	}
 
 	private void Update()
@@ -67,11 +48,8 @@ public class MapDisplay : MonoBehaviour
 	    if(allPlayersChosen)
 		{
             // TODO: to next scene 
-            Util.toNextScene();
             listenToServerThread.Abort();
-            // Test only
-            allPlayersChosen = false;
-            hostPlayerMakeChoice = false;
+            Util.toNextScene();
 		}
 	}
 
@@ -84,11 +62,7 @@ public class MapDisplay : MonoBehaviour
 
         playButton.onClick.AddListener(() => {
             hostPlayerMakeChoice = true;
-
-            string message = $"rid:{playerInfo.RoomId},stg:{mapName.text},pid:{playerInfo.PlayerId}";
-            connection.sendToServer(message);
-
-            Debug.Log($"Send this message to server: {message}");
+            RoomMessageHandler.sendChooseMapMessage(mapName.text);
         });
     }
 }

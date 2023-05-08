@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class CharacterSelect : MonoBehaviour
@@ -24,19 +26,37 @@ public class CharacterSelect : MonoBehaviour
     private float speed = 3.0f;
     private bool enterHitP1 = false, enterHitP2 = false;
     private int enterCount1 = 0, enterCount2 = 0;
-    string[] charName = new string[] { "Cap", "Venom", "Sasori", "Ishida", "Ken", "Ryu",
-        "Link","Reborn","Jotaro" };
+    string[] charName = new string[] { "capa", "venom", "sasori", "gaara", "ken", "ryu",
+        "link","reborn","jotaro" };
     private bool P1Log1 = false, P1Log2 = false, P2Log1 = false, P2Log2 = false;
     // Start is called before the first frame update
 
     private GameState globalGameState = GameState.Instance;
+    private Thread listenToServerThread;
+    private int chosenCharacterCount = 0;
 
     [Header("Switch Player")]
-    public int ID = 1;
+    private int ID;
     void Start()
     {
-
+        ID = globalGameState.PlayerId;
         Application.targetFrameRate = 60;
+        initListenToServerThread();
+    }
+    private void initListenToServerThread()
+    {
+        RoomMessageHandler.MessageHandlerLambda messageHandler = (string[] tokens) =>
+        {
+            // TODO: received opponent player info right here 
+            // received format: pid:{},pn:{},cn:{}
+            int pn = Int32.Parse(Util.getValueFrom(tokens[1])) - 1;
+            string cn = Util.getValueFrom(tokens[2]);
+            globalGameState.chosenCharacters[pn] = cn;
+            chosenCharacterCount++;
+        };
+
+        listenToServerThread = new Thread(() => RoomMessageHandler.listenToServer(messageHandler));
+        listenToServerThread.Start();
     }
 
     public void Char0()
@@ -277,6 +297,8 @@ public class CharacterSelect : MonoBehaviour
             {
                 Debug.Log("P1_char1: " + charName[selectVal]);
                 globalGameState.chosenCharacters[0] = charName[selectVal];
+                RoomMessageHandler.sendChooseCharacterMessage(1, charName[selectVal]);
+                chosenCharacterCount++;
                 P1Log1 = true;
             }
             P2.SetActive(true);
@@ -403,6 +425,8 @@ public class CharacterSelect : MonoBehaviour
             {
                 Debug.Log("P1_char2: " + charName[selectVal]);
                 globalGameState.chosenCharacters[1] = charName[selectVal];
+                RoomMessageHandler.sendChooseCharacterMessage(2, charName[selectVal]);
+                chosenCharacterCount++;
                 P1Log2 = true;
             }
         }
@@ -524,7 +548,9 @@ public class CharacterSelect : MonoBehaviour
             if (!P2Log1)
             {
                 Debug.Log("P2_char1: " + charName[selectVal]);
-                globalGameState.chosenCharacters[3] = charName[selectVal];
+                globalGameState.chosenCharacters[2] = charName[selectVal];
+                RoomMessageHandler.sendChooseCharacterMessage(3, charName[selectVal]);
+                chosenCharacterCount++;
                 P2Log1 = true;
             }
             P4.SetActive(true);
@@ -651,8 +677,15 @@ public class CharacterSelect : MonoBehaviour
             {
                 Debug.Log("P2_char2: " + charName[selectVal]);
                 globalGameState.chosenCharacters[3] = charName[selectVal];
+                RoomMessageHandler.sendChooseCharacterMessage(4, charName[selectVal]);
+                chosenCharacterCount++;
                 P2Log2 = true;
             }
+        }
+
+        if(chosenCharacterCount >=4 ) {
+            listenToServerThread.Abort();
+            Util.toNextScene();
         }
     }
 }
