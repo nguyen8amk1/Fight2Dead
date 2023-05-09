@@ -80,7 +80,7 @@ public class FloatingFace : MonoBehaviour
                         ResetFace(face8);
                         float d = (float)(timingVar / .5f);
                         face3.transform.position = Vector3.Lerp(startMaker, endMaker, d);
-                        face3.transform.localScale = new Vector3(8.01f, 7.335f, 1);
+                        face3.transform.localScale = new Vector3(3.45f, 3.7f, 1);
                         break;
                     case 4:
                         ResetFace(face0);
@@ -145,7 +145,7 @@ public class FloatingFace : MonoBehaviour
                         ResetFace(face7);
                         float k = (float)(timingVar / .5f);
                         face8.transform.position = Vector3.Lerp(startMaker, endMaker, k);
-                        face8.transform.localScale = new Vector3(0.87f, 0.73f, 1);
+                        face8.transform.localScale = new Vector3(0.85f, 0.73f, 1);
                         break;
                     default:
                         break;
@@ -209,7 +209,7 @@ public class FloatingFace : MonoBehaviour
                         ResetFace(face8_1);
                         float d = (float)(timingVar / .5f);
                         face3_1.transform.position = Vector3.Lerp(startMaker_1, endMaker_1, d);
-                        face3_1.transform.localScale = new Vector3(8.01f, 7.335f, 1);
+                        face3_1.transform.localScale = new Vector3(3.45f, 3.7f, 1);
                         break;
                     case 4:
                         ResetFace(face0_1);
@@ -274,7 +274,7 @@ public class FloatingFace : MonoBehaviour
                         ResetFace(face7_1);
                         float k = (float)(timingVar / .5f);
                         face8_1.transform.position = Vector3.Lerp(startMaker_1, endMaker_1, k);
-                        face8_1.transform.localScale = new Vector3(0.87f, 0.73f, 1);
+                        face8_1.transform.localScale = new Vector3(0.85f, 0.73f, 1);
                         break;
                     default:
                         break;

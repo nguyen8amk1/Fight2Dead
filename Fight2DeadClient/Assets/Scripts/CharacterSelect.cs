@@ -24,7 +24,7 @@ public class CharacterSelect : MonoBehaviour
     private float speed = 3.0f;
     private bool enterHitP1 = false, enterHitP2 = false;
     private int enterCount1 = 0, enterCount2 = 0;
-    string[] charName = new string[] { "Cap", "Venom", "Sasori", "Ishida", "Ken", "Ryu",
+    string[] charName = new string[] { "Cap", "Venom", "Sasori", "Gaara", "Ken", "Ryu",
         "Link","Reborn","Jotaro" };
     private bool P1Log1 = false, P1Log2 = false, P2Log1 = false, P2Log2 = false;
     // Start is called before the first frame update
