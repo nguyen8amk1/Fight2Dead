@@ -1,0 +1,70 @@
+using System;
+using System.Threading;
+using System.Net.Sockets;
+using System.Net;
+using System.Text;
+
+namespace SocketServer
+{
+    public sealed class UDPServerConnection : IServerConnection
+    {
+        private static readonly UDPServerConnection instance = new UDPServerConnection();
+
+        public static UDPServerConnection Instance
+        {
+            get
+            {
+                return instance;
+            }
+        }
+        private int udpPort = 8000;
+        private UdpClient udpClient = new UdpClient();
+        private string serverIp = "127.0.0.1";
+
+        private UDPServerConnection()
+        {
+
+        }
+
+        public void sendToServer(string message)
+        {
+            byte[] udpMessage = Encoding.ASCII.GetBytes(message);
+            udpClient.Send(udpMessage, udpMessage.Length, serverIp, udpPort);
+        }
+
+        public Thread createListenToServerThread(ListenToServerFactory.MessageHandlerLambda messageHandler)
+        {
+            return new Thread(() => listenToUDPServer(messageHandler));
+        }
+
+        public void close()
+        {
+            udpClient.Close();
+        }
+
+        public void inheritPortFrom(TCPServerConnection tcpConnection)
+        {
+            int sourcePort = ((IPEndPoint)tcpConnection.getTcpClient().Client.LocalEndPoint).Port;
+            udpClient.Client.Bind(new IPEndPoint(IPAddress.Any, sourcePort));
+        }
+
+        private void listenToUDPServer(ListenToServerFactory.MessageHandlerLambda messageHandler)
+        {
+            while (true)
+            {
+                // TODO: 
+                IPEndPoint remoteEndPoint = new IPEndPoint(IPAddress.Parse(serverIp), udpPort);
+                int listeningPort = ((IPEndPoint)udpClient.Client.LocalEndPoint).Port;
+                Console.WriteLine("Listening for server at port " + listeningPort);
+                byte[] bytes = udpClient.Receive(ref remoteEndPoint);
+                string message = Encoding.ASCII.GetString(bytes);
+                Console.WriteLine("Received udp data: " + message);
+
+
+                string[] tokens = message.Split(',');
+                messageHandler(tokens);
+            }
+        }
+    }
+
+}
