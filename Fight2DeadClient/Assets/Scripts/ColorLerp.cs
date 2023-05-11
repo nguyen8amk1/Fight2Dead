@@ -18,7 +18,6 @@ public class ColorLerp : MonoBehaviour
         image = GetComponent<Image>();
         image.color = s_color[currentIndex];
     }
-
     private void Update()
     {
         image.color = Color.Lerp(image.color, s_color[nextIndex], speed * Time.deltaTime);
