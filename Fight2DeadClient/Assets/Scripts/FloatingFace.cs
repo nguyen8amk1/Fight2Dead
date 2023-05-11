@@ -25,7 +25,7 @@ public class FloatingFace : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        switch (CharacterSelect.currentPlayer)
+        switch (CharacterSelect.currentID)
         {
             case 1:
                 switch (CharacterSelect.selectVal)

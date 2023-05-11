@@ -4,17 +4,21 @@ using UnityEngine;
 
 public class CharacterSelect : MonoBehaviour
 {
+    [Header("Switch Player")]
+    public int ID = 1;
+    [Header("Switch Mode")]
+    public int Mode = 1;   
     public GameObject char0, char1, char2, char3, char4, char5, char6, char7, char8, char0_1,
         char1_1, char2_1, char3_1, char4_1, char5_1, char6_1, char7_1, char8_1, char0_2, char1_2,
         char2_2, char3_2, char4_2, char5_2, char6_2, char7_2, char8_2, char0_3,
         char1_3, char2_3, char3_3, char4_3, char5_3, char6_3, char7_3, char8_3;
     public GameObject P1, P2, P3, P4;
+    public GameObject P1_icon, P1_1_icon, P2_icon, P2_1_icon, P3_icon, P2_2_icon, P4_icon;
     public GameObject pointer0, pointer1, pointer2, pointer3, pointer4, pointer5, pointer6, pointer7,
         pointer8;
     public static int selectVal = 0;
-    public static int currentPlayer = 1;
-    public GameObject characterSelect1, characterSelect2;
-    public GameObject playerPosition1, playerPosition2;
+    public static int currentID = 1;
+
     private Vector3 startMaker = new Vector3(-4.8f, -2.7f, 0);
     private Vector3 endMaker = new Vector3(-7.5f, -2.7f, 0);
     private Vector3 startMaker_1 = new Vector3(4.9f, -2.7f, 0);
@@ -28,8 +32,7 @@ public class CharacterSelect : MonoBehaviour
         "Link","Reborn","Jotaro" };
     private bool P1Log1 = false, P1Log2 = false, P2Log1 = false, P2Log2 = false;
     // Start is called before the first frame update
-    [Header("Switch Player")]
-    public int ID = 1;
+    
     void Start()
     {
 
@@ -75,6 +78,20 @@ public class CharacterSelect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Mode == 1)
+        {
+            P1_icon.SetActive(true);
+            P1_1_icon.SetActive(true);
+            P2_1_icon.SetActive(true);
+            P2_2_icon.SetActive(true);
+        }    
+        if(Mode == 2)
+        {
+            P1_icon.SetActive(true);
+            P2_icon.SetActive(true);
+            P3_icon.SetActive(true);
+            P4_icon.SetActive(true);
+        }    
 
         if (Input.GetKeyDown(KeyCode.Return))
         {
@@ -407,7 +424,7 @@ public class CharacterSelect : MonoBehaviour
 
         if (ID == 2 && enterCount2 == 0)
         {
-            currentPlayer = 2;
+            currentID = 2;
             P3.SetActive(true);
             switch (selectVal)
             {
