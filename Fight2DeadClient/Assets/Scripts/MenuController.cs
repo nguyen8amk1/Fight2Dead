@@ -77,7 +77,7 @@ public class MenuController : MonoBehaviour
 
     public void NewGameDialogYes(string _newScene)
     {
-        SceneManager.LoadScene(_newScene);
+        Util.toNextScene();
     }
 
     public void LoadGameDialogYes()
