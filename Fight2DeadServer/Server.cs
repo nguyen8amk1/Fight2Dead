@@ -19,7 +19,6 @@ namespace SocketServer
         private PlayerMatcher playerMatcher = new PlayerMatcher();
 
         public static Dictionary<string, GameRoom> rooms = new Dictionary<string, GameRoom>();
-
         public void run()
         {
             initConnections();

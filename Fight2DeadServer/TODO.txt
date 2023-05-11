@@ -1,0 +1,5 @@
+TODO: 
+    let's redesign the message between them:
+    old message system: 
+    .... (go to the assembly branch, get all the old messages and todolist)
+
