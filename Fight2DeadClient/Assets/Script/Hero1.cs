@@ -1,7 +1,8 @@
-﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class Hero : MonoBehaviour
+public class Hero1 : MonoBehaviour
 {
     [SerializeField] float m_speed = 4.0f;
     [SerializeField] float m_jumpForce = 7.5f;
@@ -13,6 +14,9 @@ public class Hero : MonoBehaviour
     private int m_currentAttack = 0;
     private float m_timeSinceAttack = 0.0f;
     private float m_delayToIdle = 0.0f;
+    public Collider2D hitCollider;
+    public float pushForce;
+    public LayerMask targetLayer;
     //DOUBLE JUMP
     private int m_jumpsLeft = 2;
     private bool canDoubleJump;
@@ -22,16 +26,16 @@ public class Hero : MonoBehaviour
     public float attackoffset;
     public LayerMask enemyLayers;
     private bool isAttacking = false;
-    private Hurt3 hurt3;
-    // Use this for initializationz
+    private Hurt1 hurt1;
+    // Use this for initialization
+    //test
     public int GetFacingDirection()
     {
         return m_facingDirection;
     }
     void Start()
     {
-        //test
-        hurt3 = GetComponent<Hurt3>();
+        hurt1 = GetComponent<Hurt1>();
 
         m_animator = GetComponent<Animator>();
         m_body2d = GetComponent<Rigidbody2D>();
@@ -74,7 +78,7 @@ public class Hero : MonoBehaviour
         }
 
         // -- Handle input and movement --
-        float inputX = Input.GetAxis("Horizontal");
+        float inputX = Input.GetAxis("Horizontal1");
 
         // Swap direction of sprite depending on walk direction
         if (inputX > 0)
@@ -90,7 +94,7 @@ public class Hero : MonoBehaviour
         }
 
         // Move
-        if (!isAttacking && !hurt3.checkKnock())
+        if (!isAttacking && !hurt1.checkKnock())
         {
             m_body2d.velocity = new Vector2(inputX * m_speed, m_body2d.velocity.y);
         }
@@ -121,7 +125,7 @@ public class Hero : MonoBehaviour
             m_timeSinceAttack = 0.0f;
         }
         //Attack
-        if (Input.GetMouseButtonDown(0) && m_timeSinceAttack > 0.25f)
+        if (Input.GetKeyDown(KeyCode.Keypad1) && m_timeSinceAttack > 0.25f)
         {
             m_currentAttack++;
 
@@ -171,7 +175,7 @@ public class Hero : MonoBehaviour
         //     m_groundSensor.Disable(0.2f);
         // }
         // else if (Input.GetKeyDown("space"))
-        else if (Input.GetKeyDown("w"))
+        else if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             if (m_grounded)
             {
@@ -248,7 +252,7 @@ public class Hero : MonoBehaviour
             // Debug.Log("Enemy object: " + enemy);
             // Debug.Log("Enemy object: " + transform.parent);
             // enemy.GetComponent<Hurt1>().Damage();
-            Hurt1 hurtComponent = enemy.GetComponent<Hurt1>();
+            Hurt3 hurtComponent = enemy.GetComponent<Hurt3>();
             if (hurtComponent != null)
             {
 
@@ -270,6 +274,5 @@ public class Hero : MonoBehaviour
         Vector2 attackPointPosition = (Vector2)transform.position + attackDirection * attackoffset;
         Gizmos.DrawWireSphere(attackPointPosition, attackRange);
     }
-
 
 }
