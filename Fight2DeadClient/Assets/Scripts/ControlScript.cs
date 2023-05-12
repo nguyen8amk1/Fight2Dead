@@ -15,7 +15,6 @@ public class ControlScript : MonoBehaviour
     public float x = -100, y = -100;
 
     private GameState globalGameState = GameState.Instance;
-    private ServerConnection connection = ServerConnection.Instance;
     private int id; 
 
 	// Start is called before the first frame update
@@ -38,7 +37,7 @@ public class ControlScript : MonoBehaviour
             this.transform.position += new Vector3(speed * Time.deltaTime, 0, 0);
             if (id > -1) { 
 				string position = $"id:{id}:{this.transform.position.x},{this.transform.position.y}";
-				connection.sendToServer(position);
+				// connection.sendToServer(position);
 			}
         }
         else if (Input.GetKey(KeyCode.LeftArrow))
@@ -46,7 +45,7 @@ public class ControlScript : MonoBehaviour
             this.transform.position += new Vector3(-speed * Time.deltaTime, 0, 0);
             if (id > -1) { 
 				string position = $"id:{id}:{this.transform.position.x},{this.transform.position.y}";
-				connection.sendToServer(position);
+				// connection.sendToServer(position);
 			}
         }
 
@@ -57,7 +56,7 @@ public class ControlScript : MonoBehaviour
 			{
 
 				string position = $"id:{id}:{this.transform.position.x},{this.transform.position.y}";
-				connection.sendToServer(position);
+				//connection.sendToServer(position);
 			}
         }
         else if (Input.GetKey(KeyCode.DownArrow))
@@ -66,7 +65,7 @@ public class ControlScript : MonoBehaviour
 			if (id > -1)
 			{
 				string position = $"id:{id}:{this.transform.position.x},{this.transform.position.y}";
-				connection.sendToServer(position);
+				// connection.sendToServer(position);
 			}
         }
     }

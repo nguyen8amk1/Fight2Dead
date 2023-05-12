@@ -9,13 +9,17 @@ public sealed class GameState
     private int roomId;
     private int playerId;
 
+    public int numPlayers = 2; 
     private string[] characterNames = new string[4];
 	public int charNameCount = 0;
-	public string onlineMode = "NONE";
+	public string onlineMode = "GLOBAL";
 	public string isRoomOwner = "false";
+
+    public bool receiveRidPid = false;
 
 	public string player1Name = "NoName";
 	public string player2Name = "NoName";
+	public bool opponentReady = false;
 
 	private GameState()
     {

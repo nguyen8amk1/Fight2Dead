@@ -18,7 +18,7 @@ namespace SocketServer
                 // -> broadcast with message: "allready"
 
                 // TODO: refactor all the message sending to a class 
-                broadcast(room.tcpPlayers, "allready");
+                TCPClientConnection.broadcast(room.tcpPlayers, "allready");
 
                 // -> convert that tcp room into udp room and remove that tcp room from Dict both tcpClients and toUdpWaitList
                 foreach (Player p in room.toUdpWaitList.Values)
@@ -34,16 +34,5 @@ namespace SocketServer
 
             }
         }
-
-        private void broadcast(Dictionary<string, Player> tcpPlayers, string message)
-        {
-            foreach (Player p in tcpPlayers.Values)
-            {
-                // Send response
-                p.tcpClient.Client.Send(Encoding.ASCII.GetBytes(message));
-                dlog.messageSent(p.id, 2, message);
-            }
-        }
-
     }
 }

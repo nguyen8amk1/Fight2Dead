@@ -15,7 +15,6 @@ public class MapDisplay : MonoBehaviour
     // TODO: send the message for map  
     // format: "rid:{roomId},stg:{},pid:{}"
     private GameState playerInfo = GameState.Instance;
-    private ServerConnection connection = ServerConnection.Instance;
     private Thread listenToServerThread;
 
     private bool allPlayersChosen = false;
@@ -30,7 +29,7 @@ public class MapDisplay : MonoBehaviour
 
 	private void OnApplicationQuit()
 	{
-        connection.quitGame();
+        Debug.Log("TODO: send quit message from map chose scene");
 	}
 
 	private void listenToServer()
@@ -38,26 +37,6 @@ public class MapDisplay : MonoBehaviour
         while(true)
 		{
 
-            string message = connection.receiveMessage();
-
-            // nhan message tu server thi: "pid:{oppid},mapName:{1}" 
-            string[] tokens = message.Split(',');
-            int pid = Int32.Parse(Util.getValueFrom(tokens[0]));
-            string mapName = Util.getValueFrom(tokens[1]);
-
-            // TODO: check if is message with map name or quit message
-
-            otherPlayerMakeChoice = !string.IsNullOrEmpty(mapName);
-
-            // TODO: check for quit message from other players
-            // format: "pid:{},st:quit"
-
-            /*
-            if()
-			{
-
-			}
-            */
 		}
 	}
 
@@ -86,9 +65,8 @@ public class MapDisplay : MonoBehaviour
             hostPlayerMakeChoice = true;
 
             string message = $"rid:{playerInfo.RoomId},stg:{mapName.text},pid:{playerInfo.PlayerId}";
-            connection.sendToServer(message);
 
-            Debug.Log($"Send this message to server: {message}");
+            Debug.Log($"TODO: Send this message to server: {message}");
         });
     }
 }

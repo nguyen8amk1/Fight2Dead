@@ -43,6 +43,7 @@ public class InfoCoordinator : MonoBehaviour
     }
 	private void initListenToServerThread()
 	{
+		/*
 		RoomMessageHandler.MessageHandlerLambda messageHandler = (string[] tokens) =>
 		{
 			// TODO: get the x, y
@@ -56,11 +57,12 @@ public class InfoCoordinator : MonoBehaviour
 
         listenToServerThread = new Thread(() => RoomMessageHandler.listenToServer(messageHandler));
         listenToServerThread.Start();
+		*/
 	}
 
 	private void OnApplicationQuit()
 	{
-		RoomMessageHandler.sendCloseConnection();
+		// RoomMessageHandler.sendCloseConnection();
 	}
 
 
