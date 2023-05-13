@@ -4,7 +4,7 @@ TODAY:
             waiting scene  [X]
             lobby   scene  [X] 
             choose character scene  [X]
-            choose map scene scene  []
+            choose map scene scene  [X]
             loading          scene  []
     ADD 4 PLAYER MODE (3h) []
     SEND AND HANDLE QUIT MESSAGE WITH THE NEW SYSTEM (2h) [] 

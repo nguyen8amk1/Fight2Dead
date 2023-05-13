@@ -29,15 +29,15 @@ namespace SocketServer {
 				}
 
                 bool isChosenCharacterMessage = Util.getKeyFrom(tokens[0]) == "pid" && 
-												Util.getKeyFrom(tokens[1]) == "cn";
+												Util.getKeyFrom(tokens[1]) == "pn" && 
+												Util.getKeyFrom(tokens[2]) == "cn";
                 if(isChosenCharacterMessage)
 				{
-                    int index = Int32.Parse(Util.getValueFrom(tokens[0])) - 1;
-                    string charName = Util.getValueFrom(tokens[1]);
-                    gameState.chosenCharacters[index] = charName;
-                    Debug.Log($"Opponent Character name: {charName} at {index}");
+                    int pn = Int32.Parse(Util.getValueFrom(tokens[1])) - 1;
+                    string cn = Util.getValueFrom(tokens[2]);
+                    gameState.chosenCharacters[pn] = cn;
                     gameState.charNameCount++;
-				}
+                }
 
                 bool isChosenMapMessage = Util.getKeyFrom(tokens[0]) == "pid" && 
 												Util.getKeyFrom(tokens[1]) == "mn";

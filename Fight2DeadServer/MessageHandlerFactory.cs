@@ -14,8 +14,11 @@ namespace SocketServer {
             }
 
             bool isChooseCharacterMessage = 
-                Util.getKeyFrom(tokens[0]) == "pid" && 
-                Util.getKeyFrom(tokens[1]) == "cn";
+                // Util.getKeyFrom(tokens[0]) == "pid" && 
+                // Util.getKeyFrom(tokens[1]) == "cn";
+                Util.getKeyFrom(tokens[0]) == "cn" && 
+                Util.getKeyFrom(tokens[1]) == "pn" && 
+                Util.getKeyFrom(tokens[2]) == "pid";
 
             if(isChooseCharacterMessage) {
                 return new ChooseCharacterMessageHandler();

@@ -296,7 +296,7 @@ public class CharacterSelect : MonoBehaviour
                 globalGameState.chosenCharacters[0] = charName[selectVal];
                 globalGameState.charNameCount++;
 
-                string message = PreGameMessageGenerator.chooseCharacterMessage(charName[selectVal]);
+                string message = PreGameMessageGenerator.chooseCharacterMessage(1, charName[selectVal]);
                 ServerCommute.connection.sendToServer(message);
                 P1Log1 = true;
             }
@@ -425,7 +425,7 @@ public class CharacterSelect : MonoBehaviour
                 Debug.Log("P1_char2: " + charName[selectVal]);
                 globalGameState.chosenCharacters[1] = charName[selectVal];
                 globalGameState.charNameCount++;
-                string message = PreGameMessageGenerator.chooseCharacterMessage(charName[selectVal]);
+                string message = PreGameMessageGenerator.chooseCharacterMessage(2, charName[selectVal]);
                 ServerCommute.connection.sendToServer(message);
                 P1Log2 = true;
             }
@@ -550,7 +550,7 @@ public class CharacterSelect : MonoBehaviour
                 Debug.Log("P2_char1: " + charName[selectVal]);
                 globalGameState.chosenCharacters[2] = charName[selectVal];
                 globalGameState.charNameCount++;
-                string message = PreGameMessageGenerator.chooseCharacterMessage(charName[selectVal]);
+                string message = PreGameMessageGenerator.chooseCharacterMessage(3, charName[selectVal]);
                 ServerCommute.connection.sendToServer(message);
                 P2Log1 = true;
             }
@@ -680,7 +680,7 @@ public class CharacterSelect : MonoBehaviour
                 globalGameState.chosenCharacters[3] = charName[selectVal];
                 globalGameState.charNameCount++;
 
-                string message = PreGameMessageGenerator.chooseCharacterMessage(charName[selectVal]);
+                string message = PreGameMessageGenerator.chooseCharacterMessage(4, charName[selectVal]);
                 ServerCommute.connection.sendToServer(message);
                 P2Log2 = true;
             }
