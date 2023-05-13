@@ -1,3 +1,4 @@
+using SocketServer;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,67 +12,37 @@ using UnityEngine.SceneManagement;
 public class MatchingSceneMessageHandler : MonoBehaviour
 {
     // Start is called before the first frame update
-    private ServerConnection connection = ServerConnection.Instance;
-    private int roomId, playerId;
     private bool tns = false;
     private GameState gameState = GameState.Instance;
-    private Thread listenToServerThread;
-
 
     // Start is called before the first frame update
     void Start()
     {
         Debug.Log("Sending establish new connection message to server");
-        GameMessageHandler.sendEstablishNewConnectionWithServerMessage();
+        string numPlayersMessage = PreGameMessageGenerator.numPlayersMessage(gameState.numPlayers);
+        ServerCommute.connection.sendToServer(numPlayersMessage);
 
-        // set game mode to global
-        gameState.onlineMode = "GLOBAL";
-
-        initListenToServerThread();
+        ServerCommute.listenToServerThread = ServerCommute.connection.createListenToServerThread(ListenToServerFactory.tempTCPListening());
+        ServerCommute.listenToServerThread.Start();
     }
-
-	private void initListenToServerThread()
-	{
-        listenToServerThread = new Thread(new ThreadStart(listenToServer));
-        listenToServerThread.Start();
-	}
 
 	private void OnApplicationQuit()
 	{
-        GameMessageHandler.sendCloseConnectionWithServerMessage();
+        Debug.Log("TODO: Send quit message in MATCHING scene");
 	}
-
-	private void listenToServer()
-    {
-        // TODO: somehow refactor this code to a messageHandler lambda
-        while (true)
-        {
-            string message = connection.receiveMessage();
-            string[] tokens = message.Split(',');
-
-            if(message.StartsWith("rid:"))
-			{
-                // message format: rid:x,pid:x
-                string[] idKeyPairs = message.Split(',');
-				string[] ridPair = idKeyPairs[0].Split(':');
-                string[] pidPair = idKeyPairs[1].Split(':');
-
-				gameState.RoomId = Int32.Parse(ridPair[1]);
-				gameState.PlayerId = Int32.Parse(pidPair[1]);
-
-                tns = true;   
-                break;
-			}
-		}
-    }
 
     // Update is called once per frame
     void Update()
     {
+        if(gameState.receiveRidPid)
+		{
+			tns = true;
+            gameState.receiveRidPid = false; 
+		}
+
         if (tns)
 		{
             Util.toNextScene();
-            listenToServerThread.Abort();
 		}
 
     }

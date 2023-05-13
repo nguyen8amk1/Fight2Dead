@@ -11,7 +11,6 @@ using UnityEngine.SceneManagement;
 
 public class LobbyGetState : MonoBehaviour
 {
-    private ServerConnection connection = ServerConnection.Instance;
 
     private bool ready = false;
     private bool opponentReady = false;
@@ -75,35 +74,20 @@ public class LobbyGetState : MonoBehaviour
 		readyText = readyObj.GetComponent<TextMeshProUGUI>();
 		exitText = exitObj.GetComponent<TextMeshProUGUI>();
 
-		initListenToServerThread();
-	}
-
-	private void initListenToServerThread()
-	{
-		RoomMessageHandler.MessageHandlerLambda messageHandler = (string[] tokens) =>
-		{
-			// TODO: put any process of the tokens here
-			// received format: "pid:{oppid},stat:{1}" 
-
-			int stat = Int32.Parse(getValue(tokens[1]));
-			opponentReady = stat == 1;
-			count = 0;
-		};
-
-        listenToServerThread = new Thread(() => RoomMessageHandler.listenToServer(messageHandler));
-        listenToServerThread.Start();
 	}
 
 	private void OnApplicationQuit()
 	{
-		RoomMessageHandler.sendCloseConnection();
+		//RoomMessageHandler.sendCloseConnection();
+		Debug.Log("TODO: send quit message from lobby");
 	}
 
 	public void readyIsChosen()
 	{
         ready = !ready;
 
-        RoomMessageHandler.sendLobbyMessage(ready);
+		// RoomMessageHandler.sendLobbyMessage(ready);
+		Debug.Log("TODO: send lobby ready/not ready mssage");
 
         bool isPlayer1 = globalGameState.PlayerId == 1;
         bool isPlayer2 = globalGameState.PlayerId == 2;
@@ -156,6 +140,10 @@ public class LobbyGetState : MonoBehaviour
 	// Update is called once per frame
 	void Update()
     {
+		if(globalGameState.opponentReady)
+		{
+			count = 0;
+		}
 
 		if(Input.GetKeyDown(KeyCode.UpArrow))
 		{

@@ -13,16 +13,14 @@ public class ControlScript : MonoBehaviour
 	// TODO: pass all of these from the infoCoordinator
 	public float speed = 3;
     public float x = -100, y = -100;
-    public int id = -1; 
-    public string SERVER_IP = "";
-    public const int PORT = 8080;
-    public UdpClient serverSocket;
 
-	// TODO: implement a selective control system of some kind 
+    private GameState globalGameState = GameState.Instance;
+    private int id; 
 
 	// Start is called before the first frame update
 	void Start()
     {
+        id = globalGameState.PlayerId;
     }
 
 	// Update is called once per frame
@@ -39,7 +37,7 @@ public class ControlScript : MonoBehaviour
             this.transform.position += new Vector3(speed * Time.deltaTime, 0, 0);
             if (id > -1) { 
 				string position = $"id:{id}:{this.transform.position.x},{this.transform.position.y}";
-				sendToServer(position);
+				// connection.sendToServer(position);
 			}
         }
         else if (Input.GetKey(KeyCode.LeftArrow))
@@ -47,7 +45,7 @@ public class ControlScript : MonoBehaviour
             this.transform.position += new Vector3(-speed * Time.deltaTime, 0, 0);
             if (id > -1) { 
 				string position = $"id:{id}:{this.transform.position.x},{this.transform.position.y}";
-				sendToServer(position);
+				// connection.sendToServer(position);
 			}
         }
 
@@ -58,7 +56,7 @@ public class ControlScript : MonoBehaviour
 			{
 
 				string position = $"id:{id}:{this.transform.position.x},{this.transform.position.y}";
-				sendToServer(position);
+				//connection.sendToServer(position);
 			}
         }
         else if (Input.GetKey(KeyCode.DownArrow))
@@ -67,15 +65,8 @@ public class ControlScript : MonoBehaviour
 			if (id > -1)
 			{
 				string position = $"id:{id}:{this.transform.position.x},{this.transform.position.y}";
-				sendToServer(position);
+				// connection.sendToServer(position);
 			}
         }
     }
-
-	private void sendToServer(string message)
-	{
-        Debug.Log("Send to server");
-        byte[] bytes = Encoding.ASCII.GetBytes(message);
-        serverSocket.Send(bytes, bytes.Length, SERVER_IP, PORT);
-	}
 }

@@ -39,7 +39,15 @@ public class MapDisplay : MonoBehaviour
 
 	private void OnApplicationQuit()
 	{
-        RoomMessageHandler.sendCloseConnection();
+        Debug.Log("TODO: send quit message from map chose scene");
+	}
+
+	private void listenToServer()
+	{
+        while(true)
+		{
+
+		}
 	}
 
 	private void Update()
@@ -62,7 +70,10 @@ public class MapDisplay : MonoBehaviour
 
         playButton.onClick.AddListener(() => {
             hostPlayerMakeChoice = true;
-            RoomMessageHandler.sendChooseMapMessage(mapName.text);
+
+            string message = $"rid:{playerInfo.RoomId},stg:{mapName.text},pid:{playerInfo.PlayerId}";
+
+            Debug.Log($"TODO: Send this message to server: {message}");
         });
     }
 }
