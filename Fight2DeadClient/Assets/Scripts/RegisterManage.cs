@@ -60,6 +60,8 @@ public class RegisterManage : MonoBehaviour
         string password = passwordInputField.text;
         string confirmpassword = confirmPasswordInputField.text;
 
+        Debug.Log("TODO: Perform the syntax check then pass to the server for storing");
+
         foreach (string existingUsername in usernameList)
         {
             if (existingUsername == username)

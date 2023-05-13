@@ -1,4 +1,6 @@
 TODAY: 
+    CONNECT THE GAME MODE/SETTINGS WITH THE GAME MENU (1h) []
+
     ADD 4 PLAYER MODE (2h) []
         CLIENT: 
             currently we are in 1v1 mode even when hit 2v2 button 
@@ -27,9 +29,11 @@ TODAY:
 
     CREATE A DATABASE FOR STORING PEOPLE'S LOGIN INFO (1h) [] (First decide what to use first maybe: MySql for cross platform)
 
+
     tong cong: 5h  
 
 TODO: 
+    
     SEND AND HANDLE QUIT MESSAGE WITH THE NEW SYSTEM (4h) [] (THIS CURRENTLY IS DOING FOR 1V1 ONLY)
         quit message have to be TCP  
         any of these scene can have a quit: 
@@ -105,6 +109,7 @@ TODO:
     ADD 4 PLAYER MODE [] -> CHANGE THE MENU AS WELL 
     
 DONE: 
+    CONNECT THE LOGIN/REGISTER WITH THE REST OF THE SCENES (1h) [X] (kinda) :v 
     GLOBAL MODE: 
         lobby scene [X]  
         GLOBAL MODE: - DONE  

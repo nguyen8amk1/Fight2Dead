@@ -30,6 +30,10 @@ public class ChangeInput : MonoBehaviour
         string username = usernameInputField.text;
         string password = passwordInputField.text;
 
+        // @Test
+        Debug.Log("TODO: Send to server for checking if the info is valid \n (Can go to next scene without login info just for testing)");
+        Util.toNextScene();
+
         if (!IsValidEmail(username) || password.Length < 6)
         {
             Debug.Log("Invalid username or password");

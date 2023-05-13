@@ -38,14 +38,14 @@ public sealed class GameState
         playerId = 0;
 
         scenesOrder.Add("PRESS_ANY_KEY", 0);
-        scenesOrder.Add("MENU", 1);
-        scenesOrder.Add("MATCHING", 2);
-        scenesOrder.Add("LOBBY", 3);
-        scenesOrder.Add("CHARACTER_SELECT", 4);
-        scenesOrder.Add("MAP_SELECT", 5);
-        scenesOrder.Add("LOADING_SCREEN", 6);
-        scenesOrder.Add("MAP3", 7);
-        //scenesOrder.Add(8, "mainMenu");
+        scenesOrder.Add("LOGIN/REGISTER", 1);
+        scenesOrder.Add("MENU", 2);
+        scenesOrder.Add("MATCHING", 3);
+        scenesOrder.Add("LOBBY", 4);
+        scenesOrder.Add("CHARACTER_SELECT", 5);
+        scenesOrder.Add("MAP_SELECT", 6);
+        scenesOrder.Add("LOADING_SCREEN", 7);
+        scenesOrder.Add("MAP3", 8);
     }
 
     public static GameState Instance
