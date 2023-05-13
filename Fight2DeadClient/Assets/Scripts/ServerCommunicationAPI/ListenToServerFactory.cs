@@ -35,8 +35,16 @@ namespace SocketServer {
                     int index = Int32.Parse(Util.getValueFrom(tokens[0])) - 1;
                     string charName = Util.getValueFrom(tokens[1]);
                     gameState.chosenCharacters[index] = charName;
+                    Debug.Log($"Opponent Character name: {charName} at {index}");
                     gameState.charNameCount++;
-                    Debug.Log($"charNameCount: {gameState.charNameCount}");
+				}
+
+                bool isChosenMapMessage = Util.getKeyFrom(tokens[0]) == "pid" && 
+												Util.getKeyFrom(tokens[1]) == "mn";
+                if(isChosenMapMessage)
+				{
+                    // TODO: 
+                    gameState.opponentMapChosen = true; 
 				}
             };
             return messageHandler;

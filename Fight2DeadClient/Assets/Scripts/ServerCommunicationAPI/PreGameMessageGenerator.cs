@@ -6,8 +6,8 @@ namespace SocketServer {
             return "numsPlayer:" + numPlayers;
         }
 
-        public static string chooseMapMessage() {
-            return null;
+        public static string chooseMapMessage(string mapName) {
+            return $"pid:{globalGameState.PlayerId},stg:{mapName}";
         }
 
         public static string chooseCharacterMessage(string charName) {

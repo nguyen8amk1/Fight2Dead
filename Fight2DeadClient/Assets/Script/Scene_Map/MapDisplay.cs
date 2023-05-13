@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Threading;
 using System;
+using SocketServer;
 
 public class MapDisplay : MonoBehaviour
 {
@@ -15,11 +16,9 @@ public class MapDisplay : MonoBehaviour
     // TODO: send the message for map  
     // format: "rid:{roomId},stg:{},pid:{}"
     private GameState globalGameState = GameState.Instance;
-    private Thread listenToServerThread;
 
     private bool allPlayersChosen = false;
-    private bool otherPlayerMakeChoice = false;
-    private bool hostPlayerMakeChoice = false;
+
        
 	private void Start()
 	{
@@ -30,21 +29,11 @@ public class MapDisplay : MonoBehaviour
         Debug.Log("TODO: send quit message from map chose scene");
 	}
 
-	private void listenToServer()
-	{
-        while(true)
-		{
-
-		}
-	}
-
 	private void Update()
 	{
-		allPlayersChosen = hostPlayerMakeChoice && otherPlayerMakeChoice;
+		allPlayersChosen = globalGameState.hostPlayerMapChosen && globalGameState.opponentMapChosen;
 	    if(allPlayersChosen)
 		{
-            // TODO: to next scene 
-            listenToServerThread.Abort();
             Util.toNextScene();
 		}
 	}
@@ -57,9 +46,10 @@ public class MapDisplay : MonoBehaviour
         playButton.onClick.RemoveAllListeners();
 
         playButton.onClick.AddListener(() => {
-            hostPlayerMakeChoice = true;
+            globalGameState.hostPlayerMapChosen = true;
 
-            string message = $"pid:{globalGameState.PlayerId},stg:{mapName.text}";
+            string message = PreGameMessageGenerator.chooseMapMessage(mapName.text);
+            ServerCommute.connection.sendToServer(message);
 
             Debug.Log($"TODO: Send this message to server: {message}");
         });

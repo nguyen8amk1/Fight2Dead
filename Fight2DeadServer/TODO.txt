@@ -1,5 +1,4 @@
 TODAY: 
-    CREATE A MESSAGE HANDLER SYSTEM FOR THE CLIENT AS WELL (1h) []
     FINISH ATTACH NETWORKING CODE TO THE SCENES (2h) []  
         which scenes: 
             waiting scene  [X]
@@ -7,15 +6,17 @@ TODAY:
             choose character scene  [X]
             choose map scene scene  []
             loading          scene  []
+    ADD 4 PLAYER MODE (3h) []
+    SEND AND HANDLE QUIT MESSAGE WITH THE NEW SYSTEM (2h) [] 
 
     DESIGN THE DATABASE FIRST BEFORE IMPLEMENT IT (1h) [] 
+
     CREATE A DATABASE FOR STORING PEOPLE'S LOGIN INFO (1h) [] (First decide what to use first maybe: MySql for cross platform)
 
     tong cong: 5h  
 
 TODO: 
-    SEND AND HANDLE QUIT MESSAGE WITH THE NEW SYSTEM (2h) [] 
-    ADD 4 PLAYER MODE (3h) []
+    CREATE A MESSAGE HANDLER SYSTEM FOR THE CLIENT AS WELL (1h) [] (Optional)
 
     UPDATE THE GRADIENT AND THE COLOR OF THE BLACKSTRIP OF THE LOBBY SCENE (1h) []
     -> (CHOOSE CHARACTER, MAP SELECT, LOADING SCREEN)

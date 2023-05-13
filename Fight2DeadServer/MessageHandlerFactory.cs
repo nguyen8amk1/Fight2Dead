@@ -21,6 +21,14 @@ namespace SocketServer {
                 return new ChooseCharacterMessageHandler();
             }
 
+            bool isChooseMapMessage = 
+                Util.getKeyFrom(tokens[0]) == "pid" && 
+                Util.getKeyFrom(tokens[1]) == "stg";
+
+            if(isChooseMapMessage) {
+                return new ChooseMapMessageHandler();
+            }
+
             if (message == "toudp")
             {
                 return new ToUDPMessageHandler();

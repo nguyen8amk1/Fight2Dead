@@ -21,7 +21,12 @@ public sealed class GameState
     public string player2Name = "NoName";
     public bool opponentReady = false;
 
-    public string[] chosenCharacters = new string[4]; 
+    // character 
+    public string[] chosenCharacters = new string[4];
+
+    // map 
+	public bool hostPlayerMapChosen = false;
+	public bool opponentMapChosen = false;
 
 	private GameState()
     {

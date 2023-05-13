@@ -25,8 +25,8 @@ public class CharacterSelect : MonoBehaviour
     private float speed = 3.0f;
     private bool enterHitP1 = false, enterHitP2 = false;
     private int enterCount1 = 0, enterCount2 = 0;
-    string[] charName = new string[] { "Cap", "Venom", "Sasori", "Gaara", "Ken", "Ryu",
-        "Link","Reborn","Jotaro" };
+    string[] charName = new string[] { "capa", "venom", "sasori", "gaara", "ken", "ryu",
+        "link","reborn","jotaro" };
     private bool P1Log1 = false, P1Log2 = false, P2Log1 = false, P2Log2 = false;
     private GameState globalGameState = GameState.Instance;
 
@@ -293,6 +293,7 @@ public class CharacterSelect : MonoBehaviour
             if (!P1Log1)
             {
                 Debug.Log("P1_char1: " + charName[selectVal]);
+                globalGameState.chosenCharacters[0] = charName[selectVal];
                 globalGameState.charNameCount++;
 
                 string message = PreGameMessageGenerator.chooseCharacterMessage(charName[selectVal]);
@@ -422,6 +423,7 @@ public class CharacterSelect : MonoBehaviour
             if (!P1Log2)
             {
                 Debug.Log("P1_char2: " + charName[selectVal]);
+                globalGameState.chosenCharacters[1] = charName[selectVal];
                 globalGameState.charNameCount++;
                 string message = PreGameMessageGenerator.chooseCharacterMessage(charName[selectVal]);
                 ServerCommute.connection.sendToServer(message);
@@ -546,6 +548,7 @@ public class CharacterSelect : MonoBehaviour
             if (!P2Log1)
             {
                 Debug.Log("P2_char1: " + charName[selectVal]);
+                globalGameState.chosenCharacters[2] = charName[selectVal];
                 globalGameState.charNameCount++;
                 string message = PreGameMessageGenerator.chooseCharacterMessage(charName[selectVal]);
                 ServerCommute.connection.sendToServer(message);
@@ -674,7 +677,9 @@ public class CharacterSelect : MonoBehaviour
             if (!P2Log2)
             {
                 Debug.Log("P2_char2: " + charName[selectVal]);
+                globalGameState.chosenCharacters[3] = charName[selectVal];
                 globalGameState.charNameCount++;
+
                 string message = PreGameMessageGenerator.chooseCharacterMessage(charName[selectVal]);
                 ServerCommute.connection.sendToServer(message);
                 P2Log2 = true;
@@ -683,6 +688,11 @@ public class CharacterSelect : MonoBehaviour
 
         if(globalGameState.charNameCount >= 4)
 		{
+			Debug.Log("all the chosen characters");
+            foreach(string name in globalGameState.chosenCharacters)
+			{
+                Debug.Log(name);
+			}
             Util.toNextScene();
 		}
     }
