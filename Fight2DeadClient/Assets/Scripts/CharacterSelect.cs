@@ -42,7 +42,14 @@ public class CharacterSelect : MonoBehaviour
         Mode = globalGameState.numPlayers/2;
     }
 
-    public void Char0()
+	private void OnApplicationQuit()
+	{
+		Debug.Log("Send quit message from Character Select");
+		string quitMessage = PreGameMessageGenerator.quitMessage();
+		ServerCommute.connection.sendToServer(quitMessage);
+	}
+
+	public void Char0()
     {
         selectVal = 0;
     }
@@ -81,6 +88,28 @@ public class CharacterSelect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		if(globalGameState.onlineMode.Equals("LAN"))
+		{
+			if(globalGameState.lobby_P1Quit)
+			{
+				Debug.Log("TODO: remove the P1 on screen");
+			}
+
+			if(globalGameState.lobby_P2Quit)
+			{
+				Debug.Log("TODO: remove the P2 on screen");
+			}
+		}
+		else if(globalGameState.onlineMode.Equals("GLOBAL"))
+		{
+			if (globalGameState.lobby_P1Quit ||
+				globalGameState.lobby_P2Quit)
+			{
+				Debug.Log("Go back to menu");
+				Util.toSceneWithIndex(globalGameState.scenesOrder["MENU"]);
+			}
+		}
+
         if(Mode == 1)
         {
             P1_icon.SetActive(true);

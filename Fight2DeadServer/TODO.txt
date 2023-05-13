@@ -8,26 +8,43 @@ TODAY:
             quit when in a tcp room: -> send to the TCP thread loop 
             client send format: "quit" -> remove from tcp room 
             server send format (send to others in the room): "pid:{},quit" 
+
+            GLOBAL MODE: 
                 lobby scene [X]  
                 GLOBAL MODE: - DONE  
                     client [X] -> go back to the menu 
                     server [X] -> remove the tcp room 
+
+                choose character scene [X]
+                GLOBAL MODE: - DONE 
+                    client [X] -> go back to menu 
+                    server [X] -> remove the tcp room 
+
+                choose map scene scene []
+                GLOBAL MODE:  
+                    client [X] -> go back to menu 
+                    server [X] -> remove the tcp room 
+
+                loading scene  [] -> DO NOTHING FOR NOW  
+
+            LAN MODE: 
+                lobby scene []  
                 LAN MODE: 
                     client [] 
                         -> if room owner -> remove the opponent on screen when the opponent quit message arrive 
                         -> else go back to the menu 
-                    server [X] 
+                    server [] 
 
                 choose character scene []
-                GLOBAL MODE: 
-                    client [] -> go back to menu 
-                    server []
-                    
                 LAN MODE: 
                     client [] -> go back to  
                     server []
 
                 choose map scene scene []
+                LAN MODE: 
+                    client [] -> go back to  
+                    server []
+
                 loading scene  []
                 
         INGAME:
