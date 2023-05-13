@@ -173,6 +173,7 @@ public class LobbyGetState : MonoBehaviour
 			currentChoice = (++currentChoice) % 2;
 			Debug.Log("Current choice is + " + currentChoice.ToString());
 		}
+
 		if(Input.GetKeyDown(KeyCode.Return))
 		{
 			if(currentChoice == 0)
@@ -243,7 +244,6 @@ public class LobbyGetState : MonoBehaviour
 			exitBlackStrip.color = blackStripNotChosenColor;
 			exitText.color = notChosenColor;
 		}
-
 
         if(count == 0)
 		{

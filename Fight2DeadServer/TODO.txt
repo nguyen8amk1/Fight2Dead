@@ -2,15 +2,15 @@ TODAY:
     ADD 4 PLAYER MODE (2h) []
         CLIENT: 
             currently we are in 1v1 mode even when hit 2v2 button 
-            -> change the mode when click on different buttons (1v1, 2v2)
+            -> change the mode when click on different buttons (1v1, 2v2) [X]
 
-            change the lobby -> now we have 4 people (4 lines)
+            change the lobby -> now we have 4 people (4 lines) @current
             
             change the choose character -> 
                 choose character in 2v2 problems: 
                     the player can only choose 1 character 
                     Solution: 
-                        show the character whenever it showed (DO THIS WAY)
+                        show the character whenever it showed (DO THIS WAY) (live showing the chosen characters)
                             -> p1 and p3 choose first then p2 and p4 -> can keep the sliding animation 
                             -> currently we don't have this scene done yet, so first stick with the 1 character chose way 
 
@@ -27,14 +27,23 @@ TODAY:
             stuff more players into one room, then that's pretty much it really :v 
 
     DESIGN THE DATABASE FIRST BEFORE IMPLEMENT IT (1h) [] 
+        WHAT TO STORE?  
+            players info: 
+                email 
+                password 
+
+                USE MYSQL for storage 
+
+                what can we do to it: -> need an interface between them  
+                    insert 
+                    query
 
     CREATE A DATABASE FOR STORING PEOPLE'S LOGIN INFO (1h) [] (First decide what to use first maybe: MySql for cross platform)
-
 
     tong cong: 5h  
 
 TODO: 
-    
+    TEST IF C# COULD RUN ON UBUNTU 
     SEND AND HANDLE QUIT MESSAGE WITH THE NEW SYSTEM (4h) [] (THIS CURRENTLY IS DOING FOR 1V1 ONLY)
         quit message have to be TCP  
         any of these scene can have a quit: 
