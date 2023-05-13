@@ -23,18 +23,6 @@ public class MapDisplay : MonoBehaviour
        
 	private void Start()
 	{
-        initListenToServerThread();
-	}
-	private void initListenToServerThread()
-	{
-		RoomMessageHandler.MessageHandlerLambda messageHandler = (string[] tokens) =>
-		{
-            // received format: 
-            otherPlayerMakeChoice = true;
-		};
-
-        listenToServerThread = new Thread(() => RoomMessageHandler.listenToServer(messageHandler));
-        listenToServerThread.Start();
 	}
 
 	private void OnApplicationQuit()
@@ -71,7 +59,7 @@ public class MapDisplay : MonoBehaviour
         playButton.onClick.AddListener(() => {
             hostPlayerMakeChoice = true;
 
-            string message = $"rid:{playerInfo.RoomId},stg:{mapName.text},pid:{playerInfo.PlayerId}";
+            string message = $"rid:{globalGameState.RoomId},stg:{mapName.text},pid:{globalGameState.PlayerId}";
 
             Debug.Log($"TODO: Send this message to server: {message}");
         });

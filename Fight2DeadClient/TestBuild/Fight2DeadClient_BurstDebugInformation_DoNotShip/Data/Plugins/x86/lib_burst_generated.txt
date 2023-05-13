@@ -133,6 +133,7 @@ Library: lib_burst_generated
 --generate-link-xml=Temp\burst.link.xml
 --output=D:\Programming\UnityProject\Fight2Dead\Fight2DeadClient\Temp\StagingArea\Data\Plugins\x86\lib_burst_generated
 --root-assembly=D:\Programming\UnityProject\Fight2Dead\Fight2DeadClient\Temp\StagingArea\Data\Managed\UnityEngine.UI.dll
+--root-assembly=D:\Programming\UnityProject\Fight2Dead\Fight2DeadClient\Temp\StagingArea\Data\Managed\Assembly-CSharp.dll
 --root-assembly=D:\Programming\UnityProject\Fight2Dead\Fight2DeadClient\Temp\StagingArea\Data\Managed\Unity.VisualScripting.Flow.dll
 --root-assembly=D:\Programming\UnityProject\Fight2Dead\Fight2DeadClient\Temp\StagingArea\Data\Managed\Unity.Mathematics.dll
 --root-assembly=D:\Programming\UnityProject\Fight2Dead\Fight2DeadClient\Temp\StagingArea\Data\Managed\Unity.VisualScripting.State.dll
@@ -141,7 +142,6 @@ Library: lib_burst_generated
 --root-assembly=D:\Programming\UnityProject\Fight2Dead\Fight2DeadClient\Temp\StagingArea\Data\Managed\Unity.2D.Animation.Runtime.dll
 --root-assembly=D:\Programming\UnityProject\Fight2Dead\Fight2DeadClient\Temp\StagingArea\Data\Managed\Unity.TextMeshPro.dll
 --root-assembly=D:\Programming\UnityProject\Fight2Dead\Fight2DeadClient\Temp\StagingArea\Data\Managed\Unity.Timeline.dll
---root-assembly=D:\Programming\UnityProject\Fight2Dead\Fight2DeadClient\Temp\StagingArea\Data\Managed\Assembly-CSharp.dll
 --root-assembly=D:\Programming\UnityProject\Fight2Dead\Fight2DeadClient\Temp\StagingArea\Data\Managed\Unity.2D.SpriteShape.Runtime.dll
 --root-assembly=D:\Programming\UnityProject\Fight2Dead\Fight2DeadClient\Temp\StagingArea\Data\Managed\Unity.2D.PixelPerfect.dll
 --root-assembly=D:\Programming\UnityProject\Fight2Dead\Fight2DeadClient\Temp\StagingArea\Data\Managed\Unity.2D.Common.Runtime.dll
@@ -289,6 +289,7 @@ Library: lib_burst_generated
 --generate-link-xml=Temp\burst.link.xml
 --output=D:\Programming\UnityProject\Fight2Dead\Fight2DeadClient\Temp\StagingArea\Data\Plugins\x86\lib_burst_generated
 --root-assembly=D:\Programming\UnityProject\Fight2Dead\Fight2DeadClient\Temp\StagingArea\Data\Managed\UnityEngine.UI.dll
+--root-assembly=D:\Programming\UnityProject\Fight2Dead\Fight2DeadClient\Temp\StagingArea\Data\Managed\Assembly-CSharp.dll
 --root-assembly=D:\Programming\UnityProject\Fight2Dead\Fight2DeadClient\Temp\StagingArea\Data\Managed\Unity.VisualScripting.Flow.dll
 --root-assembly=D:\Programming\UnityProject\Fight2Dead\Fight2DeadClient\Temp\StagingArea\Data\Managed\Unity.Mathematics.dll
 --root-assembly=D:\Programming\UnityProject\Fight2Dead\Fight2DeadClient\Temp\StagingArea\Data\Managed\Unity.VisualScripting.State.dll
@@ -297,7 +298,6 @@ Library: lib_burst_generated
 --root-assembly=D:\Programming\UnityProject\Fight2Dead\Fight2DeadClient\Temp\StagingArea\Data\Managed\Unity.2D.Animation.Runtime.dll
 --root-assembly=D:\Programming\UnityProject\Fight2Dead\Fight2DeadClient\Temp\StagingArea\Data\Managed\Unity.TextMeshPro.dll
 --root-assembly=D:\Programming\UnityProject\Fight2Dead\Fight2DeadClient\Temp\StagingArea\Data\Managed\Unity.Timeline.dll
---root-assembly=D:\Programming\UnityProject\Fight2Dead\Fight2DeadClient\Temp\StagingArea\Data\Managed\Assembly-CSharp.dll
 --root-assembly=D:\Programming\UnityProject\Fight2Dead\Fight2DeadClient\Temp\StagingArea\Data\Managed\Unity.2D.SpriteShape.Runtime.dll
 --root-assembly=D:\Programming\UnityProject\Fight2Dead\Fight2DeadClient\Temp\StagingArea\Data\Managed\Unity.2D.PixelPerfect.dll
 --root-assembly=D:\Programming\UnityProject\Fight2Dead\Fight2DeadClient\Temp\StagingArea\Data\Managed\Unity.2D.Common.Runtime.dll

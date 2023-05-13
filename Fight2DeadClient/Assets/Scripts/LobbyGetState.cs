@@ -8,13 +8,13 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using SocketServer;
 
 public class LobbyGetState : MonoBehaviour
 {
 
     private bool ready = false;
-    private bool opponentReady = false;
-    private int count = 1;
+    public static int count = 1;
 
 	// text component 
 	public Image player1ReadyImg;
@@ -41,7 +41,6 @@ public class LobbyGetState : MonoBehaviour
 	public Image exitBlackStrip;
 	public Image readyBlackStrip;
 
-	private Thread listenToServerThread;
 	private GameState globalGameState = GameState.Instance;
 
 	private int currentChoice = 0;
@@ -86,8 +85,9 @@ public class LobbyGetState : MonoBehaviour
 	{
         ready = !ready;
 
-		// RoomMessageHandler.sendLobbyMessage(ready);
-		Debug.Log("TODO: send lobby ready/not ready mssage");
+		string message = PreGameMessageGenerator.lobbyReadyMessage(ready);
+		ServerCommute.connection.sendToServer(message);
+		Debug.Log($"send lobby ready/not ready message: {message}");
 
         bool isPlayer1 = globalGameState.PlayerId == 1;
         bool isPlayer2 = globalGameState.PlayerId == 2;
@@ -121,13 +121,7 @@ public class LobbyGetState : MonoBehaviour
 		} 
 	}
 
-	private string getValue(string s)
-	{
-        return s.Split(':')[1];
-	}
-
 	private Color[] colors = new Color[] {
-	// TODO: 
 		new Color(255, 0, 0),
 		new Color(0, 255, 0),
 		new Color(0, 0, 255)
@@ -142,6 +136,7 @@ public class LobbyGetState : MonoBehaviour
     {
 		if(globalGameState.opponentReady)
 		{
+			Debug.Log("the opponent is ready");
 			count = 0;
 		}
 
@@ -169,10 +164,6 @@ public class LobbyGetState : MonoBehaviour
 			}
 		}
 
-		// TODO: lighten which ever choice
-		// what changed?? 
-		// original state: white text, black background 
-		// changed state: black text, white background, color lerp border
 		if(currentChoice == 0)
 		{
 			targetPoint += Time.deltaTime/borderColorTransitionDuration;
@@ -247,7 +238,7 @@ public class LobbyGetState : MonoBehaviour
 			}
 
 
-            if(opponentReady)
+            if(globalGameState.opponentReady)
 			{
                 changeStatus(image, true);
 			}
@@ -261,13 +252,12 @@ public class LobbyGetState : MonoBehaviour
         if(allPlayerReady())
 		{
             Util.toNextScene();
-			listenToServerThread.Abort();
 		}
         
     }
 
 	private bool allPlayerReady()
 	{
-		return ready && opponentReady;
+		return ready && globalGameState.opponentReady;
 	}
 }

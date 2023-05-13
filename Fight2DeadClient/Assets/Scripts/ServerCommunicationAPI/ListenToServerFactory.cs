@@ -23,6 +23,7 @@ namespace SocketServer {
                 if(isLobbyReadyMessage)
 				{
 					int stat = Int32.Parse(Util.getValueFrom(tokens[1]));
+                    LobbyGetState.count = 0; 
 					gameState.opponentReady = stat == 1;
 				}
             };
