@@ -1,6 +1,4 @@
 TODAY: 
-    CONNECT THE GAME MODE/SETTINGS WITH THE GAME MENU (1h) []
-
     ADD 4 PLAYER MODE (2h) []
         CLIENT: 
             currently we are in 1v1 mode even when hit 2v2 button 
@@ -109,6 +107,7 @@ TODO:
     ADD 4 PLAYER MODE [] -> CHANGE THE MENU AS WELL 
     
 DONE: 
+    CONNECT THE GAME MODE/SETTINGS WITH THE GAME MENU (1h) [X]
     CONNECT THE LOGIN/REGISTER WITH THE REST OF THE SCENES (1h) [X] (kinda) :v 
     GLOBAL MODE: 
         lobby scene [X]  

@@ -9,10 +9,10 @@ public sealed class GameState
     private int roomId;
     private int playerId;
 
-    public int numPlayers = 2;
+    public int numPlayers = 0;
     private string[] characterNames = new string[4];
     public int charNameCount = 0;
-    public string onlineMode = "GLOBAL";
+    public string onlineMode = "";
     public string isRoomOwner = "false";
 
     public bool receiveRidPid = false;
