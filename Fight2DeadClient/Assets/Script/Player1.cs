@@ -127,7 +127,7 @@ public class Player1 : MonoBehaviour
             Attack();
 
             // Wai until the animation attack end
-            yield return new WaitForSeconds(0.6f);
+            yield return new WaitForSeconds(0.3f);
 
             // Reset isAttacking = false
             isAttacking = false;
@@ -139,7 +139,6 @@ public class Player1 : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && m_timeSinceAttack > 0.25f)
         {
             m_currentAttack++;
-
             // Loop back to one after third attack
             if (m_currentAttack > 3)
                 m_currentAttack = 1;
@@ -275,14 +274,45 @@ public class Player1 : MonoBehaviour
 
     }
 
+    // public void Knockback(int playerFacingDirection)
+    // {
+    //     knockback = true;
+    //     knockbackStart = Time.time;
+    //     Debug.Log("Knockback: " + m_body2d.velocity);
+    //     m_body2d.velocity = new Vector2(knockbackSpeedX * playerFacingDirection, knockbackSpeedY);
+
+    //     Debug.Log("Knockback: " + m_body2d.velocity);
+    // }
     public void Knockback(int playerFacingDirection)
     {
         knockback = true;
         knockbackStart = Time.time;
-        Debug.Log("Knockback: " + m_body2d.velocity);
-        m_body2d.velocity = new Vector2(knockbackSpeedX * playerFacingDirection, knockbackSpeedY);
 
-        Debug.Log("Knockback: " + m_body2d.velocity);
+        float horizontalForce = knockbackSpeedX * playerFacingDirection;
+
+        StartCoroutine(KnockbackCurve(horizontalForce));
+    }
+
+    private IEnumerator KnockbackCurve(float horizontalForce)
+    {
+        float timeInAir = 0f;
+        float maxTimeInAir = 0.5f; // Thời gian knockback lên trời
+        float maxHeight = 2f; // Độ cao tối đa của knockback
+
+        while (timeInAir < maxTimeInAir)
+        {
+            float t = timeInAir / maxTimeInAir;
+            float yOffset = Mathf.Sin(t * Mathf.PI) * maxHeight;
+
+            Vector2 knockbackForce = new Vector2(horizontalForce, knockbackSpeedY + yOffset);
+            m_body2d.velocity = knockbackForce;
+
+            timeInAir += Time.deltaTime;
+            yield return null;
+        }
+
+        // Reset vận tốc về 0 sau khi knockback kết thúc
+        m_body2d.velocity = Vector2.zero;
     }
 
     public void CheckKnockback()

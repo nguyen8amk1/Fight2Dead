@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player2 : MonoBehaviour
 {
-[SerializeField] float m_speed = 4.0f;
+    [SerializeField] float m_speed = 4.0f;
     [SerializeField] float m_jumpForce = 7.5f;
     private Animator m_animator;
     private Rigidbody2D m_body2d;
@@ -39,7 +39,7 @@ public class Player2 : MonoBehaviour
     private int playerFacingDirection;
     private int mylayerFacingDirection;
     private bool playerOnLeft;
-    private bool knockback=false;
+    private bool knockback = false;
     // Use this for initialization
     //test
     public int GetFacingDirection()
@@ -215,7 +215,7 @@ public class Player2 : MonoBehaviour
                 m_animator.SetInteger("AnimState", 0);
         }
     }
-    
+
     private void Attack()
     {
         Vector2 attackDirection = new Vector2(GetFacingDirection(), 0f); // Hướng của nhân vật
@@ -252,11 +252,11 @@ public class Player2 : MonoBehaviour
     {
         Instantiate(hitParticle, m_animator.transform.position, Quaternion.Euler(0.0f, 0.0f, Random.Range(0.0f, 360.0f)));
 
-        if (playerFacingDirection == 1 && m_facingDirection==1 || playerFacingDirection != 1 && m_facingDirection!=1)
+        if (playerFacingDirection == 1 && m_facingDirection == 1 || playerFacingDirection != 1 && m_facingDirection != 1)
         {
             playerOnLeft = true;
         }
-        if (playerFacingDirection != 1 && m_facingDirection==1 ||playerFacingDirection == 1 && m_facingDirection!=1 )
+        if (playerFacingDirection != 1 && m_facingDirection == 1 || playerFacingDirection == 1 && m_facingDirection != 1)
         {
             playerOnLeft = false;
         }
@@ -274,16 +274,46 @@ public class Player2 : MonoBehaviour
 
     }
 
+    // public void Knockback(int playerFacingDirection)
+    // {
+    //     knockback = true;
+    //     knockbackStart = Time.time;
+    //     Debug.Log("Knockback: " + m_body2d.velocity);
+    //     m_body2d.velocity = new Vector2(knockbackSpeedX * playerFacingDirection, knockbackSpeedY);
+
+    //     Debug.Log("Knockback: " + m_body2d.velocity);
+    // }
     public void Knockback(int playerFacingDirection)
     {
         knockback = true;
         knockbackStart = Time.time;
-        Debug.Log("Knockback: " + m_body2d.velocity);
-        m_body2d.velocity = new Vector2(knockbackSpeedX * playerFacingDirection, knockbackSpeedY);
-        
-        Debug.Log("Knockback: " + m_body2d.velocity);
+
+        float horizontalForce = knockbackSpeedX * playerFacingDirection;
+
+        StartCoroutine(KnockbackCurve(horizontalForce));
     }
 
+    private IEnumerator KnockbackCurve(float horizontalForce)
+    {
+        float timeInAir = 0f;
+        float maxTimeInAir = 0.5f; // Thời gian knockback lên trời
+        float maxHeight = 2f; // Độ cao tối đa của knockback
+
+        while (timeInAir < maxTimeInAir)
+        {
+            float t = timeInAir / maxTimeInAir;
+            float yOffset = Mathf.Sin(t * Mathf.PI) * maxHeight;
+
+            Vector2 knockbackForce = new Vector2(horizontalForce, knockbackSpeedY + yOffset);
+            m_body2d.velocity = knockbackForce;
+
+            timeInAir += Time.deltaTime;
+            yield return null;
+        }
+
+        // Reset vận tốc về 0 sau khi knockback kết thúc
+        m_body2d.velocity = Vector2.zero;
+    }
     public void CheckKnockback()
     {
         if (Time.time >= knockbackStart + knockbackDuration && knockback)
