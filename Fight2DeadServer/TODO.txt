@@ -1,5 +1,5 @@
 TODAY: 
-    SEND AND HANDLE QUIT MESSAGE WITH THE NEW SYSTEM (2h) [] (THIS CURRENTLY IS DOING FOR 1V1 ONLY)
+    SEND AND HANDLE QUIT MESSAGE WITH THE NEW SYSTEM (4h) [] (THIS CURRENTLY IS DOING FOR 1V1 ONLY)
         quit message have to be TCP  
         any of these scene can have a quit: 
 
@@ -7,13 +7,24 @@ TODAY:
         PREGAME: 
             quit when in a tcp room: -> send to the TCP thread loop 
             client send format: "quit" -> remove from tcp room 
-            server send format (send to others in the room): "rid:{},quit" 
-                lobby scene [] - @current
-                    client [] -> remove the opponent on screen when the opponent quit message arrive 
+            server send format (send to others in the room): "pid:{},quit" 
+                lobby scene [X]  
+                GLOBAL MODE: - DONE  
+                    client [X] -> go back to the menu 
+                    server [X] -> remove the tcp room 
+                LAN MODE: 
+                    client [] 
+                        -> if room owner -> remove the opponent on screen when the opponent quit message arrive 
+                        -> else go back to the menu 
                     server [X] 
 
                 choose character scene []
-                    client [] 
+                GLOBAL MODE: 
+                    client [] -> go back to menu 
+                    server []
+                    
+                LAN MODE: 
+                    client [] -> go back to  
                     server []
 
                 choose map scene scene []

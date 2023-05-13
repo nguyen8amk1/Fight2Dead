@@ -135,14 +135,26 @@ public class LobbyGetState : MonoBehaviour
 	// Update is called once per frame
 	void Update()
     {
-		if(globalGameState.lobby_P1Quit)
+		if(globalGameState.onlineMode.Equals("LAN"))
 		{
-			Debug.Log("TODO: remove the P1 on screen");
-		}
+			if(globalGameState.lobby_P1Quit)
+			{
+				Debug.Log("TODO: remove the P1 on screen");
+			}
 
-		if(globalGameState.lobby_P2Quit)
+			if(globalGameState.lobby_P2Quit)
+			{
+				Debug.Log("TODO: remove the P2 on screen");
+			}
+		}
+		else if(globalGameState.onlineMode.Equals("GLOBAL"))
 		{
-			Debug.Log("TODO: remove the P2 on screen");
+			if (globalGameState.lobby_P1Quit ||
+				globalGameState.lobby_P2Quit)
+			{
+				Debug.Log("Go back to menu");
+				Util.toSceneWithIndex(globalGameState.scenesOrder["MENU"]);
+			}
 		}
 
 		if(globalGameState.opponentReady)

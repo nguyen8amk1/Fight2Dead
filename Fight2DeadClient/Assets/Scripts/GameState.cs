@@ -30,10 +30,22 @@ public sealed class GameState
 	public bool lobby_P1Quit = false;
 	public bool lobby_P2Quit = false;
 
+    public Dictionary<string, int> scenesOrder = new Dictionary<string, int>();
+
 	private GameState()
     {
         roomId = 0;
         playerId = 0;
+
+        scenesOrder.Add("PRESS_ANY_KEY", 0);
+        scenesOrder.Add("MENU", 1);
+        scenesOrder.Add("MATCHING", 2);
+        scenesOrder.Add("LOBBY", 3);
+        scenesOrder.Add("CHARACTER_SELECT", 4);
+        scenesOrder.Add("MAP_SELECT", 5);
+        scenesOrder.Add("LOADING_SCREEN", 6);
+        scenesOrder.Add("MAP3", 7);
+        //scenesOrder.Add(8, "mainMenu");
     }
 
     public static GameState Instance
