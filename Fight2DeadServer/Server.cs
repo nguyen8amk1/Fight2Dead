@@ -80,8 +80,8 @@ namespace SocketServer
                     IPEndPoint remoteEP = new IPEndPoint(IPAddress.Any, 0);
                     byte[] buffer = udpListener.Receive(ref remoteEP);
                     string message = Encoding.ASCII.GetString(buffer);
-
                     string[] tokens = message.Split(',');
+
                     string rid = Util.getValueFrom(tokens[0]);
                     string pid = Util.getValueFrom(tokens[1]);
 

@@ -1,3 +1,4 @@
+using SocketServer;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -222,7 +223,6 @@ public class LoadingSceneController : MonoBehaviour
         Application.targetFrameRate = 60;
         // get chosen player
         chosenCharacters = globalGameState.chosenCharacters;
-
 
         initPlayerSprites();
         matchPlayerWithTheRightSprite();
@@ -459,6 +459,20 @@ public class LoadingSceneController : MonoBehaviour
             // move to next scene ;
             // currentState = GlobalTimingStates.TO_VS_FILL;
             Debug.Log("TO NEXT SCENE");
+
+            Debug.Log("Transition to UDP right here");
+            string message = PreGameMessageGenerator.toUDPMessage();
+            ServerCommute.connection.sendToServer(message);
+
+            UDPServerConnection.Instance.inheritPortFrom(TCPServerConnection.Instance);
+            TCPServerConnection.Instance.close();
+            ServerCommute.connection = UDPServerConnection.Instance;
+            ServerCommute.listenToServerThread.Abort();
+
+            Console.WriteLine("Started UDP listen to server thread");
+            ServerCommute.listenToServerThread = ServerCommute.connection.createListenToServerThread(ListenToServerFactory.tempUDPListening());
+            ServerCommute.listenToServerThread.Start();
+
             Util.toNextScene();
         }
     }

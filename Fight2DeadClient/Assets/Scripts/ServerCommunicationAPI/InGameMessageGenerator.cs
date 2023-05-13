@@ -3,8 +3,9 @@ using System;
 namespace SocketServer {
     public class InGameMessageGenerator {
         // TODO: how many message types 
-        public static string tempInGameMessage(string rid, string pid) {
-            return String.Format("rid:{0},pid:{1}", rid, pid);
+        private static GameState globalGameState = GameState.Instance;
+        public static string tempInGameMessage() {
+            return String.Format("rid:{0},pid:{1}", globalGameState.RoomId, globalGameState.PlayerId);
         }
     } 
 }

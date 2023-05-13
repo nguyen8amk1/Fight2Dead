@@ -1,13 +1,43 @@
 TODAY: 
-    FINISH ATTACH NETWORKING CODE TO THE SCENES (2h) []  
-        which scenes: 
-            waiting scene  [X]
-            lobby   scene  [X] 
-            choose character scene  [X]
-            choose map scene scene  [X]
-            loading          scene  []
-    ADD 4 PLAYER MODE (3h) []
+    ADD 4 PLAYER MODE (2h) []
+        CLIENT: 
+            currently we are in 1v1 mode even when hit 2v2 button 
+            -> change the mode  when click on different buttons (1v1, 2v2)
+
+            change the lobby -> now we have 4 people (4 lines)
+            
+            change the choose character -> 
+                choose character in 2v2 problems: 
+                    the player can only choose 1 character 
+                    have a scene where 4 character will appears all at once 
+                        -> show with the sliding animation (only in 2v2 mode or maybe both ??) -> CHOOSE THIS ONE 
+                        -> when enough player chosen just show that animation/scene and then to the next scene 
+
+                        -> currently we don't have this scene done yet, so first stick with the 1 character chose way 
+                    or show the character whenever it showed 
+
+            change the choose map -> 
+                currently each people choose a map, but should they :v 
+                so only 1 map, the person who choose the faster get's it :v  (apply for both mode)
+
+        SERVER: 
+            stuff more players into one room, then that's pretty much it really :v 
+
     SEND AND HANDLE QUIT MESSAGE WITH THE NEW SYSTEM (2h) [] 
+        any of these scene can have a quit: 
+        separate into cases: 
+            quit when not in a tcp room: 
+                waiting scene   
+
+            quit when in a tcp room:  
+                lobby   scene   
+                choose character scene 
+                choose map scene scene 
+                loading          scene  
+
+            quit when in a udp room: 
+                game scene 
+                
 
     DESIGN THE DATABASE FIRST BEFORE IMPLEMENT IT (1h) [] 
 
@@ -16,6 +46,7 @@ TODAY:
     tong cong: 5h  
 
 TODO: 
+    AFTER ALL THE CHARACTER IS CHOSEN HAVE A SCENE THAT SHOW ALL 4 CHARACTERS (2h) []
     CREATE A MESSAGE HANDLER SYSTEM FOR THE CLIENT AS WELL (1h) [] (Optional)
 
     UPDATE THE GRADIENT AND THE COLOR OF THE BLACKSTRIP OF THE LOBBY SCENE (1h) []
@@ -47,6 +78,14 @@ TODO:
     ADD 4 PLAYER MODE [] -> CHANGE THE MENU AS WELL 
     
 DONE: 
+    FINISH ATTACH NETWORKING CODE TO THE SCENES (2h) [X]  
+        which scenes: 
+            waiting scene  [X]
+            lobby   scene  [X] 
+            choose character scene  [X]
+            choose map scene scene  [X]
+            loading          scene  [X] -> toudp message
+
     CONVERT PRE-PLAYING SCENES TO USE TCP (2h) [X] 
     CONNECT THE CHOOSE CHARACTER WITH SERVER (2h) [X] 
     PRETTY THE CLIENT'S LOBBY (2h) [X]
