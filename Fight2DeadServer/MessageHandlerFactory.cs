@@ -3,8 +3,22 @@ using System;
 namespace SocketServer {
     public sealed class MessageHandlerFactory {
         public PreGameMessageHandler whatPreGameMessage(string message) {
-            if(message.StartsWith("pid:")) {
+            string[] tokens = message.Split(',');
+
+            bool isLobbyMessage = 
+                Util.getKeyFrom(tokens[0]) == "pid" && 
+                Util.getKeyFrom(tokens[1]) == "stat";
+
+            if(isLobbyMessage) {
                 return new LobbyReadyMessageHandler();
+            }
+
+            bool isChooseCharacterMessage = 
+                Util.getKeyFrom(tokens[0]) == "pid" && 
+                Util.getKeyFrom(tokens[1]) == "cn";
+
+            if(isChooseCharacterMessage) {
+                return new ChooseCharacterMessageHandler();
             }
 
             if (message == "toudp")

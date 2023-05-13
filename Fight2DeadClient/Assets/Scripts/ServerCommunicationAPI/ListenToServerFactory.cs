@@ -1,5 +1,6 @@
 using System;
 using System.Text.RegularExpressions;
+using UnityEngine;
 
 namespace SocketServer {
     public sealed class ListenToServerFactory {
@@ -25,6 +26,17 @@ namespace SocketServer {
 					int stat = Int32.Parse(Util.getValueFrom(tokens[1]));
                     LobbyGetState.count = 0; 
 					gameState.opponentReady = stat == 1;
+				}
+
+                bool isChosenCharacterMessage = Util.getKeyFrom(tokens[0]) == "pid" && 
+												Util.getKeyFrom(tokens[1]) == "cn";
+                if(isChosenCharacterMessage)
+				{
+                    int index = Int32.Parse(Util.getValueFrom(tokens[0])) - 1;
+                    string charName = Util.getValueFrom(tokens[1]);
+                    gameState.chosenCharacters[index] = charName;
+                    gameState.charNameCount++;
+                    Debug.Log($"charNameCount: {gameState.charNameCount}");
 				}
             };
             return messageHandler;

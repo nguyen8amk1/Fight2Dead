@@ -1,13 +1,10 @@
+using SocketServer;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CharacterSelect : MonoBehaviour
 {
-    [Header("Switch Player")]
-    public int ID = 1;
-    [Header("Switch Mode")]
-    public int Mode = 1;   
     public GameObject char0, char1, char2, char3, char4, char5, char6, char7, char8, char0_1,
         char1_1, char2_1, char3_1, char4_1, char5_1, char6_1, char7_1, char8_1, char0_2, char1_2,
         char2_2, char3_2, char4_2, char5_2, char6_2, char7_2, char8_2, char0_3,
@@ -31,12 +28,18 @@ public class CharacterSelect : MonoBehaviour
     string[] charName = new string[] { "Cap", "Venom", "Sasori", "Gaara", "Ken", "Ryu",
         "Link","Reborn","Jotaro" };
     private bool P1Log1 = false, P1Log2 = false, P2Log1 = false, P2Log2 = false;
+    private GameState globalGameState = GameState.Instance;
+
+    private int ID;
+    private int Mode;   
     // Start is called before the first frame update
     
     void Start()
     {
 
         Application.targetFrameRate = 60;
+        ID = globalGameState.PlayerId;
+        Mode = globalGameState.numPlayers/2;
     }
 
     public void Char0()
@@ -290,6 +293,10 @@ public class CharacterSelect : MonoBehaviour
             if (!P1Log1)
             {
                 Debug.Log("P1_char1: " + charName[selectVal]);
+                globalGameState.charNameCount++;
+
+                string message = PreGameMessageGenerator.chooseCharacterMessage(charName[selectVal]);
+                ServerCommute.connection.sendToServer(message);
                 P1Log1 = true;
             }
             P2.SetActive(true);
@@ -415,6 +422,9 @@ public class CharacterSelect : MonoBehaviour
             if (!P1Log2)
             {
                 Debug.Log("P1_char2: " + charName[selectVal]);
+                globalGameState.charNameCount++;
+                string message = PreGameMessageGenerator.chooseCharacterMessage(charName[selectVal]);
+                ServerCommute.connection.sendToServer(message);
                 P1Log2 = true;
             }
         }
@@ -536,6 +546,9 @@ public class CharacterSelect : MonoBehaviour
             if (!P2Log1)
             {
                 Debug.Log("P2_char1: " + charName[selectVal]);
+                globalGameState.charNameCount++;
+                string message = PreGameMessageGenerator.chooseCharacterMessage(charName[selectVal]);
+                ServerCommute.connection.sendToServer(message);
                 P2Log1 = true;
             }
             P4.SetActive(true);
@@ -661,9 +674,17 @@ public class CharacterSelect : MonoBehaviour
             if (!P2Log2)
             {
                 Debug.Log("P2_char2: " + charName[selectVal]);
+                globalGameState.charNameCount++;
+                string message = PreGameMessageGenerator.chooseCharacterMessage(charName[selectVal]);
+                ServerCommute.connection.sendToServer(message);
                 P2Log2 = true;
             }
         }
+
+        if(globalGameState.charNameCount >= 4)
+		{
+            Util.toNextScene();
+		}
     }
 }
 

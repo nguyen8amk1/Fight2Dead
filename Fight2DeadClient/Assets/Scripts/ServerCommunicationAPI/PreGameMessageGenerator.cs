@@ -10,8 +10,8 @@ namespace SocketServer {
             return null;
         }
 
-        public static string chooseCharacterMessage() {
-            return null;
+        public static string chooseCharacterMessage(string charName) {
+            return $"pid:{globalGameState.PlayerId},cn:{charName}";
         }
 
         public static string lobbyReadyMessage(bool stat) {

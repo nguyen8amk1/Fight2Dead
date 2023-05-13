@@ -2,24 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public sealed class GameState 
+public sealed class GameState
 {
     private static GameState instance = null;
     private static readonly object padlock = new object();
     private int roomId;
     private int playerId;
 
-    public int numPlayers = 2; 
+    public int numPlayers = 2;
     private string[] characterNames = new string[4];
-	public int charNameCount = 0;
-	public string onlineMode = "GLOBAL";
-	public string isRoomOwner = "false";
+    public int charNameCount = 0;
+    public string onlineMode = "GLOBAL";
+    public string isRoomOwner = "false";
 
     public bool receiveRidPid = false;
 
-	public string player1Name = "NoName";
-	public string player2Name = "NoName";
-	public bool opponentReady = false;
+    public string player1Name = "NoName";
+    public string player2Name = "NoName";
+    public bool opponentReady = false;
 
     public string[] chosenCharacters = new string[4]; 
 

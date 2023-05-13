@@ -3,8 +3,8 @@ TODAY:
     FINISH ATTACH NETWORKING CODE TO THE SCENES (2h) []  
         which scenes: 
             waiting scene  [X]
-            lobby   scene  [X] -> handle message 
-            choose character scene  []
+            lobby   scene  [X] 
+            choose character scene  [X]
             choose map scene scene  []
             loading          scene  []
 

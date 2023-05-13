@@ -59,7 +59,7 @@ public class MapDisplay : MonoBehaviour
         playButton.onClick.AddListener(() => {
             hostPlayerMakeChoice = true;
 
-            string message = $"rid:{globalGameState.RoomId},stg:{mapName.text},pid:{globalGameState.PlayerId}";
+            string message = $"pid:{globalGameState.PlayerId},stg:{mapName.text}";
 
             Debug.Log($"TODO: Send this message to server: {message}");
         });
