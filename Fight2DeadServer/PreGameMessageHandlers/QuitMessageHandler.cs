@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Text;
+using System;
 
 namespace SocketServer
 {
@@ -8,24 +9,22 @@ namespace SocketServer
         private DebugLogger dlog = new DebugLogger();
         public void handle(string roomId, Player player, string message)
         {
-            // Check for termination condition
-            // TODO: remove the player from room 
-            /*
             Console.WriteLine("Remove player with id:{0} in room with rid: {1}", player.id, player.rid);
-            tcpRooms[player.rid].Remove(player.id);
-            int playerInRoomCount = tcpRooms[player.rid].Count;
+            GameRoom room = Server.rooms[roomId];
+            room.tcpPlayers.Remove(player.id);
+            int playerInRoomCount = room.tcpPlayers.Count;
             Console.WriteLine("Now the room with rid:{0} have {1} players left", player.rid, playerInRoomCount);
-
             bool roomHasNoOne = playerInRoomCount <= 0;
+
+            string quitMessage = String.Format("pid:{0},quit", player.id);
+            TCPClientConnection.sendToOthers(room.tcpPlayers, player, quitMessage);
+
             if (roomHasNoOne)
             {
-                // TODO: remove room 
+                Server.rooms.Remove(roomId);
                 Console.WriteLine("Now the room with rid:{0} has no player at all, let's remove the room", player.rid);
-                tcpRooms.Remove(player.rid);
-                Console.WriteLine("Now there are {0} rooms exist", tcpRooms.Count);
+                Console.WriteLine("Now there are {0} rooms exist", Server.rooms.Count);
             }
-            break;
-            */
         }
     }
 }

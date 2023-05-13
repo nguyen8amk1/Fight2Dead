@@ -27,6 +27,8 @@ public sealed class GameState
     // map 
 	public bool hostPlayerMapChosen = false;
 	public bool opponentMapChosen = false;
+	public bool lobby_P1Quit = false;
+	public bool lobby_P2Quit = false;
 
 	private GameState()
     {

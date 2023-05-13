@@ -43,8 +43,24 @@ namespace SocketServer {
 												Util.getKeyFrom(tokens[1]) == "mn";
                 if(isChosenMapMessage)
 				{
-                    // TODO: 
+                    // TODO: this is just temporarily
                     gameState.opponentMapChosen = true; 
+				}
+
+                bool isLobbyQuitMessage =   Util.getKeyFrom(tokens[0]) == "pid" && 
+									        tokens[1] == "quit";
+                if(isLobbyQuitMessage)
+				{
+                    // TODO: this is just temporarily
+                    int pid = Int32.Parse(Util.getValueFrom(tokens[0]));
+                    if(pid == 1)
+					{
+						gameState.lobby_P1Quit = true; 
+					}
+                    if(pid == 2)
+					{
+						gameState.lobby_P2Quit = true; 
+					}
 				}
             };
             return messageHandler;

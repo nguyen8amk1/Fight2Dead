@@ -28,7 +28,7 @@ public class MatchingSceneMessageHandler : MonoBehaviour
 
 	private void OnApplicationQuit()
 	{
-        Debug.Log("TODO: Send quit message in MATCHING scene");
+        Debug.Log("Matching scene close");
 	}
 
     // Update is called once per frame

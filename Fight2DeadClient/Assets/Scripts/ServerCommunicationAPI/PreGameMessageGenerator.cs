@@ -1,3 +1,5 @@
+using System;
+
 namespace SocketServer {
     public sealed class PreGameMessageGenerator {
         // TODO: how many message types 
@@ -24,5 +26,9 @@ namespace SocketServer {
             return "toudp";
         }
 
-    } 
+		public static string quitMessage()
+		{
+            return "quit";
+		}
+	} 
 }
