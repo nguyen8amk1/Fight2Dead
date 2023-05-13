@@ -9,12 +9,15 @@ TODAY:
             change the choose character -> 
                 choose character in 2v2 problems: 
                     the player can only choose 1 character 
+                    Solution: 
+                        show the character whenever it showed (DO THIS WAY)
+                            -> p1 and p3 choose first then p2 and p4 -> can keep the sliding animation 
+                            -> currently we don't have this scene done yet, so first stick with the 1 character chose way 
+
                     have a scene where 4 character will appears all at once 
                         -> show with the sliding animation (only in 2v2 mode or maybe both ??) -> CHOOSE THIS ONE 
                         -> when enough player chosen just show that animation/scene and then to the next scene 
 
-                        -> currently we don't have this scene done yet, so first stick with the 1 character chose way 
-                    or show the character whenever it showed 
 
             change the choose map -> 
                 currently each people choose a map, but should they :v 
