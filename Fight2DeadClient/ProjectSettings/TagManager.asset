@@ -15,9 +15,9 @@ TagManager:
   - Map
   - Enemy
   - Ground
-  - Damageable
-  - Dead
-  - Player
+  - Player1
+  - 
+  - Player2
   - 
   - 
   - 

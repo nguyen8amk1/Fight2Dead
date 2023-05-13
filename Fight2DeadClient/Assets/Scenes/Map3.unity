@@ -310,6 +310,7 @@ GameObject:
   - component: {fileID: 205332296}
   - component: {fileID: 205332298}
   - component: {fileID: 205332299}
+  - component: {fileID: 205332300}
   m_Layer: 11
   m_Name: Luffy
   m_TagString: Player
@@ -439,7 +440,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 205332289}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d51c324577aa87f40af88647396a5b38, type: 3}
   m_Name: 
@@ -464,7 +465,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 205332289}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a608cfcc76199bc4b9c2821c47684b53, type: 3}
   m_Name: 
@@ -495,6 +496,36 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &205332300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205332289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d5552137563b6145b5048c0a0830ce1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_speed: 8
+  m_jumpForce: 14
+  hitCollider: {fileID: 0}
+  pushForce: 0
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  attackPoint: {fileID: 0}
+  attackRange: 1.4
+  attackoffset: 3
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 512
+  knockbackSpeedX: 8
+  knockbackSpeedY: 2
+  knockbackDuration: 0.01
+  applyKnockback: 1
+  hitParticle: {fileID: 6240072112886026631, guid: 25aeb624df7917e4aa9cbe2204b85ed6, type: 3}
 --- !u!1 &213067836
 GameObject:
   m_ObjectHideFlags: 0
@@ -3072,6 +3103,7 @@ GameObject:
   - component: {fileID: 1652342538}
   - component: {fileID: 1652342537}
   - component: {fileID: 1652342540}
+  - component: {fileID: 1652342541}
   m_Layer: 9
   m_Name: Gaara
   m_TagString: Enemy
@@ -3222,7 +3254,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1652342533}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0f5034bc83802944c9bca57c55e08978, type: 3}
   m_Name: 
@@ -3242,7 +3274,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1652342533}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9506a8a969dd1b4599275be2891ce38, type: 3}
   m_Name: 
@@ -3250,6 +3282,31 @@ MonoBehaviour:
   knockbackSpeedX: 35
   knockbackSpeedY: 3
   knockbackDuration: 0.1
+  applyKnockback: 1
+  hitParticle: {fileID: 6240072112886026631, guid: 25aeb624df7917e4aa9cbe2204b85ed6, type: 3}
+--- !u!114 &1652342541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1652342533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ae4a11131eb0ce458273b29e987be56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_speed: 8
+  m_jumpForce: 14
+  attackPoint: {fileID: 1397589414}
+  attackRange: 1
+  attackoffset: 1.5
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 2048
+  knockbackSpeedX: 8
+  knockbackSpeedY: 2
+  knockbackDuration: 0.01
   applyKnockback: 1
   hitParticle: {fileID: 6240072112886026631, guid: 25aeb624df7917e4aa9cbe2204b85ed6, type: 3}
 --- !u!1 &1674484361
