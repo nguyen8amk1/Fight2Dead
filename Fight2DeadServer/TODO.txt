@@ -1,70 +1,4 @@
 TODAY: 
-    SEND AND HANDLE QUIT MESSAGE WITH THE NEW SYSTEM (4h) [] (THIS CURRENTLY IS DOING FOR 1V1 ONLY)
-        quit message have to be TCP  
-        any of these scene can have a quit: 
-
-        separate into cases: 
-        PREGAME: 
-            quit when in a tcp room: -> send to the TCP thread loop 
-            client send format: "quit" -> remove from tcp room 
-            server send format (send to others in the room): "pid:{},quit" 
-
-            GLOBAL MODE: 
-                lobby scene [X]  
-                GLOBAL MODE: - DONE  
-                    client [X] -> go back to the menu 
-                    server [X] -> remove the tcp room 
-
-                choose character scene [X]
-                GLOBAL MODE: - DONE 
-                    client [X] -> go back to menu 
-                    server [X] -> remove the tcp room 
-
-                choose map scene scene []
-                GLOBAL MODE:  
-                    client [X] -> go back to menu 
-                    server [X] -> remove the tcp room 
-
-                loading scene  [] -> DO NOTHING FOR NOW  
-
-            LAN MODE: 
-                lobby scene []  
-                LAN MODE: 
-                    client [] 
-                        -> if room owner -> remove the opponent on screen when the opponent quit message arrive 
-                        -> else go back to the menu 
-                    server [] 
-
-                choose character scene []
-                LAN MODE: 
-                    client [] -> go back to  
-                    server []
-
-                choose map scene scene []
-                LAN MODE: 
-                    client [] -> go back to  
-                    server []
-
-                loading scene  []
-                
-        INGAME:
-            quit when in a udp room: -> send to the TCP main loop
-            client send format: "rid:{},pid:{},quit"
-            server send format (send to others in the room): 
-                DON'T KNOW AT THE MOMENT since the client tcp thread as close 
-                or we should just ignore it :v 
-                when all players gone just remove the goddamn room 
-
-                    game scene  []
-                
-
-    DESIGN THE DATABASE FIRST BEFORE IMPLEMENT IT (1h) [] 
-
-    CREATE A DATABASE FOR STORING PEOPLE'S LOGIN INFO (1h) [] (First decide what to use first maybe: MySql for cross platform)
-
-    tong cong: 5h  
-
-TODO: 
     ADD 4 PLAYER MODE (2h) []
         CLIENT: 
             currently we are in 1v1 mode even when hit 2v2 button 
@@ -88,6 +22,57 @@ TODO:
 
         SERVER: 
             stuff more players into one room, then that's pretty much it really :v 
+
+    DESIGN THE DATABASE FIRST BEFORE IMPLEMENT IT (1h) [] 
+
+    CREATE A DATABASE FOR STORING PEOPLE'S LOGIN INFO (1h) [] (First decide what to use first maybe: MySql for cross platform)
+
+    tong cong: 5h  
+
+TODO: 
+    SEND AND HANDLE QUIT MESSAGE WITH THE NEW SYSTEM (4h) [] (THIS CURRENTLY IS DOING FOR 1V1 ONLY)
+        quit message have to be TCP  
+        any of these scene can have a quit: 
+        separate into cases: 
+        PREGAME: 
+            quit when in a tcp room: -> send to the TCP thread loop 
+            client send format: "quit" -> remove from tcp room 
+            server send format (send to others in the room): "pid:{},quit" 
+            LAN MODE: 
+                lobby scene []  
+                LAN MODE: 
+                    client [] 
+                        -> if room owner -> remove the opponent on screen when the opponent quit message arrive 
+                        -> else go back to the menu 
+                    server [] 
+
+                choose character scene []
+                LAN MODE: 
+                    client [] -> go back to  
+                    server []
+
+                choose map scene scene []
+                LAN MODE: 
+                    client [] -> go back to  
+                    server []
+
+                loading scene  []
+        INGAME:
+        GLOBAL MODE: 
+        LAN MODE: 
+
+
+        
+            quit when in a udp room: -> send to the TCP main loop
+            client send format: "rid:{},pid:{},quit"
+            server send format (send to others in the room): 
+                DON'T KNOW AT THE MOMENT since the client tcp thread as close 
+                or we should just ignore it :v 
+                when all players gone just remove the goddamn room 
+
+                    game scene  []
+                
+                
     AFTER ALL THE CHARACTER IS CHOSEN HAVE A SCENE THAT SHOW ALL 4 CHARACTERS (2h) []
     CREATE A MESSAGE HANDLER SYSTEM FOR THE CLIENT AS WELL (1h) [] (Optional)
 
@@ -120,6 +105,24 @@ TODO:
     ADD 4 PLAYER MODE [] -> CHANGE THE MENU AS WELL 
     
 DONE: 
+    GLOBAL MODE: 
+        lobby scene [X]  
+        GLOBAL MODE: - DONE  
+            client [X] -> go back to the menu 
+            server [X] -> remove the tcp room 
+
+        choose character scene [X]
+        GLOBAL MODE: - DONE 
+            client [X] -> go back to menu 
+            server [X] -> remove the tcp room 
+
+        choose map scene scene []
+        GLOBAL MODE:  
+            client [X] -> go back to menu 
+            server [X] -> remove the tcp room 
+
+        loading scene  [] -> DO NOTHING FOR NOW  
+
     FINISH ATTACH NETWORKING CODE TO THE SCENES (2h) [X]  
         which scenes: 
             waiting scene  [X]
