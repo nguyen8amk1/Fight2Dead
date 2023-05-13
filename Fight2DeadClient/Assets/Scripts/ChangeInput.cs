@@ -16,7 +16,7 @@ public class ChangeInput : MonoBehaviour
     public InputField passwordInputField;
     public CanvasGroup alertTextContainer;
     public GameObject alertText;
-    public float fadeDuration = 5f;
+    private float fadeDuration = 3f;
 
     // Start is called before the first frame update
     void Start()
@@ -29,20 +29,19 @@ public class ChangeInput : MonoBehaviour
     {
         string username = usernameInputField.text;
         string password = passwordInputField.text;
-        while (true)
+
+        if (!IsValidEmail(username) || password.Length < 6)
         {
-            if (!IsValidEmail(username) || password.Length < 6)
-            {               
-                Debug.Log("Invalid username or password");
-                usernameInputField.text = "";
-                passwordInputField.text = "";
-                alertTextContainer.alpha = 1f;
-                alertText.SetActive(true);
-                StartCoroutine(FadeOutAlertText());
-                return;
-            }                             
-            break;
+            Debug.Log("Invalid username or password");
+            usernameInputField.text = "";
+            passwordInputField.text = "";
+            alertTextContainer.alpha = 1f;
+            alertText.SetActive(true);
+            StartCoroutine(FadeOutAlertText());
+            return;
         }
+        usernameInputField.text = "";
+        passwordInputField.text = "";
         Debug.Log("Logged in");
         Debug.Log("Username: " + username);
         Debug.Log("Password: " + password);
@@ -50,33 +49,33 @@ public class ChangeInput : MonoBehaviour
 
     private IEnumerator FadeOutAlertText()
     {
-        
-        float startAlpha = alertTextContainer.alpha;       
+
+        float startAlpha = alertTextContainer.alpha;
         float elapsedTime = 0f;
         while (elapsedTime < fadeDuration)
         {
-            
-            float newAlpha = Mathf.Lerp(startAlpha, 0f, elapsedTime / fadeDuration);          
-            alertTextContainer.alpha = newAlpha;           
-            elapsedTime += Time.deltaTime;         
+
+            float newAlpha = Mathf.Lerp(startAlpha, 0f, elapsedTime / fadeDuration);
+            alertTextContainer.alpha = newAlpha;
+            elapsedTime += Time.deltaTime;
             yield return null;
         }
 
-        
+
         alertTextContainer.alpha = 0f;
         alertText.SetActive(false);
     }
 
     private bool IsValidEmail(string email)
     {
-         string pattern = @"^[a-zA-Z0-9.-_]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+        string pattern = @"^[a-zA-Z0-9.-_]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
         Regex regex = new Regex(pattern);
         return regex.IsMatch(email);
     }
 
     // Update is called once per frame
     void Update()
-    {      
+    {
         if (Input.GetKeyDown(KeyCode.Tab) && Input.GetKey(KeyCode.LeftShift))
         {
             Selectable previous = system.currentSelectedGameObject.GetComponent<Selectable>().FindSelectableOnUp();
@@ -88,9 +87,10 @@ public class ChangeInput : MonoBehaviour
             Selectable next = system.currentSelectedGameObject.GetComponent<Selectable>().FindSelectableOnDown();
             if (next != null)
                 next.Select();
-        }else if(Input.GetKeyDown(KeyCode.Return))
+        }
+        else if (Input.GetKeyDown(KeyCode.Return))
         {
-            submitButton.onClick.Invoke();         
+            submitButton.onClick.Invoke();
         }
     }
 }
