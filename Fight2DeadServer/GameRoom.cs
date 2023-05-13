@@ -20,6 +20,7 @@ namespace SocketServer
         public Dictionary<string, Player> tcpPlayers = new Dictionary<string, Player>();
         public Dictionary<string, Player> toUdpWaitList = new Dictionary<string, Player>();
         public Dictionary<string, IPEndPoint> udpPlayers = new Dictionary<string, IPEndPoint>();
+        public string onlineMode = "GLOBAL"; // @Test 
 
         private MessageHandlerFactory factory = new MessageHandlerFactory(); 
 

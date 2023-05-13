@@ -77,8 +77,9 @@ public class LobbyGetState : MonoBehaviour
 
 	private void OnApplicationQuit()
 	{
-		//RoomMessageHandler.sendCloseConnection();
-		Debug.Log("TODO: send quit message from lobby");
+		Debug.Log("Send quit message from lobby");
+		string quitMessage = PreGameMessageGenerator.quitMessage();
+		ServerCommute.connection.sendToServer(quitMessage);
 	}
 
 	public void readyIsChosen()
@@ -134,6 +135,28 @@ public class LobbyGetState : MonoBehaviour
 	// Update is called once per frame
 	void Update()
     {
+		if(globalGameState.onlineMode.Equals("LAN"))
+		{
+			if(globalGameState.lobby_P1Quit)
+			{
+				Debug.Log("TODO: remove the P1 on screen");
+			}
+
+			if(globalGameState.lobby_P2Quit)
+			{
+				Debug.Log("TODO: remove the P2 on screen");
+			}
+		}
+		else if(globalGameState.onlineMode.Equals("GLOBAL"))
+		{
+			if (globalGameState.lobby_P1Quit ||
+				globalGameState.lobby_P2Quit)
+			{
+				Debug.Log("Go back to menu");
+				Util.toSceneWithIndex(globalGameState.scenesOrder["MENU"]);
+			}
+		}
+
 		if(globalGameState.opponentReady)
 		{
 			Debug.Log("the opponent is ready");
