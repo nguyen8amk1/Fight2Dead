@@ -424,7 +424,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 205332289}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.06, y: 11.48, z: -1.5146646}
+  m_LocalPosition: {x: 9.9, y: -1.34, z: -1.5146646}
   m_LocalScale: {x: 3.2210553, y: 3.0505476, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -510,12 +510,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_speed: 8
   m_jumpForce: 14
-  hitCollider: {fileID: 0}
-  pushForce: 0
-  targetLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  attackPoint: {fileID: 0}
+  attackPoint: {fileID: 2085705119}
   attackRange: 1.4
   attackoffset: 3
   enemyLayers:
@@ -1959,7 +1954,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &847139299
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2615,7 +2610,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!156049354 &1277803810
 Grid:
   m_ObjectHideFlags: 0
@@ -3099,10 +3094,8 @@ GameObject:
   - component: {fileID: 1652342536}
   - component: {fileID: 1652342535}
   - component: {fileID: 1652342534}
-  - component: {fileID: 1652342539}
   - component: {fileID: 1652342538}
   - component: {fileID: 1652342537}
-  - component: {fileID: 1652342540}
   - component: {fileID: 1652342541}
   m_Layer: 9
   m_Name: Gaara
@@ -3191,7 +3184,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1652342533}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.25, y: 11.22, z: 0}
+  m_LocalPosition: {x: -26.56, y: 3.64, z: 0}
   m_LocalScale: {x: 6.160984, y: 4.530217, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3247,43 +3240,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &1652342539
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1652342533}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f5034bc83802944c9bca57c55e08978, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_speed: 8
-  m_jumpForce: 14
-  attackPoint: {fileID: 1397589414}
-  attackRange: 1
-  attackoffset: 1.5
-  enemyLayers:
-    serializedVersion: 2
-    m_Bits: 2048
---- !u!114 &1652342540
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1652342533}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9506a8a969dd1b4599275be2891ce38, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  knockbackSpeedX: 35
-  knockbackSpeedY: 3
-  knockbackDuration: 0.1
-  applyKnockback: 1
-  hitParticle: {fileID: 6240072112886026631, guid: 25aeb624df7917e4aa9cbe2204b85ed6, type: 3}
 --- !u!114 &1652342541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3300,7 +3256,7 @@ MonoBehaviour:
   m_jumpForce: 14
   attackPoint: {fileID: 1397589414}
   attackRange: 1
-  attackoffset: 1.5
+  attackoffset: 1
   enemyLayers:
     serializedVersion: 2
     m_Bits: 2048

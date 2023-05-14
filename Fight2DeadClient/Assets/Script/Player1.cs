@@ -104,11 +104,7 @@ public class Player1 : MonoBehaviour
             m_facingDirection = -1;
         }
 
-        // Move
-        if (!isAttacking && !knockback)
-        {
-            m_body2d.velocity = new Vector2(inputX * m_speed, m_body2d.velocity.y);
-        }
+
 
         //Set AirSpeed in animator
         m_animator.SetFloat("AirSpeedY", m_body2d.velocity.y);
@@ -119,15 +115,22 @@ public class Player1 : MonoBehaviour
         // if (Input.GetKeyDown("q"))
         //     m_animator.SetTrigger("Hurt");
 
+        // Move
+        if (!isAttacking && !knockback)
+        {
+            m_body2d.velocity = new Vector2(inputX * m_speed, m_body2d.velocity.y);
+        }
         IEnumerator PerformAttack()
         {
             m_body2d.velocity = Vector2.zero;
             // Call one of three attack animations "Attack1", "Attack2", "Attack3"
             m_animator.SetTrigger("Attack" + m_currentAttack);
+            // Debug.Log(m_animator.GetFloat("Attack.Active"));
+            
             Attack();
 
             // Wai until the animation attack end
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(0f);
 
             // Reset isAttacking = false
             isAttacking = false;
@@ -136,7 +139,7 @@ public class Player1 : MonoBehaviour
             m_timeSinceAttack = 0.0f;
         }
         //Attack
-        if (Input.GetMouseButtonDown(0) && m_timeSinceAttack > 0.25f)
+        if (Input.GetKeyDown(KeyCode.J) && m_timeSinceAttack > 0.25f)
         {
             m_currentAttack++;
             // Loop back to one after third attack
@@ -144,11 +147,11 @@ public class Player1 : MonoBehaviour
                 m_currentAttack = 1;
 
             // Reset Attack combo if time since last attack is too large
-            if (m_timeSinceAttack > 1.0f)
+            if (m_timeSinceAttack > 0.5f)
                 m_currentAttack = 1;
 
             /*
-             if (animator.GetFloat("Weapon.Active") > 0f)
+            if (animator.GetFloat("Weapon.Active") > 0f)
             {
                 Attack();
             }
@@ -223,7 +226,9 @@ public class Player1 : MonoBehaviour
             if (hurtComponent != null)
             {
 
+                Debug.Log("Gaara Attack");
                 hurtComponent.Damage(m_facingDirection);
+
             }
             else
             {
@@ -291,6 +296,7 @@ public class Player1 : MonoBehaviour
         float horizontalForce = knockbackSpeedX * playerFacingDirection;
 
         StartCoroutine(KnockbackCurve(horizontalForce));
+        Debug.Log("Gaara Hurt");
     }
 
     private IEnumerator KnockbackCurve(float horizontalForce)
@@ -322,5 +328,13 @@ public class Player1 : MonoBehaviour
             knockback = false;
             m_body2d.velocity = new Vector2(0.0f, m_body2d.velocity.y);
         }
+    }
+    public void OnAttackAnimationEvent(float offset)
+    {
+        attackoffset = offset;
+    }
+        public void OnAttackAnimationEvent2(float Rangee)
+    {
+        attackRange = Rangee;
     }
 }

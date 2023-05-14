@@ -14,9 +14,6 @@ public class Player2 : MonoBehaviour
     private int m_currentAttack = 0;
     private float m_timeSinceAttack = 0.0f;
     private float m_delayToIdle = 0.0f;
-    public Collider2D hitCollider;
-    public float pushForce;
-    public LayerMask targetLayer;
     //DOUBLE JUMP
     private int m_jumpsLeft = 2;
     private bool canDoubleJump;
@@ -52,6 +49,7 @@ public class Player2 : MonoBehaviour
         m_animator = GetComponent<Animator>();
         m_body2d = GetComponent<Rigidbody2D>();
         m_groundSensor = transform.Find("GroundSensor").GetComponent<Sensor>();
+        m_animator.SetTrigger("intro");
 
     }
 
@@ -129,9 +127,9 @@ public class Player2 : MonoBehaviour
             // Call one of three attack animations "Attack1", "Attack2", "Attack3"
             m_animator.SetTrigger("Attack" + m_currentAttack);
             Attack();
-
+            
             // Wai until the animation attack end
-            yield return new WaitForSeconds(0.6f);
+            yield return new WaitForSeconds(0.1f);
 
             // Reset isAttacking = false
             isAttacking = false;
@@ -149,7 +147,7 @@ public class Player2 : MonoBehaviour
                 m_currentAttack = 1;
 
             // Reset Attack combo if time since last attack is too large
-            if (m_timeSinceAttack > 1.0f)
+            if (m_timeSinceAttack > 0.5f)
                 m_currentAttack = 1;
 
             /*
@@ -230,6 +228,7 @@ public class Player2 : MonoBehaviour
             if (hurtComponent != null)
             {
 
+                Debug.Log("Luffy Attack");
                 hurtComponent.Damage(m_facingDirection);
             }
             else
@@ -291,6 +290,7 @@ public class Player2 : MonoBehaviour
         float horizontalForce = knockbackSpeedX * playerFacingDirection;
 
         StartCoroutine(KnockbackCurve(horizontalForce));
+        Debug.Log("Luffy Hurt");
     }
 
     private IEnumerator KnockbackCurve(float horizontalForce)
