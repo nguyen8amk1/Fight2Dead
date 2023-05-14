@@ -1,4 +1,30 @@
 TODAY: 
+    DESIGN THE DATABASE FIRST BEFORE IMPLEMENT IT (1h) [] 
+        WHAT TO STORE?  
+            players info: 
+                email 
+                password 
+
+                USE MYSQL for storage 
+
+            what can we do to it: -> need an interface between them  
+                insert 
+                query
+
+    CREATE A DATABASE FOR STORING PEOPLE'S LOGIN INFO (1h) [] (First decide what to use first maybe: MySql for cross platform)
+
+    CREATE AN INTERFACE TO CONNECT AND DO OPERATION WITH THE SERVER (2h) [] 
+        what does the server gonna do with the database:
+            insert 
+            query
+
+        what's the server actually offer to the client: 
+            register a new account  
+            login to an account  
+                checking if the account is valid 
+                ... 
+
+
     ADD 4 PLAYER MODE (6h) [] (TODAY HAVE TO FINISH THIS)
         CLIENT: 
             change the lobby -> now we have 4 people (4 lines) @DONE [X]
@@ -16,16 +42,16 @@ TODAY:
                             1v1: 
                                 each player choose 2 characters  
                                 vd: if player id = 1 -> choose char 1 then stay on the left 
-                                                        choose char 2 then move out to the left
+                                                        choose char 2 then transition to the left corner 
 
                                     if player id = 2 -> choose char 3 then stay on the right
-                                                     -> choose char 4 then move out to the right 
+                                                     -> choose char 4 then transition to the right corner 
                             2v2: 
                                 each player choose 1 character 
                                 vd: if player id = 1 -> choose char 1 then stay on the left 
-                                    if player id = 2 -> choose char 2 then move out to the left 
+                                    if player id = 2 -> choose char 2 then transition to the left corner 
                                     if player id = 3 -> choose char 3 then stay on the right 
-                                    if player id = 4 -> choose char 4 then move out to the right 
+                                    if player id = 4 -> choose char 4 then transition to the right corner 
 
                         the choosing character only shows in 2 player screen instead of 4 
                         and each of them choose 2
@@ -39,20 +65,6 @@ TODAY:
 
         SERVER: 
             stuff more players into one room, then that's pretty much it really :v 
-
-    DESIGN THE DATABASE FIRST BEFORE IMPLEMENT IT (1h) [] 
-        WHAT TO STORE?  
-            players info: 
-                email 
-                password 
-
-                USE MYSQL for storage 
-
-                what can we do to it: -> need an interface between them  
-                    insert 
-                    query
-
-    CREATE A DATABASE FOR STORING PEOPLE'S LOGIN INFO (1h) [] (First decide what to use first maybe: MySql for cross platform)
 
     tong cong: 5h  
 TODO: 
