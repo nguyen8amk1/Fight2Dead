@@ -1,9 +1,9 @@
 TODAY: 
-    ADD 4 PLAYER MODE (2h) []
+    ADD 4 PLAYER MODE (6h) [] (TODAY HAVE TO FINISH THIS)
         CLIENT: 
             change the lobby -> now we have 4 people (4 lines) @DONE [X]
             
-            change the choose character -> 
+            change the choose character -> @CURRENT (3h) []
                 choose character in 2v2 problems: 
                     the player can only choose 1 character 
                     Solution: 
