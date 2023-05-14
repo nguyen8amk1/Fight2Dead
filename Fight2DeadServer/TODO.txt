@@ -5,15 +5,17 @@ TODAY:
             
             change the choose character -> @CURRENT (3h) []
                 choose character in 2v2 problems: 
-                    the player can only choose 1 character 
+                    a player can only choose 1 character 
                     Solution: 
                         show the character whenever it showed (DO THIS WAY) (live showing the chosen characters)
                             -> p1 and p3 choose first then p2 and p4 -> can keep the sliding animation 
                             -> currently we don't have this scene done yet, so first stick with the 1 character chose way 
 
-                    have a scene where 4 character will appears all at once 
-                        -> show with the sliding animation (only in 2v2 mode or maybe both ??) -> CHOOSE THIS ONE 
-                        -> when enough player chosen just show that animation/scene and then to the next scene 
+                    CURRENT PROBLEMS (TODO): 
+                        the choosing character only shows in 2 player instead of 4 
+                        and each of them choose 2
+                            -> make each choose 4
+                        -> update the chosen character with the others 
 
 
             change the choose map -> 
@@ -39,6 +41,9 @@ TODAY:
 
     tong cong: 5h  
 TODO: 
+    CONNECT THE FIGHTING SCENE WITH THE SERVER (4h) []
+        -> sync the animation and stuff 
+        
     TEST IF C# COULD RUN ON UBUNTU (1h) []
     SEND AND HANDLE QUIT MESSAGE WITH THE NEW SYSTEM (4h) [] (THIS CURRENTLY IS DOING FOR 1V1 ONLY)
         quit message have to be TCP  
