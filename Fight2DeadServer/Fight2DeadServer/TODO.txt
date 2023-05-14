@@ -1,34 +1,11 @@
 TODAY: 
-    DESIGN THE DATABASE FIRST BEFORE IMPLEMENT IT (1h) [] 
-        WHAT TO STORE?  
-            players info: 
-                playerId 
-                email 
-                password 
-
-                USE MYSQL for storage 
-
-            what can we do to it: -> need an interface between them  
-                insert 
-                query
-
-    CREATE A DATABASE FOR STORING PEOPLE'S LOGIN INFO (1h) [] (First decide what to use first maybe: MySql for cross platform)
-        CREATE A DATABASE WITH USER (player_id, email, password) TABLE []
-        STORE PASSWORD HASH ON TO THE SERVER [] - but plain text for now 
-
-    CREATE AN INTERFACE TO CONNECT AND DO OPERATION WITH THE SERVER (2h) [] 
-        the connection diagram: 
-            client -> (client API) -> server -> (DAO) -> database
-
-        what does the server gonna do with the database:
-            insert 
-            query
-
+    CLIENT SEND LOGIN/REGISTER DATA TO SERVER (2h) []
+	the connection diagram: 
+		client -> (client API) -> server -> (DAO) -> database
         what's the server actually offer to the client: 
             register a new account  
             login to an account  
                 checking if the account is valid 
-                ... 
 
 
     ADD 4 PLAYER MODE (6h) [] (TODAY HAVE TO FINISH THIS)
@@ -74,6 +51,7 @@ TODAY:
 
     tong cong: 5h  
 TODO: 
+	STORE PASSWORD HASH (USE HASHING ON THE CLIENT) ON TO THE SERVER [] - but plain text for now 
     CONNECT THE FIGHTING SCENE WITH THE SERVER (4h) []
         -> sync the animation and stuff 
         
@@ -109,8 +87,7 @@ TODO:
         GLOBAL MODE: 
         LAN MODE: 
 
-
-        
+            (I'm currently don't know what the bellow belong to) 
             quit when in a udp room: -> send to the TCP main loop
             client send format: "rid:{},pid:{},quit"
             server send format (send to others in the room): 
@@ -121,13 +98,10 @@ TODO:
                     game scene  []
                 
                 
-    AFTER ALL THE CHARACTER IS CHOSEN HAVE A SCENE THAT SHOW ALL 4 CHARACTERS (2h) []
-    CREATE A MESSAGE HANDLER SYSTEM FOR THE CLIENT AS WELL (1h) [] (Optional)
+    IMPLEMENT LAN MODE (2h) [] 
 
     UPDATE THE GRADIENT AND THE COLOR OF THE BLACKSTRIP OF THE LOBBY SCENE (1h) []
     -> (CHOOSE CHARACTER, MAP SELECT, LOADING SCREEN)
-
-    IMPLEMENT LAN MODE (2h) [] 
 
     CHECK NETWORK STATUS OF CLIENTS (2h) [] (Optional)
     
@@ -158,6 +132,25 @@ BUG:
         AND ANOTHER ROOM CREATED AND THAT ROOM QUIT -> EXCEPTION @fixthis
 
 DONE: 
+    CREATE AN INTERFACE TO CONNECT AND DO OPERATION WITH THE DATABASE (2h) [X] 
+        what does the server gonna do with the database:
+            insert 
+            query
+    DESIGN THE DATABASE FIRST BEFORE IMPLEMENT IT (1h) [X] 
+        WHAT TO STORE?  
+            players info: 
+                playerId 
+                email 
+                password 
+
+                USE MYSQL for storage 
+
+            what can we do to it: -> need an interface between them  
+                insert 
+                query
+
+    CREATE A DATABASE FOR STORING PEOPLE'S LOGIN INFO (1h) [X] (First decide what to use first maybe: MySql for cross platform)
+        CREATE A DATABASE WITH USER (player_id, email, password) TABLE [X]
     CONNECT THE GAME MODE/SETTINGS WITH THE GAME MENU (1h) [X]
     CONNECT THE LOGIN/REGISTER WITH THE REST OF THE SCENES (1h) [X] (kinda) :v 
     GLOBAL MODE: 
