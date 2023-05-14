@@ -122,7 +122,6 @@ public class LobbyGetState : MonoBehaviour
 
 		readyText = readyObj.GetComponent<TextMeshProUGUI>();
 		exitText = exitObj.GetComponent<TextMeshProUGUI>();
-
 	}
 
 	private void OnApplicationQuit()
@@ -134,54 +133,29 @@ public class LobbyGetState : MonoBehaviour
 
 	public void readyIsChosen()
 	{
-        ready = !ready;
+		bool isPlayer1 = globalGameState.PlayerId == 1;
+		bool isPlayer2 = globalGameState.PlayerId == 2;
+		bool isPlayer3 = globalGameState.PlayerId == 3;
+		bool isPlayer4 = globalGameState.PlayerId == 4;
+
+		ready = !ready;
+		if(isPlayer1)
+		{
+			globalGameState.lobbyP1Ready = ready;
+		} else if(isPlayer2)
+		{
+			globalGameState.lobbyP2Ready = ready;
+		} else if(isPlayer3)
+		{
+			globalGameState.lobbyP3Ready = ready;
+		} else if(isPlayer4)
+		{
+			globalGameState.lobbyP4Ready = ready;
+		}
 
 		string message = PreGameMessageGenerator.lobbyReadyMessage(ready);
 		ServerCommute.connection.sendToServer(message);
 		Debug.Log($"send lobby ready/not ready message: {message}");
-
-		Image image = null;
-		if(globalGameState.numPlayers == 2)
-		{
-			bool isPlayer1 = globalGameState.PlayerId == 1;
-			bool isPlayer2 = globalGameState.PlayerId == 2;
-
-			if(isPlayer1)
-			{
-				image = player1ReadyImg;
-			} else if(isPlayer2)
-			{
-				image = player2ReadyImg;
-			}
-		} if(globalGameState.numPlayers == 4)
-		{
-			bool isPlayer1 = globalGameState.PlayerId == 1;
-			bool isPlayer2 = globalGameState.PlayerId == 2;
-			bool isPlayer3 = globalGameState.PlayerId == 3;
-			bool isPlayer4 = globalGameState.PlayerId == 4;
-
-			if(isPlayer1)
-			{
-				image = player1ReadyImg;
-			} else if(isPlayer2)
-			{
-				image = player2ReadyImg;
-			} else if(isPlayer3)
-			{
-				image = player3ReadyImg;
-			} else if(isPlayer4)
-			{
-				image = player3ReadyImg;
-			}
-
-		}
-
-		if(ready) {
-			changeStatus(image, true);
-		} else
-		{
-			changeStatus(image, false);
-		}
 	}
 
 	private void changeStatus(Image image, bool ready2Play)
@@ -245,50 +219,27 @@ public class LobbyGetState : MonoBehaviour
 				// TODO: back to the previous menu scene 
 				Debug.Log("Chosen EXIT, back to the previous menu scene");
 			}
-			}
-
-		
-		if(globalGameState.numPlayers == 2) 
-		{
-
-			if(globalGameState.opponentReady)
-			{
-				Debug.Log("the opponent is ready");
-				count = 0;
-			}
-
-
-			if(count == 0)
-			{
-				bool isPlayer1 = globalGameState.PlayerId == 1;
-				bool isPlayer2 = globalGameState.PlayerId == 2;
-
-				Image image = null;
-
-				if(isPlayer1)
-				{
-					image = player2ReadyImg;
-				} else if(isPlayer2)
-				{
-					image = player1ReadyImg;
-				}
-
-
-				if(globalGameState.opponentReady)
-				{
-					changeStatus(image, true);
-				}
-				else
-				{
-					changeStatus(image, false);
-				}
-				count = 1;
-			}
-
-		} else if(globalGameState.numPlayers == 4)
-		{
-			Debug.Log("TODO: handle 4 players scenarios");
 		}
+
+		if(globalGameState.lobbyP1Ready)
+			changeStatus(player1ReadyImg, true);
+		else 
+			changeStatus(player1ReadyImg, false);
+
+		if(globalGameState.lobbyP2Ready)
+			changeStatus(player2ReadyImg, true);
+		else 
+			changeStatus(player2ReadyImg, false);
+
+		if(globalGameState.lobbyP3Ready)
+			changeStatus(player3ReadyImg, true);
+		else 
+			changeStatus(player3ReadyImg, false);
+
+		if(globalGameState.lobbyP4Ready)
+			changeStatus(player4ReadyImg, true);
+		else 
+			changeStatus(player4ReadyImg, false);
 
         if(allPlayerReady())
 		{
@@ -370,6 +321,15 @@ public class LobbyGetState : MonoBehaviour
 
 	private bool allPlayerReady()
 	{
-		return ready && globalGameState.opponentReady;
+		if(globalGameState.numPlayers == 2)
+		{
+			return globalGameState.lobbyP1Ready  && globalGameState.lobbyP2Ready;	
+		}
+		if(globalGameState.numPlayers == 4)
+		{
+			return  globalGameState.lobbyP1Ready  && globalGameState.lobbyP2Ready && 
+					globalGameState.lobbyP3Ready && globalGameState.lobbyP4Ready;
+		}
+		throw new Exception($"Numplayers ({globalGameState.numPlayers}) not regcognize");
 	}
 }
