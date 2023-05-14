@@ -12,25 +12,36 @@ using SocketServer;
 
 public class LobbyGetState : MonoBehaviour
 {
-
     private bool ready = false;
     public static int count = 1;
+
+	public Sprite readySprite;
+	public Sprite notReadySprite;
 
 	// text component 
 	public Image player1ReadyImg;
 	public Image player2ReadyImg;
-
-	public Sprite readySprite;
-	public Sprite notReadySprite;
 
 	public Image player1Avatar; 
 	public Image player2Avatar;
 
 	public GameObject player1NameObj;
 	private TextMeshProUGUI player1NameText;
-
 	public GameObject player2NameObj;
 	private TextMeshProUGUI player2NameText;
+
+	public GameObject player3NameObj;
+	private TextMeshProUGUI player3NameText;
+	public Image player3ReadyImg;
+	public Image player3Avatar;
+	public Image player3BlackStrip; 
+
+
+	public GameObject player4NameObj;
+	private TextMeshProUGUI player4NameText;
+	public Image player4ReadyImg;
+	public Image player4Avatar;
+	public Image player4BlackStrip; 
 
 	public GameObject readyObj;
 	private TextMeshProUGUI readyText;
@@ -55,7 +66,10 @@ public class LobbyGetState : MonoBehaviour
 	public Image readyChosenBorderBottom; 
 
 	public Image exitChosenBorderTop; 
-	public Image exitChosenBorderBottom; 
+	public Image exitChosenBorderBottom;
+
+	// TODO: New structure to refactor 
+	// change the pIready and update everything accordingly
 
 	private void Start()
 	{
@@ -69,6 +83,42 @@ public class LobbyGetState : MonoBehaviour
 		player1ReadyImg.sprite = notReadySprite;
 		player2ReadyImg.sprite = notReadySprite;
 
+		// TODO: Deactive 3, 4 
+		player3NameObj.SetActive(false);
+		player4NameObj.SetActive(false);
+
+		player3ReadyImg.enabled = false;
+		player4ReadyImg.enabled = false;
+
+		player3Avatar.enabled = false; 
+		player4Avatar.enabled = false;
+
+		player3BlackStrip.enabled = false;
+		player4BlackStrip.enabled = false;
+
+		if(globalGameState.numPlayers == 4) 
+		{
+			player3NameObj.SetActive(true);
+			player4NameObj.SetActive(true);
+
+			player3ReadyImg.enabled = true;
+			player4ReadyImg.enabled = true;
+
+			player3Avatar.enabled = true; 
+			player4Avatar.enabled = true;
+
+			player3BlackStrip.enabled = true;
+			player4BlackStrip.enabled = true;
+
+			player3NameText = player3NameObj.GetComponent<TextMeshProUGUI>();
+			player4NameText = player4NameObj.GetComponent<TextMeshProUGUI>();
+
+			player3NameText.text = globalGameState.player3Name;
+			player4NameText.text = globalGameState.player4Name;
+
+			player3ReadyImg.sprite = notReadySprite;
+			player4ReadyImg.sprite = notReadySprite;
+		}
 
 		readyText = readyObj.GetComponent<TextMeshProUGUI>();
 		exitText = exitObj.GetComponent<TextMeshProUGUI>();
@@ -90,17 +140,40 @@ public class LobbyGetState : MonoBehaviour
 		ServerCommute.connection.sendToServer(message);
 		Debug.Log($"send lobby ready/not ready message: {message}");
 
-        bool isPlayer1 = globalGameState.PlayerId == 1;
-        bool isPlayer2 = globalGameState.PlayerId == 2;
-
 		Image image = null;
+		if(globalGameState.numPlayers == 2)
+		{
+			bool isPlayer1 = globalGameState.PlayerId == 1;
+			bool isPlayer2 = globalGameState.PlayerId == 2;
 
-        if(isPlayer1)
+			if(isPlayer1)
+			{
+				image = player1ReadyImg;
+			} else if(isPlayer2)
+			{
+				image = player2ReadyImg;
+			}
+		} if(globalGameState.numPlayers == 4)
 		{
-			image = player1ReadyImg;
-		} else if(isPlayer2)
-		{
-			image = player2ReadyImg;
+			bool isPlayer1 = globalGameState.PlayerId == 1;
+			bool isPlayer2 = globalGameState.PlayerId == 2;
+			bool isPlayer3 = globalGameState.PlayerId == 3;
+			bool isPlayer4 = globalGameState.PlayerId == 4;
+
+			if(isPlayer1)
+			{
+				image = player1ReadyImg;
+			} else if(isPlayer2)
+			{
+				image = player2ReadyImg;
+			} else if(isPlayer3)
+			{
+				image = player3ReadyImg;
+			} else if(isPlayer4)
+			{
+				image = player3ReadyImg;
+			}
+
 		}
 
 		if(ready) {
@@ -135,6 +208,7 @@ public class LobbyGetState : MonoBehaviour
 	// Update is called once per frame
 	void Update()
     {
+		// Handle scene changing 
 		if(globalGameState.onlineMode.Equals("LAN"))
 		{
 			if(globalGameState.lobby_P1Quit)
@@ -157,22 +231,7 @@ public class LobbyGetState : MonoBehaviour
 			}
 		}
 
-		if(globalGameState.opponentReady)
-		{
-			Debug.Log("the opponent is ready");
-			count = 0;
-		}
-
-		if(Input.GetKeyDown(KeyCode.UpArrow))
-		{
-			currentChoice = Math.Abs(--currentChoice) % 2;
-			Debug.Log("Current choice is + " + currentChoice.ToString());
-		}
-		if(Input.GetKeyDown(KeyCode.DownArrow))
-		{
-			currentChoice = (++currentChoice) % 2;
-			Debug.Log("Current choice is + " + currentChoice.ToString());
-		}
+		choiceAnimation();
 
 		if(Input.GetKeyDown(KeyCode.Return))
 		{
@@ -186,6 +245,69 @@ public class LobbyGetState : MonoBehaviour
 				// TODO: back to the previous menu scene 
 				Debug.Log("Chosen EXIT, back to the previous menu scene");
 			}
+			}
+
+		
+		if(globalGameState.numPlayers == 2) 
+		{
+
+			if(globalGameState.opponentReady)
+			{
+				Debug.Log("the opponent is ready");
+				count = 0;
+			}
+
+
+			if(count == 0)
+			{
+				bool isPlayer1 = globalGameState.PlayerId == 1;
+				bool isPlayer2 = globalGameState.PlayerId == 2;
+
+				Image image = null;
+
+				if(isPlayer1)
+				{
+					image = player2ReadyImg;
+				} else if(isPlayer2)
+				{
+					image = player1ReadyImg;
+				}
+
+
+				if(globalGameState.opponentReady)
+				{
+					changeStatus(image, true);
+				}
+				else
+				{
+					changeStatus(image, false);
+				}
+				count = 1;
+			}
+
+		} else if(globalGameState.numPlayers == 4)
+		{
+			Debug.Log("TODO: handle 4 players scenarios");
+		}
+
+        if(allPlayerReady())
+		{
+            Util.toNextScene();
+		}
+        
+    }
+
+	private void choiceAnimation()
+	{
+		if(Input.GetKeyDown(KeyCode.UpArrow))
+		{
+			currentChoice = Math.Abs(--currentChoice) % 2;
+			Debug.Log("Current choice is + " + currentChoice.ToString());
+		}
+		if(Input.GetKeyDown(KeyCode.DownArrow))
+		{
+			currentChoice = (++currentChoice) % 2;
+			Debug.Log("Current choice is + " + currentChoice.ToString());
 		}
 
 		if(currentChoice == 0)
@@ -244,40 +366,7 @@ public class LobbyGetState : MonoBehaviour
 			exitBlackStrip.color = blackStripNotChosenColor;
 			exitText.color = notChosenColor;
 		}
-
-        if(count == 0)
-		{
-			bool isPlayer1 = globalGameState.PlayerId == 1;
-			bool isPlayer2 = globalGameState.PlayerId == 2;
-
-			Image image = null;
-
-			if(isPlayer1)
-			{
-				image = player2ReadyImg;
-			} else if(isPlayer2)
-			{
-				image = player1ReadyImg;
-			}
-
-
-            if(globalGameState.opponentReady)
-			{
-                changeStatus(image, true);
-			}
-            else
-			{
-                changeStatus(image, false);
-			}
-            count = 1;
-		}
-
-        if(allPlayerReady())
-		{
-            Util.toNextScene();
-		}
-        
-    }
+	}
 
 	private bool allPlayerReady()
 	{

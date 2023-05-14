@@ -1,9 +1,6 @@
 TODAY: 
     ADD 4 PLAYER MODE (2h) []
         CLIENT: 
-            currently we are in 1v1 mode even when hit 2v2 button 
-            -> change the mode when click on different buttons (1v1, 2v2) [X]
-
             change the lobby -> now we have 4 people (4 lines) @current
             
             change the choose character -> 

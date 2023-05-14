@@ -23,9 +23,31 @@ namespace SocketServer {
                 bool isLobbyReadyMessage = Util.getKeyFrom(tokens[0]) == "pid" && Util.getKeyFrom(tokens[1]) == "stat";
                 if(isLobbyReadyMessage)
 				{
+                    int pid = Int32.Parse(Util.getValueFrom(tokens[0]));
 					int stat = Int32.Parse(Util.getValueFrom(tokens[1]));
                     LobbyGetState.count = 0; 
-					gameState.opponentReady = stat == 1;
+                    if(gameState.numPlayers == 2)
+					{
+						gameState.opponentReady = stat == 1;
+
+					} else if (gameState.numPlayers == 4)
+					{
+						switch(pid) 
+                        {
+                            case 1:
+                                gameState.lobbyP1Ready = true;
+                                break;
+                            case 2:
+                                gameState.lobbyP2Ready = true;
+                                break;
+                            case 3:
+                                gameState.lobbyP3Ready = true;
+                                break;
+                            case 4:
+                                gameState.lobbyP4Ready = true;
+                                break;
+                        }
+					}
 				}
 
                 bool isChosenCharacterMessage = Util.getKeyFrom(tokens[0]) == "pid" && 

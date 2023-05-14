@@ -19,6 +19,8 @@ public sealed class GameState
 
     public string player1Name = "NoName";
     public string player2Name = "NoName";
+	public string player3Name = "NoName";
+	public string player4Name = "NoName";
     public bool opponentReady = false;
 
     // character 
@@ -30,7 +32,13 @@ public sealed class GameState
 	public bool lobby_P1Quit = false;
 	public bool lobby_P2Quit = false;
 
+	public bool lobbyP1Ready = false;
+	public bool lobbyP2Ready = false;
+	public bool lobbyP3Ready = false;
+	public bool lobbyP4Ready = false;
+
     public Dictionary<string, int> scenesOrder = new Dictionary<string, int>();
+
 
 	private GameState()
     {
