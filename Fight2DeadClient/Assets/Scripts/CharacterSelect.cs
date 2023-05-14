@@ -25,8 +25,10 @@ public class CharacterSelect : MonoBehaviour
     private float speed = 3.0f;
     private bool enterHitP1 = false, enterHitP2 = false;
     private int enterCount1 = 0, enterCount2 = 0;
+
     string[] charName = new string[] { "capa", "venom", "sasori", "gaara", "ken", "ryu",
         "link","reborn","jotaro" };
+
     private bool P1Log1 = false, P1Log2 = false, P2Log1 = false, P2Log2 = false;
     private GameState globalGameState = GameState.Instance;
 

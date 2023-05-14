@@ -23,9 +23,59 @@ namespace SocketServer {
                 bool isLobbyReadyMessage = Util.getKeyFrom(tokens[0]) == "pid" && Util.getKeyFrom(tokens[1]) == "stat";
                 if(isLobbyReadyMessage)
 				{
+                    int pid = Int32.Parse(Util.getValueFrom(tokens[0]));
 					int stat = Int32.Parse(Util.getValueFrom(tokens[1]));
-                    LobbyGetState.count = 0; 
-					gameState.opponentReady = stat == 1;
+					switch(pid) 
+					{
+						case 1:
+                            if(stat == 1)
+							{
+								gameState.lobbyP1Ready = true;
+								Debug.Log("player 1 is ready");
+							}
+                            else if(stat == 0)
+							{
+								gameState.lobbyP1Ready = false;
+								Debug.Log("player 1 is not ready");
+							}
+							break;
+						case 2:
+                            if(stat == 1)
+							{
+								gameState.lobbyP2Ready = true;
+								Debug.Log("player 2 is ready");
+							}
+                            else if(stat == 0)
+							{
+								gameState.lobbyP2Ready = false;
+								Debug.Log("player 2 is not ready");
+							}
+							break;
+						case 3:
+                            if(stat == 1)
+							{
+								gameState.lobbyP3Ready = true;
+								Debug.Log("player 3 is ready");
+							}
+                            else if(stat == 0)
+							{
+								gameState.lobbyP3Ready = false;
+								Debug.Log("player 3 is not ready");
+							}
+							break;
+						case 4:
+                            if(stat == 1)
+							{
+								gameState.lobbyP4Ready = true;
+								Debug.Log("player 4 is ready");
+							}
+                            else if(stat == 0)
+							{
+								gameState.lobbyP4Ready = false;
+								Debug.Log("player 4 is not ready");
+							}
+							break;
+					}
 				}
 
                 bool isChosenCharacterMessage = Util.getKeyFrom(tokens[0]) == "pid" && 
