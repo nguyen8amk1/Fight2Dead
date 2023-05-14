@@ -2,6 +2,7 @@ TODAY:
     DESIGN THE DATABASE FIRST BEFORE IMPLEMENT IT (1h) [] 
         WHAT TO STORE?  
             players info: 
+                playerId 
                 email 
                 password 
 
@@ -12,8 +13,13 @@ TODAY:
                 query
 
     CREATE A DATABASE FOR STORING PEOPLE'S LOGIN INFO (1h) [] (First decide what to use first maybe: MySql for cross platform)
+        CREATE A DATABASE WITH USER (player_id, email, password) TABLE []
+        STORE PASSWORD HASH ON TO THE SERVER [] - but plain text for now 
 
     CREATE AN INTERFACE TO CONNECT AND DO OPERATION WITH THE SERVER (2h) [] 
+        the connection diagram: 
+            client -> (client API) -> server -> (DAO) -> database
+
         what does the server gonna do with the database:
             insert 
             query
