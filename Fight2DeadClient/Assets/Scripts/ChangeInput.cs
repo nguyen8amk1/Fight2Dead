@@ -53,21 +53,20 @@ public class ChangeInput : MonoBehaviour
 
     private IEnumerator FadeOutAlertText()
     {
-
         float startAlpha = alertTextContainer.alpha;
         float elapsedTime = 0f;
+        float targetAlpha = 0f; 
+
         while (elapsedTime < fadeDuration)
         {
-
-            float newAlpha = Mathf.Lerp(startAlpha, 0f, elapsedTime / fadeDuration);
+            float newAlpha = Mathf.Lerp(startAlpha, targetAlpha, elapsedTime / fadeDuration);
             alertTextContainer.alpha = newAlpha;
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
-
-        alertTextContainer.alpha = 0f;
-        alertText.SetActive(false);
+        alertTextContainer.alpha = targetAlpha; 
+        alertText.SetActive(false); 
     }
 
     private bool IsValidEmail(string email)
