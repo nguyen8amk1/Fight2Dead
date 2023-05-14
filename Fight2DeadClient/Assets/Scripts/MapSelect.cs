@@ -10,6 +10,7 @@ public class MapSelect : MonoBehaviour
     public static int selectVal = 0;
     public GameObject map,map0, map1, map2, map3, map4;
     public GameObject pointer0, pointer1, pointer2, pointer3, pointer4;
+    private string[] mapName = new string[] {"Yoshi", "Sunny", "Palutena", "Fourside", "Temple" };
     private IEnumerator FadeOutMap(GameObject map)
     {
         float startAlpha = 1;
@@ -152,6 +153,10 @@ public class MapSelect : MonoBehaviour
             selectVal = (selectVal + 2) % 5;
             FadingMap();
         }
+        if(Input.GetKeyDown(KeyCode.Return))
+        {
+            Debug.Log(mapName[selectVal]);
+        }    
 
         if (selectVal == 0)
         {
