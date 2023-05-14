@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hurt1 : MonoBehaviour
+public class Hurt3 : MonoBehaviour
 {
     [SerializeField]
     public float knockbackSpeedX, knockbackSpeedY, knockbackDuration;
@@ -17,15 +17,15 @@ public class Hurt1 : MonoBehaviour
     private int mylayerFacingDirection;
     private bool playerOnLeft, knockback;
 
-    private Hero pc;
-    private Hero1 me;
+    private Hero1 pc;
+    private Hero me;
     private Animator aliveAnim;
     private Rigidbody2D rbAlive;
     private void Start()
     {
 
-        pc = GameObject.Find("Gaara").GetComponent<Hero>();
-        me = GetComponent<Hero1>();
+        pc = GameObject.Find("Luffy").GetComponent<Hero1>();
+        me = GetComponent<Hero>();
         // aliveGO = transform.Find("Alive").gameObject;
 
         aliveAnim = GetComponent<Animator>();

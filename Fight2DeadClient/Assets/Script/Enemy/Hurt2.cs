@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hurt1 : MonoBehaviour
+public class Hurt2 : MonoBehaviour
 {
     [SerializeField]
-    public float knockbackSpeedX, knockbackSpeedY, knockbackDuration;
+    private float knockbackSpeedX, knockbackSpeedY, knockbackDuration, knockbackDeathSpeedX, knockbackDeathSpeedY, deathTorque;
     [SerializeField]
     private bool applyKnockback;
     [SerializeField]
@@ -14,19 +14,20 @@ public class Hurt1 : MonoBehaviour
     private float knockbackStart;
 
     private int playerFacingDirection;
-    private int mylayerFacingDirection;
+
     private bool playerOnLeft, knockback;
 
     private Hero pc;
-    private Hero1 me;
+
     private Animator aliveAnim;
     private Rigidbody2D rbAlive;
+    private GameObject aliveGO;
+        
     private void Start()
     {
 
         pc = GameObject.Find("Gaara").GetComponent<Hero>();
-        me = GetComponent<Hero1>();
-        // aliveGO = transform.Find("Alive").gameObject;
+
 
         aliveAnim = GetComponent<Animator>();
         rbAlive = GetComponent<Rigidbody2D>();
@@ -36,24 +37,21 @@ public class Hurt1 : MonoBehaviour
     {
         CheckKnockback();
     }
-    public bool checkKnock(){
-        return knockback;
-    }
-    public void Damage()
+
+    private void Damage()
     {
         playerFacingDirection = pc.GetFacingDirection();
-        mylayerFacingDirection = me.GetFacingDirection();
+
         Instantiate(hitParticle, aliveAnim.transform.position, Quaternion.Euler(0.0f, 0.0f, Random.Range(0.0f, 360.0f)));
 
-        if (playerFacingDirection == 1 && mylayerFacingDirection==1 || playerFacingDirection != 1 && mylayerFacingDirection!=1)
+        if (playerFacingDirection == 1)
         {
             playerOnLeft = true;
         }
-        if (playerFacingDirection != 1 && mylayerFacingDirection==1 ||playerFacingDirection == 1 && mylayerFacingDirection!=1 )
+        else
         {
             playerOnLeft = false;
         }
-
 
         aliveAnim.SetBool("playerOnLeft", playerOnLeft);
         aliveAnim.SetTrigger("damage");
@@ -66,16 +64,14 @@ public class Hurt1 : MonoBehaviour
 
     }
 
-    public void Knockback()
+    private void Knockback()
     {
         knockback = true;
         knockbackStart = Time.time;
-        Debug.Log("Knockback: " + rbAlive.velocity);
         rbAlive.velocity = new Vector2(knockbackSpeedX * playerFacingDirection, knockbackSpeedY);
-        Debug.Log("Knockback: " + rbAlive.velocity);
     }
 
-    public void CheckKnockback()
+    private void CheckKnockback()
     {
         if (Time.time >= knockbackStart + knockbackDuration && knockback)
         {
