@@ -12,7 +12,22 @@ TODAY:
                             -> currently we don't have this scene done yet, so first stick with the 1 character chose way 
 
                     CURRENT PROBLEMS (TODO): 
-                        the choosing character only shows in 2 player instead of 4 
+                        WHAT I ACTUALLY HAPPEN:
+                            1v1: 
+                                each player choose 2 characters  
+                                vd: if player id = 1 -> choose char 1 then stay on the left 
+                                                        choose char 2 then move out to the left
+
+                                    if player id = 2 -> choose char 3 then stay on the right
+                                                     -> choose char 4 then move out to the right 
+                            2v2: 
+                                each player choose 1 character 
+                                vd: if player id = 1 -> choose char 1 then stay on the left 
+                                    if player id = 2 -> choose char 2 then move out to the left 
+                                    if player id = 3 -> choose char 3 then stay on the right 
+                                    if player id = 4 -> choose char 4 then move out to the right 
+
+                        the choosing character only shows in 2 player screen instead of 4 
                         and each of them choose 2
                             -> make each choose 4
                         -> update the chosen character with the others 
