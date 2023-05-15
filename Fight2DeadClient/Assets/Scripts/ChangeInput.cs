@@ -17,20 +17,30 @@ public class ChangeInput : MonoBehaviour
     public CanvasGroup alertTextContainer;
     public GameObject alertText;
     private float fadeDuration = 3f;
-
+    public string[] UsernameList;
     // Start is called before the first frame update
     void Start()
     {
         system = EventSystem.current;
         submitButton.onClick.AddListener(OnLoginButtonClick);
     }
-
+    private bool IsValidUsername(string username)
+    {
+        foreach (string existingUsername in UsernameList)
+        {
+            if (existingUsername == username)
+            {                
+                return false;
+            }
+                  
+        }return true;
+    }
     private void OnLoginButtonClick()
     {
         string username = usernameInputField.text;
         string password = passwordInputField.text;
 
-        if (!IsValidEmail(username) || password.Length < 6)
+        if (!IsValidUsername(username) || password.Length < 6)
         {
             Debug.Log("Invalid username or password");
             usernameInputField.text = "";
