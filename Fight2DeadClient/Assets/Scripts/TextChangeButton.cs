@@ -5,28 +5,23 @@ using UnityEngine.UI;
 using TMPro;
 public class TextChangeButton : MonoBehaviour
 {
-    public TMP_Text buttonText;
+    public InputField inputField;
 
-    private bool isShown = false;
-
+    
     private void Start()
+    {        
+        Button button = GetComponent<Button>();     
+        button.onClick.AddListener(ChangeContentType);
+    }   
+    public void ChangeContentType()
     {
-        
-        Button button = GetComponent<Button>();
-        button.onClick.AddListener(ChangeText);
-    }
-
-    private void ChangeText()
-    {
-        if (isShown)
+        if (inputField.contentType == InputField.ContentType.Standard)
         {
-            buttonText.text = "Hide";
+            inputField.contentType = InputField.ContentType.Password;
         }
-        else
+        else if (inputField.contentType == InputField.ContentType.Password)
         {
-            buttonText.text = "Show";
+            inputField.contentType = InputField.ContentType.Standard;
         }
-
-        isShown = !isShown;
     }
 }
