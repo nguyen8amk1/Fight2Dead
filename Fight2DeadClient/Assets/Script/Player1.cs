@@ -20,7 +20,10 @@ public class Player1 : MonoBehaviour
     //FIGHT1
     public Transform attackPoint;
     public float attackRange;
-    public float attackoffset;
+    // public float attackoffset;
+    [SerializeField] private float attackOffsetX;
+    [SerializeField] private float attackOffsetY;
+
     public LayerMask enemyLayers;
     private bool isAttacking = false;
     //Knockback
@@ -48,7 +51,7 @@ public class Player1 : MonoBehaviour
         m_animator = GetComponent<Animator>();
         m_body2d = GetComponent<Rigidbody2D>();
         m_groundSensor = transform.Find("GroundSensor").GetComponent<Sensor>();
-
+        m_animator.SetTrigger("intro");
     }
 
     // Update is called once per frame
@@ -126,8 +129,8 @@ public class Player1 : MonoBehaviour
             // Call one of three attack animations "Attack1", "Attack2", "Attack3"
             m_animator.SetTrigger("Attack" + m_currentAttack);
             // Debug.Log(m_animator.GetFloat("Attack.Active"));
-            
-            Attack();
+
+            // Attack();
 
             // Wai until the animation attack end
             yield return new WaitForSeconds(0f);
@@ -214,27 +217,60 @@ public class Player1 : MonoBehaviour
         }
     }
 
+    // private void Attack()
+    // {
+    //     Vector2 attackDirection = new Vector2(GetFacingDirection(), 0f); // Hướng của nhân vật
+    //     Vector2 attackPointPosition = (Vector2)transform.position + attackDirection * attackoffset; // Tính toán vị trí của attackPoint
+    //     Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPointPosition, attackRange, enemyLayers); // Sử dụng vị trí tính toán được để tấn công
+    //     foreach (Collider2D enemy in hitEnemies)
+    //     {
+
+    //         Player2 hurtComponent = enemy.GetComponent<Player2>();
+    //         if (hurtComponent != null)
+    //         {
+
+    //             Debug.Log(attackRange);
+    //             Debug.Log(attackoffset);
+    //             Debug.Log("Gaara Attack");
+    //             hurtComponent.Damage(m_facingDirection);
+
+    //         }
+    //         else
+    //         {
+    //             Debug.LogError("Player2 component is null");
+    //         }
+
+    //     }
+    // }
+
+    // void OnDrawGizmosSelected()
+    // {
+    //     if (attackPoint == null)
+    //         return;
+    //     Vector2 attackDirection = new Vector2(GetFacingDirection(), 0f);
+    //     Vector2 attackPointPosition = (Vector2)transform.position + attackDirection * attackoffset;
+    //     Gizmos.DrawWireSphere(attackPointPosition, attackRange);
+    // }
     private void Attack()
     {
         Vector2 attackDirection = new Vector2(GetFacingDirection(), 0f); // Hướng của nhân vật
-        Vector2 attackPointPosition = (Vector2)transform.position + attackDirection * attackoffset; // Tính toán vị trí của attackPoint
+        Vector2 attackPointPosition = (Vector2)transform.position + new Vector2(attackOffsetX * attackDirection.x, attackOffsetY); // Tính toán vị trí của attackPoint
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPointPosition, attackRange, enemyLayers); // Sử dụng vị trí tính toán được để tấn công
         foreach (Collider2D enemy in hitEnemies)
         {
-
             Player2 hurtComponent = enemy.GetComponent<Player2>();
             if (hurtComponent != null)
             {
-
+                Debug.Log(attackRange);
+                Debug.Log(attackOffsetX);
+                Debug.Log(attackOffsetY);
                 Debug.Log("Gaara Attack");
                 hurtComponent.Damage(m_facingDirection);
-
             }
             else
             {
                 Debug.LogError("Player2 component is null");
             }
-
         }
     }
 
@@ -243,7 +279,7 @@ public class Player1 : MonoBehaviour
         if (attackPoint == null)
             return;
         Vector2 attackDirection = new Vector2(GetFacingDirection(), 0f);
-        Vector2 attackPointPosition = (Vector2)transform.position + attackDirection * attackoffset;
+        Vector2 attackPointPosition = (Vector2)transform.position + new Vector2(attackOffsetX * attackDirection.x, attackOffsetY);
         Gizmos.DrawWireSphere(attackPointPosition, attackRange);
     }
 
@@ -329,12 +365,16 @@ public class Player1 : MonoBehaviour
             m_body2d.velocity = new Vector2(0.0f, m_body2d.velocity.y);
         }
     }
-    public void OnAttackAnimationEvent(float offset)
+    public void UpdateAttackOffsetX(float x)
     {
-        attackoffset = offset;
+        attackOffsetX = x;
     }
-        public void OnAttackAnimationEvent2(float Rangee)
+    public void UpdateAttackOffsetY(float y)
     {
-        attackRange = Rangee;
+        attackOffsetY = y;
+    }
+    public void UpdateAttackRange(float range)
+    {
+        attackRange = range;
     }
 }
