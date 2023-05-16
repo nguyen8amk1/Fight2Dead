@@ -231,7 +231,7 @@ GameObject:
   - component: {fileID: 55629622}
   - component: {fileID: 55629621}
   m_Layer: 0
-  m_Name: P4
+  m_Name: P4_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -315,7 +315,7 @@ GameObject:
   - component: {fileID: 73350163}
   - component: {fileID: 73350162}
   m_Layer: 0
-  m_Name: P1
+  m_Name: P1_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3707,7 +3707,7 @@ GameObject:
   - component: {fileID: 770585836}
   - component: {fileID: 770585835}
   m_Layer: 0
-  m_Name: P3
+  m_Name: P3_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5425,7 +5425,7 @@ GameObject:
   - component: {fileID: 1258799182}
   - component: {fileID: 1258799183}
   m_Layer: 0
-  m_Name: P2_1
+  m_Name: P2_1_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5782,7 +5782,7 @@ GameObject:
   - component: {fileID: 1315653488}
   - component: {fileID: 1315653487}
   m_Layer: 0
-  m_Name: P2
+  m_Name: P2_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6529,7 +6529,7 @@ GameObject:
   - component: {fileID: 1479136199}
   - component: {fileID: 1479136200}
   m_Layer: 0
-  m_Name: P2_2
+  m_Name: P2_2_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6613,7 +6613,7 @@ GameObject:
   - component: {fileID: 1489640071}
   - component: {fileID: 1489640072}
   m_Layer: 0
-  m_Name: P1_1
+  m_Name: P1_1_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8634,8 +8634,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edcb0f61e6b060d43aa47b9eb5245316, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 2
   Mode: 2
+  twoPlayerID: 1
+  fourPlayerID: 4
   char0: {fileID: 1455992036}
   char1: {fileID: 296319935}
   char2: {fileID: 813344520}
