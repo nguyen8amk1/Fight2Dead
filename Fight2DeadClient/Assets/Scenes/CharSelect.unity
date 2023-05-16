@@ -8568,8 +8568,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1909229508}
-  - component: {fileID: 1909229510}
+  - component: {fileID: 1909229512}
   - component: {fileID: 1909229511}
+  - component: {fileID: 1909229510}
   m_Layer: 0
   m_Name: CharSelectManager
   m_TagString: Untagged
@@ -8634,9 +8635,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edcb0f61e6b060d43aa47b9eb5245316, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: 
+  character: 
   Mode: 2
   twoPlayerID: 1
-  fourPlayerID: 4
+  fourPlayerID: 2
   char0: {fileID: 1455992036}
   char1: {fileID: 296319935}
   char2: {fileID: 813344520}
@@ -8693,6 +8696,27 @@ MonoBehaviour:
   pointer6: {fileID: 25506702}
   pointer7: {fileID: 1608626472}
   pointer8: {fileID: 278076576}
+--- !u!114 &1909229512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1909229507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e79fed1fd2a8ba4da9143cbe2cecb9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p1Char:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &1924812104
 GameObject:
   m_ObjectHideFlags: 0
