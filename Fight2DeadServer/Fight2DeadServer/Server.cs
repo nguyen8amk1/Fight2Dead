@@ -26,6 +26,7 @@ namespace SocketServer
 
         // FIXME: the server get spammed some how when client send login info  
         // FIXME: the matching is not work anymore 
+        // TODO: refactor the login/register processing code
 
         public void run()
         {
