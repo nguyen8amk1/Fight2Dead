@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DBConnection
+namespace SocketServer
 {
-	class MySQLDatabaseConnection
+	public class MySQLDatabaseConnection
 	{
 		private string server;  
 		private string database;  

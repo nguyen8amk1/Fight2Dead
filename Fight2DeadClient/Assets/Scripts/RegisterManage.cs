@@ -5,6 +5,8 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Text.RegularExpressions;
 using TMPro;
+using SocketServer;
+
 public class RegisterManage : MonoBehaviour
 {
     public string[] usernameList;
@@ -24,6 +26,9 @@ public class RegisterManage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ServerCommute.listenToServerThread = ServerCommute.connection.createListenToServerThread(ListenToServerFactory.tempTCPListening());
+        ServerCommute.listenToServerThread.Start();
+
         system = EventSystem.current;
         regisButton.onClick.AddListener(OnRegisterButtonClick);
     }
@@ -60,8 +65,9 @@ public class RegisterManage : MonoBehaviour
         string password = passwordInputField.text;
         string confirmpassword = confirmPasswordInputField.text;
 
-        Debug.Log("TODO: Perform the syntax check then pass to the server for storing");
+        Debug.Log("TODO: Check the register info for email,username duplication in the database");
 
+        /*
         foreach (string existingUsername in usernameList)
         {
             if (existingUsername == username)
@@ -106,10 +112,16 @@ public class RegisterManage : MonoBehaviour
             confirmPasswordText.gameObject.SetActive(true);
             alertText.SetActive(true);
             StartCoroutine(FadeOutAlertText());
-            return;
+            return
         }                  
+        */
 
-        
+        Debug.Log("Send to the server for storing");
+        string message = PreGameMessageGenerator.userRegistrationMessage(usernameInputField.text, passwordInputField.text);
+        ServerCommute.connection.sendToServer(message);
+
+        // TODO: if registration success ->  change to login scene with the info already filled 
+        //       else display the error on screen 
 
         Debug.Log("Registered");
         Debug.Log("Username: " + username);

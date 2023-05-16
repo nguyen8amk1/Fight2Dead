@@ -21,9 +21,6 @@ public class MatchingSceneMessageHandler : MonoBehaviour
         Debug.Log("Sending establish new connection message to server");
         string numPlayersMessage = PreGameMessageGenerator.numPlayersMessage(gameState.numPlayers);
         ServerCommute.connection.sendToServer(numPlayersMessage);
-
-        ServerCommute.listenToServerThread = ServerCommute.connection.createListenToServerThread(ListenToServerFactory.tempTCPListening());
-        ServerCommute.listenToServerThread.Start();
     }
 
 	private void OnApplicationQuit()

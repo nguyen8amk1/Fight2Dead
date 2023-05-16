@@ -58,6 +58,7 @@ namespace SocketServer
                     int bytesRead = stream.Read(buffer, 0, buffer.Length);
 
                     string message = Encoding.ASCII.GetString(buffer, 0, bytesRead);
+                    Console.WriteLine("receive in tcp loop: " + message);
                     if(String.IsNullOrEmpty(message)) continue;
 
                     // TODO: handle quit message and break the loop 

@@ -31,7 +31,7 @@ namespace SocketServer
             Console.WriteLine("Client {0} to Server (Phase {1} - {2}): {3}", tempNames[tcpClient], phase, protocol, message);
         }
 
-        public void newConnectionMessageSent(TcpClient tcpClient, int phase, string message)
+		public void newConnectionMessageSent(TcpClient tcpClient, int phase, string message)
         {
             string protocol = whatProtocol(phase);
             Console.WriteLine("Server to Client {0} (Phase {1} - {2}): {3}", tempNames[tcpClient], phase, protocol, message);
@@ -47,8 +47,8 @@ namespace SocketServer
         {
             string protocol = whatProtocol(phase);
             Console.WriteLine("Server to Client (id {0}) (Phase {1} - {2}): {3}", id, phase, protocol, message);
-
         }
+
         public void roomCreated(GameRoom room)
         {
             Console.WriteLine("TCP Room (id {0}) get created", room.id);
@@ -58,6 +58,17 @@ namespace SocketServer
         {
             Console.WriteLine("Move TCP room (id {0}) to UDP room (id {1})", tcpRoomId, tcpRoomId);
         }
+
+		public void playerRegistered(string message, int phase)
+		{
+            string protocol = whatProtocol(phase);
+            Console.WriteLine("Client to Server (Phase {0} - {1}): {2}", phase, protocol, message);
+		}
+		public void playerLogin(string message, int phase)
+		{
+            string protocol = whatProtocol(phase);
+            Console.WriteLine("Client to Server (Phase {0} - {1}): {2}", phase, protocol, message);
+		}
 
         private string generateRandomString()
         {
@@ -76,5 +87,6 @@ namespace SocketServer
             }
             return protocol;
         }
-    }
+
+	}
 }

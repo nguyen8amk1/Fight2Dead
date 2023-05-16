@@ -38,7 +38,7 @@ public sealed class GameState
 	public bool lobbyP4Ready = false;
 
     public Dictionary<string, int> scenesOrder = new Dictionary<string, int>();
-
+	public bool loginSuccess = false;
 
 	private GameState()
     {

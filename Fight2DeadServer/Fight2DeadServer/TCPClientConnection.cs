@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Net.Sockets;
 using System.Text;
 
 namespace SocketServer {
@@ -28,5 +30,10 @@ namespace SocketServer {
             }
         }
 
-    }
+		public static void sendToClient(TcpClient tcpClient, string message)
+		{
+			tcpClient.Client.Send(Encoding.ASCII.GetBytes(message));
+			dlog.newConnectionMessageSent(tcpClient, 1, message);
+		}
+	}
 }

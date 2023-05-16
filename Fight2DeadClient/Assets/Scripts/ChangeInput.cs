@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 using System.Text.RegularExpressions;
 using TMPro;
 using System;
+using SocketServer;
 
 public class ChangeInput : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class ChangeInput : MonoBehaviour
     public CanvasGroup alertTextContainer;
     public GameObject alertText;
     private float fadeDuration = 3f;
+    private GameState globalGameState = GameState.Instance;
 
     // Start is called before the first frame update
     void Start()
@@ -31,9 +33,12 @@ public class ChangeInput : MonoBehaviour
         string password = passwordInputField.text;
 
         // @Test
-        Debug.Log("TODO: Send to server for checking if the info is valid \n (Can go to next scene without login info just for testing)");
-        Util.toNextScene();
+        // TODO: if the player already register the login form should be automatically filled 
+        Debug.Log("Send to server for checking if the info is valid \n (Can go to next scene without login info just for testing)");
+        string message = PreGameMessageGenerator.userLoginMessage(username, password);
+        ServerCommute.connection.sendToServer(message);
 
+/*
         if (!IsValidEmail(username) || password.Length < 6)
         {
             Debug.Log("Invalid username or password");
@@ -44,6 +49,7 @@ public class ChangeInput : MonoBehaviour
             StartCoroutine(FadeOutAlertText());
             return;
         }
+*/
         usernameInputField.text = "";
         passwordInputField.text = "";
         Debug.Log("Logged in");
@@ -79,6 +85,12 @@ public class ChangeInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(globalGameState.loginSuccess)
+		{
+            Debug.Log("Login success");
+			Util.toNextScene();
+		}
+
         if (Input.GetKeyDown(KeyCode.Tab) && Input.GetKey(KeyCode.LeftShift))
         {
             Selectable previous = system.currentSelectedGameObject.GetComponent<Selectable>().FindSelectableOnUp();

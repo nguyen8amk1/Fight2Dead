@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DBConnection
+namespace SocketServer
 {
-	class User
+	public class User
 	{
 		public int id;
 		public string email;

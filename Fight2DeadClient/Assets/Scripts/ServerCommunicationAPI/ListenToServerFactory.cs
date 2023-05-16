@@ -112,6 +112,35 @@ namespace SocketServer {
 						gameState.lobby_P2Quit = true; 
 					}
 				}
+
+				bool isLoginStatus = Util.getKeyFrom(tokens[0]).Equals("login");
+				if(isLoginStatus)
+				{
+					string status = Util.getValueFrom(tokens[0]); 
+					Debug.Log("TODO: handle login status: " + status);
+					if(status.Equals("success"))
+					{
+						//Util.toNextScene();
+						gameState.loginSuccess = true;
+					} else if(status.Equals("failed"))
+					{
+						Debug.Log("TODO: display on screen that login failed");
+					}
+				}
+
+				bool isRegistrationStatus = Util.getKeyFrom(tokens[0]).Equals("registration");
+				if(isRegistrationStatus)
+				{
+					string status = Util.getValueFrom(tokens[0]); 
+					Debug.Log("handle registration status: " + status);
+					if(status.Equals("success"))
+					{
+						Debug.Log("TODO: display on screen that registeration success, and now can login");
+					} else if(status.Equals("failed"))
+					{
+						Debug.Log("TODO: display on screen that registeration failed");
+					}
+				}
             };
             return messageHandler;
         }
