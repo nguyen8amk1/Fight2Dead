@@ -41,10 +41,10 @@ public sealed class GameState
     public Dictionary<string, int> scenesOrder = new Dictionary<string, int>();
     public bool loginSuccess = false;
     public Player[] playersPosition = new Player[4] {
-        new Player(),    
-        new Player(),    
-        new Player(),    
-        new Player()    
+        new Player(0, 0),    
+        new Player(0, 0),    
+        new Player(0, 0),    
+        new Player(0, 0)    
 	};
 
 	private GameState()

@@ -81,7 +81,6 @@ namespace TMPro.Examples
         {
             GetPlayerInput();
 
-
             // Check if we still have a valid target
             if (CameraTarget != null)
             {
@@ -131,7 +130,6 @@ namespace TMPro.Examples
             mouseWheel = Input.GetAxis("Mouse ScrollWheel");
 
             float touchCount = Input.touchCount;
-
             if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift) || touchCount > 0)
             {
                 mouseWheel *= 10;

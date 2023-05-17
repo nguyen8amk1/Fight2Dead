@@ -45,7 +45,7 @@ namespace SocketServer
 
                 room.id = roomId.ToString();
                 room.playersNum = playersNum;
-                room.tcpPlayers = clients;
+                room.players = clients;
 
                 roomId++;
 

@@ -8,6 +8,7 @@ namespace SocketServer
 {
 	public class Player
 	{
-		public int x = 0, y = 0;
+		public float x = 0, y = 0 ;
+		public Player(float x, float y) { this.x = x; this.y = y; }
 	}
 }

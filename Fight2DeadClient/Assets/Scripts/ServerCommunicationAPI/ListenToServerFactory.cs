@@ -152,10 +152,9 @@ namespace SocketServer {
 					int x = Int32.Parse(Util.getValueFrom(tokens[1]));
 					int y = Int32.Parse(Util.getValueFrom(tokens[2]));
 
-					Debug.Log("Reiceve position");
-
-					gameState.playersPosition[pid].x = x;
-					gameState.playersPosition[pid].y = y;
+					Debug.Log($"Reiceve position x: {x}, y:{y}");
+					gameState.playersPosition[pid-1].x = x;
+					gameState.playersPosition[pid-1].y = y;
 				}
 
             };

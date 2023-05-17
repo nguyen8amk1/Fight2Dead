@@ -37,16 +37,16 @@ namespace SocketServer
             }
         }
 
-        public void process(string[] tokens) {
-            // TODO: actually send the position data back to the other clients  
-            // receive format: rid:{},pid:{},x:,y:
-            // send format: "pid:{},x:{},y:{}"
+        public void process(UdpClient udpListener, string[] tokens) {
+            // FIXME: the client x,y not seems very valid cause most of the time it's 0  
+            // TODO: check the client if the position of the other players updated accordingly
+
             int pid = Int32.Parse(Util.getValueFrom(tokens[1]));
-            int x = Int32.Parse(Util.getValueFrom(tokens[2]));
-            int y = Int32.Parse(Util.getValueFrom(tokens[3]));
+            float x = float.Parse(Util.getValueFrom(tokens[2]));
+            float y = float.Parse(Util.getValueFrom(tokens[3]));
             string message = $"pid:{pid},x:{x},y:{y}";
-            UDPClientConnection.sendToOthers(players, pid, message);
             Console.WriteLine("TODO: send position data to other players using UDP");
+            UDPClientConnection.sendToOthers(players, udpListener, pid, message);
         }
 
         // These message the room will do

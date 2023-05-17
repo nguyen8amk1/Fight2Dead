@@ -18,7 +18,7 @@ namespace SocketServer
             string formatedMessage = string.Format("pid:{0},pn:{1},cn:{2}", pid, pn, charName);
 
             GameRoom room = Server.rooms[roomId];
-            TCPClientConnection.sendToOthers(room.tcpPlayers, player, formatedMessage);
+            TCPClientConnection.sendToOthers(room.players, player, formatedMessage);
         }
 
     }

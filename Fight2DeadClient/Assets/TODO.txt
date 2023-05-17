@@ -1,5 +1,23 @@
 TODAY: 
+	// FIX THE CAMERA: 
+		// the camera has to be 16:9 
+		// the width is the distance between 2 players -> the height 
+		// keep the 2 players in the middle vertically 
+
+	// TODO: determine who is player 1 and who is player 2 
+	// because there is a problem where the other player get locked at 0 0  
+	// -> figure out how to sync the position of the two 
+	// what are the problems at the moment: 
+		// @todo, actually run it and figure it out ? 
+
+	// things to do:
+		// for now let's decide gaara is player 1 
+		// and luffy is player 2 
+		// the first thing to do: make sure the two is at the right position when first lauch the scene 
+		// the second thing: make sure the other one position is updated on the others screen   
+                
     CONVERT PRE-PLAYING SCENES TO USE TCP (2h) [] 
+
 
 	(ONLY THE GAME CODE WILL USE UDP)
 	CURRENTLY EVERYTHING IN THIS GAME IS USING UDP, NOW WE GONNA MIGRATE TO TCP 
