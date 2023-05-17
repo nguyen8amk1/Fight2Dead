@@ -8,7 +8,8 @@ public class CharacterSelect : MonoBehaviour
     [SerializeField] string player;
     [SerializeField] string character;
     [Header("Switch Mode")]
-    public int Mode = 1;
+    [SerializeField] public int textMode = 1;
+    [SerializeField] public int Mode = 1;
     [Header("1 VS 1 Mode Player ID")]
     public int twoPlayerID = 1;
     [Header("2 VS 2 Mode Player ID")]
@@ -24,11 +25,7 @@ public class CharacterSelect : MonoBehaviour
     private Vector3 endMaker = new Vector3(-7.5f, -2.7f, 0);
     private Vector3 startMaker_1 = new Vector3(4.9f, -2.7f, 0);
     private Vector3 endMaker_1 = new Vector3(7.5f, -2.7f, 0);
-    private float timingVar = 0;
-    private float timingVar_1 = 0;
-    private float timingVarP1 = 0;
-    private float timingVarP3 = 0;
-    private float timingVarSpawn = 0;
+    private float timingVar = 0, timingVar_1 = 0, timingVarP1 = 0, timingVarP3 = 0, timingVarSpawn = 0;
     private float speed = 3.0f;
     private bool enterHitP1 = false, enterHitP2 = false;
     private int enterCount1 = 0, enterCount2 = 0;
@@ -82,24 +79,24 @@ public class CharacterSelect : MonoBehaviour
 
     public void SpawnPlayer(string player, string character)
     {
-        
+
         if (player == "p1")
-        {          
+        {
             P1.SetActive(true);
-            for(int i =0;i<charName.Length;i++)
+            for (int i = 0; i < charName.Length; i++)
             {
-                if(character == charName[i])
+                if (character == charName[i])
                 {
                     p1Char[i].SetActive(true);
-                }    
+                }
 
             }
             float t = (float)(timingVarSpawn / .5f);
             P1.transform.localScale = new Vector3(3f, 3.5f, 1);
-            P1.transform.position = Vector3.Lerp(startMaker, endMaker, t);            
+            P1.transform.position = Vector3.Lerp(startMaker, endMaker, t);
             timingVarSpawn += Time.deltaTime * speed;
         }
-        else if(player == "p2")
+        else if (player == "p2")
         {
             P2.SetActive(true);
             for (int i = 0; i < charName.Length; i++)
@@ -111,7 +108,7 @@ public class CharacterSelect : MonoBehaviour
 
             }
         }
-        else if(player == "p3")
+        else if (player == "p3")
         {
             P3.SetActive(true);
             for (int i = 0; i < charName.Length; i++)
@@ -124,7 +121,7 @@ public class CharacterSelect : MonoBehaviour
             }
             float t = (float)(timingVarSpawn / .5f);
             P3.transform.localScale = new Vector3(3f, 3.5f, 1);
-            P3.transform.position = Vector3.Lerp(startMaker_1, endMaker_1, t);            
+            P3.transform.position = Vector3.Lerp(startMaker_1, endMaker_1, t);
             timingVarSpawn += Time.deltaTime * speed;
         }
         else if (player == "p4")
@@ -142,15 +139,15 @@ public class CharacterSelect : MonoBehaviour
     }
     // Update is called once per frame
     void Update()
-    {     
-        if (Mode == 1)
+    {
+        if (textMode == 1)
         {
             P1_icon.SetActive(true);
             P1_1_icon.SetActive(true);
             P2_1_icon.SetActive(true);
             P2_2_icon.SetActive(true);
         }
-        if (Mode == 2)
+        if (textMode == 2)
         {
             P1_icon.SetActive(true);
             P2_icon.SetActive(true);
@@ -187,16 +184,16 @@ public class CharacterSelect : MonoBehaviour
                 p4EnterHit = true;
             }
         }
-        if(vhit)
+        if (vhit)
         {
             SpawnPlayer(player, character);
-        }    
+        }
         if (Input.GetKeyDown(KeyCode.V))
         {
             vhit = true;
-        }    
+        }
 
-            if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             selectVal = (selectVal + 1) % 9;
         }
@@ -267,6 +264,9 @@ public class CharacterSelect : MonoBehaviour
         }
         else pointer8.SetActive(false);
 
+        if (Mode == 0)
+        { currentID = 0; }
+
         if (Mode == 1)
         {
             fourPlayerID = 0;
@@ -303,7 +303,7 @@ public class CharacterSelect : MonoBehaviour
                         p2Char[i].SetActive(true);
                     else p2Char[i].SetActive(false);
                 }
-            }            
+            }
             else if (enterCount1 == 2)
             {
                 if (!P1Log2)
@@ -323,7 +323,7 @@ public class CharacterSelect : MonoBehaviour
                         p3Char[i].SetActive(true);
                     else p3Char[i].SetActive(false);
                 }
-            }          
+            }
             if (enterCount2 == 1)
             {
                 if (!P2Log1)
@@ -346,7 +346,7 @@ public class CharacterSelect : MonoBehaviour
                         p4Char[i].SetActive(true);
                     else p4Char[i].SetActive(false);
                 }
-            }           
+            }
             else if (enterCount2 == 2)
             {
                 if (!P2Log2)
@@ -455,7 +455,7 @@ public class CharacterSelect : MonoBehaviour
                     P4Log = true;
                 }
             }
-        }       
+        }
     }
 }
 

@@ -5326,7 +5326,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1230403951
 Transform:
   m_ObjectHideFlags: 0
@@ -5515,7 +5515,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1289485548
 Transform:
   m_ObjectHideFlags: 0
@@ -6346,7 +6346,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1455992037
 Transform:
   m_ObjectHideFlags: 0
@@ -7553,7 +7553,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1709444463
 Transform:
   m_ObjectHideFlags: 0
@@ -8568,7 +8568,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1909229508}
-  - component: {fileID: 1909229512}
   - component: {fileID: 1909229511}
   - component: {fileID: 1909229510}
   m_Layer: 0
@@ -8635,47 +8634,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edcb0f61e6b060d43aa47b9eb5245316, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: 
-  character: 
-  Mode: 2
-  twoPlayerID: 1
-  fourPlayerID: 2
-  char0: {fileID: 1455992036}
-  char1: {fileID: 296319935}
-  char2: {fileID: 813344520}
-  char3: {fileID: 780420072}
-  char4: {fileID: 326798221}
-  char5: {fileID: 808593424}
-  char6: {fileID: 109306067}
-  char7: {fileID: 1510682837}
-  char8: {fileID: 1999385261}
-  char0_1: {fileID: 1709444462}
-  char1_1: {fileID: 1156325323}
-  char2_1: {fileID: 1688002077}
-  char3_1: {fileID: 1673944605}
-  char4_1: {fileID: 712076043}
-  char5_1: {fileID: 1924812104}
-  char6_1: {fileID: 556037409}
-  char7_1: {fileID: 1618639887}
-  char8_1: {fileID: 262569019}
-  char0_2: {fileID: 1230403950}
-  char1_2: {fileID: 1878499063}
-  char2_2: {fileID: 278264128}
-  char3_2: {fileID: 2097779373}
-  char4_2: {fileID: 2137730458}
-  char5_2: {fileID: 119476317}
-  char6_2: {fileID: 1871890262}
-  char7_2: {fileID: 2084393118}
-  char8_2: {fileID: 2017466773}
-  char0_3: {fileID: 1289485547}
-  char1_3: {fileID: 579129260}
-  char2_3: {fileID: 694692835}
-  char3_3: {fileID: 475423243}
-  char4_3: {fileID: 1111858817}
-  char5_3: {fileID: 777303668}
-  char6_3: {fileID: 1900987899}
-  char7_3: {fileID: 674792430}
-  char8_3: {fileID: 431929471}
+  player: p4
+  character: Jotaro
+  textMode: 1
+  Mode: 0
+  twoPlayerID: 0
+  fourPlayerID: 0
+  p1Char:
+  - {fileID: 1455992036}
+  - {fileID: 296319935}
+  - {fileID: 813344520}
+  - {fileID: 780420072}
+  - {fileID: 326798221}
+  - {fileID: 808593424}
+  - {fileID: 109306067}
+  - {fileID: 1510682837}
+  - {fileID: 1999385261}
+  p2Char:
+  - {fileID: 1709444462}
+  - {fileID: 1156325323}
+  - {fileID: 1688002077}
+  - {fileID: 1673944605}
+  - {fileID: 712076043}
+  - {fileID: 1924812104}
+  - {fileID: 556037409}
+  - {fileID: 1618639887}
+  - {fileID: 262569019}
+  p3Char:
+  - {fileID: 1230403950}
+  - {fileID: 1878499063}
+  - {fileID: 278264128}
+  - {fileID: 2097779373}
+  - {fileID: 2137730458}
+  - {fileID: 119476317}
+  - {fileID: 1871890262}
+  - {fileID: 2084393118}
+  - {fileID: 2017466773}
+  p4Char:
+  - {fileID: 1289485547}
+  - {fileID: 579129260}
+  - {fileID: 694692835}
+  - {fileID: 475423243}
+  - {fileID: 1111858817}
+  - {fileID: 777303668}
+  - {fileID: 1900987899}
+  - {fileID: 674792430}
+  - {fileID: 431929471}
   P1: {fileID: 1366726116}
   P2: {fileID: 1355394285}
   P3: {fileID: 278863702}
@@ -8696,27 +8700,6 @@ MonoBehaviour:
   pointer6: {fileID: 25506702}
   pointer7: {fileID: 1608626472}
   pointer8: {fileID: 278076576}
---- !u!114 &1909229512
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1909229507}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e79fed1fd2a8ba4da9143cbe2cecb9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  p1Char:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!1 &1924812104
 GameObject:
   m_ObjectHideFlags: 0
