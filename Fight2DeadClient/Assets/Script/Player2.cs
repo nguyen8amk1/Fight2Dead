@@ -269,6 +269,7 @@ public class Player2 : MonoBehaviour
             //Knockback
             Knockback(playerFacingDirection);
             knockbackSpeedX++;
+            knockbackSpeedY++;
         }
 
     }

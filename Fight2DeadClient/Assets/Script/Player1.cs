@@ -39,6 +39,13 @@ public class Player1 : MonoBehaviour
     private int playerFacingDirection;
     private int mylayerFacingDirection;
     private bool playerOnLeft, knockback;
+    //Ultimate cooldown
+    public float cooldownTime = 10f;
+    private float lastUltimateTime = 0f;
+    //Spawn
+    public GameObject gameObject;
+    public Vector3 spawnPosition;
+    public int numberRespawn = 1;
 
     // Use this for initializationz
     public int GetFacingDirection()
@@ -52,6 +59,7 @@ public class Player1 : MonoBehaviour
         m_body2d = GetComponent<Rigidbody2D>();
         m_groundSensor = transform.Find("GroundSensor").GetComponent<Sensor>();
         m_animator.SetTrigger("intro");
+
     }
 
     // Update is called once per frame
@@ -171,7 +179,11 @@ public class Player1 : MonoBehaviour
             // Thực hiện tấn công và chờ kết thúc animation tấn công
             StartCoroutine(PerformAttack());
         }
-
+        else if (Input.GetKeyDown(KeyCode.L) && (Time.time - lastUltimateTime >= cooldownTime))
+        {
+            m_animator.SetTrigger("ultimate");
+            lastUltimateTime = Time.time; // Cập nhật thời gian cuối cùng nhấn nút "L"
+        }
         // Block
         else if (Input.GetMouseButtonDown(1))
         {
@@ -377,4 +389,56 @@ public class Player1 : MonoBehaviour
     {
         attackRange = range;
     }
+    public void SpawnObject()
+    {
+        float delay = 0.6f;
+        Invoke("MoveObjectToSpawnPosition", delay);
+    }
+
+    private void MoveObjectToSpawnPosition()
+    {
+        if (numberRespawn > 0)
+        {
+            StartCoroutine(KeepObjectAtSpawnPosition());
+            numberRespawn--;
+        }
+        else
+        {
+            gameObject.SetActive(false);
+        }
+    }
+    private IEnumerator KeepObjectAtSpawnPosition()
+    {
+        // Vô hiệu hóa trọng lực
+        
+        
+
+        // Đặt vị trí nhân vật về spawnPosition
+        gameObject.transform.position = spawnPosition;
+        gameObject.GetComponent<Rigidbody2D>().gravityScale = 0f;
+        gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        Debug.Log(gameObject.GetComponent<Rigidbody2D>().gravityScale);
+        // Đợi 2 giây
+        yield return new WaitForSeconds(2f);
+
+        gameObject.GetComponent<Rigidbody2D>().gravityScale =2f;
+        Debug.Log(gameObject.GetComponent<Rigidbody2D>().gravityScale);
+
+    }
+    public void Die()
+    {
+        // Store the current sprite flip state
+        bool isFlipped = GetComponent<SpriteRenderer>().flipX;
+
+        // Disable sprite flipping
+        GetComponent<SpriteRenderer>().flipX = false;
+        Debug.Log(GetComponent<SpriteRenderer>().flipX);
+        // Play the die animation
+        m_animator.SetTrigger("die_left");
+
+        // Restore the original sprite flip state
+        GetComponent<SpriteRenderer>().flipX = isFlipped;
+        SpawnObject();
+    }
+
 }

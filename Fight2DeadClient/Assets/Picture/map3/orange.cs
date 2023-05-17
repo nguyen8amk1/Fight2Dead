@@ -10,7 +10,7 @@ public class orange : MonoBehaviour
     private float buttonHoldTime;
 
     //For reseting the platform collider rotation
-    public float rotationResetTime = 1f;
+    public float rotationResetTime = 0.5f;
     private bool rotationIsFlipped = false;
     void Start()
     {
@@ -40,7 +40,7 @@ public class orange : MonoBehaviour
             if (rotationResetTime <= 0) // When the timer reaches 0 we rest the rotation and then the timer and set it as not flipped so we could be able to repeat this code
             {
                 effector.rotationalOffset = 0f;
-                rotationResetTime = 1f;
+                rotationResetTime = 0.5f;
                 rotationIsFlipped = false;
             }
         }
