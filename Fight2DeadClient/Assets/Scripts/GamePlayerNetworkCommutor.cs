@@ -20,6 +20,9 @@ public class GamePlayerNetworkCommutor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // TODO: determine who is player 1 and who is player 2 
+        // because there is a problem where the other player get locked at 0 0  
+        // -> figure out how to sync the position of the two 
 
         if(globalGameState.PlayerId == 1)
 		{

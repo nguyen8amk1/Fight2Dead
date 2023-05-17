@@ -18,7 +18,7 @@ namespace SocketServer
     {
         public string id { get; set; }
         public int playersNum { get; set; }
-        public Dictionary<string, Player> tcpPlayers = new Dictionary<string, Player>();
+        public Dictionary<string, Player> players = new Dictionary<string, Player>();
         public Dictionary<string, Player> toUdpWaitList = new Dictionary<string, Player>();
         public Dictionary<string, IPEndPoint> udpPlayers = new Dictionary<string, IPEndPoint>();
         public string onlineMode = "GLOBAL"; // @Test 
@@ -30,7 +30,7 @@ namespace SocketServer
 
         public void start()
         {
-            foreach (Player player in tcpPlayers.Values)
+            foreach (Player player in players.Values)
             {
                 Thread thread = new Thread(() => tcpListening(player));
                 thread.Start();
@@ -38,7 +38,15 @@ namespace SocketServer
         }
 
         public void process(string[] tokens) {
-            Console.WriteLine("TODO: This is where the udp message gonna be outputed");
+            // TODO: actually send the position data back to the other clients  
+            // receive format: rid:{},pid:{},x:,y:
+            // send format: "pid:{},x:{},y:{}"
+            int pid = Int32.Parse(Util.getValueFrom(tokens[1]));
+            int x = Int32.Parse(Util.getValueFrom(tokens[2]));
+            int y = Int32.Parse(Util.getValueFrom(tokens[3]));
+            string message = $"pid:{pid},x:{x},y:{y}";
+            UDPClientConnection.sendToOthers(players, pid, message);
+            Console.WriteLine("TODO: send position data to other players using UDP");
         }
 
         // These message the room will do
