@@ -9,7 +9,6 @@ namespace SocketServer
         public string rid;
         public string id;
         public TcpClient tcpClient;
-        public GameRoom room;
         public IPEndPoint endPoint;
         public bool quitListen = false; 
 

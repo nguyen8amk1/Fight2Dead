@@ -22,13 +22,14 @@ namespace SocketServer
 
         private string dataCredentialFilePath = "../../DBConnection/DatabaseCredential.txt";
 
-        public static MySQLDatabaseConnection dbConnection; 
+        public static MySQLDatabaseConnection dbConnection;
+		private List<Player> twoPlayersRoomWaitList = new List<Player>();
+		private List<Player> fourPlayersRoomWaitList = new List<Player>();
 
-        // FIXME: the server get spammed some how when client send login info  
-        // FIXME: the matching is not work anymore 
-        // TODO: refactor the login/register processing code
+		// FIXME: the server get spammed some how when client send login info  
+		// FIXME: the matching is not work anymore 
 
-        public void run()
+		public void run()
         {
             dbConnection = new MySQLDatabaseConnection(dataCredentialFilePath);
 
@@ -36,6 +37,10 @@ namespace SocketServer
 
             Thread udpListeningThread = new Thread(() => udpListening());
             udpListeningThread.Start();
+			Thread createRoomThread = new Thread(() => createRoom());
+			createRoomThread.Start();
+
+
 
             // @Note: THIS IS THE RECEIVED NEW CONNECTION LOOP
             // @Note: should it handle quit game too (the in game quit) ? 
@@ -50,54 +55,93 @@ namespace SocketServer
 
 
                 string[] tokens = message.Split(',');
-                bool isLoginMessage =   Util.getKeyFrom(tokens[0]).Equals("username") && 
-										Util.getKeyFrom(tokens[1]).Equals("password");
-                if(isLoginMessage)
-				{
-                    string username = Util.getValueFrom(tokens[0]);
-                    string password = Util.getValueFrom(tokens[1]);
-                    Console.WriteLine($"TODO: handle login message, username: {username}, password: {password}");
-					bool loginSuccess = true;  
-
-					if(loginSuccess)
-					{
-                        TCPClientConnection.sendToClient(tcpClient, "login:success");
-					} else
-					{
-                        TCPClientConnection.sendToClient(tcpClient, "login:failed");
-					}
-
-					Thread thread = new Thread(() => loginListeningLoop(tcpClient));
-					thread.Start();
-				}
-
-                bool isRegisterMessage = Util.getKeyFrom(tokens[0]).Equals("username") &&
-                                         Util.getKeyFrom(tokens[1]).Equals("email") &&
-                                         Util.getKeyFrom(tokens[2]).Equals("password");
-                if (isRegisterMessage)
-				{
-                    string username = Util.getValueFrom(tokens[0]);
-                    string email = Util.getValueFrom(tokens[1]);
-                    string password = Util.getValueFrom(tokens[2]);
-                    Console.WriteLine($"TODO: handle register message, username: {username}, email:{email}, password: {password}");
-
-                    bool registrationSuccess = true;
-                    if(registrationSuccess)
-					{
-                        TCPClientConnection.sendToClient(tcpClient, "registration:success");
-					} else
-					{
-                        TCPClientConnection.sendToClient(tcpClient, "registration:failed");
-					}
-
-					Thread thread = new Thread(() => registerListeningLoop(tcpClient));
-					thread.Start();
-				}
-
-
+                handleLoginMessage(tokens, tcpClient, true);
+                handleRegisterMessage(tokens, tcpClient, true);
             }
 
         }
+
+		private void createRoom()
+		{
+			while(true)
+			{
+				if(twoPlayersRoomWaitList.Count >= 2)
+				{
+					GameRoom room = playerMatcher.match(twoPlayersRoomWaitList, 2);
+					if(room != null) {
+						dlog.roomCreated(room);
+						room.start();
+						rooms.Add(room.id, room);
+					}
+				}
+				if(fourPlayersRoomWaitList.Count >= 4)
+				{
+					GameRoom room = playerMatcher.match(fourPlayersRoomWaitList, 4);
+					if(room != null) {
+						dlog.roomCreated(room);
+						room.start();
+						rooms.Add(room.id, room);
+					}
+				}
+			}
+
+		}
+
+		private void handleRegisterMessage(string[] tokens, TcpClient tcpClient, bool createNewThread)
+		{
+			bool isRegisterMessage = Util.getKeyFrom(tokens[0]).Equals("username") &&
+									 Util.getKeyFrom(tokens[1]).Equals("email") &&
+									 Util.getKeyFrom(tokens[2]).Equals("password");
+			if (isRegisterMessage)
+			{
+				string username = Util.getValueFrom(tokens[0]);
+				string email = Util.getValueFrom(tokens[1]);
+				string password = Util.getValueFrom(tokens[2]);
+				Console.WriteLine($"TODO: handle register message, username: {username}, email:{email}, password: {password}");
+
+				bool registrationSuccess = true;
+				if(registrationSuccess)
+				{
+					TCPClientConnection.sendToClient(tcpClient, "registration:success");
+				} else
+				{
+					TCPClientConnection.sendToClient(tcpClient, "registration:failed");
+				}
+
+				if(createNewThread)
+				{
+					Thread thread = new Thread(() => registerListeningLoop(tcpClient));
+					thread.Start();
+				}
+			}
+		}
+
+		private void handleLoginMessage(string[] tokens, TcpClient tcpClient, bool createNewThread)
+		{
+			bool isLoginMessage =   Util.getKeyFrom(tokens[0]).Equals("username") && 
+									Util.getKeyFrom(tokens[1]).Equals("password");
+			if(isLoginMessage)
+			{
+				string username = Util.getValueFrom(tokens[0]);
+				string password = Util.getValueFrom(tokens[1]);
+				Console.WriteLine($"TODO: handle login message, username: {username}, password: {password}");
+				bool loginSuccess = true;  
+
+				if(loginSuccess)
+				{
+					TCPClientConnection.sendToClient(tcpClient, "login:success");
+				} else
+				{
+					TCPClientConnection.sendToClient(tcpClient, "login:failed");
+				}
+				if(createNewThread)
+				{
+					Thread thread = new Thread(() => loginListeningLoop(tcpClient));
+					thread.Start();
+
+				}
+			}
+		}
 
 		private void loginListeningLoop(TcpClient tcpClient)
 		{
@@ -118,33 +162,15 @@ namespace SocketServer
 				// -> sent message: "allready"
 				byte[] buffer = new byte[1024];
 				Console.WriteLine("Login loop is listening...");
-				int bytesRead = stream.Read(buffer, 0, buffer.Length);
-
-				string message = Encoding.ASCII.GetString(buffer, 0, bytesRead);
+				string message = receiveNewConnectionMessage(tcpClient);
 				Console.WriteLine("receive in tcp loop: " + message);
 				if(String.IsNullOrEmpty(message)) continue;
 
-                string[] tokens = message.Split(',');
-				bool isLoginMessage =  Util.getKeyFrom(tokens[0]).Equals("username") && 
-									   Util.getKeyFrom(tokens[1]).Equals("password");
-                if(isLoginMessage)
-				{
-					string username = Util.getValueFrom(tokens[0]);
-					string password = Util.getValueFrom(tokens[1]);
-					Console.WriteLine($"(inside thread) TODO: handle login message, username: {username}, password: {password}");
-					bool loginSuccess = true;  
+				string[] tokens = message.Split(',');
+				handleLoginMessage(tokens, tcpClient, false);
 
-					if(loginSuccess)
-					{
-                        TCPClientConnection.sendToClient(tcpClient, "login:success");
-					} else
-					{
-                        TCPClientConnection.sendToClient(tcpClient, "login:failed");
-					}
-				}
-
-                bool isNumPlayersMessage = Util.getKeyFrom(tokens[0]).Equals("numPlayers");
-                if (isNumPlayersMessage)
+				bool isNumPlayersMessage = Util.getKeyFrom(tokens[0]).Equals("numsPlayer");
+				if (isNumPlayersMessage)
 				{
 					int playersNum = Int32.Parse(Util.getValueFrom(tokens[0]));
 
@@ -152,15 +178,22 @@ namespace SocketServer
 					// @Refactor: refactor this into different message handlers 
 					// TODO: handle in game quit game message
 
-					GameRoom room = playerMatcher.match(playerId, playersNum, tcpClient);
-					if(room != null) {
-						dlog.roomCreated(room);
-						room.start();
-						rooms.Add(room.id, room);
+					// what to do: stored the player in a global wait list and match it there  
+					// have another thread waiting for enough player 
+					if(playersNum == 2) 
+					{
+						twoPlayersRoomWaitList.Add(new Player(playerId.ToString(), tcpClient));
+						Console.WriteLine("Current 2player waiting count: " + twoPlayersRoomWaitList.Count); 
 					}
-
+					if(playersNum == 4) 
+					{
+						fourPlayersRoomWaitList.Add(new Player(playerId.ToString(), tcpClient));
+					}
 					playerId++;
+					Console.WriteLine("Terminate login listening loop");
+					return;
 				}
+
 
                 /*
 				// TODO: handle quit message and break the loop 
@@ -184,35 +217,16 @@ namespace SocketServer
 			{
 				// -> sent message: "allready"
 				byte[] buffer = new byte[1024];
-				int bytesRead = stream.Read(buffer, 0, buffer.Length);
-
-				string message = Encoding.ASCII.GetString(buffer, 0, bytesRead);
+				string message = receiveNewConnectionMessage(tcpClient);
 				Console.WriteLine("receive in tcp loop: " + message);
 				if(String.IsNullOrEmpty(message)) continue;
 
-                string[] tokens = message.Split(',');
-                bool isRegisterMessage = Util.getKeyFrom(tokens[0]).Equals("username") &&
-                                         Util.getKeyFrom(tokens[1]).Equals("email") &&
-                                         Util.getKeyFrom(tokens[2]).Equals("password");
-                if (isRegisterMessage)
-				{
-                    string username = Util.getValueFrom(tokens[0]);
-                    string email = Util.getValueFrom(tokens[1]);
-                    string password = Util.getValueFrom(tokens[2]);
-                    Console.WriteLine($"TODO: handle register message, username: {username}, email:{email}, password: {password}");
-                    bool registrationSuccess = true;
-                    if(registrationSuccess)
-					{
-                        TCPClientConnection.sendToClient(tcpClient, "registration:success");
-					} else
-					{
-                        TCPClientConnection.sendToClient(tcpClient, "registration:failed");
-					}
-				}
+				string[] tokens = message.Split(',');
+				handleRegisterMessage(tokens, tcpClient, false);
 
 				bool isLoginMessage =  Util.getKeyFrom(tokens[0]).Equals("username") && 
 									   Util.getKeyFrom(tokens[1]).Equals("password");
-                if(isLoginMessage)
+				if(isLoginMessage)
 				{
 					string username = Util.getValueFrom(tokens[0]);
 					string password = Util.getValueFrom(tokens[1]);
@@ -221,16 +235,17 @@ namespace SocketServer
 
 					if(loginSuccess)
 					{
-                        TCPClientConnection.sendToClient(tcpClient, "login:success");
+						TCPClientConnection.sendToClient(tcpClient, "login:success");
 					} else
 					{
-                        TCPClientConnection.sendToClient(tcpClient, "login:failed");
+						TCPClientConnection.sendToClient(tcpClient, "login:failed");
 					}
 
 					Thread thread = new Thread(() => loginListeningLoop(tcpClient));
 					thread.Start();
 					return;
 				}
+
 
                 /*
 				// TODO: handle quit message and break the loop 
@@ -246,8 +261,33 @@ namespace SocketServer
             NetworkStream stream = tcpClient.GetStream();
             byte[] buffer = new byte[1024];
             int bytesRead = stream.Read(buffer, 0, buffer.Length);
-            if(bytesRead > 0)
+
+			if (bytesRead > 0)
+			{
+				StringBuilder messageBuilder = new StringBuilder();
+				for (int i = 0; i < bytesRead; i++)
+				{
+					char receivedChar = (char)buffer[i];
+					if (receivedChar == '\r' || receivedChar == '\n')
+					{
+						// Termination character found, process the received message
+						string receivedMessage = messageBuilder.ToString();
+						return receivedMessage;
+					}
+					else
+					{
+						messageBuilder.Append(receivedChar);
+					}
+				}
+
+				// End of received data reached without encountering a termination character
+				// You can choose to handle this case accordingly
+				return messageBuilder.ToString();
+			}
+			/*
+			if (bytesRead > 0)
 				return Encoding.ASCII.GetString(buffer, 0, bytesRead);
+			*/
             throw new Exception("DITME DEO CO CAI LON GI HET V");
         }
 

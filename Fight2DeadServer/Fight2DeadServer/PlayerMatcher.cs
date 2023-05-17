@@ -12,10 +12,8 @@ namespace SocketServer
         private int roomId = 1;
         private DebugLogger dlog = new DebugLogger();
 
-        public GameRoom match(int playerId, int playersNum, TcpClient tcpClient)
+        public GameRoom match(List<Player> unmatchedPlayers, int playersNum)
         {
-            unmatchedPlayers.Add(new Player(playerId.ToString(), tcpClient));
-
             if (unmatchedPlayers.Count >= playersNum)
             {
                 Dictionary<string, Player> clients = new Dictionary<string, Player>();
@@ -27,7 +25,7 @@ namespace SocketServer
                     // Console.WriteLine("last index: " + (lastIndex).ToString());
                     Player player = unmatchedPlayers[lastIndex];
                     player.rid = roomId.ToString();
-                    player.endPoint = (IPEndPoint)tcpClient.Client.RemoteEndPoint;
+                    player.endPoint = (IPEndPoint)player.tcpClient.Client.RemoteEndPoint;
                     TcpClient client = player.tcpClient;
 
                     // @Note: send back the rid,pid:

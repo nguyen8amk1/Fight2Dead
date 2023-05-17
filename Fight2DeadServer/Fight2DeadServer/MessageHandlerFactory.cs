@@ -32,14 +32,6 @@ namespace SocketServer {
                 return new ChooseMapMessageHandler();
             }
 
-            bool isUserRegistrationMessage = 
-                Util.getKeyFrom(tokens[0]) == "email" && 
-                Util.getKeyFrom(tokens[1]) == "password";
-
-            if(isUserRegistrationMessage) {
-				return new UserRegistrationMessageHandler();
-            }
-
             if (message == "toudp")
             {
                 return new ToUDPMessageHandler();
