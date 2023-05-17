@@ -28,7 +28,7 @@ namespace SocketServer {
 
 		public static string quitMessage()
 		{
-            return "quit";
+            return "quit\n";
 		}
 
 		public static string userRegistrationMessage(string email, string password)

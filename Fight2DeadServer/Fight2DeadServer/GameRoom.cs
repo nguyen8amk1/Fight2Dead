@@ -4,6 +4,7 @@ using System.Net.Sockets;
 using System;
 using System.Text;
 using System.Threading;
+using Fight2DeadServer;
 
 namespace SocketServer
 {
@@ -37,8 +38,7 @@ namespace SocketServer
         }
 
         public void process(string[] tokens) {
-            // TODO: process the udp messages of room in here 
-            Console.WriteLine("This is where the udp message gonna be outputed");
+            Console.WriteLine("TODO: This is where the udp message gonna be outputed");
         }
 
         // These message the room will do

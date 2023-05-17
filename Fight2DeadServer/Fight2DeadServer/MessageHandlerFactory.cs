@@ -32,7 +32,7 @@ namespace SocketServer {
                 return new ChooseMapMessageHandler();
             }
 
-            if (message == "toudp")
+            if (message.Equals("toudp\n"))
             {
                 return new ToUDPMessageHandler();
             }

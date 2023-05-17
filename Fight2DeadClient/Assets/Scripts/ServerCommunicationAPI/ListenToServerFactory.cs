@@ -141,6 +141,23 @@ namespace SocketServer {
 						Debug.Log("TODO: display on screen that registeration failed");
 					}
 				}
+
+				// @Test 
+				bool isPositionMessage = Util.getKeyFrom(tokens[0]).Equals("pid") &&
+										 Util.getKeyFrom(tokens[1]).Equals("x") && 
+										 Util.getKeyFrom(tokens[2]).Equals("y");
+				if(isPositionMessage)
+				{
+					int pid = Int32.Parse(Util.getValueFrom(tokens[0]));
+					int x = Int32.Parse(Util.getValueFrom(tokens[1]));
+					int y = Int32.Parse(Util.getValueFrom(tokens[2]));
+
+					Debug.Log("Reiceve position");
+
+					gameState.playersPosition[pid].x = x;
+					gameState.playersPosition[pid].y = y;
+				}
+
             };
             return messageHandler;
         }

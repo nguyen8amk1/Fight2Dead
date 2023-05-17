@@ -1,3 +1,4 @@
+using SocketServer;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,26 +20,32 @@ public sealed class GameState
 
     public string player1Name = "NoName";
     public string player2Name = "NoName";
-	public string player3Name = "NoName";
-	public string player4Name = "NoName";
+    public string player3Name = "NoName";
+    public string player4Name = "NoName";
     public bool opponentReady = false;
 
     // character 
     public string[] chosenCharacters = new string[4];
 
     // map 
-	public bool hostPlayerMapChosen = false;
-	public bool opponentMapChosen = false;
-	public bool lobby_P1Quit = false;
-	public bool lobby_P2Quit = false;
+    public bool hostPlayerMapChosen = false;
+    public bool opponentMapChosen = false;
+    public bool lobby_P1Quit = false;
+    public bool lobby_P2Quit = false;
 
-	public bool lobbyP1Ready = false;
-	public bool lobbyP2Ready = false;
-	public bool lobbyP3Ready = false;
-	public bool lobbyP4Ready = false;
+    public bool lobbyP1Ready = false;
+    public bool lobbyP2Ready = false;
+    public bool lobbyP3Ready = false;
+    public bool lobbyP4Ready = false;
 
     public Dictionary<string, int> scenesOrder = new Dictionary<string, int>();
-	public bool loginSuccess = false;
+    public bool loginSuccess = false;
+    public Player[] playersPosition = new Player[4] {
+        new Player(),    
+        new Player(),    
+        new Player(),    
+        new Player()    
+	};
 
 	private GameState()
     {
