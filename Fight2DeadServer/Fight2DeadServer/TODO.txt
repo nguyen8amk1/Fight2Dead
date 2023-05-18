@@ -1,6 +1,11 @@
 TODAY: 
-    THE PLAYER POSITION INFO GET CLOGGED THEN NOT CLOGGED ANYMORE, NEED TO INVESTIGATE (2h) []
+    FIX THE CAMERA (2h) []
+        currently what's the camera can do: 
+            can somewhat (linear) zoom in and zoom out to show the 2 players 
 
+        what the camera need to have
+            better zooming -> log zoom (more zoom in when far and less zoom in when close)
+            better frameming (not show the blue part)
 
 
     CLIENT SEND LOGIN/REGISTER DATA TO SERVER (2h) [X] 
@@ -137,12 +142,14 @@ TODO:
     CREATE A BUILD SCRIPT []
 
 BUG: 
+    THE PLAYER POSITION INFO GET CLOGGED THEN NOT CLOGGED ANYMORE, NEED TO INVESTIGATE (2h) []
     HAVING A BUG WHEN LOGIN, CLIENT 1 BLOCK CLIENT 2 FROM LOGIN, WHEN CLIENT 1 LOG IN -> THEM BOTH LOG IN
     THE SERVER HAVE A BUG WHEN THE PLAYER QUIT THE GAME (id cannot found in dictionary)
         -> IF THE FIRST ROOM IS CREATED WITH PEOPLE THEN QUIT THAT ROOM 
         AND ANOTHER ROOM CREATED AND THAT ROOM QUIT -> EXCEPTION @fixthis
 
 DONE: 
+
     CREATE AN INTERFACE TO CONNECT AND DO OPERATION WITH THE DATABASE (2h) [X] 
         what does the server gonna do with the database:
             insert 

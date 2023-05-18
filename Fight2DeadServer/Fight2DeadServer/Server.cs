@@ -317,10 +317,9 @@ namespace SocketServer
                     string pid = Util.getValueFrom(tokens[1]);
 
                     dlog.messageReceived(pid, 3, message);
-                    rooms[rid].process(udpListener, tokens);
+                    rooms[rid].udpProcess(udpListener, tokens);
                 }
             }
-
         }
 
         static void Main(string[] args)

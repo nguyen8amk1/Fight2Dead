@@ -37,10 +37,8 @@ namespace SocketServer
             }
         }
 
-        public void process(UdpClient udpListener, string[] tokens) {
-            // FIXME: the client x,y not seems very valid cause most of the time it's 0  
+        public void udpProcess(UdpClient udpListener, string[] tokens) {
             // TODO: check the client if the position of the other players updated accordingly
-
             int pid = Int32.Parse(Util.getValueFrom(tokens[1]));
             float x = float.Parse(Util.getValueFrom(tokens[2]));
             float y = float.Parse(Util.getValueFrom(tokens[3]));
@@ -62,6 +60,7 @@ namespace SocketServer
                 // Handle the client connection
                 while (true)
                 {
+                    if(player.quitListen) break;
                     // -> sent message: "allready"
                     byte[] buffer = new byte[1024];
                     int bytesRead = stream.Read(buffer, 0, buffer.Length);
@@ -74,7 +73,6 @@ namespace SocketServer
                     Console.WriteLine("Here is tcp listening loop of player " + player.id);
                     PreGameMessageHandler messageHandler = factory.whatPreGameMessage(message);
                     messageHandler.handle(id, player, message);
-                    if(player.quitListen) break;
                 }
 
                 // Clean up the network stream and client socket
