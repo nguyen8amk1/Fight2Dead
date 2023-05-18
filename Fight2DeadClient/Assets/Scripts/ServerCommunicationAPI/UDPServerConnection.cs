@@ -3,6 +3,7 @@ using System.Threading;
 using System.Net.Sockets;
 using System.Net;
 using System.Text;
+using UnityEngine;
 
 namespace SocketServer
 {
@@ -55,10 +56,10 @@ namespace SocketServer
                 // TODO: 
                 IPEndPoint remoteEndPoint = new IPEndPoint(IPAddress.Parse(serverIp), udpPort);
                 int listeningPort = ((IPEndPoint)udpClient.Client.LocalEndPoint).Port;
-                Console.WriteLine("Listening for server at port " + listeningPort);
+                Debug.Log("Listening for server at port " + listeningPort);
                 byte[] bytes = udpClient.Receive(ref remoteEndPoint);
                 string message = Encoding.ASCII.GetString(bytes);
-                Console.WriteLine("Received udp data: " + message);
+                Debug.Log("Received udp data: " + message);
 
 
                 string[] tokens = message.Split(',');

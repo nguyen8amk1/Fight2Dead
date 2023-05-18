@@ -142,20 +142,6 @@ namespace SocketServer {
 					}
 				}
 
-				// @Test 
-				bool isPositionMessage = Util.getKeyFrom(tokens[0]).Equals("pid") &&
-										 Util.getKeyFrom(tokens[1]).Equals("x") && 
-										 Util.getKeyFrom(tokens[2]).Equals("y");
-				if(isPositionMessage)
-				{
-					int pid = Int32.Parse(Util.getValueFrom(tokens[0]));
-					int x = Int32.Parse(Util.getValueFrom(tokens[1]));
-					int y = Int32.Parse(Util.getValueFrom(tokens[2]));
-
-					Debug.Log($"Reiceve position x: {x}, y:{y}");
-					gameState.playersPosition[pid-1].x = x;
-					gameState.playersPosition[pid-1].y = y;
-				}
 
             };
             return messageHandler;
@@ -163,8 +149,20 @@ namespace SocketServer {
 
         public static MessageHandlerLambda tempUDPListening()  {
             MessageHandlerLambda messageHandler = (string[] tokens) => {
-                // TODO: 
-                Console.WriteLine("TEMP UDP LISTENING");
+				Debug.Log("TODO: handle udp listening");
+				bool isPositionMessage = Util.getKeyFrom(tokens[0]).Equals("pid") &&
+										 Util.getKeyFrom(tokens[1]).Equals("x") && 
+										 Util.getKeyFrom(tokens[2]).Equals("y");
+				if(isPositionMessage)
+				{
+					int pid = Int32.Parse(Util.getValueFrom(tokens[0]));
+					float x = float.Parse(Util.getValueFrom(tokens[1]));
+					float y = float.Parse(Util.getValueFrom(tokens[2]));
+
+					Debug.Log($"Reiceve position x: {x}, y:{y}");
+					gameState.playersPosition[pid-1].x = x;
+					gameState.playersPosition[pid-1].y = y;
+				}
             };
             return messageHandler;
         }

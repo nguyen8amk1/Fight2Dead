@@ -2,6 +2,7 @@ using SocketServer;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class LoadingSceneController : MonoBehaviour
@@ -463,15 +464,22 @@ public class LoadingSceneController : MonoBehaviour
             Debug.Log("Transition to UDP right here");
             string message = PreGameMessageGenerator.toUDPMessage();
             ServerCommute.connection.sendToServer(message);
+            
+
+            Debug.Log("TODO: There are udp connection bug right here");
 
             UDPServerConnection.Instance.inheritPortFrom(TCPServerConnection.Instance);
+            ServerCommute.listenToServerThread.Abort();
             TCPServerConnection.Instance.close();
             ServerCommute.connection = UDPServerConnection.Instance;
-            ServerCommute.listenToServerThread.Abort();
 
             Console.WriteLine("Started UDP listen to server thread");
+
+            //@Test
             ServerCommute.listenToServerThread = ServerCommute.connection.createListenToServerThread(ListenToServerFactory.tempUDPListening());
             ServerCommute.listenToServerThread.Start();
+            //Thread thread = ServerCommute.connection.createListenToServerThread(ListenToServerFactory.tempUDPListening());
+            //thread.Start();
 
             Util.toNextScene();
         }

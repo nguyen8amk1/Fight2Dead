@@ -23,7 +23,7 @@ namespace SocketServer
                 // -> convert that tcp room into udp room and remove that tcp room from Dict both tcpClients and toUdpWaitList
                 foreach (Player p in room.toUdpWaitList.Values)
                 {
-                    room.udpPlayers.Add(p.id, p.endPoint);
+                    room.udpPlayers.Add(p.id, p);
                     p.quitListen = true; 
                 }
 

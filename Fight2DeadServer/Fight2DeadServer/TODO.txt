@@ -1,5 +1,9 @@
 TODAY: 
-    CLIENT SEND LOGIN/REGISTER DATA TO SERVER (2h) [] 
+    THE PLAYER POSITION INFO GET CLOGGED THEN NOT CLOGGED ANYMORE, NEED TO INVESTIGATE (2h) []
+
+
+
+    CLIENT SEND LOGIN/REGISTER DATA TO SERVER (2h) [X] 
 	the connection diagram: 
 		client -> (client API) -> server -> (DAO) -> database
         what's the server actually offer to the client: 

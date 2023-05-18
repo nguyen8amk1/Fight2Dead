@@ -20,7 +20,7 @@ namespace SocketServer
         public int playersNum { get; set; }
         public Dictionary<string, Player> players = new Dictionary<string, Player>();
         public Dictionary<string, Player> toUdpWaitList = new Dictionary<string, Player>();
-        public Dictionary<string, IPEndPoint> udpPlayers = new Dictionary<string, IPEndPoint>();
+        public Dictionary<string, Player> udpPlayers = new Dictionary<string, Player>();
         public string onlineMode = "GLOBAL"; // @Test 
 
         private MessageHandlerFactory factory = new MessageHandlerFactory(); 
@@ -46,7 +46,8 @@ namespace SocketServer
             float y = float.Parse(Util.getValueFrom(tokens[3]));
             string message = $"pid:{pid},x:{x},y:{y}";
             Console.WriteLine("TODO: send position data to other players using UDP");
-            UDPClientConnection.sendToOthers(players, udpListener, pid, message);
+
+            UDPClientConnection.sendToOthers(udpPlayers, udpListener, pid, message);
         }
 
         // These message the room will do
