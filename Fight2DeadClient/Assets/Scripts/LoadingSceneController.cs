@@ -475,11 +475,8 @@ public class LoadingSceneController : MonoBehaviour
 
             Console.WriteLine("Started UDP listen to server thread");
 
-            //@Test
             ServerCommute.listenToServerThread = ServerCommute.connection.createListenToServerThread(ListenToServerFactory.tempUDPListening());
             ServerCommute.listenToServerThread.Start();
-            //Thread thread = ServerCommute.connection.createListenToServerThread(ListenToServerFactory.tempUDPListening());
-            //thread.Start();
 
             Util.toNextScene();
         }
