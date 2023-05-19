@@ -31,9 +31,9 @@ namespace SocketServer {
             return "quit\n";
 		}
 
-		public static string userRegistrationMessage(string email, string password)
+		public static string userRegistrationMessage(string email, string username, string password)
 		{
-            return $"username:{"tempUsername"},email:{email},password:{password}\n";
+            return $"email:{email},username:{username},password:{password}\n";
 		}
 
 		public static string userLoginMessage(string username, string password)

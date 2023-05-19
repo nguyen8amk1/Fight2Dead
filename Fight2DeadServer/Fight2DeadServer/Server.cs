@@ -97,9 +97,11 @@ namespace SocketServer
 				string username = Util.getValueFrom(tokens[0]);
 				string email = Util.getValueFrom(tokens[1]);
 				string password = Util.getValueFrom(tokens[2]);
-				Console.WriteLine($"TODO: handle register message, username: {username}, email:{email}, password: {password}");
 
-				bool registrationSuccess = true;
+
+				Console.WriteLine($"Handle register message, username: {username}, email:{email}, password: {password}");
+
+				bool registrationSuccess = dbConnection.insertUser(email, username, password);
 				if(registrationSuccess)
 				{
 					TCPClientConnection.sendToClient(tcpClient, "registration:success");
@@ -124,8 +126,10 @@ namespace SocketServer
 			{
 				string username = Util.getValueFrom(tokens[0]);
 				string password = Util.getValueFrom(tokens[1]);
-				Console.WriteLine($"TODO: handle login message, username: {username}, password: {password}");
-				bool loginSuccess = true;  
+				Console.WriteLine($"Handle login message, username: {username}, password: {password}");
+
+				User user = dbConnection.queryUser(username, password);  
+				bool loginSuccess = user != null;
 
 				if(loginSuccess)
 				{

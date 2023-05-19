@@ -1,7 +1,16 @@
 TODAY: 
+    MAKE LOGIN/REGISTER TRULY WORKS, WITH PROPER NAME DISPLAY IN LOBBY (2h) []
+        -> add username into the message that send 
+                        into the database as well  
+
+
     APPLY SSL INTO THE TRANSMISSION (2h) []
+    -> have to learn how certificate works first 
+
 
     CONVERT ALL MESSAGE LOOP INTO ASYNC (2h) []
+
+
 
     PUSH THE SERVER TO VPS (2h) [] - before that MAKE SURE EVERYTHING WORKS FINE IN THE LOCAL FIRST 
         what potential problems need to be address ??: (creating and quitting the game problems)

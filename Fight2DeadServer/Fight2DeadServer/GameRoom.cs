@@ -60,7 +60,12 @@ namespace SocketServer
                 // Handle the client connection
                 while (true)
                 {
-                    if(player.quitListen) break;
+                    if (player.quitListen)
+                    {
+                        Console.WriteLine("tcp client listening loop quit");
+                        break;
+                    }
+
                     // -> sent message: "allready"
                     byte[] buffer = new byte[1024];
                     int bytesRead = stream.Read(buffer, 0, buffer.Length);
