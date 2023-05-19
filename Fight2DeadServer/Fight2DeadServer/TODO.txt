@@ -1,26 +1,8 @@
 TODAY: 
-    FIX THE CAMERA (2h) []
-        currently what's the camera can do: 
-            can somewhat (linear) zoom in and zoom out to show the 2 players 
-
-        what the camera need to have
-            better zooming -> log zoom (more zoom in when far and less zoom in when close)
-            better frameming (not show the blue part)
-
-
-    CLIENT SEND LOGIN/REGISTER DATA TO SERVER (2h) [X] 
-	the connection diagram: 
-		client -> (client API) -> server -> (DAO) -> database
-        what's the server actually offer to the client: 
-            register a new account 
-            login to an account  
-                checking if the account is valid 
-
     PUSH THE SERVER TO VPS (2h) [] - before that MAKE SURE EVERYTHING WORKS FINE IN THE LOCAL FIRST 
         what potential problems need to be address ??: (creating and quitting the game problems)
         check if multiple rooms and be created simunatioulys 
         and room quitting when player quit not in order have any problems
-
 
     ADD 4 PLAYER MODE (6h) [] 
         CLIENT: 
@@ -149,6 +131,21 @@ BUG:
         AND ANOTHER ROOM CREATED AND THAT ROOM QUIT -> EXCEPTION @fixthis
 
 DONE: 
+    CLIENT SEND LOGIN/REGISTER DATA TO SERVER (2h) [X] 
+	the connection diagram: 
+		client -> (client API) -> server -> (DAO) -> database
+        what's the server actually offer to the client: 
+            register a new account 
+            login to an account  
+                checking if the account is valid 
+
+    FIX THE CAMERA (2h) [X]
+        currently what's the camera can do: 
+            can somewhat (linear) zoom in and zoom out to show the 2 players 
+
+        what the camera need to have
+            better zooming -> log zoom (more zoom in when far and less zoom in when close)
+            better frameming (not show the blue part)
 
     CREATE AN INTERFACE TO CONNECT AND DO OPERATION WITH THE DATABASE (2h) [X] 
         what does the server gonna do with the database:

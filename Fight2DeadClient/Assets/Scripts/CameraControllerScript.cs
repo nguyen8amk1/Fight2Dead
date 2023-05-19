@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,6 +21,7 @@ public class CameraControllerScript : MonoBehaviour
     private float x = 0, y = 0;
     public GameObject player1, player2;
     public Camera cam;
+	private float theLeftPlayerPosX;
 
     void Start()
     {
@@ -28,13 +30,25 @@ public class CameraControllerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float width = player1.transform.position.x - player2.transform.position.x;
+        float edgeGap = calculateGap(Mathf.Abs(player1.transform.position.x - player2.transform.position.x));
+        float twoPlayersDistX = Mathf.Abs(player1.transform.position.x - player2.transform.position.x) + edgeGap;
+        float twoPlayersDistY = Mathf.Abs(player1.transform.position.y - player2.transform.position.y);
 
         // TODO: change how the x, y works, both are temporary solution, won't work in general cases 
-        x = player1.transform.position.x - (width)/2;
-        y = Mathf.Max(player1.transform.position.y,player2.transform.position.y);
+        // how should x, y works 
+        // x should offset from whoever on the left 
+		x = (Mathf.Min(player1.transform.position.x, player2.transform.position.x) + (twoPlayersDistX/2)) - edgeGap/2;
 
-		cam.orthographicSize = (Mathf.Abs(width*(1.0f/cam.aspect))/2) + 3f;
+		cam.orthographicSize = (twoPlayersDistX/cam.aspect)/2;
+
+        if(nearlyEqual(player1.transform.position.y, player2.transform.position.y, 0.1f))
+		{
+			y = player1.transform.position.y;
+		} else
+		{
+			y = Mathf.Max(player1.transform.position.y,player2.transform.position.y) - (twoPlayersDistY/2);
+		}
+
 
         float halfH = cam.orthographicSize;
         float halfW = halfH * cam.aspect;
@@ -63,5 +77,33 @@ public class CameraControllerScript : MonoBehaviour
 
 		transform.position = new Vector3(x, y, 0);
 
+    }
+
+	private float calculateGap(float distX)
+	{
+        // TODO: find some graph that works  
+        return Mathf.Exp(-(distX/5 - 2.8f)) + 4f; 
+	}
+
+	public static bool nearlyEqual(float a, float b, float epsilon)
+    {
+        float absA = Mathf.Abs(a);
+        float absB = Mathf.Abs(b);
+        float diff = Mathf.Abs(a - b);
+
+        if (a == b)
+        { // shortcut, handles infinities
+            return true;
+        }
+        else if (a == 0 || b == 0 || absA + absB < float.MinValue)
+        {
+            // a or b is zero or both are extremely close to it
+            // relative error is less meaningful here
+            return diff < (epsilon * float.MinValue);
+        }
+        else
+        { // use relative error
+            return diff / (absA + absB) < epsilon;
+        }
     }
 }
