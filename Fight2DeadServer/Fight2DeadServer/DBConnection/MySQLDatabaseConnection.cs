@@ -72,12 +72,17 @@ namespace SocketServer
 		}
 
 		// @Security: sql injection 
-		public bool insertUser(string email, string passwordHash)
+		public bool insertUser(string email, string username, string passwordHash)
 		{
 			// TODO: update the id of the sql to auto increment 
-			string insertCommand = $"INSERT INTO User(email, password_hash) values ('{email}', '{passwordHash}')";
+			string insertCommand = $"INSERT INTO User(email, username, password_hash) values ('{email}', '{username}', '{passwordHash}')";
 			MySqlCommand cmd = new MySqlCommand(insertCommand, connection);
 			int value = cmd.ExecuteNonQuery();
+
+			if(value > 0)
+			{
+				return true;
+			}
 
 			Console.WriteLine("Insert Value: {0}", value);
 			return false;
