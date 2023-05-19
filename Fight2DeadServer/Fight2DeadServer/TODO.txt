@@ -1,4 +1,8 @@
 TODAY: 
+    APPLY SSL INTO THE TRANSMISSION (2h) []
+
+    CONVERT ALL MESSAGE LOOP INTO ASYNC (2h) []
+
     PUSH THE SERVER TO VPS (2h) [] - before that MAKE SURE EVERYTHING WORKS FINE IN THE LOCAL FIRST 
         what potential problems need to be address ??: (creating and quitting the game problems)
         check if multiple rooms and be created simunatioulys 
@@ -52,7 +56,6 @@ TODO:
     CONNECT THE FIGHTING SCENE WITH THE SERVER (4h) []
         -> sync the animation and stuff 
         
-    APPLY SSL INTO THE TRANSMISSION [] (2h)
 
     TEST IF C# COULD RUN ON UBUNTU (1h) []
 
