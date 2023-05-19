@@ -40,14 +40,11 @@ public class CharacterSelect : MonoBehaviour
     private bool P1Log = false, P2Log = false, P3Log = false, P4Log = false;
     private bool p1EnterHit = false, p2EnterHit = false, p3EnterHit = false, p4EnterHit = false;
     private bool vhit = false;
+
     // Start is called before the first frame update
     void Start()
     {
         Application.targetFrameRate = 60;
-        /*
-        ID = globalGameState.PlayerId;
-        Mode = globalGameState.numPlayers/2;
-        */
     }
 
 	private void OnApplicationQuit()
