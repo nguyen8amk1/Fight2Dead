@@ -8635,10 +8635,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: p3
-  character: Reborn
+  character: reborn
   textMode: 1
   Mode: 1
-  twoPlayerID: 2
+  twoPlayerID: 1
   fourPlayerID: 0
   p1Char:
   - {fileID: 1455992036}
