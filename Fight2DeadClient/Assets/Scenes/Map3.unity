@@ -646,8 +646,10 @@ MonoBehaviour:
   m_speed: 8
   m_jumpForce: 14
   attackPoint: {fileID: 2085705119}
-  attackRange: 1.4
-  attackoffset: 3
+  attackRangeX: 2.5
+  attackRangeY: 5
+  attackOffsetX: 1
+  attackOffsetY: 0
   enemyLayers:
     serializedVersion: 2
     m_Bits: 512
@@ -656,6 +658,10 @@ MonoBehaviour:
   knockbackDuration: 0.01
   applyKnockback: 1
   hitParticle: {fileID: 6240072112886026631, guid: 25aeb624df7917e4aa9cbe2204b85ed6, type: 3}
+  cooldownTime: 10
+  gameObject: {fileID: 205332289}
+  spawnPosition: {x: -15.5, y: 7.6, z: 0}
+  numberRespawn: 1
 --- !u!1 &213067836
 GameObject:
   m_ObjectHideFlags: 0
@@ -3288,7 +3294,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1470936545}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.058, y: -0.354, z: 0}
+  m_LocalPosition: {x: 0.051, y: -0.39, z: 0}
   m_LocalScale: {x: 1.1745276, y: 0.95359516, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3516,7 +3522,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1652342533}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -22.3, y: 0.7, z: 0}
+  m_LocalPosition: {x: -24.8, y: -0.2, z: 0}
   m_LocalScale: {x: 6.160984, y: 4.530217, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3587,14 +3593,15 @@ MonoBehaviour:
   m_speed: 8
   m_jumpForce: 14
   attackPoint: {fileID: 1397589414}
-  attackRange: 1
-  attackOffsetX: 0.5
-  attackOffsetY: 0.5
+  attackRangeX: 32
+  attackRangeY: 10.3
+  attackOffsetX: 21.5
+  attackOffsetY: 6
   enemyLayers:
     serializedVersion: 2
     m_Bits: 2048
-  knockbackSpeedX: 8
-  knockbackSpeedY: 2
+  knockbackSpeedX: 1
+  knockbackSpeedY: 1
   knockbackDuration: 0.01
   applyKnockback: 1
   hitParticle: {fileID: 6240072112886026631, guid: 25aeb624df7917e4aa9cbe2204b85ed6, type: 3}

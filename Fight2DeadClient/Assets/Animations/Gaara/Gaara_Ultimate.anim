@@ -109,24 +109,31 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.71666664
-    functionName: UpdateAttackRange
+    functionName: UpdateAttackRangeX
     data: 
     objectReferenceParameter: {fileID: 0}
-    floatParameter: 3.5
+    floatParameter: 8
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.71666664
+    functionName: UpdateAttackRangeY
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 5
     intParameter: 0
     messageOptions: 0
   - time: 0.71666664
     functionName: UpdateAttackOffsetX
     data: 
     objectReferenceParameter: {fileID: 0}
-    floatParameter: 9.2
+    floatParameter: 9.5
     intParameter: 0
     messageOptions: 0
   - time: 0.71666664
     functionName: UpdateAttackOffsetY
     data: 
     objectReferenceParameter: {fileID: 0}
-    floatParameter: 4
+    floatParameter: 4.5
     intParameter: 0
     messageOptions: 0
   - time: 0.78333336
@@ -137,24 +144,31 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0.81666666
-    functionName: UpdateAttackRange
+    functionName: UpdateAttackRangeX
     data: 
     objectReferenceParameter: {fileID: 0}
-    floatParameter: 4.5
+    floatParameter: 15.7
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.81666666
+    functionName: UpdateAttackRangeY
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 9
     intParameter: 0
     messageOptions: 0
   - time: 0.81666666
     functionName: UpdateAttackOffsetX
     data: 
     objectReferenceParameter: {fileID: 0}
-    floatParameter: 15
+    floatParameter: 13.8
     intParameter: 0
     messageOptions: 0
   - time: 0.81666666
     functionName: UpdateAttackOffsetY
     data: 
     objectReferenceParameter: {fileID: 0}
-    floatParameter: 6
+    floatParameter: 6.6
     intParameter: 0
     messageOptions: 0
   - time: 0.85
@@ -164,21 +178,21 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.9
-    functionName: UpdateAttackRange
+  - time: 0.8833333
+    functionName: UpdateAttackRangeX
     data: 
     objectReferenceParameter: {fileID: 0}
-    floatParameter: 4.5
+    floatParameter: 22
     intParameter: 0
     messageOptions: 0
-  - time: 0.9
+  - time: 0.8833333
     functionName: UpdateAttackOffsetX
     data: 
     objectReferenceParameter: {fileID: 0}
-    floatParameter: 21
+    floatParameter: 16.5
     intParameter: 0
     messageOptions: 0
-  - time: 0.9
+  - time: 0.8833333
     functionName: UpdateAttackOffsetY
     data: 
     objectReferenceParameter: {fileID: 0}
@@ -190,6 +204,34 @@ AnimationClip:
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.96666664
+    functionName: UpdateAttackRangeX
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 32
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.96666664
+    functionName: UpdateAttackRangeY
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 10.3
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.96666664
+    functionName: UpdateAttackOffsetX
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 21.5
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.96666664
+    functionName: UpdateAttackOffsetY
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 6
     intParameter: 0
     messageOptions: 0
   - time: 1

@@ -19,8 +19,10 @@ public class Player2 : MonoBehaviour
     private bool canDoubleJump;
     //FIGHT1
     public Transform attackPoint;
-    public float attackRange;
-    public float attackoffset;
+    public float attackRangeX;
+    public float attackRangeY;
+    [SerializeField] private float attackOffsetX;
+    [SerializeField] private float attackOffsetY;
     public LayerMask enemyLayers;
     private bool isAttacking = false;
     //Emotinal Damage
@@ -37,6 +39,13 @@ public class Player2 : MonoBehaviour
     private int mylayerFacingDirection;
     private bool playerOnLeft;
     private bool knockback = false;
+    //Ultimate cooldown
+    public float cooldownTime = 10f;
+    private float lastUltimateTime = 0f;
+    //Spawn
+    public GameObject gameObject;
+    public Vector3 spawnPosition;
+    public int numberRespawn = 1;
     // Use this for initialization
     //test
     public int GetFacingDirection()
@@ -110,6 +119,7 @@ public class Player2 : MonoBehaviour
         if (!isAttacking && !knockback)
         {
             m_body2d.velocity = new Vector2(inputX * m_speed, m_body2d.velocity.y);
+            Debug.Log("Luffy Speed");
         }
 
         //Set AirSpeed in animator
@@ -126,10 +136,12 @@ public class Player2 : MonoBehaviour
             m_body2d.velocity = Vector2.zero;
             // Call one of three attack animations "Attack1", "Attack2", "Attack3"
             m_animator.SetTrigger("Attack" + m_currentAttack);
-            Attack();
-            
+
+            //When the attack animation run the event in animation call the function Attack()
+            Debug.Log("Luffy Attack");
+
             // Wai until the animation attack end
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0f);
 
             // Reset isAttacking = false
             isAttacking = false;
@@ -165,7 +177,7 @@ public class Player2 : MonoBehaviour
             // m_timeSinceAttack = 0.0f;
 
             isAttacking = true;
-            // Thực hiện tấn công và chờ kết thúc animation tấn công
+            // Perform attack and wait for the attack animation to finish
             StartCoroutine(PerformAttack());
         }
 
@@ -183,6 +195,7 @@ public class Player2 : MonoBehaviour
         {
             if (m_grounded)
             {
+                Debug.Log("Luffy Jump 1");
                 m_animator.SetTrigger("Jump");
                 m_grounded = false;
                 m_animator.SetBool("Grounded", m_grounded);
@@ -191,6 +204,7 @@ public class Player2 : MonoBehaviour
             }
             else if (canDoubleJump)
             {
+                Debug.Log("Luffy Jump 2");
                 m_animator.SetTrigger("Jump");
                 m_body2d.velocity = new Vector2(m_body2d.velocity.x, m_jumpForce);
                 m_jumpsLeft--;
@@ -199,6 +213,7 @@ public class Player2 : MonoBehaviour
         //Run
         else if (Mathf.Abs(inputX) > Mathf.Epsilon)
         {
+            Debug.Log("Luffy Walk");
             // Reset timer
             m_delayToIdle = 0.05f;
             m_animator.SetInteger("AnimState", 1);
@@ -207,6 +222,7 @@ public class Player2 : MonoBehaviour
         //Idle
         else
         {
+            Debug.Log("Luffy Idle");
             // Prevents flickering transitions to idle
             m_delayToIdle -= Time.deltaTime;
             if (m_delayToIdle < 0)
@@ -214,20 +230,49 @@ public class Player2 : MonoBehaviour
         }
     }
 
+    // private void Attack()
+    // {
+    //     Vector2 attackDirection = new Vector2(GetFacingDirection(), 0f); // Hướng của nhân vật
+    //     Vector2 attackPointPosition = (Vector2)transform.position + attackDirection * attackoffset; // Tính toán vị trí của attackPoint
+    //     Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPointPosition, attackRange, enemyLayers); // Sử dụng vị trí tính toán được để tấn công
+    //     foreach (Collider2D enemy in hitEnemies)
+    //     {
+    //         // Debug.Log("Enemy object: " + enemy);
+    //         // Debug.Log("Enemy object: " + transform.parent);
+    //         // enemy.GetComponent<Hurt1>().Damage();
+    //         Player1 hurtComponent = enemy.GetComponent<Player1>();
+    //         if (hurtComponent != null)
+    //         {
+
+    //             Debug.Log("Luffy Attack");
+    //             hurtComponent.Damage(m_facingDirection);
+    //         }
+    //         else
+    //         {
+    //             Debug.LogError("Player1 component is null");
+    //         }
+    //         //enemy.transform.parent.SendMessage("Damage");
+    //     }
+    // }
+
+    // void OnDrawGizmosSelected()
+    // {
+    //     if (attackPoint == null)
+    //         return;
+    //     Vector2 attackDirection = new Vector2(GetFacingDirection(), 0f);
+    //     Vector2 attackPointPosition = (Vector2)transform.position + attackDirection * attackoffset;
+    //     Gizmos.DrawWireSphere(attackPointPosition, attackRange);
+    // }
     private void Attack()
     {
         Vector2 attackDirection = new Vector2(GetFacingDirection(), 0f); // Hướng của nhân vật
-        Vector2 attackPointPosition = (Vector2)transform.position + attackDirection * attackoffset; // Tính toán vị trí của attackPoint
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPointPosition, attackRange, enemyLayers); // Sử dụng vị trí tính toán được để tấn công
+        Vector2 attackPointPosition = (Vector2)transform.position + new Vector2(attackOffsetX * attackDirection.x, attackOffsetY); // Tính toán vị trí của attackPoint
+        Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(attackPointPosition, new Vector2(attackRangeX, attackRangeY), 0f, enemyLayers);
         foreach (Collider2D enemy in hitEnemies)
         {
-            // Debug.Log("Enemy object: " + enemy);
-            // Debug.Log("Enemy object: " + transform.parent);
-            // enemy.GetComponent<Hurt1>().Damage();
             Player1 hurtComponent = enemy.GetComponent<Player1>();
             if (hurtComponent != null)
             {
-
                 Debug.Log("Luffy Attack");
                 hurtComponent.Damage(m_facingDirection);
             }
@@ -235,7 +280,6 @@ public class Player2 : MonoBehaviour
             {
                 Debug.LogError("Player1 component is null");
             }
-            //enemy.transform.parent.SendMessage("Damage");
         }
     }
 
@@ -244,8 +288,8 @@ public class Player2 : MonoBehaviour
         if (attackPoint == null)
             return;
         Vector2 attackDirection = new Vector2(GetFacingDirection(), 0f);
-        Vector2 attackPointPosition = (Vector2)transform.position + attackDirection * attackoffset;
-        Gizmos.DrawWireSphere(attackPointPosition, attackRange);
+        Vector2 attackPointPosition = (Vector2)transform.position + new Vector2(attackOffsetX * attackDirection.x, attackOffsetY);
+        Gizmos.DrawWireCube(attackPointPosition, new Vector2(attackRangeX, attackRangeY));
     }
     public void Damage(int playerFacingDirection)
     {
@@ -322,5 +366,78 @@ public class Player2 : MonoBehaviour
             knockback = false;
             m_body2d.velocity = new Vector2(0.0f, m_body2d.velocity.y);
         }
+
+    }
+    public void UpdateAttackOffsetX(float x)
+    {
+        attackOffsetX = x;
+    }
+    public void UpdateAttackOffsetY(float y)
+    {
+        attackOffsetY = y;
+    }
+    public void UpdateAttackRangeX(float x)
+    {
+        attackRangeX = x;
+    }
+    public void UpdateAttackRangeY(float y)
+    {
+        attackRangeY = y;
+    }
+    public void SpawnObject()
+    {
+        float delay = 0.6f;
+        Invoke("MoveObjectToSpawnPosition", delay);
+    }
+
+    private void MoveObjectToSpawnPosition()
+    {
+        if (numberRespawn > 0)
+        {
+            StartCoroutine(KeepObjectAtSpawnPosition());
+            numberRespawn--;
+        }
+        else
+        {
+            Debug.Log("Luffy actually dead");
+            gameObject.SetActive(false);
+        }
+    }
+    private IEnumerator KeepObjectAtSpawnPosition()
+    {
+        // Đặt vị trí nhân vật về spawnPosition
+        gameObject.transform.position = spawnPosition;
+        // Vô hiệu hóa trọng lực
+        gameObject.GetComponent<Rigidbody2D>().gravityScale = 0f;
+        gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        Debug.Log("Luffy Respawn");
+        // Đợi 2 giây
+        yield return new WaitForSeconds(2f);
+
+        gameObject.GetComponent<Rigidbody2D>().gravityScale = 2f;
+
+    }
+    public void Die()
+    {
+        // // Store the current sprite flip state
+        // bool isFlipped = GetComponent<SpriteRenderer>().flipX;
+
+        // // Disable sprite flipping
+        // GetComponent<SpriteRenderer>().flipX = false;
+
+        // Play the die animation
+        Debug.Log(gameObject.transform.position.y);
+        if (gameObject.transform.position.y < -17f)
+        {
+            m_animator.SetTrigger("die_bottom");
+        }
+        else
+        {
+            m_animator.SetTrigger("die_left");
+        }
+        // // Restore the original sprite flip state
+        // GetComponent<SpriteRenderer>().flipX = isFlipped;
+
+        SpawnObject();
     }
 }

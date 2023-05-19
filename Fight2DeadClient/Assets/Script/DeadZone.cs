@@ -19,10 +19,27 @@ public class DeadZone : MonoBehaviour
 
                 if (player1 != null)
                 {
-                   player1.Die();
-                     
+                    Debug.Log("Gaara Die");
+                    player1.Die();
+
                 }
-                else{
+                else
+                {
+                    Debug.Log("Error");
+                }
+            }
+            if (collision.gameObject.layer == LayerMask.NameToLayer("Player2"))
+            {
+                Player2 player2 = collision.gameObject.GetComponent<Player2>();
+
+                if (player2 != null)
+                {
+                    Debug.Log("Luffy Die");
+                    player2.Die();
+
+                }
+                else
+                {
                     Debug.Log("Error");
                 }
             }
