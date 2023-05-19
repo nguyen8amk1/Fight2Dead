@@ -1,3 +1,4 @@
+using SocketServer;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,9 @@ public class MapSelect : MonoBehaviour
     public GameObject map,map0, map1, map2, map3, map4;
     public GameObject pointer0, pointer1, pointer2, pointer3, pointer4;
     private string[] mapName = new string[] {"Yoshi", "Sunny", "Palutena", "Fourside", "Temple" };
+    private GameState globalGameState = GameState.Instance;
+    private bool allPlayersChosen = false;
+
     private IEnumerator FadeOutMap(GameObject map)
     {
         float startAlpha = 1;
@@ -124,11 +128,44 @@ public class MapSelect : MonoBehaviour
             map3.SetActive(false);
             map0.SetActive(false);
         }
-    }    
+    }
+    private void OnApplicationQuit()
+    {
+        Debug.Log("Send quit message from map choose scene");
+        string quitMessage = PreGameMessageGenerator.quitMessage();
+        ServerCommute.connection.sendToServer(quitMessage);
+    }
 
-    // Update is called once per frame
-    void Update()
-    {       
+    private void Update()
+    {
+        if (globalGameState.onlineMode.Equals("LAN"))
+        {
+            if (globalGameState.lobby_P1Quit)
+            {
+                Debug.Log("TODO: remove the P1 on screen");
+            }
+
+            if (globalGameState.lobby_P2Quit)
+            {
+                Debug.Log("TODO: remove the P2 on screen");
+            }
+        }
+        else if (globalGameState.onlineMode.Equals("GLOBAL"))
+        {
+            if (globalGameState.lobby_P1Quit ||
+                globalGameState.lobby_P2Quit)
+            {
+                Debug.Log("Go back to menu");
+                Util.toSceneWithIndex(globalGameState.scenesOrder["MENU"]);
+            }
+        }
+
+        allPlayersChosen = globalGameState.hostPlayerMapChosen && globalGameState.opponentMapChosen;
+        if (allPlayersChosen)
+        {
+            Util.toNextScene();
+        }
+
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             mapGroup.alpha = 0;
@@ -156,6 +193,12 @@ public class MapSelect : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Return))
         {
             Debug.Log(mapName[selectVal]);
+            globalGameState.hostPlayerMapChosen = true;
+
+            string message = PreGameMessageGenerator.chooseMapMessage(mapName[selectVal]);
+            ServerCommute.connection.sendToServer(message);
+
+            Debug.Log($"TODO: Send this message to server: {message}");
         }    
 
         if (selectVal == 0)

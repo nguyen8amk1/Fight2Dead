@@ -45,6 +45,16 @@ public class CharacterSelect : MonoBehaviour
     void Start()
     {
         Application.targetFrameRate = 60;
+        if (globalGameState.numPlayers == 2)
+        {
+            textMode = 1;
+            Mode = 1;
+            twoPlayerID = globalGameState.PlayerId;
+        } 
+        if (globalGameState.numPlayers == 4)
+        {
+            Debug.Log("TODO: handle 4 players id in choose character");
+        } 
     }
 
 	private void OnApplicationQuit()
@@ -320,6 +330,11 @@ public class CharacterSelect : MonoBehaviour
                 if (!P1Log1)
                 {
                     Debug.Log("P1_char1: " + charName[selectVal]);
+                    globalGameState.chosenCharacters[0] = charName[selectVal];
+                    globalGameState.charNameCount++;
+
+                    string message = PreGameMessageGenerator.chooseCharacterMessage(1, charName[selectVal]);
+                    ServerCommute.connection.sendToServer(message);
                     P1Log1 = true;
                 }
                 float t = (float)(timingVar / .5f);
@@ -343,6 +358,11 @@ public class CharacterSelect : MonoBehaviour
                 if (!P1Log2)
                 {
                     Debug.Log("P1_char2: " + charName[selectVal]);
+                    globalGameState.chosenCharacters[1] = charName[selectVal];
+                    globalGameState.charNameCount++;
+
+                    string message = PreGameMessageGenerator.chooseCharacterMessage(2, charName[selectVal]);
+                    ServerCommute.connection.sendToServer(message);
                     P1Log2 = true;
                 }
             }
@@ -363,6 +383,11 @@ public class CharacterSelect : MonoBehaviour
                 if (!P2Log1)
                 {
                     Debug.Log("P2_char1: " + charName[selectVal]);
+                    globalGameState.chosenCharacters[2] = charName[selectVal];
+                    globalGameState.charNameCount++;
+
+                    string message = PreGameMessageGenerator.chooseCharacterMessage(3, charName[selectVal]);
+                    ServerCommute.connection.sendToServer(message);
                     P2Log1 = true;
                 }
                 float t = (float)(timingVar_1 / .5f);
@@ -386,6 +411,11 @@ public class CharacterSelect : MonoBehaviour
                 if (!P2Log2)
                 {
                     Debug.Log("P2_char2: " + charName[selectVal]);
+                    globalGameState.chosenCharacters[3] = charName[selectVal];
+                    globalGameState.charNameCount++;
+
+                    string message = PreGameMessageGenerator.chooseCharacterMessage(4, charName[selectVal]);
+                    ServerCommute.connection.sendToServer(message);
                     P2Log2 = true;
                 }
             }
@@ -418,13 +448,11 @@ public class CharacterSelect : MonoBehaviour
                 if (!P1Log)
                 {
                     Debug.Log("P1: " + charName[selectVal]);
-                    /*
                     globalGameState.chosenCharacters[0] = charName[selectVal];
                     globalGameState.charNameCount++;
 
                     string message = PreGameMessageGenerator.chooseCharacterMessage(1, charName[selectVal]);
                     ServerCommute.connection.sendToServer(message);
-                    */
                     P1Log = true;
                 }
             }
@@ -443,12 +471,10 @@ public class CharacterSelect : MonoBehaviour
                 if (!P2Log)
                 {
                     Debug.Log("P2: " + charName[selectVal]);
-                    /*
                     globalGameState.chosenCharacters[1] = charName[selectVal];
                     globalGameState.charNameCount++;
                     string message = PreGameMessageGenerator.chooseCharacterMessage(2, charName[selectVal]);
                     ServerCommute.connection.sendToServer(message);
-                    */
                     P2Log = true;
                 }
             }
@@ -477,12 +503,10 @@ public class CharacterSelect : MonoBehaviour
                 if (!P3Log)
                 {
                     Debug.Log("P3: " + charName[selectVal]);
-                    /*
                     globalGameState.chosenCharacters[2] = charName[selectVal];
                     globalGameState.charNameCount++;
                     string message = PreGameMessageGenerator.chooseCharacterMessage(3, charName[selectVal]);
                     ServerCommute.connection.sendToServer(message);
-                    */
                     P3Log = true;
                 }
             }
@@ -504,13 +528,11 @@ public class CharacterSelect : MonoBehaviour
                 if (!P4Log)
                 {
                     Debug.Log("P4: " + charName[selectVal]);
-                    /*
                     globalGameState.chosenCharacters[3] = charName[selectVal];
                     globalGameState.charNameCount++;
 
                     string message = PreGameMessageGenerator.chooseCharacterMessage(4, charName[selectVal]);
                     ServerCommute.connection.sendToServer(message);
-                    */
                     P4Log = true;
                 }
             }
