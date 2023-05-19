@@ -20,13 +20,24 @@ public class ChangeInput : MonoBehaviour
     private float fadeDuration = 3f;
     private GameState globalGameState = GameState.Instance;
 
+    public string[] UsernameList;
     // Start is called before the first frame update
     void Start()
     {
         system = EventSystem.current;
         submitButton.onClick.AddListener(OnLoginButtonClick);
     }
-
+    private bool IsValidUsername(string username)
+    {
+        foreach (string existingUsername in UsernameList)
+        {
+            if (existingUsername == username)
+            {                
+                return false;
+            }
+                  
+        }return true;
+    }
     private void OnLoginButtonClick()
     {
         string username = usernameInputField.text;
@@ -39,7 +50,7 @@ public class ChangeInput : MonoBehaviour
         ServerCommute.connection.sendToServer(message);
 
 /*
-        if (!IsValidEmail(username) || password.Length < 6)
+        if (!IsValidUsername(username) || password.Length < 6)
         {
             Debug.Log("Invalid username or password");
             usernameInputField.text = "";

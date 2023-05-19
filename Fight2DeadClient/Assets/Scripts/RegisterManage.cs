@@ -9,10 +9,12 @@ using SocketServer;
 
 public class RegisterManage : MonoBehaviour
 {
-    public string[] usernameList;
+    public string[] EmailList;
+    public string[] UsernameList;
     EventSystem system;
     public Selectable firstInput;
     public Button regisButton;
+    public InputField emailInputField;
     public InputField usernameInputField;
     public InputField passwordInputField;
     public InputField confirmPasswordInputField;
@@ -20,7 +22,7 @@ public class RegisterManage : MonoBehaviour
     public GameObject alertText;
     public TMP_Text invalidText;
     public TMP_Text confirmPasswordText;
-    public TMP_Text existedUsernameText;
+    public TMP_Text existedEmailText;
     private float fadeDuration = 3f;
     private bool isDuplicate = false;
     // Start is called before the first frame update
@@ -61,6 +63,7 @@ public class RegisterManage : MonoBehaviour
 
     private void OnRegisterButtonClick()
     {
+        string Email = emailInputField.text;
         string username = usernameInputField.text;
         string password = passwordInputField.text;
         string confirmpassword = confirmPasswordInputField.text;
@@ -69,15 +72,34 @@ public class RegisterManage : MonoBehaviour
 
         /*
         foreach (string existingUsername in usernameList)
+        foreach (string existingEmail in EmailList)
         {
-            if (existingUsername == username)
+            if (existingEmail == Email)
             {
                 Debug.Log("Email has already been used");
+                emailInputField.text = "";
                 usernameInputField.text = "";
                 passwordInputField.text = "";
                 confirmPasswordInputField.text = "";
                 alertTextContainer.alpha = 1f;
-                existedUsernameText.gameObject.SetActive(true);
+                existedEmailText.gameObject.SetActive(true);
+                alertText.SetActive(true);
+                StartCoroutine(FadeOutAlertText());
+                isDuplicate = true;
+                return;
+            }
+        }
+        foreach (string existingUsername in UsernameList)
+        {
+            if (existingUsername == username)
+            {
+                Debug.Log("Username has already been used");
+                emailInputField.text = "";
+                usernameInputField.text = "";
+                passwordInputField.text = "";
+                confirmPasswordInputField.text = "";
+                alertTextContainer.alpha = 1f;
+                existedEmailText.gameObject.SetActive(true);
                 alertText.SetActive(true);
                 StartCoroutine(FadeOutAlertText());
                 isDuplicate = true;
@@ -87,14 +109,16 @@ public class RegisterManage : MonoBehaviour
         if (isDuplicate && password != confirmpassword)
         {
             Debug.Log("2 error at the same time");
+            emailInputField.text = "";
             usernameInputField.text = "";
             passwordInputField.text = "";
             confirmPasswordInputField.text = "";
             return;
         }    
-        if (!IsValidEmailRegister(username) || password.Length < 6)
+        if (!IsValidEmailRegister(Email) || password.Length < 6)
         {
-            Debug.Log("Invalid username or password");
+            Debug.Log("Invalid Email or password");
+            emailInputField.text = "";
             usernameInputField.text = "";
             passwordInputField.text = "";
             confirmPasswordInputField.text = "";
@@ -124,9 +148,10 @@ public class RegisterManage : MonoBehaviour
         //       else display the error on screen 
 
         Debug.Log("Registered");
+        Debug.Log("Email: " + Email);
         Debug.Log("Username: " + username);
         Debug.Log("Password: " + password);
-        usernameInputField.text = "";
+        emailInputField.text = "";
         passwordInputField.text = "";
         confirmPasswordInputField.text = "";
     }
