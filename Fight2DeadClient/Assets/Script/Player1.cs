@@ -19,8 +19,12 @@ public class Player1 : MonoBehaviour
     private bool canDoubleJump;
     //FIGHT1
     public Transform attackPoint;
-    public float attackRange;
-    public float attackoffset;
+    public float attackRangeX;
+    public float attackRangeY;
+    // public float attackoffset;
+    [SerializeField] private float attackOffsetX;
+    [SerializeField] private float attackOffsetY;
+
     public LayerMask enemyLayers;
     private bool isAttacking = false;
     //Knockback
@@ -36,6 +40,13 @@ public class Player1 : MonoBehaviour
     private int playerFacingDirection;
     private int mylayerFacingDirection;
     private bool playerOnLeft, knockback;
+    //Ultimate cooldown
+    public float cooldownTime = 10f;
+    private float lastUltimateTime = 0f;
+    //Spawn
+    public GameObject gameObject;
+    public Vector3 spawnPosition;
+    public int numberRespawn = 1;
 
     // Use this for initializationz
     public int GetFacingDirection()
@@ -48,6 +59,7 @@ public class Player1 : MonoBehaviour
         m_animator = GetComponent<Animator>();
         m_body2d = GetComponent<Rigidbody2D>();
         m_groundSensor = transform.Find("GroundSensor").GetComponent<Sensor>();
+        m_animator.SetTrigger("intro");
 
     }
 
@@ -119,15 +131,16 @@ public class Player1 : MonoBehaviour
         if (!isAttacking && !knockback)
         {
             m_body2d.velocity = new Vector2(inputX * m_speed, m_body2d.velocity.y);
+            Debug.Log("Gaara Speed");
         }
         IEnumerator PerformAttack()
         {
             m_body2d.velocity = Vector2.zero;
             // Call one of three attack animations "Attack1", "Attack2", "Attack3"
             m_animator.SetTrigger("Attack" + m_currentAttack);
-            // Debug.Log(m_animator.GetFloat("Attack.Active"));
-            
-            Attack();
+
+            //When the attack animation run the event in animation call the function Attack()
+            Debug.Log("Gaara Attack");
 
             // Wai until the animation attack end
             yield return new WaitForSeconds(0f);
@@ -165,10 +178,16 @@ public class Player1 : MonoBehaviour
             // m_timeSinceAttack = 0.0f;
 
             isAttacking = true;
-            // Thực hiện tấn công và chờ kết thúc animation tấn công
+
+            // Perform attack and wait for the attack animation to finish
             StartCoroutine(PerformAttack());
         }
-
+        else if (Input.GetKeyDown(KeyCode.L) && (Time.time - lastUltimateTime >= cooldownTime))
+        {
+            m_animator.SetTrigger("ultimate");
+            Debug.Log("Gaara Ultimate");
+            lastUltimateTime = Time.time; // Update time last pressed "L" button
+        }
         // Block
         else if (Input.GetMouseButtonDown(1))
         {
@@ -184,6 +203,9 @@ public class Player1 : MonoBehaviour
             if (m_grounded)
             {
                 m_animator.SetTrigger("Jump");
+                
+                Debug.Log("Gaara Jump 1");
+
                 m_grounded = false;
                 m_animator.SetBool("Grounded", m_grounded);
                 m_body2d.velocity = new Vector2(m_body2d.velocity.x, m_jumpForce);
@@ -192,6 +214,7 @@ public class Player1 : MonoBehaviour
             else if (canDoubleJump)
             {
                 m_animator.SetTrigger("Jump");
+                Debug.Log("Gaara Jump 2");
                 m_body2d.velocity = new Vector2(m_body2d.velocity.x, m_jumpForce);
                 m_jumpsLeft--;
             }
@@ -200,6 +223,7 @@ public class Player1 : MonoBehaviour
         else if (Mathf.Abs(inputX) > Mathf.Epsilon)
         {
             // Reset timer
+            Debug.Log("Gaara Walk");
             m_delayToIdle = 0.05f;
             m_animator.SetInteger("AnimState", 1);
         }
@@ -207,6 +231,7 @@ public class Player1 : MonoBehaviour
         //Idle
         else
         {
+            Debug.Log("Gaara Idle");
             // Prevents flickering transitions to idle
             m_delayToIdle -= Time.deltaTime;
             if (m_delayToIdle < 0)
@@ -214,27 +239,58 @@ public class Player1 : MonoBehaviour
         }
     }
 
+    // private void Attack()
+    // {
+    //     Vector2 attackDirection = new Vector2(GetFacingDirection(), 0f); // Hướng của nhân vật
+    //     Vector2 attackPointPosition = (Vector2)transform.position + attackDirection * attackoffset; // Tính toán vị trí của attackPoint
+    //     Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPointPosition, attackRange, enemyLayers); // Sử dụng vị trí tính toán được để tấn công
+    //     foreach (Collider2D enemy in hitEnemies)
+    //     {
+
+    //         Player2 hurtComponent = enemy.GetComponent<Player2>();
+    //         if (hurtComponent != null)
+    //         {
+
+    //             Debug.Log(attackRange);
+    //             Debug.Log(attackoffset);
+    //             Debug.Log("Gaara Attack");
+    //             hurtComponent.Damage(m_facingDirection);
+
+    //         }
+    //         else
+    //         {
+    //             Debug.LogError("Player2 component is null");
+    //         }
+
+    //     }
+    // }
+
+    // void OnDrawGizmosSelected()
+    // {
+    //     if (attackPoint == null)
+    //         return;
+    //     Vector2 attackDirection = new Vector2(GetFacingDirection(), 0f);
+    //     Vector2 attackPointPosition = (Vector2)transform.position + attackDirection * attackoffset;
+    //     Gizmos.DrawWireSphere(attackPointPosition, attackRange);
+    // }
     private void Attack()
     {
         Vector2 attackDirection = new Vector2(GetFacingDirection(), 0f); // Hướng của nhân vật
-        Vector2 attackPointPosition = (Vector2)transform.position + attackDirection * attackoffset; // Tính toán vị trí của attackPoint
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPointPosition, attackRange, enemyLayers); // Sử dụng vị trí tính toán được để tấn công
+        Vector2 attackPointPosition = (Vector2)transform.position + new Vector2(attackOffsetX * attackDirection.x, attackOffsetY); // Tính toán vị trí của attackPoint
+        // Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPointPosition, attackRange, enemyLayers); // Sử dụng vị trí tính toán được để tấn công
+        Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(attackPointPosition, new Vector2(attackRangeX, attackRangeY), 0f, enemyLayers);
         foreach (Collider2D enemy in hitEnemies)
         {
-
             Player2 hurtComponent = enemy.GetComponent<Player2>();
             if (hurtComponent != null)
             {
-
                 Debug.Log("Gaara Attack");
                 hurtComponent.Damage(m_facingDirection);
-
             }
             else
             {
                 Debug.LogError("Player2 component is null");
             }
-
         }
     }
 
@@ -243,8 +299,9 @@ public class Player1 : MonoBehaviour
         if (attackPoint == null)
             return;
         Vector2 attackDirection = new Vector2(GetFacingDirection(), 0f);
-        Vector2 attackPointPosition = (Vector2)transform.position + attackDirection * attackoffset;
-        Gizmos.DrawWireSphere(attackPointPosition, attackRange);
+        Vector2 attackPointPosition = (Vector2)transform.position + new Vector2(attackOffsetX * attackDirection.x, attackOffsetY);
+        // Gizmos.DrawWireSphere(attackPointPosition, attackRange);
+        Gizmos.DrawWireCube(attackPointPosition, new Vector2(attackRangeX, attackRangeY));
     }
 
     //Emotional Damage
@@ -329,12 +386,77 @@ public class Player1 : MonoBehaviour
             m_body2d.velocity = new Vector2(0.0f, m_body2d.velocity.y);
         }
     }
-    public void OnAttackAnimationEvent(float offset)
+    public void UpdateAttackOffsetX(float x)
     {
-        attackoffset = offset;
+        attackOffsetX = x;
     }
-        public void OnAttackAnimationEvent2(float Rangee)
+    public void UpdateAttackOffsetY(float y)
     {
-        attackRange = Rangee;
+        attackOffsetY = y;
     }
+    public void UpdateAttackRangeX(float x)
+    {
+        attackRangeX = x;
+    }
+    public void UpdateAttackRangeY(float y)
+    {
+        attackRangeY = y;
+    }
+    public void SpawnObject()
+    {
+        float delay = 0.6f;
+        Invoke("MoveObjectToSpawnPosition", delay);
+    }
+
+    private void MoveObjectToSpawnPosition()
+    {
+        if (numberRespawn > 0)
+        {
+            StartCoroutine(KeepObjectAtSpawnPosition());
+            numberRespawn--;
+        }
+        else
+        {
+            Debug.Log("Gaara actually dead");
+            gameObject.SetActive(false);
+        }
+    }
+    private IEnumerator KeepObjectAtSpawnPosition()
+    {
+        Debug.Log("Gaara Respawn");
+        // Đặt vị trí nhân vật về spawnPosition
+        gameObject.transform.position = spawnPosition;
+        // Vô hiệu hóa trọng lực
+        gameObject.GetComponent<Rigidbody2D>().gravityScale = 0f;
+        gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        // Đợi 2 giây
+        yield return new WaitForSeconds(2f);
+
+        gameObject.GetComponent<Rigidbody2D>().gravityScale = 2f;
+
+    }
+    public void Die()
+    {
+        // // Store the current sprite flip state
+        // bool isFlipped = GetComponent<SpriteRenderer>().flipX;
+
+        // Disable sprite flipping
+        // GetComponent<SpriteRenderer>().flipX = false;
+        // Debug.Log(GetComponent<SpriteRenderer>().flipX);
+
+        // Play the die animation
+        Debug.Log(gameObject.transform.position.y);
+        if (gameObject.transform.position.y < -17f)
+        {
+            m_animator.SetTrigger("die_bottom");
+        }
+        else
+        {
+            m_animator.SetTrigger("die_left");
+        }
+        // // Restore the original sprite flip state
+        // GetComponent<SpriteRenderer>().flipX = isFlipped;
+        SpawnObject();
+    }
+
 }
