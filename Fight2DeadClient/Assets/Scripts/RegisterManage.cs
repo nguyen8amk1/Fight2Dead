@@ -141,7 +141,7 @@ public class RegisterManage : MonoBehaviour
         */
 
         Debug.Log("Send to the server for storing");
-        string message = PreGameMessageGenerator.userRegistrationMessage(usernameInputField.text, passwordInputField.text);
+        string message = PreGameMessageGenerator.userRegistrationMessage(emailInputField.text, usernameInputField.text, passwordInputField.text);
         ServerCommute.connection.sendToServer(message);
 
         // TODO: if registration success ->  change to login scene with the info already filled 

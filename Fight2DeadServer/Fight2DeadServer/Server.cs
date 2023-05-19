@@ -89,13 +89,13 @@ namespace SocketServer
 
 		private void handleRegisterMessage(string[] tokens, TcpClient tcpClient, bool createNewThread)
 		{
-			bool isRegisterMessage = Util.getKeyFrom(tokens[0]).Equals("username") &&
-									 Util.getKeyFrom(tokens[1]).Equals("email") &&
+			bool isRegisterMessage = Util.getKeyFrom(tokens[1]).Equals("username") &&
+									 Util.getKeyFrom(tokens[0]).Equals("email") &&
 									 Util.getKeyFrom(tokens[2]).Equals("password");
 			if (isRegisterMessage)
 			{
-				string username = Util.getValueFrom(tokens[0]);
-				string email = Util.getValueFrom(tokens[1]);
+				string email = Util.getValueFrom(tokens[0]);
+				string username = Util.getValueFrom(tokens[1]);
 				string password = Util.getValueFrom(tokens[2]);
 
 

@@ -19,6 +19,7 @@ public class ChangeInput : MonoBehaviour
     public GameObject alertText;
     private float fadeDuration = 3f;
     private GameState globalGameState = GameState.Instance;
+    public static int count = 0;
 
     public string[] UsernameList;
     // Start is called before the first frame update
@@ -100,6 +101,18 @@ public class ChangeInput : MonoBehaviour
 		{
             Debug.Log("Login success");
 			Util.toNextScene();
+		} else
+		{
+            if(count == 1) { 
+				Debug.Log("TODO: show failed to login on screen");
+				Debug.Log("Invalid username or password");
+				usernameInputField.text = "";
+				passwordInputField.text = "";
+				alertTextContainer.alpha = 1f;
+				alertText.SetActive(true);
+				StartCoroutine(FadeOutAlertText());
+                count = 0;
+            }
 		}
 
         if (Input.GetKeyDown(KeyCode.Tab) && Input.GetKey(KeyCode.LeftShift))

@@ -117,14 +117,17 @@ namespace SocketServer {
 				if(isLoginStatus)
 				{
 					string status = Util.getValueFrom(tokens[0]); 
-					Debug.Log("TODO: handle login status: " + status);
+					Debug.Log("handle login status: " + status);
+
 					if(status.Equals("success"))
 					{
 						//Util.toNextScene();
 						gameState.loginSuccess = true;
 					} else if(status.Equals("failed"))
 					{
-						Debug.Log("TODO: display on screen that login failed");
+						//Debug.Log("TODO: display on screen that login failed");
+						gameState.loginSuccess = false;
+						ChangeInput.count = 1;
 					}
 				}
 

@@ -3,6 +3,7 @@ TODAY:
         -> add username into the message that send 
                         into the database as well  
 
+    CONNECT THE NEW CHOOSE MAP SCENE (2h) []
 
     APPLY SSL INTO THE TRANSMISSION (2h) []
     -> have to learn how certificate works first 
