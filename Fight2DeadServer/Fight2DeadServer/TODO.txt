@@ -1,28 +1,20 @@
 TODAY: 
-    ADD 4 PLAYER MODE (6h) [] 
-        CLIENT: 
-            change the choose map ->  @CURRENT (1h) []
-                currently each people choose a map, but should they :v 
-                so only 1 map, the person who choose the faster get's it :v  (apply for both mode)
+    @bug 
+    RELOGIN NOT WORKING (2h) []
+    THE PLAYER POSITION INFO GET CLOGGED THEN NOT CLOGGED ANYMORE, NEED TO INVESTIGATE (2h) []
+    HAVING A BUG WHEN LOGIN, CLIENT 1 BLOCK CLIENT 2 FROM LOGIN, WHEN CLIENT 1 LOG IN -> THEM BOTH LOG IN
 
+    CONVERT ALL MESSAGE LOOP INTO ASYNC (2h) []
 
-			chon nhan vat co thu tu: []
-				2v2: 
-					p1 chon truoc p2 
-					p3 chon truoc p4 
+    IMPLEMENT LAN MODE (2h) [] 
+        -> WHAT DOES LAN MODE GONNA HAVE ??
 
-					-> toggle in the server
-
-            change the lobby -> now we have 4 people (4 lines) @DONE [X]
-            change the choose character (3h) [X]
-
-
-    SEND ANIMATION INFO TO ALL OTHER PLAYERS (4h) [] -> currently still in 1v1 mode 
 
     APPLY SSL INTO THE TRANSMISSION (2h) []
     -> have to learn how certificate works first 
 
-    CONVERT ALL MESSAGE LOOP INTO ASYNC (2h) []
+    SEND ANIMATION INFO TO ALL OTHER PLAYERS (4h) [] -> currently still in 1v1 mode 
+
 
 	currently two players can login into the same account and play with each other -> that's not good []
 
@@ -34,14 +26,22 @@ TODAY:
         SERVER: 
             stuff more players into one room, then that's pretty much it really :v 
 
+
+
     tong cong: 5h  
 
 TODO: 
+	chon nhan vat co thu tu: []
+		2v2: 
+			p1 chon truoc p2 
+			p3 chon truoc p4 
+
+			-> toggle in the server
+
 	STORE PASSWORD HASH (USE HASHING ON THE CLIENT) ON TO THE SERVER [] - but plain text for now 
     CONNECT THE FIGHTING SCENE WITH THE SERVER (4h) []
         -> sync the animation and stuff 
         
-
     TEST IF C# COULD RUN ON UBUNTU (1h) []
 
     SEND AND HANDLE QUIT MESSAGE WITH THE NEW SYSTEM (4h) [] (THIS CURRENTLY IS DOING FOR 1V1 ONLY)
@@ -86,8 +86,6 @@ TODO:
                     game scene  []
                 
                 
-    IMPLEMENT LAN MODE (2h) [] 
-
     UPDATE THE GRADIENT AND THE COLOR OF THE BLACKSTRIP OF THE LOBBY SCENE (1h) []
     -> (CHOOSE CHARACTER, MAP SELECT, LOADING SCREEN)
 
@@ -112,14 +110,21 @@ TODO:
     CREATE A BUILD SCRIPT []
 
 BUG: 
-    RELOGIN NOT WORKING (2h) []
-    THE PLAYER POSITION INFO GET CLOGGED THEN NOT CLOGGED ANYMORE, NEED TO INVESTIGATE (2h) []
-    HAVING A BUG WHEN LOGIN, CLIENT 1 BLOCK CLIENT 2 FROM LOGIN, WHEN CLIENT 1 LOG IN -> THEM BOTH LOG IN
     THE SERVER HAVE A BUG WHEN THE PLAYER QUIT THE GAME (id cannot found in dictionary)
         -> IF THE FIRST ROOM IS CREATED WITH PEOPLE THEN QUIT THAT ROOM 
         AND ANOTHER ROOM CREATED AND THAT ROOM QUIT -> EXCEPTION @fixthis
 
 DONE: 
+    ADD 4 PLAYER MODE (6h) [] 
+        CLIENT: 
+
+            change the choose map ->  @CURRENT (1h) [X]
+                currently each people choose a map, but should they :v 
+                so only 1 map, the person who choose the faster get's it :v  (apply for both mode)
+
+            change the lobby -> now we have 4 people (4 lines) @DONE [X]
+            change the choose character (3h) [X]
+
     MAKE LOGIN/REGISTER TRULY WORKS, WITH PROPER NAME DISPLAY IN LOBBY (2h) []
         -> add username into the message that send [X]
                         into the database as well  [X]
