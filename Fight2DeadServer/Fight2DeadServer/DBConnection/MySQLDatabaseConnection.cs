@@ -93,16 +93,21 @@ namespace SocketServer
 			Console.WriteLine("Do the query here ");
 			string query = $"SELECT * FROM User WHERE username='{username}' AND password_hash='{passwordHash}'";
 			MySqlCommand cmd = new MySqlCommand(query, connection);
-			MySqlDataReader rdr = cmd.ExecuteReader();
-			Console.WriteLine($"{rdr.GetName(0),-4} {rdr.GetName(1),-10} {rdr.GetName(2),10}");
 
-			if(!rdr.HasRows)
-				return null;
+			using (MySqlDataReader rdr = cmd.ExecuteReader())
+			{
+				Console.WriteLine($"{rdr.GetName(0),-4} {rdr.GetName(1),-10} {rdr.GetName(2),10}");
 
-			rdr.Read();
-			User user = new User(rdr.GetInt32(0), rdr.GetString(1), rdr.GetString(2));
-			rdr.Close();
-			return user;
+				if (!rdr.HasRows)
+					return null;
+
+				rdr.Read();
+				User user = new User(rdr.GetInt32(0), rdr.GetString(1), rdr.GetString(2));
+
+				rdr.Close();
+
+				return user;
+			}
 		}
 	}
 }
