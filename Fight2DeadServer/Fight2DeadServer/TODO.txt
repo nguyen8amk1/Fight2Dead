@@ -1,25 +1,17 @@
 TODAY: 
+    SEND ANIMATION INFO TO ALL OTHER PLAYERS (4h) [] -> currently still in 1v1 mode 
+        -> what should we send (read the article)
+
     APPLY SSL INTO THE TRANSMISSION (2h) []
 		-> have to learn how certificate works first 
-	-> tonight finish this 
-
+	-> tonight finish this (maybe :v)
 
     tong cong: 4h -> 7h + 4h -> 11h + 1h -> 12h
 
-	STORE PASSWORD HASH (USE HASHING ON THE CLIENT) ON TO THE SERVER [] - but plain text for now 
-
-    @bug 
-    THE PLAYER POSITION INFO GET CLOGGED THEN NOT CLOGGED ANYMORE, NEED TO INVESTIGATE (2h) []
 
     IMPLEMENT LAN MODE (2h) [] 
         -> CREATE A JOIN ROOM SCENE  
         -> WHAT DOES LAN MODE GONNA HAVE ??
-
-    CHECK ROOM CREATION AND QUIT CHECKING (2h) []
-
-    SEND ANIMATION INFO TO ALL OTHER PLAYERS (4h) [] -> currently still in 1v1 mode 
-
-	currently two players can login into the same account and play with each other -> that's not good []
 
     PUSH THE SERVER TO VPS (2h) [] - before that MAKE SURE EVERYTHING WORKS FINE IN THE LOCAL FIRST 
         what potential problems need to be address ??: (creating and quitting the game problems)
@@ -28,6 +20,13 @@ TODAY:
 
         SERVER: 
             stuff more players into one room, then that's pretty much it really :v 
+
+	STORE PASSWORD HASH (USE HASHING ON THE CLIENT) ON TO THE SERVER [] - but plain text for now 
+
+    CHECK ROOM CREATION AND QUIT CHECKING (2h) []
+
+	CURRENTLY TWO PLAYERS CAN LOGIN INTO THE SAME ACCOUNT AND PLAY WITH EACH OTHER -> THAT'S NOT GOOD []
+
 
 
     tong cong: 5h  
