@@ -138,6 +138,11 @@ public class MapSelect : MonoBehaviour
 
     private void Update()
     {
+        if (globalGameState.someoneChooseMap)
+        {
+            Util.toNextScene();
+        }
+
         if (globalGameState.onlineMode.Equals("LAN"))
         {
             if (globalGameState.lobby_P1Quit)
@@ -158,12 +163,6 @@ public class MapSelect : MonoBehaviour
                 Debug.Log("Go back to menu");
                 Util.toSceneWithIndex(globalGameState.scenesOrder["MENU"]);
             }
-        }
-
-        allPlayersChosen = globalGameState.hostPlayerMapChosen && globalGameState.opponentMapChosen;
-        if (allPlayersChosen)
-        {
-            Util.toNextScene();
         }
 
         if (Input.GetKeyDown(KeyCode.RightArrow))
@@ -193,8 +192,6 @@ public class MapSelect : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Return))
         {
             Debug.Log(mapName[selectVal]);
-            globalGameState.hostPlayerMapChosen = true;
-
             string message = PreGameMessageGenerator.chooseMapMessage(mapName[selectVal]);
             ServerCommute.connection.sendToServer(message);
 

@@ -18,7 +18,7 @@ namespace SocketServer
 
             // send to the rest of the game  
             GameRoom room = Server.rooms[roomId];
-            TCPClientConnection.sendToOthers(room.players, player, formatedMessage);
+            TCPClientConnection.broadcast(room.players, formatedMessage);
         }
 
     }

@@ -1,86 +1,23 @@
 TODAY: 
     ADD 4 PLAYER MODE (6h) [] 
         CLIENT: 
-            change the lobby -> now we have 4 people (4 lines) @DONE [X]
-
-            change the choose character -> @CURRENT (3h) []
-                chon nhan vat co thu tu: []
-                    2v2: 
-                        p1 chon truoc p2 
-                        p3 chon truoc p4 
-
-						-> toggle in the server
-
-                GIVE THE CLIENT THE ABILITY TO UPDATE THE OPPONENT AS WELL 
-                // 1v1:
-					// things to set: 
-						// TextMode: 1
-						// Mode: 1
-						// Two Player id: 1 or 2  
-
-                        // choose player stuff:
-							// player p: p1, p2, p3, p4
-							// character name: in name list
-
-					// clear scenarios: 
-					// player 1 choose: 
-                        set:
-                        player p: p3
-                        character name: name3
-                        player p: p4
-                        character name: name4
-
-					// player 2 choose: 
-                        set:
-                        player p: p1
-                        character name: name3
-                        player p: p2
-                        character name: name4
-
-                // 1v1:
-					// things to set: 
-						// TextMode 
-						// Mode 
-						// Two Player id 
-						// player p 
-						// character name
-
-                // how it works: 
-                    // a player choose a character then send to server 
-                choose character in 2v2 problems: 
-                    a player can only choose 1 character 
-                    Solution: 
-                        show the character whenever it showed (DO THIS WAY) (live showing the chosen characters)
-                            -> p1 and p3 choose first then p2 and p4 -> can keep the sliding animation 
-                            -> currently we don't have this scene done yet, so first stick with the 1 character chose way 
-
-                    CURRENT PROBLEMS (TODO): 
-                        WHAT I ACTUALLY HAPPEN:
-                            1v1: 
-                                each player choose 2 characters  
-                                vd: if player id = 1 -> choose char 1 then stay on the left 
-                                                        choose char 2 then transition to the left corner 
-
-                                    if player id = 2 -> choose char 3 then stay on the right
-                                                     -> choose char 4 then transition to the right corner 
-                            2v2: 
-                                each player choose 1 character 
-                                vd: if player id = 1 -> choose char 1 then stay on the left 
-                                    if player id = 2 -> choose char 2 then transition to the left corner 
-                                    if player id = 3 -> choose char 3 then stay on the right 
-                                    if player id = 4 -> choose char 4 then transition to the right corner 
-
-                        the choosing character only shows in 2 player screen instead of 4 
-                        and each of them choose 2
-                            -> make each choose 4
-                        -> update the chosen character with the others 
-
-            change the choose map -> (1h) []
+            change the choose map ->  @CURRENT (1h) []
                 currently each people choose a map, but should they :v 
                 so only 1 map, the person who choose the faster get's it :v  (apply for both mode)
-            
 
-    SEND ANIMATION INFO TO ALL OTHER PLAYERS (4h) []
+
+			chon nhan vat co thu tu: []
+				2v2: 
+					p1 chon truoc p2 
+					p3 chon truoc p4 
+
+					-> toggle in the server
+
+            change the lobby -> now we have 4 people (4 lines) @DONE [X]
+            change the choose character (3h) [X]
+
+
+    SEND ANIMATION INFO TO ALL OTHER PLAYERS (4h) [] -> currently still in 1v1 mode 
 
     APPLY SSL INTO THE TRANSMISSION (2h) []
     -> have to learn how certificate works first 
@@ -93,7 +30,6 @@ TODAY:
         what potential problems need to be address ??: (creating and quitting the game problems)
         check if multiple rooms and be created simunatioulys 
         and room quitting when player quit not in order have any problems
-
 
         SERVER: 
             stuff more players into one room, then that's pretty much it really :v 

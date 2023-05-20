@@ -48,6 +48,8 @@ public sealed class GameState
 	};
 
 	public string username;
+	public bool someoneChooseMap;
+	public string chosenMapName = null;
 
 	private GameState()
     {

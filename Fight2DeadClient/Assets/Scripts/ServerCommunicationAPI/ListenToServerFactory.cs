@@ -108,8 +108,8 @@ namespace SocketServer {
 												Util.getKeyFrom(tokens[1]) == "mn";
                 if(isChosenMapMessage)
 				{
-                    // TODO: this is just temporarily
-                    gameState.opponentMapChosen = true; 
+                    gameState.someoneChooseMap = true;
+					gameState.chosenMapName = Util.getValueFrom(tokens[1]);
 				}
 
                 bool isLobbyQuitMessage =   Util.getKeyFrom(tokens[0]) == "pid" && 
