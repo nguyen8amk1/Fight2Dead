@@ -59,7 +59,10 @@ public class CharacterSelect : MonoBehaviour
         } 
         if (globalGameState.numPlayers == 4)
         {
-            Debug.Log("TODO: handle 4 players id in choose character");
+            //Debug.Log("TODO: handle 4 players id in choose character");
+            textMode = 2;
+            Mode = 2;
+            fourPlayerID = globalGameState.PlayerId;
         } 
     }
 
@@ -590,6 +593,89 @@ public class CharacterSelect : MonoBehaviour
                     P4Log = true;
                 }
             }
+
+            // TODO: handle 2v2 character update RIGHT HERE, modify the below somehow
+			if (globalGameState.PlayerId == 1)
+			{
+				if (globalGameState.chosenCharacters[1] != null && char2Count == 0)
+				{
+                    Debug.Log($"p2 {globalGameState.chosenCharacters[1]} spawn on to the screen");
+					SpawnPlayer("p2", globalGameState.chosenCharacters[1]);
+					char2Count = 1;
+				}
+				if (globalGameState.chosenCharacters[2] != null && char3Count == 0)
+				{
+                    Debug.Log($"p3 {globalGameState.chosenCharacters[2]} spawn on to the screen");
+					SpawnPlayer("p3", globalGameState.chosenCharacters[2]);
+					//char3Count = 1;
+				}
+				if (globalGameState.chosenCharacters[3] != null && char4Count == 0)
+				{
+                    Debug.Log($"p4 {globalGameState.chosenCharacters[3]} spawn on to the screen");
+					SpawnPlayer("p4", globalGameState.chosenCharacters[3]);
+                    char4Count = 1;
+				}
+			}
+			else if (globalGameState.PlayerId == 2)
+			{
+				if (globalGameState.chosenCharacters[0] != null && char1Count == 0)
+				{
+                    Debug.Log($"p1 {globalGameState.chosenCharacters[0]} spawn on to the screen");
+					SpawnPlayer("p1", globalGameState.chosenCharacters[0]);
+				}
+				if (globalGameState.chosenCharacters[2] != null && char3Count == 0)
+				{
+                    Debug.Log($"p3 {globalGameState.chosenCharacters[2]} spawn on to the screen");
+					SpawnPlayer("p3", globalGameState.chosenCharacters[2]);
+					//char3Count = 1;
+				}
+				if (globalGameState.chosenCharacters[3] != null && char4Count == 0)
+				{
+                    Debug.Log($"p4 {globalGameState.chosenCharacters[3]} spawn on to the screen");
+					SpawnPlayer("p4", globalGameState.chosenCharacters[3]);
+                    char4Count = 1;
+				}
+			}
+			else if (globalGameState.PlayerId == 3)
+			{
+				if (globalGameState.chosenCharacters[1] != null && char2Count == 0)
+				{
+                    Debug.Log($"p2 {globalGameState.chosenCharacters[1]} spawn on to the screen");
+					SpawnPlayer("p2", globalGameState.chosenCharacters[1]);
+					char2Count = 1;
+				}
+				if (globalGameState.chosenCharacters[0] != null && char1Count == 0)
+				{
+                    Debug.Log($"p1 {globalGameState.chosenCharacters[0]} spawn on to the screen");
+					SpawnPlayer("p1", globalGameState.chosenCharacters[0]);
+				}
+				if (globalGameState.chosenCharacters[3] != null && char4Count == 0)
+				{
+                    Debug.Log($"p4 {globalGameState.chosenCharacters[3]} spawn on to the screen");
+					SpawnPlayer("p4", globalGameState.chosenCharacters[3]);
+                    char4Count = 1;
+				}
+			}
+			else if (globalGameState.PlayerId == 4)
+			{
+				if (globalGameState.chosenCharacters[1] != null && char2Count == 0)
+				{
+                    Debug.Log($"p2 {globalGameState.chosenCharacters[1]} spawn on to the screen");
+					SpawnPlayer("p2", globalGameState.chosenCharacters[1]);
+					char2Count = 1;
+				}
+				if (globalGameState.chosenCharacters[0] != null && char1Count == 0)
+				{
+                    Debug.Log($"p1 {globalGameState.chosenCharacters[0]} spawn on to the screen");
+					SpawnPlayer("p1", globalGameState.chosenCharacters[0]);
+				}
+				if (globalGameState.chosenCharacters[2] != null && char3Count == 0)
+				{
+                    Debug.Log($"p3 {globalGameState.chosenCharacters[2]} spawn on to the screen");
+					SpawnPlayer("p3", globalGameState.chosenCharacters[2]);
+					//char3Count = 1;
+				}
+			}
         }
 
         if(globalGameState.charNameCount >= 4)

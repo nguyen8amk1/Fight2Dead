@@ -138,6 +138,7 @@ namespace SocketServer
 				{
 					TCPClientConnection.sendToClient(tcpClient, "login:failed");
 				}
+
 				if(createNewThread)
 				{
 					Thread thread = new Thread(() => loginListeningLoop(tcpClient));
