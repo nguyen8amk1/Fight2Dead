@@ -21,6 +21,7 @@ namespace SocketServer
                 byte[] bytes = Encoding.ASCII.GetBytes(message);
                 Console.WriteLine("Sending to " + p.endPoint.Address.ToString() + ":" + p.endPoint.Port);
                 listener.Send(bytes, bytes.Length, p.endPoint.Address.ToString(), p.endPoint.Port);
+
                 //p.tcpClient.Client.Send(Encoding.ASCII.GetBytes(message));
                 //dlog.messageSent(p.id, 3, message);
             }

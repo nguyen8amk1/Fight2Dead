@@ -4,6 +4,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace SocketServer
 {
@@ -223,8 +224,30 @@ namespace SocketServer
 
         private void udpListening()
         {
-            UdpClient udpListener = new UdpClient(udpPort);
+			/*
+			Task.Run(async () =>
+			{
+				using (var udpListener = new UdpClient(udpPort))
+				{
+					while (true)
+					{
+						//IPEndPoint object will allow us to read datagrams sent from any source.
+						var receivedResults = await udpListener.ReceiveAsync();
+						string message = Encoding.ASCII.GetString(receivedResults.Buffer);
 
+						string[] tokens = message.Split(',');
+
+						string rid = Util.getValueFrom(tokens[0]);
+						string pid = Util.getValueFrom(tokens[1]);
+
+						dlog.messageReceived(pid, 3, message);
+						rooms[rid].udpProcess(udpListener, tokens);
+					}
+				}
+			});
+			*/
+			
+			UdpClient udpListener = new UdpClient(udpPort);
             while (true)
             {
                 if (udpListener.Available > 0)
@@ -237,11 +260,11 @@ namespace SocketServer
                     string rid = Util.getValueFrom(tokens[0]);
                     string pid = Util.getValueFrom(tokens[1]);
 
-                    dlog.messageReceived(pid, 3, message);
+                    //dlog.messageReceived(pid, 3, message);
                     rooms[rid].udpProcess(udpListener, tokens);
                 }
             }
-        }
+		}
 
         static void Main(string[] args)
         {
