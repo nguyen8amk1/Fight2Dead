@@ -102,7 +102,7 @@ namespace SocketServer {
                     string cn = Util.getValueFrom(tokens[2]);
                     gameState.chosenCharacters[pn] = cn;
                     gameState.charNameCount++;
-                }
+				}
 
                 bool isChosenMapMessage = Util.getKeyFrom(tokens[0]) == "pid" && 
 												Util.getKeyFrom(tokens[1]) == "mn";

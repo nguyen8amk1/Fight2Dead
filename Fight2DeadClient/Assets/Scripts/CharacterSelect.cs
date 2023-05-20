@@ -5,12 +5,8 @@ using UnityEngine;
 
 public class CharacterSelect : MonoBehaviour
 {
-    [Header("Spawn Player")]
-    [SerializeField] string player;
-    [SerializeField] string character;
-
-    [SerializeField] string player2;
-    [SerializeField] string character2;
+    private string player = "jotaro";
+    private string p = "p3";
 
     [Header("Switch Mode")]
     [SerializeField] public int textMode = 1;
@@ -43,8 +39,13 @@ public class CharacterSelect : MonoBehaviour
 
     private bool P1Log = false, P2Log = false, P3Log = false, P4Log = false;
     private bool p1EnterHit = false, p2EnterHit = false, p3EnterHit = false, p4EnterHit = false;
-    private bool vhit = false;
-	private bool bhit = false;
+    //private bool vhit = false;
+	//private bool bhit = false;
+
+	private int char1Count = 0;
+	private int char2Count = 0;
+	private int char3Count = 0;
+	private int char4Count = 0;
 
 	// Start is called before the first frame update
 	void Start()
@@ -123,9 +124,14 @@ public class CharacterSelect : MonoBehaviour
             P1.transform.localScale = new Vector3(3f, 3.5f, 1);
             P1.transform.position = Vector3.Lerp(startMaker, endMaker, t);
             timingVarSpawn += Time.deltaTime * speed;
+            if(t >= 1.0f)
+			{
+				char1Count = 1;
+			}
         }
         else if (player == "p2")
         {
+            Debug.Log($"Here we set p2 as {character}");
             P2.SetActive(true);
             for (int i = 0; i < charName.Length; i++)
             {
@@ -151,9 +157,14 @@ public class CharacterSelect : MonoBehaviour
             P3.transform.localScale = new Vector3(3f, 3.5f, 1);
             P3.transform.position = Vector3.Lerp(startMaker_1, endMaker_1, t);
             timingVarSpawn += Time.deltaTime * speed;
+            if(t >= 1.0f)
+			{
+				char3Count = 1;
+			}
         }
         else if (player == "p4")
         {
+            Debug.Log($"Here we set p4 as {character}");
             P4.SetActive(true);
             for (int i = 0; i < charName.Length; i++)
             {
@@ -234,6 +245,8 @@ public class CharacterSelect : MonoBehaviour
             }
         }
 
+
+        /*
         if (bhit)
         {
             SpawnPlayer(player2, character2);
@@ -243,17 +256,7 @@ public class CharacterSelect : MonoBehaviour
         {
             bhit = true;
         }
-
-        if (vhit)
-        {
-            SpawnPlayer(player, character);
-        }
-
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            vhit = true;
-        }
-
+        */
 
 
         if (Input.GetKeyDown(KeyCode.RightArrow))
@@ -343,6 +346,38 @@ public class CharacterSelect : MonoBehaviour
                     else p1Char[i].SetActive(false);
                 }
             }
+
+			if (globalGameState.PlayerId == 1)
+			{
+				if (globalGameState.chosenCharacters[2] != null && char3Count == 0)
+				{
+                    Debug.Log($"p3 {globalGameState.chosenCharacters[2]} spawn on to the screen");
+					SpawnPlayer("p3", globalGameState.chosenCharacters[2]);
+					//char3Count = 1;
+				}
+				else if (globalGameState.chosenCharacters[3] != null && char4Count == 0)
+				{
+                    Debug.Log($"p4 {globalGameState.chosenCharacters[3]} spawn on to the screen");
+					SpawnPlayer("p4", globalGameState.chosenCharacters[3]);
+                    char4Count = 1;
+				}
+			}
+			else if (globalGameState.PlayerId == 2)
+			{
+				if (globalGameState.chosenCharacters[0] != null && char1Count == 0)
+				{
+                    Debug.Log($"p1 {globalGameState.chosenCharacters[0]} spawn on to the screen");
+					SpawnPlayer("p1", globalGameState.chosenCharacters[0]);
+					//char1Count = 1;
+				}
+				else if (globalGameState.chosenCharacters[1] != null && char2Count == 0)
+				{
+                    Debug.Log($"p2 {globalGameState.chosenCharacters[1]} spawn on to the screen");
+					SpawnPlayer("p2", globalGameState.chosenCharacters[1]);
+					char2Count = 1;
+				}
+			}
+
 
             if (enterCount1 == 1)
             {

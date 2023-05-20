@@ -25,7 +25,7 @@ public sealed class GameState
     public bool opponentReady = false;
 
     // character 
-    public string[] chosenCharacters = new string[4];
+    public string[] chosenCharacters = new string[4] {null, null, null, null};
 
     // map 
     public bool hostPlayerMapChosen = false;
