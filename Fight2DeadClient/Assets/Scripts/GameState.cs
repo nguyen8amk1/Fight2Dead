@@ -47,6 +47,8 @@ public sealed class GameState
         new Player(0, 0)    
 	};
 
+	public string username;
+
 	private GameState()
     {
         roomId = 0;

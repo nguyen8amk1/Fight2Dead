@@ -18,6 +18,21 @@ namespace SocketServer {
 					gameState.RoomId = Int32.Parse(Util.getValueFrom(tokens[0]));
 					gameState.PlayerId = Int32.Parse(Util.getValueFrom(tokens[1]));
                     gameState.receiveRidPid = true;
+
+					if (gameState.numPlayers == 2)
+					{
+						gameState.player1Name = Util.getValueFrom(tokens[2]);
+						gameState.player2Name = Util.getValueFrom(tokens[3]);
+					}
+					else if (gameState.numPlayers == 4)
+					{
+						gameState.player1Name = Util.getValueFrom(tokens[2]);
+						gameState.player2Name = Util.getValueFrom(tokens[3]);
+						gameState.player3Name = Util.getValueFrom(tokens[4]);
+						gameState.player4Name = Util.getValueFrom(tokens[5]);
+					}
+
+					Debug.Log("TODO: set all the player in the room names");
                 }
 
                 bool isLobbyReadyMessage = Util.getKeyFrom(tokens[0]) == "pid" && Util.getKeyFrom(tokens[1]) == "stat";

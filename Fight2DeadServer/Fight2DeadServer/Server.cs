@@ -173,10 +173,11 @@ namespace SocketServer
 				string[] tokens = message.Split(',');
 				handleLoginMessage(tokens, tcpClient, false);
 
-				bool isNumPlayersMessage = Util.getKeyFrom(tokens[0]).Equals("numsPlayer");
+				bool isNumPlayersMessage = Util.getKeyFrom(tokens[0]).Equals("numsPlayer") && Util.getKeyFrom(tokens[1]).Equals("username");
 				if (isNumPlayersMessage)
 				{
 					int playersNum = Int32.Parse(Util.getValueFrom(tokens[0]));
+					string username = Util.getValueFrom(tokens[1]);
 
 					// Console.WriteLine("Received TCP message: {0}, ip: {1}, port:{2}", message, ((IPEndPoint)tcpClient.Client.RemoteEndPoint).Address, ((IPEndPoint)tcpClient.Client.RemoteEndPoint).Port);
 					// @Refactor: refactor this into different message handlers 
@@ -186,12 +187,12 @@ namespace SocketServer
 					// have another thread waiting for enough player 
 					if(playersNum == 2) 
 					{
-						twoPlayersRoomWaitList.Add(new Player(playerId.ToString(), tcpClient));
+						twoPlayersRoomWaitList.Add(new Player(playerId.ToString(), username, tcpClient));
 						Console.WriteLine("Current 2player waiting count: " + twoPlayersRoomWaitList.Count); 
 					}
 					if(playersNum == 4) 
 					{
-						fourPlayersRoomWaitList.Add(new Player(playerId.ToString(), tcpClient));
+						fourPlayersRoomWaitList.Add(new Player(playerId.ToString(), username, tcpClient));
 					}
 					playerId++;
 					Console.WriteLine("Terminate login listening loop");

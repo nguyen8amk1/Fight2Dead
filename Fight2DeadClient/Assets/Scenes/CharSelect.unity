@@ -8636,6 +8636,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: p3
   character: reborn
+  player2: p4
+  character2: jotaro
   textMode: 1
   Mode: 1
   twoPlayerID: 1

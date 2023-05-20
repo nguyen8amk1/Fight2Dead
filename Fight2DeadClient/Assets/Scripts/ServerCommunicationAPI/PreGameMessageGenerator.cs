@@ -4,8 +4,8 @@ namespace SocketServer {
     public sealed class PreGameMessageGenerator {
         // TODO: how many message types 
         private static GameState globalGameState = GameState.Instance; 
-        public static string numPlayersMessage(int numPlayers) {
-            return "numsPlayer:" + numPlayers +'\n';
+        public static string matchingSceneMessage(int numPlayers) {
+            return $"numsPlayer:{numPlayers},username:{globalGameState.username}\n";
         }
 
         public static string chooseMapMessage(string mapName) {

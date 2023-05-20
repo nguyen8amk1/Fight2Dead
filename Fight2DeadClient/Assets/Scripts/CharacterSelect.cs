@@ -8,6 +8,10 @@ public class CharacterSelect : MonoBehaviour
     [Header("Spawn Player")]
     [SerializeField] string player;
     [SerializeField] string character;
+
+    [SerializeField] string player2;
+    [SerializeField] string character2;
+
     [Header("Switch Mode")]
     [SerializeField] public int textMode = 1;
     [SerializeField] public int Mode = 1;
@@ -40,9 +44,10 @@ public class CharacterSelect : MonoBehaviour
     private bool P1Log = false, P2Log = false, P3Log = false, P4Log = false;
     private bool p1EnterHit = false, p2EnterHit = false, p3EnterHit = false, p4EnterHit = false;
     private bool vhit = false;
+	private bool bhit = false;
 
-    // Start is called before the first frame update
-    void Start()
+	// Start is called before the first frame update
+	void Start()
     {
         Application.targetFrameRate = 60;
         if (globalGameState.numPlayers == 2)
@@ -228,14 +233,28 @@ public class CharacterSelect : MonoBehaviour
                 p4EnterHit = true;
             }
         }
+
+        if (bhit)
+        {
+            SpawnPlayer(player2, character2);
+        }
+
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            bhit = true;
+        }
+
         if (vhit)
         {
             SpawnPlayer(player, character);
         }
+
         if (Input.GetKeyDown(KeyCode.V))
         {
             vhit = true;
         }
+
+
 
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {

@@ -44,6 +44,8 @@ public class ChangeInput : MonoBehaviour
         string username = usernameInputField.text;
         string password = passwordInputField.text;
 
+		globalGameState.username = username;
+
         // @Test
         // TODO: if the player already register the login form should be automatically filled 
         Debug.Log("Send to server for checking if the info is valid \n (Can go to next scene without login info just for testing)");
@@ -100,6 +102,7 @@ public class ChangeInput : MonoBehaviour
         if(globalGameState.loginSuccess)
 		{
             Debug.Log("Login success");
+            Debug.Log("TODO: set the playername");
 			Util.toNextScene();
 		} else
 		{

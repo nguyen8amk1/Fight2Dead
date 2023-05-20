@@ -19,7 +19,7 @@ public class MatchingSceneMessageHandler : MonoBehaviour
     void Start()
     {
         Debug.Log("Sending establish new connection message to server");
-        string numPlayersMessage = PreGameMessageGenerator.numPlayersMessage(gameState.numPlayers);
+        string numPlayersMessage = PreGameMessageGenerator.matchingSceneMessage(gameState.numPlayers);
         ServerCommute.connection.sendToServer(numPlayersMessage);
     }
 
