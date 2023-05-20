@@ -35,6 +35,7 @@ namespace SocketServer
         {
             string protocol = whatProtocol(phase);
             Console.WriteLine("Server to Client {0} (Phase {1} - {2}): {3}", tempNames[tcpClient], phase, protocol, message);
+            tempNames.Remove(tcpClient);
         }
 
         public void messageReceived(string id, int phase, string message)

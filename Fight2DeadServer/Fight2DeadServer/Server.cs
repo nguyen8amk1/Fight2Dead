@@ -40,26 +40,67 @@ namespace SocketServer
 			Thread createRoomThread = new Thread(() => createRoom());
 			createRoomThread.Start();
 
-
-
             // @Note: THIS IS THE RECEIVED NEW CONNECTION LOOP
             // @Note: should it handle quit game too (the in game quit) ? 
 
             while (true)
             {
+				Console.WriteLine("Listening for client: ");
                 TcpClient tcpClient = tcpListener.AcceptTcpClient();
-                Console.WriteLine("Server is listening....");
-                string message = receiveNewConnectionMessage(tcpClient);
-                Console.WriteLine($"Message: {message}");
-                dlog.newConnectionMessageReceived(tcpClient, 1, message);
+				Console.WriteLine("Have a client, and create new thread");
 
-
-                string[] tokens = message.Split(',');
-                handleLoginMessage(tokens, tcpClient, true);
-                handleRegisterMessage(tokens, tcpClient, true);
+				Thread clientThread = new Thread(() =>  handleClient(tcpClient));
+				clientThread.Start();
             }
 
         }
+
+		private void handleClient(TcpClient tcpClient)
+		{
+			TcpClient client = tcpClient;
+			// Set up the network stream for reading and writing
+			NetworkStream stream = client.GetStream();
+
+			// Handle the client connection
+			while (true)
+			{
+				Console.WriteLine("Server is listening....");
+				string message = receiveNewConnectionMessage(tcpClient);
+				Console.WriteLine($"Message: {message}");
+				dlog.newConnectionMessageReceived(tcpClient, 1, message);
+
+				string[] tokens = message.Split(',');
+
+				handleLoginMessage(tokens, tcpClient, true);
+				handleRegisterMessage(tokens, tcpClient, true);
+
+				bool isNumPlayersMessage = Util.getKeyFrom(tokens[0]).Equals("numsPlayer") && Util.getKeyFrom(tokens[1]).Equals("username");
+				if (isNumPlayersMessage)
+				{
+					int playersNum = Int32.Parse(Util.getValueFrom(tokens[0]));
+					string username = Util.getValueFrom(tokens[1]);
+
+					// Console.WriteLine("Received TCP message: {0}, ip: {1}, port:{2}", message, ((IPEndPoint)tcpClient.Client.RemoteEndPoint).Address, ((IPEndPoint)tcpClient.Client.RemoteEndPoint).Port);
+					// @Refactor: refactor this into different message handlers 
+					// TODO: handle in game quit game message
+
+					// what to do: stored the player in a global wait list and match it there  
+					// have another thread waiting for enough player 
+					if (playersNum == 2)
+					{
+						twoPlayersRoomWaitList.Add(new Player(playerId.ToString(), username, tcpClient));
+						Console.WriteLine("Current 2player waiting count: " + twoPlayersRoomWaitList.Count);
+					}
+					if (playersNum == 4)
+					{
+						fourPlayersRoomWaitList.Add(new Player(playerId.ToString(), username, tcpClient));
+					}
+					playerId++;
+					Console.WriteLine("Terminate login listening loop");
+					return;
+				}
+			}
+		}
 
 		private void createRoom()
 		{
@@ -105,15 +146,10 @@ namespace SocketServer
 				if(registrationSuccess)
 				{
 					TCPClientConnection.sendToClient(tcpClient, "registration:success");
+					return;
 				} else
 				{
 					TCPClientConnection.sendToClient(tcpClient, "registration:failed");
-				}
-
-				if(createNewThread)
-				{
-					Thread thread = new Thread(() => registerListeningLoop(tcpClient));
-					thread.Start();
 				}
 			}
 		}
@@ -134,132 +170,11 @@ namespace SocketServer
 				if(loginSuccess)
 				{
 					TCPClientConnection.sendToClient(tcpClient, "login:success");
+					return; 
 				} else
 				{
 					TCPClientConnection.sendToClient(tcpClient, "login:failed");
 				}
-
-				if(createNewThread)
-				{
-					Thread thread = new Thread(() => loginListeningLoop(tcpClient));
-					thread.Start();
-
-				}
-			}
-		}
-
-		private void loginListeningLoop(TcpClient tcpClient)
-		{
-            // truong hop login: 
-            // if login success -> wait for matching message
-            // else wait for receive re-login message: 
-            // if wait for longer than 5 minutes -> close the thread and the tcpClient 
-
-            Console.WriteLine("TODO: Login listening loop created");
-
-			TcpClient client = tcpClient;
-			// Set up the network stream for reading and writing
-			NetworkStream stream = client.GetStream();
-
-			// Handle the client connection
-			while (true)
-			{
-				// -> sent message: "allready"
-				byte[] buffer = new byte[1024];
-				Console.WriteLine("Login loop is listening...");
-				string message = receiveNewConnectionMessage(tcpClient);
-				Console.WriteLine("receive in tcp loop: " + message);
-				if(String.IsNullOrEmpty(message)) continue;
-
-				string[] tokens = message.Split(',');
-				handleLoginMessage(tokens, tcpClient, false);
-
-				bool isNumPlayersMessage = Util.getKeyFrom(tokens[0]).Equals("numsPlayer") && Util.getKeyFrom(tokens[1]).Equals("username");
-				if (isNumPlayersMessage)
-				{
-					int playersNum = Int32.Parse(Util.getValueFrom(tokens[0]));
-					string username = Util.getValueFrom(tokens[1]);
-
-					// Console.WriteLine("Received TCP message: {0}, ip: {1}, port:{2}", message, ((IPEndPoint)tcpClient.Client.RemoteEndPoint).Address, ((IPEndPoint)tcpClient.Client.RemoteEndPoint).Port);
-					// @Refactor: refactor this into different message handlers 
-					// TODO: handle in game quit game message
-
-					// what to do: stored the player in a global wait list and match it there  
-					// have another thread waiting for enough player 
-					if(playersNum == 2) 
-					{
-						twoPlayersRoomWaitList.Add(new Player(playerId.ToString(), username, tcpClient));
-						Console.WriteLine("Current 2player waiting count: " + twoPlayersRoomWaitList.Count); 
-					}
-					if(playersNum == 4) 
-					{
-						fourPlayersRoomWaitList.Add(new Player(playerId.ToString(), username, tcpClient));
-					}
-					playerId++;
-					Console.WriteLine("Terminate login listening loop");
-					return;
-				}
-
-
-                /*
-				// TODO: handle quit message and break the loop 
-				Console.WriteLine("Here is tcp listening loop of player " + player.id);
-				PreGameMessageHandler messageHandler = factory.whatPreGameMessage(message);
-				messageHandler.handle(id, player, message);
-				if(player.quitListen) break;
-                */
-			}
-
-		}
-
-		private void registerListeningLoop(TcpClient tcpClient)
-		{
-			TcpClient client = tcpClient;
-			// Set up the network stream for reading and writing
-			NetworkStream stream = client.GetStream();
-
-			// Handle the client connection
-			while (true)
-			{
-				// -> sent message: "allready"
-				byte[] buffer = new byte[1024];
-				string message = receiveNewConnectionMessage(tcpClient);
-				Console.WriteLine("receive in tcp loop: " + message);
-				if(String.IsNullOrEmpty(message)) continue;
-
-				string[] tokens = message.Split(',');
-				handleRegisterMessage(tokens, tcpClient, false);
-
-				bool isLoginMessage =  Util.getKeyFrom(tokens[0]).Equals("username") && 
-									   Util.getKeyFrom(tokens[1]).Equals("password");
-				if(isLoginMessage)
-				{
-					string username = Util.getValueFrom(tokens[0]);
-					string password = Util.getValueFrom(tokens[1]);
-					Console.WriteLine($"(inside thread) TODO: handle login message, username: {username}, password: {password}");
-					bool loginSuccess = true;  
-
-					if(loginSuccess)
-					{
-						TCPClientConnection.sendToClient(tcpClient, "login:success");
-					} else
-					{
-						TCPClientConnection.sendToClient(tcpClient, "login:failed");
-					}
-
-					Thread thread = new Thread(() => loginListeningLoop(tcpClient));
-					thread.Start();
-					return;
-				}
-
-
-                /*
-				// TODO: handle quit message and break the loop 
-				Console.WriteLine("Here is tcp listening loop of player " + player.id);
-				PreGameMessageHandler messageHandler = factory.whatPreGameMessage(message);
-				messageHandler.handle(id, player, message);
-				if(player.quitListen) break;
-                */
 			}
 		}
 
