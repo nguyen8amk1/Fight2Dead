@@ -172,9 +172,11 @@ public class RegisterManage : MonoBehaviour
             if (next != null)
                 next.Select();
         }
+        /*
         else if (Input.GetKeyDown(KeyCode.Return))
         {
             regisButton.onClick.Invoke();
         }
+        */
     }
 }
