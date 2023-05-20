@@ -1,44 +1,41 @@
 TODAY: 
-    SEND ANIMATION INFO TO ALL OTHER PLAYERS (4h) [] -> currently still in 1v1 mode 
-        -> what should we send (read the article)
+i have 5 days: 
+    1st day: 
+		APPLY SSL INTO THE TRANSMISSION (2h) []
 
-    APPLY SSL INTO THE TRANSMISSION (2h) []
-		-> have to learn how certificate works first 
-	-> tonight finish this (maybe :v)
+		SEND ANIMATION INFO TO ALL OTHER PLAYERS (4h) [] -> currently still in 1v1 mode 
+			-> how many animation are there (check debug log)
+				-> 
+			-> what should we send (read the article)
 
-    tong cong: 4h -> 7h + 4h -> 11h + 1h -> 12h
+    2nd day: 
+		PUSH THE SERVER TO VPS (2h) [] - before that MAKE SURE EVERYTHING WORKS FINE IN THE LOCAL FIRST 
+			what potential problems need to be address ??: (creating and quitting the game problems)
+			check if multiple rooms and be created simunatioulys 
+			and room quitting when player quit not in order have any problems
 
+			SERVER: 
+				stuff more players into one room, then that's pretty much it really :v 
 
-    IMPLEMENT LAN MODE (2h) [] 
-        -> CREATE A JOIN ROOM SCENE  
-        -> WHAT DOES LAN MODE GONNA HAVE ??
+            -> FINISH GLOBAL MODE 
 
-    PUSH THE SERVER TO VPS (2h) [] - before that MAKE SURE EVERYTHING WORKS FINE IN THE LOCAL FIRST 
-        what potential problems need to be address ??: (creating and quitting the game problems)
-        check if multiple rooms and be created simunatioulys 
-        and room quitting when player quit not in order have any problems
+		IMPLEMENT LAN MODE (2h) [] 
+			-> CREATE A JOIN ROOM SCENE  
+			-> WHAT DOES LAN MODE GONNA HAVE ??
 
-        SERVER: 
-            stuff more players into one room, then that's pretty much it really :v 
+    3rd day: 
+		STORE PASSWORD HASH (USE HASHING ON THE CLIENT) ON TO THE SERVER (1h) [] - but plain text for now 
+		CHECK ROOM CREATION AND QUIT CHECKING (2h) []
+        GAME START, GAME OVER SCREEN AFTER FINISH A GAME (4h) []
 
-	STORE PASSWORD HASH (USE HASHING ON THE CLIENT) ON TO THE SERVER [] - but plain text for now 
-
-    CHECK ROOM CREATION AND QUIT CHECKING (2h) []
-
-	CURRENTLY TWO PLAYERS CAN LOGIN INTO THE SAME ACCOUNT AND PLAY WITH EACH OTHER -> THAT'S NOT GOOD []
-
-
+    4th day:
+        2v2 gameplay mode 
+        ....
 
     tong cong: 5h  
 
 TODO: 
-	chon nhan vat co thu tu: []
-		2v2: 
-			p1 chon truoc p2 
-			p3 chon truoc p4 
-
-			-> toggle in the server
-
+	CURRENTLY TWO PLAYERS CAN LOGIN INTO THE SAME ACCOUNT AND PLAY WITH EACH OTHER -> THAT'S NOT GOOD []
 
     CONNECT THE FIGHTING SCENE WITH THE SERVER (4h) []
         -> sync the animation and stuff 
@@ -97,10 +94,13 @@ TODO:
     UNIFIED ALL THE ASSETS OF THE SCENES AND CONNECT THEM TO EACH OTHER [] (2h)
     REGISTER, LOGIN, LOGOUT [] (3h)
     DONG HET TAT CA CAC THREAD O CAC SCENE KIA []
-    THE TO NEXT SCENE METHOD ACTUALLY LOOP BACK WHEN IT GET TO THE END -> FIX IT []
-    DO SOME PERFORMANCE TEST (using some fake client to check for how many clients could this architecture handle) [] 
-    CHECK SOME MULTITHREADING SOLUTION [] 
+
+    THE TO NEXT SCENE METHOD ACTUALLY LOOP BACK WHEN IT GET TO THE END -> FIX IT [] 
+
+    DO SOME PERFORMANCE TEST (using some fake client to check for how many clients could this architecture handle) []  (Optional)
+
     ATTACH THE LAN SERVER CODE TO CLIENT  [] 
+
     LOOK INTO OBJECT POOLING AND FLYWEIGHT PATTERN FOR OPTIMIZE THE FACTORY PATTERN []
 
     SENDING ANIMATION STATES TO OTHER PLAYERS ?? (SHOULD WE ?)
@@ -114,6 +114,12 @@ BUG:
         AND ANOTHER ROOM CREATED AND THAT ROOM QUIT -> EXCEPTION @fixthis
 
 DONE: 
+	chon nhan vat co thu tu: [X] -> kinda works, not 100%
+		2v2: 
+			p1 chon truoc p2 
+			p3 chon truoc p4 
+
+			-> toggle in the server
     HAVING A BUG WHEN LOGIN, CLIENT 1 BLOCK CLIENT 2 FROM LOGIN, WHEN CLIENT 1 LOG IN -> THEM BOTH LOG IN [X]
     RELOGIN NOT WORKING (2h) [X]
     ADD 4 PLAYER MODE (6h) [X] 

@@ -52,9 +52,10 @@ public sealed class GameState
 	public bool someoneChooseMap;
 	public string chosenMapName = null;
 
-    public static string serversendpath = "clientreceive.txt";
+	public bool player1IsChosen_2v2 = false;
+	public bool player3IsChosen_2v2 = false;
 
-    private GameState()
+	private GameState()
     {
         roomId = 0;
         playerId = 0;

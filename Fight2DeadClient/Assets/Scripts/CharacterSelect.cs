@@ -1,6 +1,7 @@
 using SocketServer;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class CharacterSelect : MonoBehaviour
@@ -46,6 +47,8 @@ public class CharacterSelect : MonoBehaviour
 	private int char2Count = 0;
 	private int char3Count = 0;
 	private int char4Count = 0;
+
+    // TODO: when a character is chosen stop it from keep moving  
 
 	// Start is called before the first frame update
 	void Start()
@@ -108,6 +111,7 @@ public class CharacterSelect : MonoBehaviour
     {
         selectVal = 8;
     }
+
 
     public void SpawnPlayer(string player, string character)
     {
@@ -523,7 +527,7 @@ public class CharacterSelect : MonoBehaviour
                     else p2Char[i].SetActive(false);
                 }
             }
-            if (p2EnterHit)
+            if (p2EnterHit && globalGameState.player1IsChosen_2v2)
             {
                 if (!P2Log)
                 {
@@ -580,7 +584,7 @@ public class CharacterSelect : MonoBehaviour
                 }
             }
 
-            if (p4EnterHit)
+            if (p4EnterHit && globalGameState.player3IsChosen_2v2)
             {
                 if (!P4Log)
                 {
@@ -616,7 +620,7 @@ public class CharacterSelect : MonoBehaviour
                     char4Count = 1;
 				}
 			}
-			else if (globalGameState.PlayerId == 2)
+			else if (globalGameState.PlayerId == 2 && globalGameState.player1IsChosen_2v2)
 			{
 				if (globalGameState.chosenCharacters[0] != null && char1Count == 0)
 				{
@@ -656,7 +660,7 @@ public class CharacterSelect : MonoBehaviour
                     char4Count = 1;
 				}
 			}
-			else if (globalGameState.PlayerId == 4)
+			else if (globalGameState.PlayerId == 4 && globalGameState.player3IsChosen_2v2)
 			{
 				if (globalGameState.chosenCharacters[1] != null && char2Count == 0)
 				{
@@ -685,6 +689,7 @@ public class CharacterSelect : MonoBehaviour
 			{
                 Debug.Log(name);
 			}
+            Thread.Sleep(1000);
             Util.toNextScene();
 		}
     }

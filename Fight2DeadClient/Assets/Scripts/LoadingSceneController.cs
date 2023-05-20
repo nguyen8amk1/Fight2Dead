@@ -479,6 +479,7 @@ public class LoadingSceneController : MonoBehaviour
             ServerCommute.listenToServerThread = ServerCommute.connection.createListenToServerThread(ListenToServerFactory.tempUDPListening());
             ServerCommute.listenToServerThread.Start();
             
+            /*
             if(globalGameState.PlayerId == 1)
 			{
                 GameState.serversendpath = "clientreceive1.txt";
@@ -495,6 +496,7 @@ public class LoadingSceneController : MonoBehaviour
 				{
 				}
 			}
+            */
 
             Util.toNextScene();
         }

@@ -103,6 +103,14 @@ namespace SocketServer {
                     string cn = Util.getValueFrom(tokens[2]);
                     gameState.chosenCharacters[pn] = cn;
                     gameState.charNameCount++;
+					if(pn == 0)
+					{
+						gameState.player1IsChosen_2v2 = true;
+					}
+					else if(pn == 2)
+					{
+						gameState.player3IsChosen_2v2 = true;
+					}
 				}
 
                 bool isChosenMapMessage = Util.getKeyFrom(tokens[0]) == "pid" && 
