@@ -1,6 +1,7 @@
 using SocketServer;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public sealed class GameState
@@ -51,10 +52,13 @@ public sealed class GameState
 	public bool someoneChooseMap;
 	public string chosenMapName = null;
 
-	private GameState()
+    public static string serversendpath = "clientreceive.txt";
+
+    private GameState()
     {
         roomId = 0;
         playerId = 0;
+
 
         scenesOrder.Add("PRESS_ANY_KEY", 0);
         scenesOrder.Add("LOGIN/REGISTER", 1);

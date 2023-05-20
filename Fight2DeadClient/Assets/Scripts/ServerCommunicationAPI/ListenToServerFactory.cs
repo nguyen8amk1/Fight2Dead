@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Text.RegularExpressions;
 using UnityEngine;
 
@@ -180,6 +181,15 @@ namespace SocketServer {
 					Debug.Log($"Reiceve position x: {x}, y:{y}");
 					gameState.playersPosition[pid-1].x = x;
 					gameState.playersPosition[pid-1].y = y;
+
+/*
+					string status = $"time:{DateTime.Now.ToString("HH:mm:ss tt")},p{pid}:x:{x},y:{y}";
+					// @Test 
+					using (StreamWriter sw = File.AppendText(GameState.serversendpath))
+					{
+						sw.WriteLine(status);
+					}
+					*/
 				}
             };
             return messageHandler;

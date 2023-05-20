@@ -1,17 +1,8 @@
 TODAY: 
-    CONVERT ALL UDP MESSAGE LOOP INTO ASYNC (2h) [] -> no work 
-    SOME HOW MONITOR HOW MUCH REQUEST HAVE THE SERVER HAVE BEEN REGISTER FROM PLAYER 1, 2
-    HOW MUCH RESPPONSE DOES PLAYER 1, 2 GEET FROM SERVER
-    store server logs into a file with this format: 
-        time:{} - p1:x{},y{} - p2:x{},y{}
-        -> to find out if any player request got miss 
-
-    store client logs into a file with this format: 
-        time:{} - p?:x{},y{}
-        -> to find out if miss any response from server
-
     APPLY SSL INTO THE TRANSMISSION (2h) []
-    -> have to learn how certificate works first 
+		-> have to learn how certificate works first 
+	-> tonight finish this 
+
 
     tong cong: 4h -> 7h + 4h -> 11h + 1h -> 12h
 

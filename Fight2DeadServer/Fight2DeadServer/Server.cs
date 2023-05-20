@@ -5,6 +5,7 @@ using System.Net.Sockets;
 using System.Threading;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace SocketServer
 {
@@ -30,11 +31,23 @@ namespace SocketServer
 		// FIXME: the server get spammed some how when client send login info  
 		// FIXME: the matching is not work anymore 
 
+		// @Test
+		public static string serversendpath = "serversend.txt";
+
 		public void run()
         {
             dbConnection = new MySQLDatabaseConnection(dataCredentialFilePath);
 
-            initConnections();
+			// @Test
+			if (!File.Exists(serversendpath))
+			{
+				// Create a file to write to.
+				using (StreamWriter sw = File.CreateText(serversendpath))
+				{
+				}
+			}
+
+			initConnections();
 
             Thread udpListeningThread = new Thread(() => udpListening());
             udpListeningThread.Start();

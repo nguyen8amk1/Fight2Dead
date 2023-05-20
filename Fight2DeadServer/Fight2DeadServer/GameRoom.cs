@@ -43,7 +43,7 @@ namespace SocketServer
             float x = float.Parse(Util.getValueFrom(tokens[2]));
             float y = float.Parse(Util.getValueFrom(tokens[3]));
             string message = $"pid:{pid},x:{x},y:{y}";
-            Console.WriteLine("TODO: send position data to other players using UDP");
+            //Console.WriteLine("TODO: send position data to other players using UDP");
 
             UDPClientConnection.sendToOthers(udpPlayers, udpListener, pid, message);
         }
