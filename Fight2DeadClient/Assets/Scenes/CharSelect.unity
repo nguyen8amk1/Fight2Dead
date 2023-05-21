@@ -8635,11 +8635,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: p4
-  character: Jotaro
-  textMode: 1
-  Mode: 0
+  character: Reborn
+  textMode: 2
+  Mode: 2
   twoPlayerID: 0
-  fourPlayerID: 0
+  fourPlayerID: 1
   p1Char:
   - {fileID: 1455992036}
   - {fileID: 296319935}
