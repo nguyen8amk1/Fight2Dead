@@ -38,13 +38,9 @@ namespace SocketServer
         }
 
         public void udpProcess(UdpClient udpListener, string[] tokens) {
-            // TODO: check the client if the position of the other players updated accordingly
-            int pid = Int32.Parse(Util.getValueFrom(tokens[1]));
-            float x = float.Parse(Util.getValueFrom(tokens[2]));
-            float y = float.Parse(Util.getValueFrom(tokens[3]));
-            string message = $"pid:{pid},x:{x},y:{y}";
-            //Console.WriteLine("TODO: send position data to other players using UDP");
-
+            // format: client send to server: rid,pid,x,y,state 
+            string message = $"{tokens[1]},{tokens[2]},{tokens[3]},{tokens[4]}";
+            int pid = Int32.Parse(tokens[1]);
             UDPClientConnection.sendToOthers(udpPlayers, udpListener, pid, message);
         }
 

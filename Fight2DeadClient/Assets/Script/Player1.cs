@@ -53,6 +53,7 @@ public class Player1 : MonoBehaviour
     {
         return m_facingDirection;
     }
+
     void Start()
     {
 
@@ -115,7 +116,6 @@ public class Player1 : MonoBehaviour
             GetComponent<SpriteRenderer>().flipX = true;
             m_facingDirection = -1;
         }
-
 
 
         //Set AirSpeed in animator

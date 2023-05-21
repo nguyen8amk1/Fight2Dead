@@ -176,29 +176,33 @@ namespace SocketServer {
 
         public static MessageHandlerLambda tempUDPListening()  {
             MessageHandlerLambda messageHandler = (string[] tokens) => {
-				Debug.Log("TODO: handle udp listening");
+				//Debug.Log("TODO: handle udp listening");
+				/*
 				bool isPositionMessage = Util.getKeyFrom(tokens[0]).Equals("pid") &&
 										 Util.getKeyFrom(tokens[1]).Equals("x") && 
 										 Util.getKeyFrom(tokens[2]).Equals("y");
+				*/
+				int pid = Int32.Parse(tokens[0]);
+				float x = float.Parse(tokens[1]);
+				float y = float.Parse(tokens[2]);
+				int state = Int32.Parse(tokens[3]);
+
+				Debug.Log($"TODO: handle Receive state: {state}");
+				gameState.playersPosition[pid-1].x = x;
+				gameState.playersPosition[pid-1].y = y;
+
+				/*
 				if(isPositionMessage)
 				{
-					int pid = Int32.Parse(Util.getValueFrom(tokens[0]));
-					float x = float.Parse(Util.getValueFrom(tokens[1]));
-					float y = float.Parse(Util.getValueFrom(tokens[2]));
 
-					Debug.Log($"Reiceve position x: {x}, y:{y}");
-					gameState.playersPosition[pid-1].x = x;
-					gameState.playersPosition[pid-1].y = y;
-
-/*
 					string status = $"time:{DateTime.Now.ToString("HH:mm:ss tt")},p{pid}:x:{x},y:{y}";
 					// @Test 
 					using (StreamWriter sw = File.AppendText(GameState.serversendpath))
 					{
 						sw.WriteLine(status);
 					}
-					*/
 				}
+				*/
             };
             return messageHandler;
         }

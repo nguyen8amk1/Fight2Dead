@@ -1,12 +1,39 @@
 TODAY: 
-i have 5 days: 
+i have 5 days: start from tomorrow 
     1st day: 
-		APPLY SSL INTO THE TRANSMISSION (2h) []
-
 		SEND ANIMATION INFO TO ALL OTHER PLAYERS (4h) [] -> currently still in 1v1 mode 
-			-> how many animation are there (check debug log)
-				-> 
-			-> what should we send (read the article)
+			-> how many information are there (check debug log)
+                state:
+					 walk left (-1)
+					 walk right (1)
+					 jump (2)
+					 fall (-2)
+					 got hit (3)
+                     idle (0)
+
+                -> the format should be:
+                client send to server:
+					rid,pid,x,y,state 
+                server send to client: 
+                    pid,x,y,state 
+
+                -> THE PROCESSING IS IN THE CLIENT 
+                 position (pretty good now)
+
+            WHAT I NEED FROM NAM: 
+                a function that can control the state 
+
+            sync the state between them 
+
+
+		APPLY SSL INTO THE TRANSMISSION (2h) [] 
+        -> handshake with the RSA then transfer information using AES  (oldschool)
+        -> maybe do this 
+
+        OR newshool
+        -> start the connection with Openssl  
+        -> then encrypt the packets with AES
+
 
     2nd day: 
 		PUSH THE SERVER TO VPS (2h) [] - before that MAKE SURE EVERYTHING WORKS FINE IN THE LOCAL FIRST 
@@ -20,8 +47,9 @@ i have 5 days:
             -> FINISH GLOBAL MODE 
 
 		IMPLEMENT LAN MODE (2h) [] 
-			-> CREATE A JOIN ROOM SCENE  
-			-> WHAT DOES LAN MODE GONNA HAVE ??
+            for now just auto match them, just like the global 
+			#-> CREATE A JOIN ROOM SCENE  
+			#-> WHAT DOES LAN MODE GONNA HAVE ??
 
     3rd day: 
 		STORE PASSWORD HASH (USE HASHING ON THE CLIENT) ON TO THE SERVER (1h) [] - but plain text for now 

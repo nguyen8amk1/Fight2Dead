@@ -24,7 +24,7 @@ public class GamePlayerNetworkCommutor : MonoBehaviour
         if(globalGameState.PlayerId == 1)
 		{
             //hostPlayer = playerA;
-			string message = InGameMessageGenerator.tempInGameMessage(playerA.transform.position.x, playerA.transform.position.y);
+			string message = InGameMessageGenerator.tempInGameMessage(playerA.transform.position.x, playerA.transform.position.y, 1);
 			ServerCommute.connection.sendToServer(message);
 			playerB.transform.position = new Vector3(globalGameState.playersPosition[1].x, globalGameState.playersPosition[1].y, 0);
 		}
@@ -32,7 +32,7 @@ public class GamePlayerNetworkCommutor : MonoBehaviour
         if(globalGameState.PlayerId == 2)
 		{
             //hostPlayer = playerB;
-			string message = InGameMessageGenerator.tempInGameMessage(playerB.transform.position.x, playerB.transform.position.y);
+			string message = InGameMessageGenerator.tempInGameMessage(playerB.transform.position.x, playerB.transform.position.y, 1);
 			ServerCommute.connection.sendToServer(message);
 			playerA.transform.position = new Vector3(globalGameState.playersPosition[0].x, globalGameState.playersPosition[0].y, 0);
 		}

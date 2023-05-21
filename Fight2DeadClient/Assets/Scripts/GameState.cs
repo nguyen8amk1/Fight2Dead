@@ -55,6 +55,8 @@ public sealed class GameState
 	public bool player1IsChosen_2v2 = false;
 	public bool player3IsChosen_2v2 = false;
 
+    public int[] charactersState = new int[] { 0, 0, 0, 0 };
+
 	private GameState()
     {
         roomId = 0;

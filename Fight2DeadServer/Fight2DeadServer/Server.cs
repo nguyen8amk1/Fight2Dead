@@ -270,8 +270,7 @@ namespace SocketServer
                     string message = Encoding.ASCII.GetString(buffer);
                     string[] tokens = message.Split(',');
 
-                    string rid = Util.getValueFrom(tokens[0]);
-                    string pid = Util.getValueFrom(tokens[1]);
+                    string rid = tokens[0];
 
                     //dlog.messageReceived(pid, 3, message);
                     rooms[rid].udpProcess(udpListener, tokens);
