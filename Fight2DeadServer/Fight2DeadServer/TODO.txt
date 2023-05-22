@@ -1,6 +1,69 @@
 TODAY: 
 i have 5 days: start from tomorrow 
     1st day: 
+		IMPLEMENT LAN MODE (2h) [] 
+            JOIN ROOM -> DO THE MATCHING [] 
+                search for room in the lan -> if exist -> join 
+
+            CREATE ROOM -> MATCHING SCENE [] -> 
+                wait for matching just like normal 
+
+            ERROR: currently not working -> @current
+
+            SOLUTION: 
+            => the tcp client have to first connect to the global to log in then you can play using LAN 
+            -> the login checking server is on a different location 
+                -> the login checking server is the same as the global game server -> no change on global 
+
+            -> the game server is on a different location, in LAN version:
+                create room
+                -> 1. connect to global location to check login info 
+                -> 2. after finish checking, (click create room) change to lan server connection -> do the matching scene 
+                -> 3. do the connection as usual 
+
+                join room 
+                -> 1. connect to global location to check login info 
+                -> 2. after finish checking, (click join room) -> find the available server in LAN; do the matching scene 
+                -> 3. do the connection as usual 
+
+            -> just simple random matching still :v
+
+            STUCK THE LAN SERVER TO THE CLIENT AND RUN IT ON ANOTHER THREAD []
+            HAVE A SEARCH FOR GAME_SERVER_IN_LAN METHOD FOR JOIN ROOM SCENE []
+
+		-> FINISH THIS TODAY 
+
+		PUSH THE SERVER TO VPS (global mode) (4h) [] - before that MAKE SURE EVERYTHING WORKS FINE IN THE LOCAL FIRST 
+			what potential problems need to be address ??: (creating and quitting the game problems)
+			check if multiple rooms and be created simunatioulys 
+			and room quitting when player quit not in order have any problems
+
+			SERVER: 
+				stuff more players into one room, then that's pretty much it really :v 
+
+            -> FINISH GLOBAL MODE 
+
+        -> FINISH TO DAY AS WELL  
+
+        tong cong: 4 + 2 = 6 -> 5h + 6h = 11h 
+
+    2nd day: 
+		STORE PASSWORD HASH (USE HASHING ON THE CLIENT) ON TO THE SERVER (1h) [] - but plain text for now 
+		CHECK ROOM CREATION AND QUIT CHECKING (2h) []
+
+
+        GAME START, GAME OVER SCREEN AFTER FINISH A GAME (4h) []
+
+    3rd day: 
+		APPLY SSL INTO THE TRANSMISSION (2h) []  -> LEARN HOW IT WORKS FIRST 
+
+        -> handshake with the RSA then transfer information using AES  (oldschool)
+        -> maybe do this 
+
+        OR newshool -> @CHOOSE_THIS
+        -> start the connection with Openssl  
+        -> then encrypt the packets with AES
+
 		SEND ANIMATION INFO TO ALL OTHER PLAYERS (4h) [] -> currently still in 1v1 mode 
 			-> how many information are there (check debug log)
                 state:
@@ -21,40 +84,10 @@ i have 5 days: start from tomorrow
                  position (pretty good now)
 
             WHAT I NEED FROM NAM: 
-                a function that can control the state 
+                a function that can control the state (2h) []
 
             sync the state between them 
 
-
-		APPLY SSL INTO THE TRANSMISSION (2h) [] 
-        -> handshake with the RSA then transfer information using AES  (oldschool)
-        -> maybe do this 
-
-        OR newshool
-        -> start the connection with Openssl  
-        -> then encrypt the packets with AES
-
-
-    2nd day: 
-		PUSH THE SERVER TO VPS (2h) [] - before that MAKE SURE EVERYTHING WORKS FINE IN THE LOCAL FIRST 
-			what potential problems need to be address ??: (creating and quitting the game problems)
-			check if multiple rooms and be created simunatioulys 
-			and room quitting when player quit not in order have any problems
-
-			SERVER: 
-				stuff more players into one room, then that's pretty much it really :v 
-
-            -> FINISH GLOBAL MODE 
-
-		IMPLEMENT LAN MODE (2h) [] 
-            for now just auto match them, just like the global 
-			#-> CREATE A JOIN ROOM SCENE  
-			#-> WHAT DOES LAN MODE GONNA HAVE ??
-
-    3rd day: 
-		STORE PASSWORD HASH (USE HASHING ON THE CLIENT) ON TO THE SERVER (1h) [] - but plain text for now 
-		CHECK ROOM CREATION AND QUIT CHECKING (2h) []
-        GAME START, GAME OVER SCREEN AFTER FINISH A GAME (4h) []
 
     4th day:
         2v2 gameplay mode 
