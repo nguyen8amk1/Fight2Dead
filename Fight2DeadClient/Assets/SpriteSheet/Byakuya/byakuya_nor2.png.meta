@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 96126b6a6705bc743aaca757f9897589
+guid: d4fd56d29c1908244a4a739d46e52633
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,85 +105,169 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: gaara_ultimate_3
+      name: byakuya_nor2_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 660
-        height: 320
+        x: 123
+        y: 2075
+        width: 136
+        height: 165
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9cf8432ffad79204f98683ba458c19e0
-      internalID: 2094294205
+      spriteID: c85cd9cc295beb24b95b4c5e34a70d22
+      internalID: 1563046922
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gaara_ultimate_2
+      name: byakuya_nor2_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 661
-        width: 660
-        height: 320
+        x: 123
+        y: 1844
+        width: 136
+        height: 155
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a55da75d3b3aa004382844dda47537f7
-      internalID: 1915303580
+      spriteID: dff6f2888b7a4104dbb3b262abed9670
+      internalID: 1430470058
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gaara_ultimate_1
+      name: byakuya_nor2_2
       rect:
         serializedVersion: 2
-        x: 0
+        x: 123
+        y: 1620
+        width: 150
+        height: 155
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6b9a25e01190e2408117fd0293f4b69
+      internalID: -302208583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: byakuya_nor2_3
+      rect:
+        serializedVersion: 2
+        x: 123
         y: 1338
-        width: 660
-        height: 320
+        width: 150
+        height: 155
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 360b8b6f3d4050c439edff8da9aaace0
-      internalID: 1758434545
+      spriteID: 9c69414783a26d64f8b8df5f0146c5fc
+      internalID: 1659710718
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gaara_ultimate_0
+      name: byakuya_nor2_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 2105
-        width: 660
-        height: 320
+        x: 123
+        y: 1099
+        width: 150
+        height: 155
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 35ea1427edce15442bf3096e50925fb2
-      internalID: -1641060418
+      spriteID: ec493bf2526ae8047a8612bd0f39df3a
+      internalID: 1723850272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: byakuya_nor2_5
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 833
+        width: 136
+        height: 155
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebdee96f3685a2c43b93f830b625b3da
+      internalID: 1190419681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: byakuya_nor2_6
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 519
+        width: 136
+        height: 155
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 732a4b4980ab62f429a20f8c33818ae1
+      internalID: -1803049150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: byakuya_nor2_7
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 253
+        width: 136
+        height: 155
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81f927b9e19868d4fae5a8e65ce1c239
+      internalID: -660658424
       vertices: []
       indices: 
       edges: []
@@ -199,10 +283,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      gaara_ultimate_0: -1641060418
-      gaara_ultimate_1: 1758434545
-      gaara_ultimate_2: 1915303580
-      gaara_ultimate_3: 2094294205
+      byakuya_nor2_0: 1563046922
+      byakuya_nor2_1: 1430470058
+      byakuya_nor2_2: -302208583
+      byakuya_nor2_3: 1659710718
+      byakuya_nor2_4: 1723850272
+      byakuya_nor2_5: 1190419681
+      byakuya_nor2_6: -1803049150
+      byakuya_nor2_7: -660658424
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

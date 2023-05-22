@@ -48,7 +48,12 @@ public class Player1 : MonoBehaviour
     public Vector3 spawnPosition;
     public int numberRespawn = 1;
 
-    // Use this for initializationz
+    //Block
+    public bool isBlocked = false;
+    private float blockTimer = 0f;
+    private const float blockDuration = 1f;
+    private const float blockCooldown = 10f;
+
     public int GetFacingDirection()
     {
         return m_facingDirection;
@@ -101,19 +106,19 @@ public class Player1 : MonoBehaviour
         }
 
         // -- Handle input and movement --
-        float inputX = Input.GetAxis("Horizontal");
+        float inputX = 0f;
 
-        // Swap direction of sprite depending on walk direction
-        if (inputX > 0)
+        if (Input.GetKey(KeyCode.A))
         {
-            GetComponent<SpriteRenderer>().flipX = false;
-            m_facingDirection = 1;
-        }
-
-        else if (inputX < 0)
-        {
+            inputX = -1f;
             GetComponent<SpriteRenderer>().flipX = true;
             m_facingDirection = -1;
+        }
+        else if (Input.GetKey(KeyCode.D))
+        {
+            inputX = 1f;
+            GetComponent<SpriteRenderer>().flipX = false;
+            m_facingDirection = 1;
         }
 
 
@@ -189,21 +194,24 @@ public class Player1 : MonoBehaviour
             lastUltimateTime = Time.time; // Update time last pressed "L" button
         }
         // Block
-        else if (Input.GetMouseButtonDown(1))
-        {
-            m_animator.SetTrigger("Block");
-            m_animator.SetBool("IdleBlock", true);
-        }
+        // else if (Input.GetKeyDown(KeyCode.K))
+        // {
+        //     isBlocked = true;
+        //     m_animator.SetTrigger("Block");
+        //     m_animator.SetBool("IdleBlock", true);
+        // }
 
-        else if (Input.GetMouseButtonUp(1))
-            m_animator.SetBool("IdleBlock", false);
-
+        // else if (Input.GetKeyUp(KeyCode.K))
+        // {
+        //     isBlocked = false;
+        //     m_animator.SetBool("IdleBlock", false);
+        // }
         else if (Input.GetKeyDown("w"))
         {
             if (m_grounded)
             {
                 m_animator.SetTrigger("Jump");
-                
+
                 Debug.Log("Gaara Jump 1");
 
                 m_grounded = false;
@@ -239,45 +247,11 @@ public class Player1 : MonoBehaviour
         }
     }
 
-    // private void Attack()
-    // {
-    //     Vector2 attackDirection = new Vector2(GetFacingDirection(), 0f); // Hướng của nhân vật
-    //     Vector2 attackPointPosition = (Vector2)transform.position + attackDirection * attackoffset; // Tính toán vị trí của attackPoint
-    //     Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPointPosition, attackRange, enemyLayers); // Sử dụng vị trí tính toán được để tấn công
-    //     foreach (Collider2D enemy in hitEnemies)
-    //     {
-
-    //         Player2 hurtComponent = enemy.GetComponent<Player2>();
-    //         if (hurtComponent != null)
-    //         {
-
-    //             Debug.Log(attackRange);
-    //             Debug.Log(attackoffset);
-    //             Debug.Log("Gaara Attack");
-    //             hurtComponent.Damage(m_facingDirection);
-
-    //         }
-    //         else
-    //         {
-    //             Debug.LogError("Player2 component is null");
-    //         }
-
-    //     }
-    // }
-
-    // void OnDrawGizmosSelected()
-    // {
-    //     if (attackPoint == null)
-    //         return;
-    //     Vector2 attackDirection = new Vector2(GetFacingDirection(), 0f);
-    //     Vector2 attackPointPosition = (Vector2)transform.position + attackDirection * attackoffset;
-    //     Gizmos.DrawWireSphere(attackPointPosition, attackRange);
-    // }
     private void Attack()
     {
         Vector2 attackDirection = new Vector2(GetFacingDirection(), 0f); // Hướng của nhân vật
         Vector2 attackPointPosition = (Vector2)transform.position + new Vector2(attackOffsetX * attackDirection.x, attackOffsetY); // Tính toán vị trí của attackPoint
-        // Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPointPosition, attackRange, enemyLayers); // Sử dụng vị trí tính toán được để tấn công
+        // Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPointPosition, attackRange, enemyLayers);
         Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(attackPointPosition, new Vector2(attackRangeX, attackRangeY), 0f, enemyLayers);
         foreach (Collider2D enemy in hitEnemies)
         {
@@ -336,15 +310,6 @@ public class Player1 : MonoBehaviour
 
     }
 
-    // public void Knockback(int playerFacingDirection)
-    // {
-    //     knockback = true;
-    //     knockbackStart = Time.time;
-    //     Debug.Log("Knockback: " + m_body2d.velocity);
-    //     m_body2d.velocity = new Vector2(knockbackSpeedX * playerFacingDirection, knockbackSpeedY);
-
-    //     Debug.Log("Knockback: " + m_body2d.velocity);
-    // }
     public void Knockback(int playerFacingDirection)
     {
         knockback = true;
@@ -437,12 +402,6 @@ public class Player1 : MonoBehaviour
     }
     public void Die()
     {
-        // // Store the current sprite flip state
-        // bool isFlipped = GetComponent<SpriteRenderer>().flipX;
-
-        // Disable sprite flipping
-        // GetComponent<SpriteRenderer>().flipX = false;
-        // Debug.Log(GetComponent<SpriteRenderer>().flipX);
 
         // Play the die animation
         Debug.Log(gameObject.transform.position.y);
@@ -454,8 +413,7 @@ public class Player1 : MonoBehaviour
         {
             m_animator.SetTrigger("die_left");
         }
-        // // Restore the original sprite flip state
-        // GetComponent<SpriteRenderer>().flipX = isFlipped;
+
         SpawnObject();
     }
 

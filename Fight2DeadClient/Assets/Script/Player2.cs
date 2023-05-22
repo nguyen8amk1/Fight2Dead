@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player2 : MonoBehaviour
 {
+    //Movement
     [SerializeField] float m_speed = 4.0f;
     [SerializeField] float m_jumpForce = 7.5f;
     private Animator m_animator;
@@ -14,6 +15,7 @@ public class Player2 : MonoBehaviour
     private int m_currentAttack = 0;
     private float m_timeSinceAttack = 0.0f;
     private float m_delayToIdle = 0.0f;
+
     //DOUBLE JUMP
     private int m_jumpsLeft = 2;
     private bool canDoubleJump;
@@ -25,29 +27,27 @@ public class Player2 : MonoBehaviour
     [SerializeField] private float attackOffsetY;
     public LayerMask enemyLayers;
     private bool isAttacking = false;
-    //Emotinal Damage
+
+    //Hurt
     [SerializeField]
     public float knockbackSpeedX, knockbackSpeedY, knockbackDuration;
     [SerializeField]
     private bool applyKnockback;
     [SerializeField]
     private GameObject hitParticle;
-
     private float knockbackStart;
-
-    private int playerFacingDirection;
-    private int mylayerFacingDirection;
     private bool playerOnLeft;
     private bool knockback = false;
+
     //Ultimate cooldown
     public float cooldownTime = 10f;
     private float lastUltimateTime = 0f;
+
     //Spawn
     public GameObject gameObject;
     public Vector3 spawnPosition;
     public int numberRespawn = 1;
-    // Use this for initialization
-    //test
+
     public int GetFacingDirection()
     {
         return m_facingDirection;
@@ -100,19 +100,19 @@ public class Player2 : MonoBehaviour
         }
 
         // -- Handle input and movement --
-        float inputX = Input.GetAxis("Horizontal1");
+        float inputX = 0f;
 
-        // Swap direction of sprite depending on walk direction
-        if (inputX > 0)
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
-            GetComponent<SpriteRenderer>().flipX = false;
-            m_facingDirection = 1;
-        }
-
-        else if (inputX < 0)
-        {
+            inputX = -1f;
             GetComponent<SpriteRenderer>().flipX = true;
             m_facingDirection = -1;
+        }
+        else if (Input.GetKey(KeyCode.RightArrow))
+        {
+            inputX = 1f;
+            GetComponent<SpriteRenderer>().flipX = false;
+            m_facingDirection = 1;
         }
 
         // Move
@@ -180,7 +180,12 @@ public class Player2 : MonoBehaviour
             // Perform attack and wait for the attack animation to finish
             StartCoroutine(PerformAttack());
         }
-
+        else if (Input.GetKeyDown(KeyCode.Keypad3) && (Time.time - lastUltimateTime >= cooldownTime))
+        {
+            m_animator.SetTrigger("ultimate");
+            Debug.Log("Gaara Ultimate");
+            lastUltimateTime = Time.time; // Update time last pressed "L" button
+        }
         // Block
         else if (Input.GetMouseButtonDown(1))
         {
@@ -230,39 +235,6 @@ public class Player2 : MonoBehaviour
         }
     }
 
-    // private void Attack()
-    // {
-    //     Vector2 attackDirection = new Vector2(GetFacingDirection(), 0f); // Hướng của nhân vật
-    //     Vector2 attackPointPosition = (Vector2)transform.position + attackDirection * attackoffset; // Tính toán vị trí của attackPoint
-    //     Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPointPosition, attackRange, enemyLayers); // Sử dụng vị trí tính toán được để tấn công
-    //     foreach (Collider2D enemy in hitEnemies)
-    //     {
-    //         // Debug.Log("Enemy object: " + enemy);
-    //         // Debug.Log("Enemy object: " + transform.parent);
-    //         // enemy.GetComponent<Hurt1>().Damage();
-    //         Player1 hurtComponent = enemy.GetComponent<Player1>();
-    //         if (hurtComponent != null)
-    //         {
-
-    //             Debug.Log("Luffy Attack");
-    //             hurtComponent.Damage(m_facingDirection);
-    //         }
-    //         else
-    //         {
-    //             Debug.LogError("Player1 component is null");
-    //         }
-    //         //enemy.transform.parent.SendMessage("Damage");
-    //     }
-    // }
-
-    // void OnDrawGizmosSelected()
-    // {
-    //     if (attackPoint == null)
-    //         return;
-    //     Vector2 attackDirection = new Vector2(GetFacingDirection(), 0f);
-    //     Vector2 attackPointPosition = (Vector2)transform.position + attackDirection * attackoffset;
-    //     Gizmos.DrawWireSphere(attackPointPosition, attackRange);
-    // }
     private void Attack()
     {
         Vector2 attackDirection = new Vector2(GetFacingDirection(), 0f); // Hướng của nhân vật
@@ -318,15 +290,6 @@ public class Player2 : MonoBehaviour
 
     }
 
-    // public void Knockback(int playerFacingDirection)
-    // {
-    //     knockback = true;
-    //     knockbackStart = Time.time;
-    //     Debug.Log("Knockback: " + m_body2d.velocity);
-    //     m_body2d.velocity = new Vector2(knockbackSpeedX * playerFacingDirection, knockbackSpeedY);
-
-    //     Debug.Log("Knockback: " + m_body2d.velocity);
-    // }
     public void Knockback(int playerFacingDirection)
     {
         knockback = true;
