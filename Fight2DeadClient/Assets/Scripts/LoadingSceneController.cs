@@ -471,7 +471,7 @@ public class LoadingSceneController : MonoBehaviour
 
             UDPServerConnection.Instance.inheritPortFrom(TCPServerConnection.Instance);
             ServerCommute.listenToServerThread.Abort();
-            TCPServerConnection.Instance.close();
+            //TCPServerConnection.Instance.close();
             ServerCommute.connection = UDPServerConnection.Instance;
 
             Console.WriteLine("Started UDP listen to server thread");

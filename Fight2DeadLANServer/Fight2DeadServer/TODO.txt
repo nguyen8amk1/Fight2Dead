@@ -1,0 +1,287 @@
+TODAY: 
+i have 5 days: start from tomorrow 
+    1st day: 
+		IMPLEMENT LAN MODE (2h) [] 
+            JOIN ROOM -> DO THE MATCHING [] 
+                search for room in the lan -> if exist -> join 
+
+            CREATE ROOM -> MATCHING SCENE [] -> 
+                wait for matching just like normal 
+
+            ERROR: currently not working -> @current
+
+            SOLUTION: 
+            => the tcp client have to first connect to the global to log in then you can play using LAN 
+            -> the login checking server is on a different location 
+                -> the login checking server is the same as the global game server -> no change on global 
+
+            -> the game server is on a different location, in LAN version:
+                CREATE ROOM
+                -> 1. connect to global location to check login info 
+                -> 2. after finish checking, (click create room) change to lan server connection -> do the matching scene 
+					-> change the connection to lan server right after click on LAN Create room 
+                        how to change the connection -> change the servercommute.connection to something else like LANTCPConnection.
+
+                -> 3. do the connection as usual 
+
+                JOIN ROOM 
+                -> 1. connect to global location to check login info 
+                -> 2. after finish checking, (click join room) -> find the available server in LAN; do the matching scene 
+                -> 3. do the connection as usual 
+
+            -> just simple random matching still :v
+
+            STUCK THE LAN SERVER TO THE CLIENT AND RUN IT ON ANOTHER THREAD []
+            HAVE A SEARCH FOR GAME_SERVER_IN_LAN METHOD FOR JOIN ROOM SCENE []
+
+		-> FINISH THIS TODAY 
+
+		PUSH THE SERVER TO VPS (global mode) (4h) [] - before that MAKE SURE EVERYTHING WORKS FINE IN THE LOCAL FIRST 
+			what potential problems need to be address ??: (creating and quitting the game problems)
+			check if multiple rooms and be created simunatioulys 
+			and room quitting when player quit not in order have any problems
+
+			SERVER: 
+				stuff more players into one room, then that's pretty much it really :v 
+
+            -> FINISH GLOBAL MODE 
+
+        -> FINISH TO DAY AS WELL  
+
+        tong cong: 4 + 2 = 6 -> 5h + 6h = 11h 
+
+    2nd day: 
+		STORE PASSWORD HASH (USE HASHING ON THE CLIENT) ON TO THE SERVER (1h) [] - but plain text for now 
+		CHECK ROOM CREATION AND QUIT CHECKING (2h) []
+
+
+        GAME START, GAME OVER SCREEN AFTER FINISH A GAME (4h) []
+
+    3rd day: 
+		APPLY SSL INTO THE TRANSMISSION (2h) []  -> LEARN HOW IT WORKS FIRST 
+
+        -> handshake with the RSA then transfer information using AES  (oldschool)
+        -> maybe do this 
+
+        OR newshool -> @CHOOSE_THIS
+        -> start the connection with Openssl  
+        -> then encrypt the packets with AES
+
+		SEND ANIMATION INFO TO ALL OTHER PLAYERS (4h) [] -> currently still in 1v1 mode 
+			-> how many information are there (check debug log)
+                state:
+					 walk left (-1)
+					 walk right (1)
+					 jump (2)
+					 fall (-2)
+					 got hit (3)
+                     idle (0)
+
+                -> the format should be:
+                client send to server:
+					rid,pid,x,y,state 
+                server send to client: 
+                    pid,x,y,state 
+
+                -> THE PROCESSING IS IN THE CLIENT 
+                 position (pretty good now)
+
+            WHAT I NEED FROM NAM: 
+                a function that can control the state (2h) []
+
+            sync the state between them 
+
+
+    4th day:
+        2v2 gameplay mode 
+        ....
+
+    tong cong: 5h  
+
+TODO: 
+	CURRENTLY TWO PLAYERS CAN LOGIN INTO THE SAME ACCOUNT AND PLAY WITH EACH OTHER -> THAT'S NOT GOOD []
+
+    CONNECT THE FIGHTING SCENE WITH THE SERVER (4h) []
+        -> sync the animation and stuff 
+
+    SEND AND HANDLE QUIT MESSAGE WITH THE NEW SYSTEM (4h) [] (THIS CURRENTLY IS DOING FOR 1V1 ONLY)
+        quit message have to be TCP  
+        any of these scene can have a quit: 
+        separate into cases: 
+        PREGAME: 
+            quit when in a tcp room: -> send to the TCP thread loop 
+            client send format: "quit" -> remove from tcp room 
+            server send format (send to others in the room): "pid:{},quit" 
+            LAN MODE: 
+                lobby scene []  
+                LAN MODE: 
+                    client [] 
+                        -> if room owner -> remove the opponent on screen when the opponent quit message arrive 
+                        -> else go back to the menu 
+                    server [] 
+
+                choose character scene []
+                LAN MODE: 
+                    client [] -> go back to  
+                    server []
+
+                choose map scene scene []
+                LAN MODE: 
+                    client [] -> go back to  
+                    server []
+
+                loading scene  []
+        INGAME:
+        GLOBAL MODE: 
+        LAN MODE: 
+
+            (I'm currently don't know what the bellow belong to) 
+            quit when in a udp room: -> send to the TCP main loop
+            client send format: "rid:{},pid:{},quit"
+            server send format (send to others in the room): 
+                DON'T KNOW AT THE MOMENT since the client tcp thread as close 
+                or we should just ignore it :v 
+                when all players gone just remove the goddamn room 
+
+                    game scene  []
+                
+                
+    UPDATE THE GRADIENT AND THE COLOR OF THE BLACKSTRIP OF THE LOBBY SCENE (1h) []
+    -> (CHOOSE CHARACTER, MAP SELECT, LOADING SCREEN)
+
+    CHECK NETWORK STATUS OF CLIENTS (2h) [] (Optional)
+    
+    THE CLIENT WHO WANTS TO JOIN ROOM ON LAN WILL HAVE TO BE ABLE TO SEARCH AND FIND OUT IF THERE IS ANY ROOM SOME HOW (2h) []
+        SO THE CLIENT IN LAN MODE HAVE 2 CHOICES: CREATE ROOM OR JOIN ROOM -> 2 DIFFERENT MESSAGE TYPES
+    THE CLIENT WHO WANTS TO JOIN ROOM ON GLOBAL THEN IT'S EASIER SINCE THERE WILL ONLY A SINGLE IP (1h) []
+
+    UNIFIED ALL THE ASSETS OF THE SCENES AND CONNECT THEM TO EACH OTHER [] (2h)
+    REGISTER, LOGIN, LOGOUT [] (3h)
+    DONG HET TAT CA CAC THREAD O CAC SCENE KIA []
+
+    THE TO NEXT SCENE METHOD ACTUALLY LOOP BACK WHEN IT GET TO THE END -> FIX IT [] 
+
+    DO SOME PERFORMANCE TEST (using some fake client to check for how many clients could this architecture handle) []  (Optional)
+
+    ATTACH THE LAN SERVER CODE TO CLIENT  [] 
+
+    LOOK INTO OBJECT POOLING AND FLYWEIGHT PATTERN FOR OPTIMIZE THE FACTORY PATTERN []
+
+    SENDING ANIMATION STATES TO OTHER PLAYERS ?? (SHOULD WE ?)
+
+    ATTACH SOCKET TO THE LOADING SCENE [] (1h) 
+    CREATE A BUILD SCRIPT []
+
+BUG: 
+    THE SERVER HAVE A BUG WHEN THE PLAYER QUIT THE GAME (id cannot found in dictionary)
+        -> IF THE FIRST ROOM IS CREATED WITH PEOPLE THEN QUIT THAT ROOM 
+        AND ANOTHER ROOM CREATED AND THAT ROOM QUIT -> EXCEPTION @fixthis
+
+DONE: 
+	chon nhan vat co thu tu: [X] -> kinda works, not 100%
+		2v2: 
+			p1 chon truoc p2 
+			p3 chon truoc p4 
+
+			-> toggle in the server
+    HAVING A BUG WHEN LOGIN, CLIENT 1 BLOCK CLIENT 2 FROM LOGIN, WHEN CLIENT 1 LOG IN -> THEM BOTH LOG IN [X]
+    RELOGIN NOT WORKING (2h) [X]
+    ADD 4 PLAYER MODE (6h) [X] 
+        CLIENT: 
+
+            change the choose map ->  @CURRENT (1h) [X]
+                currently each people choose a map, but should they :v 
+                so only 1 map, the person who choose the faster get's it :v  (apply for both mode)
+
+            change the lobby -> now we have 4 people (4 lines) @DONE [X]
+            change the choose character (3h) [X]
+
+    MAKE LOGIN/REGISTER TRULY WORKS, WITH PROPER NAME DISPLAY IN LOBBY (2h) []
+        -> add username into the message that send [X]
+                        into the database as well  [X]
+						PROPER NAME DISPLAY IN LOBBY, currently can display the username of the host machine [X]
+                            -> show the name of other players in room as well [X]
+                            -> showing the other players name is currently have bug, both of the player have the same name [X]
+    CONNECT THE NEW CHOOSE MAP SCENE (2h) [X]
+    CLIENT SEND LOGIN/REGISTER DATA TO SERVER (2h) [X] 
+	the connection diagram: 
+		client -> (client API) -> server -> (DAO) -> database
+        what's the server actually offer to the client: 
+            register a new account 
+            login to an account  
+                checking if the account is valid 
+
+    FIX THE CAMERA (2h) [X]
+        currently what's the camera can do: 
+            can somewhat (linear) zoom in and zoom out to show the 2 players 
+
+        what the camera need to have
+            better zooming -> log zoom (more zoom in when far and less zoom in when close)
+            better frameming (not show the blue part)
+
+    CREATE AN INTERFACE TO CONNECT AND DO OPERATION WITH THE DATABASE (2h) [X] 
+        what does the server gonna do with the database:
+            insert 
+            query
+    DESIGN THE DATABASE FIRST BEFORE IMPLEMENT IT (1h) [X] 
+        WHAT TO STORE?  
+            players info: 
+                playerId 
+                email 
+                password 
+
+                USE MYSQL for storage 
+
+            what can we do to it: -> need an interface between them  
+                insert 
+                query
+
+    CREATE A DATABASE FOR STORING PEOPLE'S LOGIN INFO (1h) [X] (First decide what to use first maybe: MySql for cross platform)
+        CREATE A DATABASE WITH USER (player_id, email, password) TABLE [X]
+    CONNECT THE GAME MODE/SETTINGS WITH THE GAME MENU (1h) [X]
+    CONNECT THE LOGIN/REGISTER WITH THE REST OF THE SCENES (1h) [X] (kinda) :v 
+    GLOBAL MODE: 
+        lobby scene [X]  
+        GLOBAL MODE: - DONE  
+            client [X] -> go back to the menu 
+            server [X] -> remove the tcp room 
+
+        choose character scene [X]
+        GLOBAL MODE: - DONE 
+            client [X] -> go back to menu 
+            server [X] -> remove the tcp room 
+
+        choose map scene scene []
+        GLOBAL MODE:  
+            client [X] -> go back to menu 
+            server [X] -> remove the tcp room 
+
+        loading scene  [] -> DO NOTHING FOR NOW  
+
+    FINISH ATTACH NETWORKING CODE TO THE SCENES (2h) [X]  
+        which scenes: 
+            waiting scene  [X]
+            lobby   scene  [X] 
+            choose character scene  [X]
+            choose map scene scene  [X]
+            loading          scene  [X] -> toudp message
+
+    CONVERT PRE-PLAYING SCENES TO USE TCP (2h) [X] 
+    CONNECT THE CHOOSE CHARACTER WITH SERVER (2h) [X] 
+    PRETTY THE CLIENT'S LOBBY (2h) [X]
+    CREATE SOME CLASS THAT HANDLE THE COMMON QUIT MESSAGE (LAN/GLOBAL QUIT) [X]
+    MOVE ALL THE SCRIPTS TO SCRIPTS FOLDER (1h) [X]
+    MODITFY THE CLIENT TO MATCH WITH THE SERVER (2h) [X] 
+    REFACTOR THE CLIENT NETWORKING CODE TO STATIC METHODS IN THE SERVERCONNECTION SINGLETONS (2h) [X] 
+    DETECT KHI NAO NGUOI CHOI TAT CONNECTION DE THAO RA KHOI LIST GLOBAL AND LAN MODE [X]
+    WAIT TO FINISH THE CHOOSE MAP SCENE [X] (1h)
+    PUT THE SOCKET CODE TO THE CHOOSE MAP SCENE [X] (1h) -- gui thong tin chon map cho server
+    STANDARDIZE THE MESSAGE SENDING BETWEEN CLIENT AND SERVER  [X] (1h)
+    REFACTOR THE STATE MACHINE SYSTEM INTO  CLASSES [X] (3h) -- may be there is something to do with the message format of client/servers
+    PUT THE SOCKET CODE TO THE CHOOSE CHARACTER SCENE [X] (1h) -- gui thong tin chon nhan vat cho server
+    INSTEAD OF USING PID USE P1, P2, P3,... [X]
+    HANDLE THE LOBBY SCENE MESSAGE [X]
+    SEND POS [X]
+    MATCHING IN GLOBAL[X]
+    REFACTOR TO STATE MACHINE [X]
+
