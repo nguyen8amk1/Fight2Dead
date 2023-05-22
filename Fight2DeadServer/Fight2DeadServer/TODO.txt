@@ -16,12 +16,15 @@ i have 5 days: start from tomorrow
                 -> the login checking server is the same as the global game server -> no change on global 
 
             -> the game server is on a different location, in LAN version:
-                create room
+                CREATE ROOM
                 -> 1. connect to global location to check login info 
                 -> 2. after finish checking, (click create room) change to lan server connection -> do the matching scene 
+					-> change the connection to lan server right after click on LAN Create room 
+                        how to change the connection -> change the servercommute.connection to something else like LANTCPConnection.
+
                 -> 3. do the connection as usual 
 
-                join room 
+                JOIN ROOM 
                 -> 1. connect to global location to check login info 
                 -> 2. after finish checking, (click join room) -> find the available server in LAN; do the matching scene 
                 -> 3. do the connection as usual 
