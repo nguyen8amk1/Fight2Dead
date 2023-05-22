@@ -94,6 +94,13 @@ AnimationClip:
     floatParameter: 3.8
     intParameter: 0
     messageOptions: 0
+  - time: 0
+    functionName: UpdateAnimTime
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0.3
+    intParameter: 0
+    messageOptions: 0
   - time: 0.21666667
     functionName: Attack
     data: 

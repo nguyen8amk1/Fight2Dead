@@ -58,7 +58,7 @@ public class test11 : MonoBehaviour
     const string PLAYER_DIE_BOTTOM = "Die_Bottom";
     const string PLAYER_DIE_LEFT = "Die_Left";
     const string PLAYER_ATTACK = "Nor";
-
+    public float animTime;
     void ChangeAnimationState(string newState)
     {
         if (currentState == newState) return;
@@ -166,13 +166,12 @@ public class test11 : MonoBehaviour
         {
             m_body2d.velocity = Vector2.zero;
             // Call one of three attack animations "Attack1", "Attack2", "Attack3"
-            // m_animator.SetTrigger("Attack" + m_currentAttack);
             ChangeAnimationState(PLAYER_ATTACK + m_currentAttack.ToString());
             //When the attack animation run the event in animation call the function Attack()
             Debug.Log("Gaara Attack");
 
             // Wai until the animation attack end
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(animTime);
 
             // Reset isAttacking = false
             isAttacking = false;
@@ -191,20 +190,6 @@ public class test11 : MonoBehaviour
             // Reset Attack combo if time since last attack is too large
             if (m_timeSinceAttack > 0.5f)
                 m_currentAttack = 1;
-
-            /*
-            if (animator.GetFloat("Weapon.Active") > 0f)
-            {
-                Attack();
-            }
-            */
-
-            // // Call one of three attack animations "Attack1", "Attack2", "Attack3"
-            // m_animator.SetTrigger("Attack" + m_currentAttack);
-            // Attack();
-
-            // // Reset timer
-            // m_timeSinceAttack = 0.0f;
 
             isAttacking = true;
 
@@ -253,7 +238,7 @@ public class test11 : MonoBehaviour
             }
         }
         //Run
-        else if (Mathf.Abs(inputX) > Mathf.Epsilon)
+        else if (Mathf.Abs(inputX) > Mathf.Epsilon && m_grounded)
         {
             // Reset timer
             Debug.Log("Gaara Walk");
@@ -263,7 +248,7 @@ public class test11 : MonoBehaviour
         }
 
         //Idle
-        else if(m_grounded&&!isAttacking)
+        else if (m_grounded && !isAttacking)
         {
             Debug.Log("Gaara Idle");
             // Prevents flickering transitions to idle
@@ -394,6 +379,10 @@ public class test11 : MonoBehaviour
     public void UpdateAttackRangeY(float y)
     {
         attackRangeY = y;
+    }
+    public void UpdateAnimTime(float a)
+    {
+        animTime = a;
     }
     public void SpawnObject()
     {

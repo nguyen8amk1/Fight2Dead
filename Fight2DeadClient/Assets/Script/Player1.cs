@@ -47,12 +47,26 @@ public class Player1 : MonoBehaviour
     public GameObject gameObject;
     public Vector3 spawnPosition;
     public int numberRespawn = 1;
+    //test
+    private string currentState;
+    const string PLAYER_IDLE = "Idle";
+    const string PLAYER_RUN = "Run";
+    const string PLAYER_INTRO = "Intro";
+    const string PLAYER_JUMP = "Jump";
+    const string PLAYER_FALL = "Fall";
+    const string PLAYER_HURT_LEFT = "Hurt_Left";
+    const string PLAYER_HURT_RIGHT = "Hurt_Right";
+    const string PLAYER_DIE_BOTTOM = "Die_Bottom";
+    const string PLAYER_DIE_LEFT = "Die_Left";
+    const string PLAYER_ATTACK = "Nor";
+    public float animTime;
+    void ChangeAnimationState(string newState)
+    {
+        if (currentState == newState) return;
 
-    //Block
-    public bool isBlocked = false;
-    private float blockTimer = 0f;
-    private const float blockDuration = 1f;
-    private const float blockCooldown = 10f;
+        m_animator.Play(newState);
+        currentState = newState;
+    }
 
     public int GetFacingDirection()
     {
@@ -64,7 +78,8 @@ public class Player1 : MonoBehaviour
         m_animator = GetComponent<Animator>();
         m_body2d = GetComponent<Rigidbody2D>();
         m_groundSensor = transform.Find("GroundSensor").GetComponent<Sensor>();
-        m_animator.SetTrigger("intro");
+        // m_animator.SetTrigger("intro");
+        ChangeAnimationState(PLAYER_INTRO);
 
     }
 
@@ -95,16 +110,24 @@ public class Player1 : MonoBehaviour
         if (!m_grounded && m_groundSensor.State())
         {
             m_grounded = true;
-            m_animator.SetBool("Grounded", m_grounded);
+            // m_animator.SetBool("Grounded", m_grounded);
         }
 
         //Check if character just started falling
-        if (m_grounded && !m_groundSensor.State())
+        if (m_grounded && !m_groundSensor.State() && m_body2d.velocity.y < 0)
         {
-            m_grounded = false;
-            m_animator.SetBool("Grounded", m_grounded);
-        }
 
+            m_grounded = false;
+            // m_animator.SetBool("Grounded", m_grounded);
+        }
+        if (!m_grounded && !m_groundSensor.State() && m_body2d.velocity.y < 0)
+        {
+
+            // m_grounded = false;
+            ChangeAnimationState(PLAYER_FALL);
+            Debug.Log("Gaara Fall");
+            // m_animator.SetBool("Grounded", m_grounded);
+        }
         // -- Handle input and movement --
         float inputX = 0f;
 
@@ -124,7 +147,7 @@ public class Player1 : MonoBehaviour
 
 
         //Set AirSpeed in animator
-        m_animator.SetFloat("AirSpeedY", m_body2d.velocity.y);
+        // m_animator.SetFloat("AirSpeedY", m_body2d.velocity.y);
 
         // -- Handle Animations --
 
@@ -142,13 +165,12 @@ public class Player1 : MonoBehaviour
         {
             m_body2d.velocity = Vector2.zero;
             // Call one of three attack animations "Attack1", "Attack2", "Attack3"
-            m_animator.SetTrigger("Attack" + m_currentAttack);
-
+            ChangeAnimationState(PLAYER_ATTACK + m_currentAttack.ToString());
             //When the attack animation run the event in animation call the function Attack()
             Debug.Log("Gaara Attack");
 
             // Wai until the animation attack end
-            yield return new WaitForSeconds(0f);
+            yield return new WaitForSeconds(animTime);
 
             // Reset isAttacking = false
             isAttacking = false;
@@ -168,20 +190,6 @@ public class Player1 : MonoBehaviour
             if (m_timeSinceAttack > 0.5f)
                 m_currentAttack = 1;
 
-            /*
-            if (animator.GetFloat("Weapon.Active") > 0f)
-            {
-                Attack();
-            }
-            */
-
-            // // Call one of three attack animations "Attack1", "Attack2", "Attack3"
-            // m_animator.SetTrigger("Attack" + m_currentAttack);
-            // Attack();
-
-            // // Reset timer
-            // m_timeSinceAttack = 0.0f;
-
             isAttacking = true;
 
             // Perform attack and wait for the attack animation to finish
@@ -189,7 +197,7 @@ public class Player1 : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.L) && (Time.time - lastUltimateTime >= cooldownTime))
         {
-            m_animator.SetTrigger("ultimate");
+            // m_animator.SetTrigger("ultimate");
             Debug.Log("Gaara Ultimate");
             lastUltimateTime = Time.time; // Update time last pressed "L" button
         }
@@ -210,40 +218,44 @@ public class Player1 : MonoBehaviour
         {
             if (m_grounded)
             {
-                m_animator.SetTrigger("Jump");
-
+                // m_animator.SetTrigger("Jump");
+                ChangeAnimationState(PLAYER_JUMP);
                 Debug.Log("Gaara Jump 1");
 
                 m_grounded = false;
-                m_animator.SetBool("Grounded", m_grounded);
+                // m_animator.SetBool("Grounded", m_grounded);
                 m_body2d.velocity = new Vector2(m_body2d.velocity.x, m_jumpForce);
                 m_groundSensor.Disable(0.2f);
             }
             else if (canDoubleJump)
             {
-                m_animator.SetTrigger("Jump");
+                // m_animator.SetTrigger("Jump");
+                ChangeAnimationState(PLAYER_JUMP);
                 Debug.Log("Gaara Jump 2");
                 m_body2d.velocity = new Vector2(m_body2d.velocity.x, m_jumpForce);
                 m_jumpsLeft--;
             }
         }
         //Run
-        else if (Mathf.Abs(inputX) > Mathf.Epsilon)
+        else if (Mathf.Abs(inputX) > Mathf.Epsilon && m_grounded)
         {
             // Reset timer
             Debug.Log("Gaara Walk");
             m_delayToIdle = 0.05f;
-            m_animator.SetInteger("AnimState", 1);
+            // m_animator.SetInteger("AnimState", 1);
+            ChangeAnimationState(PLAYER_RUN);
         }
 
         //Idle
-        else
+        else if (m_grounded && !isAttacking)
         {
             Debug.Log("Gaara Idle");
             // Prevents flickering transitions to idle
             m_delayToIdle -= Time.deltaTime;
+            // if (m_delayToIdle < 0)
+            // m_animator.SetInteger("AnimState", 0);
             if (m_delayToIdle < 0)
-                m_animator.SetInteger("AnimState", 0);
+                ChangeAnimationState(PLAYER_IDLE);
         }
     }
 
@@ -298,11 +310,11 @@ public class Player1 : MonoBehaviour
         }
 
 
-        m_animator.SetBool("playerOnLeft", playerOnLeft);
-        m_animator.SetTrigger("damage");
-
+        // m_animator.SetBool("playerOnLeft", playerOnLeft);
+        // m_animator.SetTrigger("damage");
         if (applyKnockback)
         {
+
             //Knockback
             Knockback(playerFacingDirection);
             knockbackSpeedX++;
@@ -318,6 +330,14 @@ public class Player1 : MonoBehaviour
         float horizontalForce = knockbackSpeedX * playerFacingDirection;
 
         StartCoroutine(KnockbackCurve(horizontalForce));
+        if (playerOnLeft)
+        {
+            ChangeAnimationState(PLAYER_HURT_LEFT);
+        }
+        if(!playerOnLeft)
+        {
+            ChangeAnimationState(PLAYER_HURT_RIGHT);
+        }
         Debug.Log("Gaara Hurt");
     }
 
@@ -341,6 +361,7 @@ public class Player1 : MonoBehaviour
 
         // Reset vận tốc về 0 sau khi knockback kết thúc
         m_body2d.velocity = Vector2.zero;
+        ChangeAnimationState(PLAYER_IDLE);
     }
 
     public void CheckKnockback()
@@ -351,22 +372,7 @@ public class Player1 : MonoBehaviour
             m_body2d.velocity = new Vector2(0.0f, m_body2d.velocity.y);
         }
     }
-    public void UpdateAttackOffsetX(float x)
-    {
-        attackOffsetX = x;
-    }
-    public void UpdateAttackOffsetY(float y)
-    {
-        attackOffsetY = y;
-    }
-    public void UpdateAttackRangeX(float x)
-    {
-        attackRangeX = x;
-    }
-    public void UpdateAttackRangeY(float y)
-    {
-        attackRangeY = y;
-    }
+
     public void SpawnObject()
     {
         float delay = 0.6f;
@@ -407,14 +413,37 @@ public class Player1 : MonoBehaviour
         Debug.Log(gameObject.transform.position.y);
         if (gameObject.transform.position.y < -17f)
         {
-            m_animator.SetTrigger("die_bottom");
+            // m_animator.SetTrigger("die_bottom");
+            ChangeAnimationState(PLAYER_DIE_BOTTOM);
         }
         else
         {
-            m_animator.SetTrigger("die_left");
+            // m_animator.SetTrigger("die_left");
+            ChangeAnimationState(PLAYER_DIE_LEFT);
         }
 
         SpawnObject();
+    }
+
+    public void UpdateAttackOffsetX(float x)
+    {
+        attackOffsetX = x;
+    }
+    public void UpdateAttackOffsetY(float y)
+    {
+        attackOffsetY = y;
+    }
+    public void UpdateAttackRangeX(float x)
+    {
+        attackRangeX = x;
+    }
+    public void UpdateAttackRangeY(float y)
+    {
+        attackRangeY = y;
+    }
+    public void UpdateAnimTime(float a)
+    {
+        animTime = a;
     }
 
 }
