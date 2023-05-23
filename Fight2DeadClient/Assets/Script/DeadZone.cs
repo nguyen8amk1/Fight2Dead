@@ -16,7 +16,7 @@ public class DeadZone : MonoBehaviour
             if (collision.gameObject.layer == LayerMask.NameToLayer("Player1"))
             {
                 Player1 player1 = collision.gameObject.GetComponent<Player1>();
-
+                // test11 player1 = collision.gameObject.GetComponent<test11>();
                 if (player1 != null)
                 {
                     Debug.Log("Gaara Die");

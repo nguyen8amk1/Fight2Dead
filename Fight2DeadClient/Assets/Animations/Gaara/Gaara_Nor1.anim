@@ -202,6 +202,13 @@ AnimationClip:
     floatParameter: 2
     intParameter: 0
     messageOptions: 0
+  - time: 0
+    functionName: UpdateAnimTime
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0.2
+    intParameter: 0
+    messageOptions: 0
   - time: 0.1
     functionName: Attack
     data: 

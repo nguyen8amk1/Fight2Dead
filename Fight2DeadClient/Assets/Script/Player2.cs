@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player2 : MonoBehaviour
 {
+    //Movement
     [SerializeField] float m_speed = 4.0f;
     [SerializeField] float m_jumpForce = 7.5f;
     private Animator m_animator;
@@ -14,6 +15,7 @@ public class Player2 : MonoBehaviour
     private int m_currentAttack = 0;
     private float m_timeSinceAttack = 0.0f;
     private float m_delayToIdle = 0.0f;
+
     //DOUBLE JUMP
     private int m_jumpsLeft = 2;
     private bool canDoubleJump;
@@ -25,40 +27,59 @@ public class Player2 : MonoBehaviour
     [SerializeField] private float attackOffsetY;
     public LayerMask enemyLayers;
     private bool isAttacking = false;
-    //Emotinal Damage
+
+    //Hurt
     [SerializeField]
     public float knockbackSpeedX, knockbackSpeedY, knockbackDuration;
     [SerializeField]
     private bool applyKnockback;
     [SerializeField]
     private GameObject hitParticle;
-
     private float knockbackStart;
-
-    private int playerFacingDirection;
-    private int mylayerFacingDirection;
     private bool playerOnLeft;
     private bool knockback = false;
+
     //Ultimate cooldown
     public float cooldownTime = 10f;
     private float lastUltimateTime = 0f;
+
     //Spawn
     public GameObject gameObject;
     public Vector3 spawnPosition;
     public int numberRespawn = 1;
-    // Use this for initialization
     //test
+    private string currentState;
+    const string PLAYER_IDLE = "Idle";
+    const string PLAYER_RUN = "Run";
+    const string PLAYER_INTRO = "Intro";
+    const string PLAYER_JUMP = "Jump";
+    const string PLAYER_FALL = "Fall";
+    const string PLAYER_HURT_LEFT = "Hurt_Left";
+    const string PLAYER_HURT_RIGHT = "Hurt_Right";
+    const string PLAYER_DIE_BOTTOM = "Die_Bottom";
+    const string PLAYER_DIE_LEFT = "Die_Left";
+    const string PLAYER_ATTACK = "Nor";
+    public float animTime;
+    void ChangeAnimationState(string newState)
+    {
+        if (currentState == newState) return;
+
+        m_animator.Play(newState);
+        currentState = newState;
+    }
     public int GetFacingDirection()
     {
         return m_facingDirection;
     }
+
     void Start()
     {
 
         m_animator = GetComponent<Animator>();
         m_body2d = GetComponent<Rigidbody2D>();
         m_groundSensor = transform.Find("GroundSensor").GetComponent<Sensor>();
-        m_animator.SetTrigger("intro");
+        // m_animator.SetTrigger("intro");
+        ChangeAnimationState(PLAYER_INTRO);
 
     }
 
@@ -89,30 +110,38 @@ public class Player2 : MonoBehaviour
         if (!m_grounded && m_groundSensor.State())
         {
             m_grounded = true;
-            m_animator.SetBool("Grounded", m_grounded);
+            // m_animator.SetBool("Grounded", m_grounded);
+        }
+        if (!m_grounded && !m_groundSensor.State() && m_body2d.velocity.y < 0)
+        {
+
+            // m_grounded = false;
+            ChangeAnimationState(PLAYER_FALL);
+            Debug.Log("Luffy Fall");
+            // m_animator.SetBool("Grounded", m_grounded);
         }
 
         //Check if character just started falling
         if (m_grounded && !m_groundSensor.State())
         {
             m_grounded = false;
-            m_animator.SetBool("Grounded", m_grounded);
+            // m_animator.SetBool("Grounded", m_grounded);
         }
 
         // -- Handle input and movement --
-        float inputX = Input.GetAxis("Horizontal1");
+        float inputX = 0f;
 
-        // Swap direction of sprite depending on walk direction
-        if (inputX > 0)
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
-            GetComponent<SpriteRenderer>().flipX = false;
-            m_facingDirection = 1;
-        }
-
-        else if (inputX < 0)
-        {
+            inputX = -1f;
             GetComponent<SpriteRenderer>().flipX = true;
             m_facingDirection = -1;
+        }
+        else if (Input.GetKey(KeyCode.RightArrow))
+        {
+            inputX = 1f;
+            GetComponent<SpriteRenderer>().flipX = false;
+            m_facingDirection = 1;
         }
 
         // Move
@@ -123,7 +152,7 @@ public class Player2 : MonoBehaviour
         }
 
         //Set AirSpeed in animator
-        m_animator.SetFloat("AirSpeedY", m_body2d.velocity.y);
+        // m_animator.SetFloat("AirSpeedY", m_body2d.velocity.y);
 
         // -- Handle Animations --
 
@@ -135,7 +164,7 @@ public class Player2 : MonoBehaviour
         {
             m_body2d.velocity = Vector2.zero;
             // Call one of three attack animations "Attack1", "Attack2", "Attack3"
-            m_animator.SetTrigger("Attack" + m_currentAttack);
+            // m_animator.SetTrigger("Attack" + m_currentAttack);
 
             //When the attack animation run the event in animation call the function Attack()
             Debug.Log("Luffy Attack");
@@ -180,89 +209,65 @@ public class Player2 : MonoBehaviour
             // Perform attack and wait for the attack animation to finish
             StartCoroutine(PerformAttack());
         }
-
-        // Block
-        else if (Input.GetMouseButtonDown(1))
+        else if (Input.GetKeyDown(KeyCode.Keypad3) && (Time.time - lastUltimateTime >= cooldownTime))
         {
-            m_animator.SetTrigger("Block");
-            m_animator.SetBool("IdleBlock", true);
+            // m_animator.SetTrigger("ultimate");
+            Debug.Log("Gaara Ultimate");
+            lastUltimateTime = Time.time; // Update time last pressed "L" button
         }
+        // Block
+        // else if (Input.GetMouseButtonDown(1))
+        // {
+        //     // m_animator.SetTrigger("Block");
+        //     m_animator.SetBool("IdleBlock", true);
+        // }
 
-        else if (Input.GetMouseButtonUp(1))
-            m_animator.SetBool("IdleBlock", false);
+        // else if (Input.GetMouseButtonUp(1))
+        //     m_animator.SetBool("IdleBlock", false);
 
         else if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             if (m_grounded)
             {
+                ChangeAnimationState(PLAYER_JUMP);
                 Debug.Log("Luffy Jump 1");
-                m_animator.SetTrigger("Jump");
+                // m_animator.SetTrigger("Jump");
                 m_grounded = false;
-                m_animator.SetBool("Grounded", m_grounded);
+                // m_animator.SetBool("Grounded", m_grounded);
                 m_body2d.velocity = new Vector2(m_body2d.velocity.x, m_jumpForce);
                 m_groundSensor.Disable(0.2f);
             }
             else if (canDoubleJump)
             {
+                ChangeAnimationState(PLAYER_JUMP);
                 Debug.Log("Luffy Jump 2");
-                m_animator.SetTrigger("Jump");
+                // m_animator.SetTrigger("Jump");
                 m_body2d.velocity = new Vector2(m_body2d.velocity.x, m_jumpForce);
                 m_jumpsLeft--;
             }
         }
         //Run
-        else if (Mathf.Abs(inputX) > Mathf.Epsilon)
+        else if (Mathf.Abs(inputX) > Mathf.Epsilon && m_grounded)
         {
             Debug.Log("Luffy Walk");
             // Reset timer
             m_delayToIdle = 0.05f;
-            m_animator.SetInteger("AnimState", 1);
+            // m_animator.SetInteger("AnimState", 1);
+            ChangeAnimationState(PLAYER_RUN);
         }
 
         //Idle
-        else
+        else if (m_grounded && !isAttacking)
         {
             Debug.Log("Luffy Idle");
             // Prevents flickering transitions to idle
             m_delayToIdle -= Time.deltaTime;
             if (m_delayToIdle < 0)
-                m_animator.SetInteger("AnimState", 0);
+                ChangeAnimationState(PLAYER_IDLE);
+            // m_animator.SetInteger("AnimState", 0);
         }
     }
 
-    // private void Attack()
-    // {
-    //     Vector2 attackDirection = new Vector2(GetFacingDirection(), 0f); // Hướng của nhân vật
-    //     Vector2 attackPointPosition = (Vector2)transform.position + attackDirection * attackoffset; // Tính toán vị trí của attackPoint
-    //     Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPointPosition, attackRange, enemyLayers); // Sử dụng vị trí tính toán được để tấn công
-    //     foreach (Collider2D enemy in hitEnemies)
-    //     {
-    //         // Debug.Log("Enemy object: " + enemy);
-    //         // Debug.Log("Enemy object: " + transform.parent);
-    //         // enemy.GetComponent<Hurt1>().Damage();
-    //         Player1 hurtComponent = enemy.GetComponent<Player1>();
-    //         if (hurtComponent != null)
-    //         {
-
-    //             Debug.Log("Luffy Attack");
-    //             hurtComponent.Damage(m_facingDirection);
-    //         }
-    //         else
-    //         {
-    //             Debug.LogError("Player1 component is null");
-    //         }
-    //         //enemy.transform.parent.SendMessage("Damage");
-    //     }
-    // }
-
-    // void OnDrawGizmosSelected()
-    // {
-    //     if (attackPoint == null)
-    //         return;
-    //     Vector2 attackDirection = new Vector2(GetFacingDirection(), 0f);
-    //     Vector2 attackPointPosition = (Vector2)transform.position + attackDirection * attackoffset;
-    //     Gizmos.DrawWireSphere(attackPointPosition, attackRange);
-    // }
     private void Attack()
     {
         Vector2 attackDirection = new Vector2(GetFacingDirection(), 0f); // Hướng của nhân vật
@@ -305,8 +310,8 @@ public class Player2 : MonoBehaviour
         }
 
 
-        m_animator.SetBool("playerOnLeft", playerOnLeft);
-        m_animator.SetTrigger("damage");
+        // m_animator.SetBool("playerOnLeft", playerOnLeft);
+        // m_animator.SetTrigger("damage");
 
         if (applyKnockback)
         {
@@ -318,15 +323,6 @@ public class Player2 : MonoBehaviour
 
     }
 
-    // public void Knockback(int playerFacingDirection)
-    // {
-    //     knockback = true;
-    //     knockbackStart = Time.time;
-    //     Debug.Log("Knockback: " + m_body2d.velocity);
-    //     m_body2d.velocity = new Vector2(knockbackSpeedX * playerFacingDirection, knockbackSpeedY);
-
-    //     Debug.Log("Knockback: " + m_body2d.velocity);
-    // }
     public void Knockback(int playerFacingDirection)
     {
         knockback = true;
@@ -335,6 +331,14 @@ public class Player2 : MonoBehaviour
         float horizontalForce = knockbackSpeedX * playerFacingDirection;
 
         StartCoroutine(KnockbackCurve(horizontalForce));
+        if (playerOnLeft)
+        {
+            ChangeAnimationState(PLAYER_HURT_LEFT);
+        }
+        if (!playerOnLeft)
+        {
+            ChangeAnimationState(PLAYER_HURT_RIGHT);
+        }
         Debug.Log("Luffy Hurt");
     }
 
@@ -429,11 +433,13 @@ public class Player2 : MonoBehaviour
         Debug.Log(gameObject.transform.position.y);
         if (gameObject.transform.position.y < -17f)
         {
-            m_animator.SetTrigger("die_bottom");
+            // m_animator.SetTrigger("die_bottom");
+            ChangeAnimationState(PLAYER_DIE_BOTTOM);
         }
         else
         {
-            m_animator.SetTrigger("die_left");
+            // m_animator.SetTrigger("die_left");
+            ChangeAnimationState(PLAYER_DIE_LEFT);
         }
         // // Restore the original sprite flip state
         // GetComponent<SpriteRenderer>().flipX = isFlipped;
