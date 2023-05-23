@@ -469,7 +469,15 @@ public class LoadingSceneController : MonoBehaviour
 
             Debug.Log("TODO: There are udp connection bug right here");
 
-            UDPServerConnection.Instance.inheritPortFrom(TCPServerConnection.Instance);
+            if(globalGameState.onlineMode == "LAN")
+			{
+				UDPServerConnection.Instance.inheritPortFromLAN(LANTCPServerConnection.Instance); 
+			}
+            else if (globalGameState.onlineMode == "GLOBAL")
+            {
+                UDPServerConnection.Instance.inheritPortFromGLOBAL(TCPServerConnection.Instance);
+            }
+
             ServerCommute.listenToServerThread.Abort();
             //TCPServerConnection.Instance.close();
             ServerCommute.connection = UDPServerConnection.Instance;

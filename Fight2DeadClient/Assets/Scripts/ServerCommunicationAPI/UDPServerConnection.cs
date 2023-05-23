@@ -44,7 +44,12 @@ namespace SocketServer
             udpClient.Close();
         }
 
-        public void inheritPortFrom(TCPServerConnection tcpConnection)
+        public void inheritPortFromGLOBAL(TCPServerConnection tcpConnection)
+        {
+            int sourcePort = ((IPEndPoint)tcpConnection.getTcpClient().Client.LocalEndPoint).Port;
+            udpClient.Client.Bind(new IPEndPoint(IPAddress.Any, sourcePort));
+        }
+        public void inheritPortFromLAN(LANTCPServerConnection tcpConnection)
         {
             int sourcePort = ((IPEndPoint)tcpConnection.getTcpClient().Client.LocalEndPoint).Port;
             udpClient.Client.Bind(new IPEndPoint(IPAddress.Any, sourcePort));

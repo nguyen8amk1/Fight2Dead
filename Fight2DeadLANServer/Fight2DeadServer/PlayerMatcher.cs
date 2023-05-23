@@ -48,8 +48,12 @@ namespace SocketServer
                     // @Note: send back the rid,pid:
                     string mess = string.Format("rid:{0},pid:{1},{2}", player.rid, player.id, tail);
 
-                    client.Client.Send(Encoding.ASCII.GetBytes(mess));
+					IPEndPoint clientEndPoint = (IPEndPoint)client.Client.RemoteEndPoint;
+					string ip = clientEndPoint.Address.ToString();
+                    int port = clientEndPoint.Port; 
+                    Console.WriteLine($"Send to player at {ip}:{port}");
 
+                    client.Client.Send(Encoding.ASCII.GetBytes(mess));
                     dlog.newConnectionMessageSent(player.tcpClient, 1, mess);
 
 
