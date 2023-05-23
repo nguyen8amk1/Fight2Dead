@@ -1,4 +1,12 @@
 TODAY: 
+    CURRENTLY WE HAVE THE GLOBAL LOGIN CHECKING WORKS -> 
+        NEXT STEP, CHANGE THE TCP CONNECTION TO LAN SERVER AFTER CLICK ON LAN [X]
+
+        AFTER CLICK ON CREATE ROOM -> launch a different lan server process  
+			-> change to tcp connect to localhost 
+        AFTER CLICK ON JOIN ROOM -> find a open server in lan 
+			-> change to tcp connect to the ip of that server in lan 
+
 i have 5 days: start from tomorrow 
     1st day: 
 		IMPLEMENT LAN MODE (2h) [] 

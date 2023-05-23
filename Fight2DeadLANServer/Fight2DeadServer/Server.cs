@@ -6,12 +6,13 @@ using System.Threading;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.IO;
+using System.Runtime.CompilerServices;
 
 namespace SocketServer
 {
      public class Server
     {
-        private int tcpPort = 5000;
+        private int tcpPort = 5500;
         private int udpPort = 8000;
         private TcpListener tcpListener;
 
@@ -22,7 +23,7 @@ namespace SocketServer
 
         public static Dictionary<string, GameRoom> rooms = new Dictionary<string, GameRoom>();
 
-        private string dataCredentialFilePath = "../../DBConnection/DatabaseCredential.txt";
+        //private string dataCredentialFilePath = "../../DBConnection/DatabaseCredential.txt";
 
         public static MySQLDatabaseConnection dbConnection;
 		private List<Player> twoPlayersRoomWaitList = new List<Player>();
@@ -30,23 +31,17 @@ namespace SocketServer
 
 		// FIXME: the server get spammed some how when client send login info  
 		// FIXME: the matching is not work anymore 
+        private void initConnections() {
+            //Thread udpListeningThread = new Thread(() => udpListening());
+            //udpListeningThread.Start();
 
-		// @Test
-		public static string serversendpath = "serversend.txt";
+            // Create a TCP listener
+            tcpListener = new TcpListener(IPAddress.Any, tcpPort);
+            tcpListener.Start();
+        }
 
 		public void run()
         {
-            dbConnection = new MySQLDatabaseConnection(dataCredentialFilePath);
-
-			// @Test
-			if (!File.Exists(serversendpath))
-			{
-				// Create a file to write to.
-				using (StreamWriter sw = File.CreateText(serversendpath))
-				{
-				}
-			}
-
 			initConnections();
 
             Thread udpListeningThread = new Thread(() => udpListening());
@@ -54,12 +49,9 @@ namespace SocketServer
 			Thread createRoomThread = new Thread(() => createRoom());
 			createRoomThread.Start();
 
-            // @Note: THIS IS THE RECEIVED NEW CONNECTION LOOP
-            // @Note: should it handle quit game too (the in game quit) ? 
-
             while (true)
             {
-				Console.WriteLine("Listening for client: ");
+				Console.WriteLine($"Listening for client on port {tcpPort}: ");
                 TcpClient tcpClient = tcpListener.AcceptTcpClient();
 				Console.WriteLine("Have a client, and create new thread");
 
@@ -85,8 +77,8 @@ namespace SocketServer
 
 				string[] tokens = message.Split(',');
 
-				handleLoginMessage(tokens, tcpClient, true);
-				handleRegisterMessage(tokens, tcpClient, true);
+				//handleLoginMessage(tokens, tcpClient, true);
+				//handleRegisterMessage(tokens, tcpClient, true);
 
 				bool isNumPlayersMessage = Util.getKeyFrom(tokens[0]).Equals("numsPlayer") && Util.getKeyFrom(tokens[1]).Equals("username");
 				if (isNumPlayersMessage)
@@ -142,56 +134,6 @@ namespace SocketServer
 
 		}
 
-		private void handleRegisterMessage(string[] tokens, TcpClient tcpClient, bool createNewThread)
-		{
-			bool isRegisterMessage = Util.getKeyFrom(tokens[1]).Equals("username") &&
-									 Util.getKeyFrom(tokens[0]).Equals("email") &&
-									 Util.getKeyFrom(tokens[2]).Equals("password");
-			if (isRegisterMessage)
-			{
-				string email = Util.getValueFrom(tokens[0]);
-				string username = Util.getValueFrom(tokens[1]);
-				string password = Util.getValueFrom(tokens[2]);
-
-
-				Console.WriteLine($"Handle register message, username: {username}, email:{email}, password: {password}");
-
-				bool registrationSuccess = dbConnection.insertUser(email, username, password);
-				if(registrationSuccess)
-				{
-					TCPClientConnection.sendToClient(tcpClient, "registration:success");
-					return;
-				} else
-				{
-					TCPClientConnection.sendToClient(tcpClient, "registration:failed");
-				}
-			}
-		}
-
-		private void handleLoginMessage(string[] tokens, TcpClient tcpClient, bool createNewThread)
-		{
-			bool isLoginMessage =   Util.getKeyFrom(tokens[0]).Equals("username") && 
-									Util.getKeyFrom(tokens[1]).Equals("password");
-			if(isLoginMessage)
-			{
-				string username = Util.getValueFrom(tokens[0]);
-				string password = Util.getValueFrom(tokens[1]);
-				Console.WriteLine($"Handle login message, username: {username}, password: {password}");
-
-				User user = dbConnection.queryUser(username, password);  
-				bool loginSuccess = user != null;
-
-				if(loginSuccess)
-				{
-					TCPClientConnection.sendToClient(tcpClient, "login:success");
-					return; 
-				} else
-				{
-					TCPClientConnection.sendToClient(tcpClient, "login:failed");
-				}
-			}
-		}
-
 		private string receiveNewConnectionMessage(TcpClient tcpClient) {
             NetworkStream stream = tcpClient.GetStream();
             byte[] buffer = new byte[1024];
@@ -226,40 +168,8 @@ namespace SocketServer
             throw new Exception("DITME DEO CO CAI LON GI HET V");
         }
 
-        private void initConnections() {
-            // Thread udpListeningThread = new Thread(() => udpListening());
-            // udpListeningThread.Start();
-
-            // Create a TCP listener
-            tcpListener = new TcpListener(IPAddress.Any, tcpPort);
-            tcpListener.Start();
-        }
-
         private void udpListening()
         {
-			/*
-			Task.Run(async () =>
-			{
-				using (var udpListener = new UdpClient(udpPort))
-				{
-					while (true)
-					{
-						//IPEndPoint object will allow us to read datagrams sent from any source.
-						var receivedResults = await udpListener.ReceiveAsync();
-						string message = Encoding.ASCII.GetString(receivedResults.Buffer);
-
-						string[] tokens = message.Split(',');
-
-						string rid = Util.getValueFrom(tokens[0]);
-						string pid = Util.getValueFrom(tokens[1]);
-
-						dlog.messageReceived(pid, 3, message);
-						rooms[rid].udpProcess(udpListener, tokens);
-					}
-				}
-			});
-			*/
-			
 			UdpClient udpListener = new UdpClient(udpPort);
             while (true)
             {
