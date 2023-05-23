@@ -184,7 +184,7 @@ namespace SocketServer
 
                     string rid = tokens[0];
 
-                    dlog.messageReceived("ditme", 3, message);
+                    //dlog.messageReceived("ditme", 3, message);
                     rooms[rid].udpProcess(udpListener, tokens);
                 }
             }

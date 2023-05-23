@@ -26,7 +26,6 @@ public class MenuSelectButton : MonoBehaviour
         {
             try
 			{
-                /*
 				string exePath = "D:\\Programming\\UnityProject\\Fight2Dead\\Fight2DeadLANServer\\Fight2DeadServer\\bin\\Debug\\Fight2DeadServer.exe";
                 // Create a new process start info
                 ProcessStartInfo startInfo = new ProcessStartInfo();
@@ -34,7 +33,6 @@ public class MenuSelectButton : MonoBehaviour
                 Process.Start(startInfo);
 
                 Thread.Sleep(1000);
-                */
 
 				ServerCommute.connection = LANTCPServerConnection.Instance;
 				ServerCommute.listenToServerThread.Abort();
@@ -77,6 +75,7 @@ public class MenuSelectButton : MonoBehaviour
 		{
             UnityEngine.Debug.Log("set online mode to global");
             globalGameState.onlineMode = "GLOBAL";
+            UDPServerConnection.serverIp = "103.162.20.146";
             return;
 		}
 
@@ -85,6 +84,7 @@ public class MenuSelectButton : MonoBehaviour
 		{
             UnityEngine.Debug.Log("set online mode to lan");
             globalGameState.onlineMode = "LAN";
+            UDPServerConnection.serverIp = "127.0.0.1";
             return;
 		}
 

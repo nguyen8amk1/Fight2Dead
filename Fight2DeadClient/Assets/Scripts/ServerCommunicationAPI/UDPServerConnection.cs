@@ -24,7 +24,7 @@ namespace SocketServer
         private UdpClient udpClient = new UdpClient();
 
         // YEAHHH: i found the problem :))
-        private string serverIp = "127.0.0.1";
+        public static string serverIp;
 
         private UDPServerConnection()
         {
