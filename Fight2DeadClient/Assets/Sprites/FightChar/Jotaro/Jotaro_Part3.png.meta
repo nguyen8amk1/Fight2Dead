@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2fb1df7f8dd36fa45b26ee9ab9d7f6f9
+guid: 30e690e752022c1468e735f821e1b99e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,379 +105,421 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Ryu_Rest_0
+      name: Jotaro_Part3_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 285
-        width: 53
-        height: 83
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 0
+        y: 0
+        width: 305
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60921ca335bbc0c45a96d35ac6600085
-      internalID: -2078923584
+      spriteID: 999315cffe850ee4182f1865194e4d96
+      internalID: 1458901462
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ryu_Rest_1
+      name: Jotaro_Part3_1
       rect:
         serializedVersion: 2
-        x: 78
-        y: 285
-        width: 60
-        height: 88
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 305
+        y: 0
+        width: 305
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca1f6fdd514d8594a96d59e34644c73f
-      internalID: -2098116441
+      spriteID: e2d8a1aaa87debb4eabf618885c8c414
+      internalID: -1249053502
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ryu_Rest_2
+      name: Jotaro_Part3_2
       rect:
         serializedVersion: 2
-        x: 152
-        y: 284
-        width: 64
-        height: 92
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 610
+        y: 0
+        width: 305
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a99088ee49f1d8b4d814243be24f21d8
-      internalID: 670915977
+      spriteID: 8aee474f57f026744aee885660f378c1
+      internalID: -839799713
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ryu_Rest_3
+      name: Jotaro_Part3_3
       rect:
         serializedVersion: 2
-        x: 229
-        y: 284
-        width: 63
-        height: 90
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 915
+        y: 0
+        width: 305
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 246b3da4eb9e5724c913adb273c02962
-      internalID: -1615771809
+      spriteID: 0a493404d2c3fe147833e9fcf85edf26
+      internalID: -1371919015
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ryu_Rest_4
+      name: Jotaro_Part3_4
       rect:
         serializedVersion: 2
-        x: 307
-        y: 285
-        width: 54
-        height: 91
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 1220
+        y: 0
+        width: 305
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf9cf890ea3fe0c478e8e43b3ac53b4e
-      internalID: 1882535473
+      spriteID: 4852f077dac83464bba5437b3e496a31
+      internalID: -1910330235
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ryu_Rest_5
+      name: Jotaro_Part3_5
       rect:
         serializedVersion: 2
-        x: 371
-        y: 287
-        width: 50
-        height: 89
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 1525
+        y: 0
+        width: 305
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d797afdbdaeb9da448f74508a7bfccde
-      internalID: 267625370
+      spriteID: 48485998a7c27984eb51a0145ea06405
+      internalID: -277723443
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ryu_Rest_6
+      name: Jotaro_Part3_6
       rect:
         serializedVersion: 2
-        x: 430
-        y: 290
-        width: 59
-        height: 90
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 1830
+        y: 0
+        width: 305
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ab67555b3a38574a891ad869e2466af
-      internalID: 1654651894
+      spriteID: 2e8cf7333ec4018468dc3689a76a3d85
+      internalID: -2026828259
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ryu_Rest_7
+      name: Jotaro_Part3_7
       rect:
         serializedVersion: 2
-        x: 495
-        y: 290
-        width: 57
-        height: 90
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 2135
+        y: 0
+        width: 305
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 256bdcf4a0e2eeb4a9a73eb87395e9bc
-      internalID: -1188308283
+      spriteID: 791d431171ec4434398c4e4f83fb4d82
+      internalID: -1088374869
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ryu_Rest_8
+      name: Jotaro_Part3_8
       rect:
         serializedVersion: 2
-        x: 559
-        y: 290
-        width: 58
-        height: 90
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 2440
+        y: 0
+        width: 305
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91e1cc1e79d313949a7a3fae08413e5a
-      internalID: 1126047399
+      spriteID: acb33efc4fb86fe40a1b2a8b1f196350
+      internalID: -1843862281
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ryu_Rest_9
+      name: Jotaro_Part3_9
       rect:
         serializedVersion: 2
-        x: 631
-        y: 288
-        width: 58
-        height: 91
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 2745
+        y: 0
+        width: 305
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 99f9bc071789dbf4da7bffde6f7bd6d7
-      internalID: -533891325
+      spriteID: b675d3a0c244bbc4b8b4117f6fce1804
+      internalID: 1233436170
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ryu_Rest_10
+      name: Jotaro_Part3_10
       rect:
         serializedVersion: 2
-        x: 707
-        y: 289
-        width: 57
-        height: 89
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 3050
+        y: 0
+        width: 305
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f2a61b5455e48840a955b25f44f796e
-      internalID: 1608286228
+      spriteID: 4344e1407a38c4b4d9076d68199e6459
+      internalID: -235563677
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ryu_Rest_11
+      name: Jotaro_Part3_11
       rect:
         serializedVersion: 2
-        x: 777
-        y: 289
-        width: 61
-        height: 87
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 3355
+        y: 0
+        width: 305
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a22e4f56b110f74d991657337d7443a
-      internalID: -1673596333
+      spriteID: c5897471371defd4bbc76863033bc165
+      internalID: 872647288
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ryu_Rest_12
+      name: Jotaro_Part3_12
       rect:
         serializedVersion: 2
-        x: 39
-        y: 133
-        width: 62
-        height: 87
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 3660
+        y: 0
+        width: 305
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fee9868940b63c549b76bc9bf0f7d891
-      internalID: -1002990763
+      spriteID: 2f5280a850e957f4fae34253475dd0ac
+      internalID: -1607608504
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ryu_Rest_13
+      name: Jotaro_Part3_13
       rect:
         serializedVersion: 2
-        x: 126
-        y: 132
-        width: 68
-        height: 89
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 3965
+        y: 0
+        width: 305
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1298f1beb180c884abd8e17c528e45d6
-      internalID: 217711633
+      spriteID: bc56829a414c536418813b858943b706
+      internalID: 909549598
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ryu_Rest_14
+      name: Jotaro_Part3_14
       rect:
         serializedVersion: 2
-        x: 203
-        y: 134
-        width: 59
-        height: 125
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 4270
+        y: 0
+        width: 305
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 03d478af6d27416479b68f9db5770b53
-      internalID: -1666935682
+      spriteID: c099cc3360b15014dbc17fe9d9b4ba01
+      internalID: 1451671998
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ryu_Rest_15
+      name: Jotaro_Part3_15
       rect:
         serializedVersion: 2
-        x: 271
-        y: 139
-        width: 53
-        height: 119
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 4575
+        y: 0
+        width: 305
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 92ebdb3a0627eed47a630dbace16a077
-      internalID: -1294093134
+      spriteID: 488796e973097354384744de63d55985
+      internalID: 594133090
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ryu_Rest_16
+      name: Jotaro_Part3_16
       rect:
         serializedVersion: 2
-        x: 342
-        y: 139
-        width: 49
-        height: 117
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 4880
+        y: 0
+        width: 305
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3eb095fb3411c294d842e4f44b82d3f1
-      internalID: -936060527
+      spriteID: 60e79ebadf0f83345a5d018d6f47269a
+      internalID: 394220156
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ryu_Rest_17
+      name: Jotaro_Part3_17
       rect:
         serializedVersion: 2
-        x: 396
-        y: 138
-        width: 59
-        height: 105
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 5185
+        y: 0
+        width: 305
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb540744a7846534abf3db77c9d777f9
-      internalID: 269072223
+      spriteID: 3a6fe9b745541ae439f346eee6681000
+      internalID: -1577044358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jotaro_Part3_18
+      rect:
+        serializedVersion: 2
+        x: 5490
+        y: 0
+        width: 305
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b20bb5c0c6e6cef4b948757acd36c70a
+      internalID: -1410126064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jotaro_Part3_19
+      rect:
+        serializedVersion: 2
+        x: 5795
+        y: 0
+        width: 305
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c338aa347bace15459e300f5ebb7a8ba
+      internalID: -120110372
       vertices: []
       indices: 
       edges: []
@@ -493,24 +535,26 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Ryu_Rest_0: -2078923584
-      Ryu_Rest_1: -2098116441
-      Ryu_Rest_10: 1608286228
-      Ryu_Rest_11: -1673596333
-      Ryu_Rest_12: -1002990763
-      Ryu_Rest_13: 217711633
-      Ryu_Rest_14: -1666935682
-      Ryu_Rest_15: -1294093134
-      Ryu_Rest_16: -936060527
-      Ryu_Rest_17: 269072223
-      Ryu_Rest_2: 670915977
-      Ryu_Rest_3: -1615771809
-      Ryu_Rest_4: 1882535473
-      Ryu_Rest_5: 267625370
-      Ryu_Rest_6: 1654651894
-      Ryu_Rest_7: -1188308283
-      Ryu_Rest_8: 1126047399
-      Ryu_Rest_9: -533891325
+      Jotaro_Part3_0: 1458901462
+      Jotaro_Part3_1: -1249053502
+      Jotaro_Part3_10: -235563677
+      Jotaro_Part3_11: 872647288
+      Jotaro_Part3_12: -1607608504
+      Jotaro_Part3_13: 909549598
+      Jotaro_Part3_14: 1451671998
+      Jotaro_Part3_15: 594133090
+      Jotaro_Part3_16: 394220156
+      Jotaro_Part3_17: -1577044358
+      Jotaro_Part3_18: -1410126064
+      Jotaro_Part3_19: -120110372
+      Jotaro_Part3_2: -839799713
+      Jotaro_Part3_3: -1371919015
+      Jotaro_Part3_4: -1910330235
+      Jotaro_Part3_5: -277723443
+      Jotaro_Part3_6: -2026828259
+      Jotaro_Part3_7: -1088374869
+      Jotaro_Part3_8: -1843862281
+      Jotaro_Part3_9: 1233436170
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

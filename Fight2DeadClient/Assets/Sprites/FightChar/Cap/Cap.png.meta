@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fa39c9b326bf1ff4dac266fb7c26aaa2
+guid: 1cb7d9a68e9fd6c4281fc98d0d357032
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,1135 +105,1114 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ken_sprite_0
+      name: Cap_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 512
-        width: 110
-        height: 128
+        y: 724
+        width: 121
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a2512575066d842449ad45b32c604790
-      internalID: 758938036
+      spriteID: 2ecd0ee62b7e16340bd751651306072a
+      internalID: -619240055
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ken_sprite_1
+      name: Cap_1
       rect:
         serializedVersion: 2
-        x: 110
-        y: 512
-        width: 110
-        height: 128
+        x: 231
+        y: 724
+        width: 120
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b83b3678a00c4294dbb793cc99f73777
-      internalID: -2098321835
+      spriteID: cb3d87c510a6d184ba51bbed43e4ab3f
+      internalID: 1167857710
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ken_sprite_2
+      name: Cap_2
       rect:
         serializedVersion: 2
-        x: 220
-        y: 512
-        width: 110
-        height: 128
+        x: 462
+        y: 724
+        width: 105
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5adcd1fc31458124a9991650845b2043
-      internalID: -1010327080
+      spriteID: 2e7ddde4b8805f449a259948ab1b31dd
+      internalID: 76668606
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ken_sprite_3
+      name: Cap_3
       rect:
         serializedVersion: 2
-        x: 330
-        y: 512
-        width: 110
-        height: 128
+        x: 693
+        y: 724
+        width: 113
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee8f002088a1a2a4eb5d459e55d44e95
-      internalID: 2039369485
+      spriteID: dfaa7da972578f04cb8a3720e871ed4d
+      internalID: -95359076
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ken_sprite_4
+      name: Cap_4
       rect:
         serializedVersion: 2
-        x: 440
-        y: 512
-        width: 110
-        height: 128
+        x: 924
+        y: 724
+        width: 112
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 47016e8d7500df04e98e9729c99f6904
-      internalID: 963979369
+      spriteID: 6488da29a4ae4fe4dad470f2376b1314
+      internalID: -1551502218
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ken_sprite_5
+      name: Cap_5
       rect:
         serializedVersion: 2
-        x: 550
-        y: 512
-        width: 110
-        height: 128
+        x: 1155
+        y: 724
+        width: 123
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 61950bc829c644a4f9a823be9b3fae3c
-      internalID: -184813922
+      spriteID: 7a240864366bfa1468c31b77714877aa
+      internalID: -943220431
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ken_sprite_6
+      name: Cap_6
       rect:
         serializedVersion: 2
-        x: 660
-        y: 512
-        width: 110
-        height: 128
+        x: 1386
+        y: 724
+        width: 130
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af61f79833d2df84da6016912623330a
-      internalID: 919027778
+      spriteID: a20b1580a0ff2724cb93a9e9cb366804
+      internalID: 1511957400
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ken_sprite_7
+      name: Cap_7
       rect:
         serializedVersion: 2
-        x: 770
-        y: 512
-        width: 110
-        height: 128
+        x: 1617
+        y: 724
+        width: 104
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cbf010a997ed4d6498fe7f91613881a4
-      internalID: 1224819982
+      spriteID: 89dc65f704331454ca49bd263faabc76
+      internalID: -1270638249
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ken_sprite_8
+      name: Cap_8
       rect:
         serializedVersion: 2
-        x: 880
-        y: 512
-        width: 110
-        height: 128
+        x: 1848
+        y: 724
+        width: 104
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1ea460f8b7d87d645a1b9d1a17594421
-      internalID: -1222482930
+      spriteID: b5791ea894aa8b443b5ab59f31e8cd80
+      internalID: 1855078298
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ken_sprite_9
+      name: Cap_9
       rect:
         serializedVersion: 2
-        x: 990
-        y: 512
-        width: 110
-        height: 128
+        x: 2079
+        y: 724
+        width: 106
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0db6b6e6f3f18cd4d851acbe3d841106
-      internalID: 1689414085
+      spriteID: 2c46e106028c5d34eb61ea1452e81c80
+      internalID: 155149753
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ken_sprite_10
+      name: Cap_10
       rect:
         serializedVersion: 2
-        x: 1100
-        y: 512
-        width: 110
-        height: 128
+        x: 2310
+        y: 724
+        width: 120
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8821539e26cc2c04fb45ccda5c7d9142
-      internalID: 1850087644
+      spriteID: fd93fdfd9f6fd564e91aa2778fd0e2b3
+      internalID: 504415860
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ken_sprite_11
+      name: Cap_11
       rect:
         serializedVersion: 2
-        x: 1210
-        y: 512
-        width: 110
-        height: 128
+        x: 2541
+        y: 724
+        width: 107
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 58b67ceaa3fa0954c945d80b53819f4e
-      internalID: -28173710
+      spriteID: eb8875548786cf843aa8602b194303d6
+      internalID: -173814864
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ken_sprite_12
+      name: Cap_12
       rect:
         serializedVersion: 2
-        x: 0
-        y: 384
-        width: 110
-        height: 128
+        x: 2772
+        y: 724
+        width: 117
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c38f7ba60b35ef64c9f793a400bd9123
-      internalID: 1231746512
+      spriteID: 4e0e06c73571e094b82dc167bc85658d
+      internalID: -1834057701
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ken_sprite_13
-      rect:
-        serializedVersion: 2
-        x: 110
-        y: 384
-        width: 110
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 55c5e464383b23c45baed6cbd616fb2e
-      internalID: 1290167038
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ken_sprite_14
-      rect:
-        serializedVersion: 2
-        x: 220
-        y: 384
-        width: 110
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2380afd671b93dd41bddf0f28ae07019
-      internalID: -2035567488
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ken_sprite_15
-      rect:
-        serializedVersion: 2
-        x: 330
-        y: 384
-        width: 110
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 16b9a21358a2b62479852abec302792b
-      internalID: 1715842415
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ken_sprite_16
-      rect:
-        serializedVersion: 2
-        x: 440
-        y: 384
-        width: 110
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4c9f6d8f51af4804faf9b18cd337d935
-      internalID: -1087972249
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ken_sprite_17
-      rect:
-        serializedVersion: 2
-        x: 550
-        y: 384
-        width: 110
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1d3ae3368ed162d45b9a1d54b71d38cc
-      internalID: -674953201
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ken_sprite_18
-      rect:
-        serializedVersion: 2
-        x: 660
-        y: 384
-        width: 110
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5aa65f47188bbdc469cc162c1a3ca2c4
-      internalID: 515949663
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ken_sprite_19
-      rect:
-        serializedVersion: 2
-        x: 770
-        y: 384
-        width: 110
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 48a4274b537dd82499f134d1cb9b5ad3
-      internalID: -1156696520
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ken_sprite_20
-      rect:
-        serializedVersion: 2
-        x: 880
-        y: 384
-        width: 110
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 03388dd678fb3544781a8a38732ab451
-      internalID: 1326497579
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ken_sprite_21
-      rect:
-        serializedVersion: 2
-        x: 990
-        y: 384
-        width: 110
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 16485e2fb974f414a8600786732e3ac8
-      internalID: 44070995
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ken_sprite_22
-      rect:
-        serializedVersion: 2
-        x: 1100
-        y: 384
-        width: 110
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e59c51b0cf3d8cc4687fa8a542d12758
-      internalID: 195572160
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ken_sprite_23
-      rect:
-        serializedVersion: 2
-        x: 1210
-        y: 384
-        width: 110
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1f68100125733a240892ac985b2588c8
-      internalID: -869172238
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ken_sprite_24
+      name: Cap_13
       rect:
         serializedVersion: 2
         x: 0
-        y: 256
-        width: 110
-        height: 128
+        y: 543
+        width: 131
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 55c14b85cc1bde640854cca3de85c402
-      internalID: 767286856
+      spriteID: cfd0e6249af19534fb89f252293c1e27
+      internalID: -2132610796
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ken_sprite_25
+      name: Cap_14
       rect:
         serializedVersion: 2
-        x: 110
-        y: 256
-        width: 110
-        height: 128
+        x: 231
+        y: 543
+        width: 142
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a19efac3b637b94e8350398fd78d100
-      internalID: 1758228415
+      spriteID: 144f919ad0823ee43a0af0ca86a583f0
+      internalID: 1369666799
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ken_sprite_26
+      name: Cap_15
       rect:
         serializedVersion: 2
-        x: 220
-        y: 256
-        width: 110
-        height: 128
+        x: 462
+        y: 543
+        width: 141
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca1f5870537250e4789b1b07b0b87fa5
-      internalID: -1984910527
+      spriteID: 3fdcf44fbc9c4e7449270ba39902d215
+      internalID: 1303112961
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ken_sprite_27
+      name: Cap_16
       rect:
         serializedVersion: 2
-        x: 330
-        y: 256
-        width: 110
-        height: 128
+        x: 693
+        y: 543
+        width: 124
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e171a0112154f7946bc7e49e124e0ec3
-      internalID: -1876004181
+      spriteID: 1c8f51977e6f58e41a93e222b800c6a3
+      internalID: 1870500140
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ken_sprite_28
+      name: Cap_17
       rect:
         serializedVersion: 2
-        x: 440
-        y: 256
-        width: 110
-        height: 128
+        x: 924
+        y: 543
+        width: 130
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f5e3f5c4e71e7774289c5ed63f6c96b9
-      internalID: 630234812
+      spriteID: 88fd4eb408ecfdc41b6ab4a7ba203d8e
+      internalID: -741457266
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ken_sprite_29
+      name: Cap_18
       rect:
         serializedVersion: 2
-        x: 550
-        y: 256
-        width: 110
-        height: 128
+        x: 1154
+        y: 543
+        width: 145
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0660c4f25d49ca74db9f9f2b1b03dccd
-      internalID: 56286893
+      spriteID: 5bd29333c9556e840b674ec995f25f26
+      internalID: -592322052
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ken_sprite_30
+      name: Cap_19
       rect:
         serializedVersion: 2
-        x: 660
-        y: 256
-        width: 110
-        height: 128
+        x: 1385
+        y: 543
+        width: 133
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f3a7731e5f343f045a6e166b1327ca60
-      internalID: -1138432354
+      spriteID: 50ceca7932fa17a45a90ce4c1dc44560
+      internalID: -34759678
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ken_sprite_31
+      name: Cap_20
       rect:
         serializedVersion: 2
-        x: 770
-        y: 256
-        width: 110
-        height: 128
+        x: 1616
+        y: 543
+        width: 132
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ac745292efaae84db3021b893df5385
-      internalID: 747831608
+      spriteID: 000249274d480cb49b7e6943c4006aa5
+      internalID: 1832124565
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ken_sprite_32
+      name: Cap_21
       rect:
         serializedVersion: 2
-        x: 880
-        y: 256
-        width: 110
-        height: 128
+        x: 1848
+        y: 543
+        width: 150
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0942a946765c3fd4ab71cf3dc6f361e4
-      internalID: 790419153
+      spriteID: 8c5089a6e4b8b864c9218eb186362717
+      internalID: -1949380766
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ken_sprite_33
+      name: Cap_22
       rect:
         serializedVersion: 2
-        x: 990
-        y: 256
-        width: 110
-        height: 128
+        x: 2079
+        y: 543
+        width: 131
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d6bd3a00114b7940a9145ab36590422
-      internalID: 1841004028
+      spriteID: 442b66558e0984747ade968f5b95970d
+      internalID: 1321819386
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ken_sprite_34
+      name: Cap_23
       rect:
         serializedVersion: 2
-        x: 1100
-        y: 256
-        width: 110
-        height: 128
+        x: 2310
+        y: 543
+        width: 231
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b916ca6646ed8b946b34a518fbd1bc8f
-      internalID: 2059901194
+      spriteID: ad65a299fb65d8442b4dd55e26abf8d3
+      internalID: -1820024483
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ken_sprite_35
+      name: Cap_24
       rect:
         serializedVersion: 2
-        x: 1210
-        y: 256
-        width: 110
-        height: 128
+        x: 2541
+        y: 543
+        width: 231
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0587defb5ffeef545b18bd60238d9f98
-      internalID: -588352330
+      spriteID: 6733445dbdc637742a841c5dfbc9b60f
+      internalID: -2105763624
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ken_sprite_36
+      name: Cap_25
       rect:
         serializedVersion: 2
-        x: 0
-        y: 128
-        width: 110
-        height: 128
+        x: 2772
+        y: 544
+        width: 149
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f3750bab28d0f7c4db229e54ad3353e5
-      internalID: -1541708134
+      spriteID: ca52225335988384b92bfc6b71f23af6
+      internalID: -875220017
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ken_sprite_37
-      rect:
-        serializedVersion: 2
-        x: 110
-        y: 128
-        width: 110
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 071dc6752abcf354c98f4001b216402d
-      internalID: -2128042027
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ken_sprite_38
-      rect:
-        serializedVersion: 2
-        x: 220
-        y: 128
-        width: 110
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ed6474f60c0ef754cbf98a1ad93ec68b
-      internalID: 663726423
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ken_sprite_39
-      rect:
-        serializedVersion: 2
-        x: 330
-        y: 128
-        width: 110
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b98db090e10b7b2438c115f14869830a
-      internalID: -344019342
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ken_sprite_40
-      rect:
-        serializedVersion: 2
-        x: 440
-        y: 128
-        width: 110
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 273f247bc74f6764dabcb36ccad7d858
-      internalID: 1326000219
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ken_sprite_41
-      rect:
-        serializedVersion: 2
-        x: 550
-        y: 128
-        width: 110
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c238c66c383082a4490861927b53dd17
-      internalID: -1804531892
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ken_sprite_42
+      name: Cap_26
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 110
-        height: 128
+        y: 362
+        width: 130
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2363bfbb0a5d7904e949aaa589b5add6
-      internalID: -2049523436
+      spriteID: 24fda4667f9f0a742b08af06d5c7b561
+      internalID: -1056432798
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ken_sprite_43
+      name: Cap_27
       rect:
         serializedVersion: 2
-        x: 110
-        y: 0
-        width: 110
-        height: 128
+        x: 231
+        y: 362
+        width: 141
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2787c257625673243a0f852f92ab2e1d
-      internalID: 1432722298
+      spriteID: ab5011c17f65f744e8a7cdc48588764a
+      internalID: 1007468635
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ken_sprite_44
+      name: Cap_28
       rect:
         serializedVersion: 2
-        x: 220
-        y: 0
-        width: 110
-        height: 128
+        x: 462
+        y: 362
+        width: 231
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f6b2878516076fc4193a374f770903ff
-      internalID: -1514215240
+      spriteID: 5652309f124efa043ab3d2a04b8f7d96
+      internalID: -1162092813
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ken_sprite_45
+      name: Cap_29
       rect:
         serializedVersion: 2
-        x: 330
-        y: 0
-        width: 110
-        height: 128
+        x: 693
+        y: 362
+        width: 231
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9db8b86dc64166946b1005eb45122833
-      internalID: -1893931949
+      spriteID: 934c17ceb33022543982115f76fcab1c
+      internalID: -1531297610
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ken_sprite_46
+      name: Cap_30
       rect:
         serializedVersion: 2
-        x: 440
-        y: 0
-        width: 110
-        height: 128
+        x: 924
+        y: 362
+        width: 200
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 085012278d1131d4085ee83d9d61b9dd
-      internalID: -22023871
+      spriteID: b9605f1d1674863458d97136cb8ab0d9
+      internalID: -1035264901
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ken_sprite_47
+      name: Cap_31
       rect:
         serializedVersion: 2
-        x: 550
-        y: 0
-        width: 110
-        height: 128
+        x: 1155
+        y: 362
+        width: 173
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20f3b334dca8cc84389aef149a67459b
-      internalID: 1323164001
+      spriteID: 28e1b53c2bd36c4448fd2a7d78a6b5ed
+      internalID: -1097453925
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ken_sprite_48
+      name: Cap_32
       rect:
         serializedVersion: 2
-        x: 660
-        y: 0
-        width: 110
-        height: 128
+        x: 1387
+        y: 362
+        width: 188
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8035c8ec53ad84940952fc7b7c30f764
-      internalID: 603829714
+      spriteID: 29443cd3cae302c4f84c2d9fdbff4182
+      internalID: -1882913616
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ken_sprite_49
+      name: Cap_33
       rect:
         serializedVersion: 2
-        x: 770
-        y: 0
-        width: 110
-        height: 128
+        x: 1618
+        y: 362
+        width: 198
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ebbb66855e3a5b74f9ab5c92593ed662
-      internalID: 1072078477
+      spriteID: a3850c6a9b305424bbc46dbacab46244
+      internalID: 2135158728
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ken_sprite_50
+      name: Cap_34
       rect:
         serializedVersion: 2
-        x: 880
-        y: 0
-        width: 110
-        height: 128
+        x: 1848
+        y: 362
+        width: 164
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4eaff3346571eed4889c117017140e39
-      internalID: 998954331
+      spriteID: d430d2dd3f53a2e4e961419bf70a29d1
+      internalID: -357718877
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ken_sprite_51
+      name: Cap_35
       rect:
         serializedVersion: 2
-        x: 990
-        y: 0
-        width: 110
-        height: 128
+        x: 0
+        y: 181
+        width: 145
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0023c5bb473f21d4d8268bf01ff18886
-      internalID: -153515228
+      spriteID: 07f010184c1f46a4fab6b2a845095415
+      internalID: 1172157211
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ken_sprite_52
+      name: Cap_36
       rect:
         serializedVersion: 2
-        x: 1100
-        y: 0
-        width: 110
-        height: 128
+        x: 231
+        y: 181
+        width: 129
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c114e32921e260a43a1444b4f8610b7b
-      internalID: 354977550
+      spriteID: 60ecf06b36edffc4c9e41cc64e5d7221
+      internalID: 616356405
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ken_sprite_53
+      name: Cap_37
       rect:
         serializedVersion: 2
-        x: 1210
-        y: 0
-        width: 110
-        height: 128
+        x: 462
+        y: 181
+        width: 165
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c5ab34d2ae34a44fb0cc3d0f6924e0a
-      internalID: -1455287678
+      spriteID: 2f4bcca83dc9f724b9c79e0e2ef2b9f7
+      internalID: -2072751196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cap_38
+      rect:
+        serializedVersion: 2
+        x: 693
+        y: 181
+        width: 194
+        height: 181
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e702dc1d8e991b34f8ba8687d28d7d66
+      internalID: -1192777784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cap_39
+      rect:
+        serializedVersion: 2
+        x: 924
+        y: 181
+        width: 180
+        height: 181
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5a1f19d6f9d8a34a86840839fbeb046
+      internalID: -33178326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cap_40
+      rect:
+        serializedVersion: 2
+        x: 1155
+        y: 181
+        width: 145
+        height: 181
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 292e0242bc25b1e448044a71b7b5e332
+      internalID: -1105806866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cap_41
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 0
+        width: 162
+        height: 181
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6c4e9d1f454d9f4eacf41fda0a858ab
+      internalID: 1767447473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cap_42
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 0
+        width: 150
+        height: 181
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89f11d19e7fe96c4bbb3c3d179834fe5
+      internalID: -541753562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cap_43
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 0
+        width: 135
+        height: 181
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e56951e6924b1de4d85a44592911f1fc
+      internalID: -1026082108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cap_44
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 0
+        width: 144
+        height: 181
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f36f4d1b1a9ad34dbba5a2134661a80
+      internalID: -1866343908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cap_45
+      rect:
+        serializedVersion: 2
+        x: 924
+        y: 0
+        width: 231
+        height: 181
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cc4664c6305b784fad0d0cc1613dd58
+      internalID: 429881814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cap_46
+      rect:
+        serializedVersion: 2
+        x: 1231
+        y: 0
+        width: 155
+        height: 181
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4be2d979103e0c4d8e37a7cec587b49
+      internalID: -931830535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cap_47
+      rect:
+        serializedVersion: 2
+        x: 1447
+        y: 0
+        width: 170
+        height: 181
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92589670c03e9d74b98581b02faf3b65
+      internalID: -2001047884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cap_48
+      rect:
+        serializedVersion: 2
+        x: 1665
+        y: 0
+        width: 183
+        height: 181
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 845a149fe12b81c459a50bfa07df4632
+      internalID: 1545896543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cap_49
+      rect:
+        serializedVersion: 2
+        x: 1897
+        y: 0
+        width: 182
+        height: 181
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 973bab373f58c4f46b822bafb296f5ad
+      internalID: -1837615389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cap_50
+      rect:
+        serializedVersion: 2
+        x: 2149
+        y: 0
+        width: 161
+        height: 181
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5066c36fc71fca44f99bf8a18980567c
+      internalID: 390981462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cap_51
+      rect:
+        serializedVersion: 2
+        x: 2366
+        y: 0
+        width: 175
+        height: 181
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6365c1ad9f616144f979bd865ed5443a
+      internalID: -605032623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cap_52
+      rect:
+        serializedVersion: 2
+        x: 2592
+        y: 0
+        width: 180
+        height: 181
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9155e975c9d1490499ff8f8cdaeacefe
+      internalID: 792479297
       vertices: []
       indices: 
       edges: []
@@ -1249,60 +1228,59 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ken_sprite_0: 758938036
-      ken_sprite_1: -2098321835
-      ken_sprite_10: 1850087644
-      ken_sprite_11: -28173710
-      ken_sprite_12: 1231746512
-      ken_sprite_13: 1290167038
-      ken_sprite_14: -2035567488
-      ken_sprite_15: 1715842415
-      ken_sprite_16: -1087972249
-      ken_sprite_17: -674953201
-      ken_sprite_18: 515949663
-      ken_sprite_19: -1156696520
-      ken_sprite_2: -1010327080
-      ken_sprite_20: 1326497579
-      ken_sprite_21: 44070995
-      ken_sprite_22: 195572160
-      ken_sprite_23: -869172238
-      ken_sprite_24: 767286856
-      ken_sprite_25: 1758228415
-      ken_sprite_26: -1984910527
-      ken_sprite_27: -1876004181
-      ken_sprite_28: 630234812
-      ken_sprite_29: 56286893
-      ken_sprite_3: 2039369485
-      ken_sprite_30: -1138432354
-      ken_sprite_31: 747831608
-      ken_sprite_32: 790419153
-      ken_sprite_33: 1841004028
-      ken_sprite_34: 2059901194
-      ken_sprite_35: -588352330
-      ken_sprite_36: -1541708134
-      ken_sprite_37: -2128042027
-      ken_sprite_38: 663726423
-      ken_sprite_39: -344019342
-      ken_sprite_4: 963979369
-      ken_sprite_40: 1326000219
-      ken_sprite_41: -1804531892
-      ken_sprite_42: -2049523436
-      ken_sprite_43: 1432722298
-      ken_sprite_44: -1514215240
-      ken_sprite_45: -1893931949
-      ken_sprite_46: -22023871
-      ken_sprite_47: 1323164001
-      ken_sprite_48: 603829714
-      ken_sprite_49: 1072078477
-      ken_sprite_5: -184813922
-      ken_sprite_50: 998954331
-      ken_sprite_51: -153515228
-      ken_sprite_52: 354977550
-      ken_sprite_53: -1455287678
-      ken_sprite_6: 919027778
-      ken_sprite_7: 1224819982
-      ken_sprite_8: -1222482930
-      ken_sprite_9: 1689414085
+      Cap_0: -619240055
+      Cap_1: 1167857710
+      Cap_10: 504415860
+      Cap_11: -173814864
+      Cap_12: -1834057701
+      Cap_13: -2132610796
+      Cap_14: 1369666799
+      Cap_15: 1303112961
+      Cap_16: 1870500140
+      Cap_17: -741457266
+      Cap_18: -592322052
+      Cap_19: -34759678
+      Cap_2: 76668606
+      Cap_20: 1832124565
+      Cap_21: -1949380766
+      Cap_22: 1321819386
+      Cap_23: -1820024483
+      Cap_24: -2105763624
+      Cap_25: -875220017
+      Cap_26: -1056432798
+      Cap_27: 1007468635
+      Cap_28: -1162092813
+      Cap_29: -1531297610
+      Cap_3: -95359076
+      Cap_30: -1035264901
+      Cap_31: -1097453925
+      Cap_32: -1882913616
+      Cap_33: 2135158728
+      Cap_34: -357718877
+      Cap_35: 1172157211
+      Cap_36: 616356405
+      Cap_37: -2072751196
+      Cap_38: -1192777784
+      Cap_39: -33178326
+      Cap_4: -1551502218
+      Cap_40: -1105806866
+      Cap_41: 1767447473
+      Cap_42: -541753562
+      Cap_43: -1026082108
+      Cap_44: -1866343908
+      Cap_45: 429881814
+      Cap_46: -931830535
+      Cap_47: -2001047884
+      Cap_48: 1545896543
+      Cap_49: -1837615389
+      Cap_5: -943220431
+      Cap_50: 390981462
+      Cap_51: -605032623
+      Cap_52: 792479297
+      Cap_6: 1511957400
+      Cap_7: -1270638249
+      Cap_8: 1855078298
+      Cap_9: 155149753
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

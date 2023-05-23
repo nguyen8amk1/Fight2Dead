@@ -108,19 +108,19 @@ TextureImporter:
       name: Ken_Intro_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 79
-        width: 53
-        height: 83
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 0
+        y: 0
+        width: 78
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 08967a394a025cd49bed0e6699afd281
-      internalID: -1237808240
+      spriteID: baee39620ff6b40409b0e9dac2ccdc50
+      internalID: -1983689269
       vertices: []
       indices: 
       edges: []
@@ -129,19 +129,19 @@ TextureImporter:
       name: Ken_Intro_1
       rect:
         serializedVersion: 2
-        x: 70
-        y: 79
-        width: 60
-        height: 88
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 109
+        y: 0
+        width: 83
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 90ce9cc99a4a4b147ad673dbf44a1039
-      internalID: -937351360
+      spriteID: 5701158d14152b5439ec78220996bb6b
+      internalID: -479835753
       vertices: []
       indices: 
       edges: []
@@ -150,19 +150,19 @@ TextureImporter:
       name: Ken_Intro_2
       rect:
         serializedVersion: 2
-        x: 140
-        y: 78
-        width: 64
-        height: 90
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 218
+        y: 0
+        width: 74
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bde928004daef8b428a0ce7b392a1247
-      internalID: -761108358
+      spriteID: 551b2fe9588701046bb32cb6159b8bb4
+      internalID: 89169179
       vertices: []
       indices: 
       edges: []
@@ -171,19 +171,19 @@ TextureImporter:
       name: Ken_Intro_3
       rect:
         serializedVersion: 2
-        x: 215
-        y: 80
-        width: 63
-        height: 89
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 327
+        y: 0
+        width: 83
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 041baf1378bcbc540b3f0de1a5aa580d
-      internalID: -957171467
+      spriteID: cc87f639cef321842b2591554099b7a8
+      internalID: -980404642
       vertices: []
       indices: 
       edges: []
@@ -192,19 +192,19 @@ TextureImporter:
       name: Ken_Intro_4
       rect:
         serializedVersion: 2
-        x: 288
-        y: 74
-        width: 54
-        height: 94
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 436
+        y: 0
+        width: 77
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a0e24b7c09ef3f4aa8eabf31bdedc11
-      internalID: 2115276847
+      spriteID: 7c7195693a4b7404e9c7ea78903445f7
+      internalID: -1181314425
       vertices: []
       indices: 
       edges: []
@@ -213,145 +213,19 @@ TextureImporter:
       name: Ken_Intro_5
       rect:
         serializedVersion: 2
-        x: 357
-        y: 78
-        width: 50
-        height: 89
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 545
+        y: 0
+        width: 71
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af0bff84c9f4f7140a10890e419466f8
-      internalID: -187830678
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ken_Intro_6
-      rect:
-        serializedVersion: 2
-        x: 417
-        y: 79
-        width: 61
-        height: 87
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2362f49572e8b27408f7f42df28e1aca
-      internalID: 728693146
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ken_Intro_7
-      rect:
-        serializedVersion: 2
-        x: 487
-        y: 78
-        width: 59
-        height: 90
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9bc8ec55aa7c36849a4af7a386176f03
-      internalID: 1341046090
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ken_Intro_8
-      rect:
-        serializedVersion: 2
-        x: 558
-        y: 79
-        width: 57
-        height: 90
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9673114d7033a664db75acd2cfea84ca
-      internalID: -16981673
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ken_Intro_9
-      rect:
-        serializedVersion: 2
-        x: 629
-        y: 80
-        width: 58
-        height: 90
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: eff90c9c50432384bb60127b725ea5fc
-      internalID: 483482795
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ken_Intro_10
-      rect:
-        serializedVersion: 2
-        x: 702
-        y: 78
-        width: 58
-        height: 91
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f7410fe08e7da264fa6925678d3e88a4
-      internalID: 682077288
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ken_Intro_11
-      rect:
-        serializedVersion: 2
-        x: 773
-        y: 79
-        width: 57
-        height: 89
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 08e5df34d8556b745bfb15d743a90bee
-      internalID: 226706904
+      spriteID: 12f32e5702a35bd489a9bedf90c2deb3
+      internalID: 1656621172
       vertices: []
       indices: 
       edges: []
@@ -367,18 +241,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Ken_Intro_0: -1237808240
-      Ken_Intro_1: -937351360
-      Ken_Intro_10: 682077288
-      Ken_Intro_11: 226706904
-      Ken_Intro_2: -761108358
-      Ken_Intro_3: -957171467
-      Ken_Intro_4: 2115276847
-      Ken_Intro_5: -187830678
-      Ken_Intro_6: 728693146
-      Ken_Intro_7: 1341046090
-      Ken_Intro_8: -16981673
-      Ken_Intro_9: 483482795
+      Ken_Intro_0: -1983689269
+      Ken_Intro_1: -479835753
+      Ken_Intro_2: 89169179
+      Ken_Intro_3: -980404642
+      Ken_Intro_4: -1181314425
+      Ken_Intro_5: 1656621172
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -20,15 +20,15 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -1653033463, guid: 6a7e4c7b7e258c9409ec093ecf4a807a, type: 3}
-    - time: 0.16666667
-      value: {fileID: 1355349684, guid: 6a7e4c7b7e258c9409ec093ecf4a807a, type: 3}
-    - time: 0.35
-      value: {fileID: 1375588871, guid: 6a7e4c7b7e258c9409ec093ecf4a807a, type: 3}
-    - time: 0.51666665
-      value: {fileID: -1719561463, guid: 6a7e4c7b7e258c9409ec093ecf4a807a, type: 3}
-    - time: 0.7
-      value: {fileID: -2043374126, guid: 6a7e4c7b7e258c9409ec093ecf4a807a, type: 3}
+      value: {fileID: 1970605255, guid: afe237ee6598557419d7c91e556813d1, type: 3}
+    - time: 0.18333334
+      value: {fileID: 654110000, guid: afe237ee6598557419d7c91e556813d1, type: 3}
+    - time: 0.36666667
+      value: {fileID: 1304199615, guid: afe237ee6598557419d7c91e556813d1, type: 3}
+    - time: 0.56666666
+      value: {fileID: -1110374632, guid: afe237ee6598557419d7c91e556813d1, type: 3}
+    - time: 0.75
+      value: {fileID: 1889539292, guid: afe237ee6598557419d7c91e556813d1, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -48,17 +48,17 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -1653033463, guid: 6a7e4c7b7e258c9409ec093ecf4a807a, type: 3}
-    - {fileID: 1355349684, guid: 6a7e4c7b7e258c9409ec093ecf4a807a, type: 3}
-    - {fileID: 1375588871, guid: 6a7e4c7b7e258c9409ec093ecf4a807a, type: 3}
-    - {fileID: -1719561463, guid: 6a7e4c7b7e258c9409ec093ecf4a807a, type: 3}
-    - {fileID: -2043374126, guid: 6a7e4c7b7e258c9409ec093ecf4a807a, type: 3}
+    - {fileID: 1970605255, guid: afe237ee6598557419d7c91e556813d1, type: 3}
+    - {fileID: 654110000, guid: afe237ee6598557419d7c91e556813d1, type: 3}
+    - {fileID: 1304199615, guid: afe237ee6598557419d7c91e556813d1, type: 3}
+    - {fileID: -1110374632, guid: afe237ee6598557419d7c91e556813d1, type: 3}
+    - {fileID: 1889539292, guid: afe237ee6598557419d7c91e556813d1, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.71666664
+    m_StopTime: 0.76666665
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
