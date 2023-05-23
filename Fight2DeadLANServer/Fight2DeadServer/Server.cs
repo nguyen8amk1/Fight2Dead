@@ -46,6 +46,7 @@ namespace SocketServer
 
             Thread udpListeningThread = new Thread(() => udpListening());
             udpListeningThread.Start();
+
 			Thread createRoomThread = new Thread(() => createRoom());
 			createRoomThread.Start();
 
@@ -175,6 +176,7 @@ namespace SocketServer
             {
                 if (udpListener.Available > 0)
                 {
+					Console.WriteLine($"Listening at port: {udpPort}");
                     IPEndPoint remoteEP = new IPEndPoint(IPAddress.Any, 0);
                     byte[] buffer = udpListener.Receive(ref remoteEP);
                     string message = Encoding.ASCII.GetString(buffer);
@@ -182,7 +184,7 @@ namespace SocketServer
 
                     string rid = tokens[0];
 
-                    //dlog.messageReceived(pid, 3, message);
+                    dlog.messageReceived("ditme", 3, message);
                     rooms[rid].udpProcess(udpListener, tokens);
                 }
             }

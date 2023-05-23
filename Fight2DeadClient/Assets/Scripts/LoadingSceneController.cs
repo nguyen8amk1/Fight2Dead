@@ -468,11 +468,11 @@ public class LoadingSceneController : MonoBehaviour
             
 
             Debug.Log("TODO: There are udp connection bug right here");
-
             if(globalGameState.onlineMode == "LAN")
 			{
 				UDPServerConnection.Instance.inheritPortFromLAN(LANTCPServerConnection.Instance); 
 			}
+
             else if (globalGameState.onlineMode == "GLOBAL")
             {
                 UDPServerConnection.Instance.inheritPortFromGLOBAL(TCPServerConnection.Instance);
@@ -487,25 +487,6 @@ public class LoadingSceneController : MonoBehaviour
             ServerCommute.listenToServerThread = ServerCommute.connection.createListenToServerThread(ListenToServerFactory.tempUDPListening());
             ServerCommute.listenToServerThread.Start();
             
-            /*
-            if(globalGameState.PlayerId == 1)
-			{
-                GameState.serversendpath = "clientreceive1.txt";
-			} else
-			{
-                GameState.serversendpath = "clientreceive2.txt";
-			}
-
-			// @Test
-			if (!File.Exists(GameState.serversendpath))
-			{
-				// Create a file to write to.
-				using (StreamWriter sw = File.CreateText(GameState.serversendpath))
-				{
-				}
-			}
-            */
-
             Util.toNextScene();
         }
     }

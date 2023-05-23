@@ -24,6 +24,7 @@ public class GamePlayerNetworkCommutor : MonoBehaviour
         if(globalGameState.PlayerId == 1)
 		{
             //hostPlayer = playerA;
+            Debug.Log("player 1 sending to udp server");
 			string message = InGameMessageGenerator.tempInGameMessage(playerA.transform.position.x, playerA.transform.position.y, 1);
 			ServerCommute.connection.sendToServer(message);
 			playerB.transform.position = new Vector3(globalGameState.playersPosition[1].x, globalGameState.playersPosition[1].y, 0);
@@ -31,6 +32,7 @@ public class GamePlayerNetworkCommutor : MonoBehaviour
 
         if(globalGameState.PlayerId == 2)
 		{
+            Debug.Log("player 2 sending to udp server");
             //hostPlayer = playerB;
 			string message = InGameMessageGenerator.tempInGameMessage(playerB.transform.position.x, playerB.transform.position.y, 1);
 			ServerCommute.connection.sendToServer(message);

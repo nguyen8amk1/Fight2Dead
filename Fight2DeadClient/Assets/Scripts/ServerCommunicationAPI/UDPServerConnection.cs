@@ -19,8 +19,11 @@ namespace SocketServer
                 return instance;
             }
         }
+
         private int udpPort = 8000;
         private UdpClient udpClient = new UdpClient();
+
+        // YEAHHH: i found the problem :))
         private string serverIp = "127.0.0.1";
 
         private UDPServerConnection()
@@ -49,6 +52,7 @@ namespace SocketServer
             int sourcePort = ((IPEndPoint)tcpConnection.getTcpClient().Client.LocalEndPoint).Port;
             udpClient.Client.Bind(new IPEndPoint(IPAddress.Any, sourcePort));
         }
+
         public void inheritPortFromLAN(LANTCPServerConnection tcpConnection)
         {
             int sourcePort = ((IPEndPoint)tcpConnection.getTcpClient().Client.LocalEndPoint).Port;
@@ -62,7 +66,7 @@ namespace SocketServer
                 // TODO: 
                 IPEndPoint remoteEndPoint = new IPEndPoint(IPAddress.Parse(serverIp), udpPort);
                 int listeningPort = ((IPEndPoint)udpClient.Client.LocalEndPoint).Port;
-                Debug.Log("Listening for server at port " + listeningPort);
+                Debug.Log("UDP Listening for server at port " + listeningPort);
                 byte[] bytes = udpClient.Receive(ref remoteEndPoint);
                 string message = Encoding.ASCII.GetString(bytes);
                 Debug.Log("Received udp data: " + message);
