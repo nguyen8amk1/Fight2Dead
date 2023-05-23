@@ -185,6 +185,12 @@ namespace SocketServer {
 				float y = float.Parse(tokens[2]);
 				int state = Int32.Parse(tokens[3]);
 
+				//@Test
+				CharactersController.charId = state;
+				CharactersController.moveLeft = (Int32.Parse(tokens[4]) == 1);
+				CharactersController.moveRight =  (Int32.Parse(tokens[5]) == 1);
+
+				//@Test: for now state is gonna be char id 
 				Debug.Log($"TODO: handle Receive state: {state}");
 				gameState.playersPosition[pid-1].x = x;
 				gameState.playersPosition[pid-1].y = y;

@@ -176,10 +176,11 @@ namespace SocketServer
             {
                 if (udpListener.Available > 0)
                 {
-					Console.WriteLine($"Listening at port: {udpPort}");
+					//Console.WriteLine($"Listening at port: {udpPort}");
                     IPEndPoint remoteEP = new IPEndPoint(IPAddress.Any, 0);
                     byte[] buffer = udpListener.Receive(ref remoteEP);
                     string message = Encoding.ASCII.GetString(buffer);
+					//Console.WriteLine($"Receive: " + message);
                     string[] tokens = message.Split(',');
 
                     string rid = tokens[0];

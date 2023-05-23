@@ -7,7 +7,7 @@ public class Player2 : MonoBehaviour
     //Movement
     [SerializeField] float m_speed = 4.0f;
     [SerializeField] float m_jumpForce = 7.5f;
-    private Animator m_animator;
+	private Animator m_animator;
     private Rigidbody2D m_body2d;
     private Sensor m_groundSensor;
     private bool m_grounded = false;
@@ -60,7 +60,12 @@ public class Player2 : MonoBehaviour
     const string PLAYER_DIE_LEFT = "Die_Left";
     const string PLAYER_ATTACK = "Nor";
     public float animTime;
-    void ChangeAnimationState(string newState)
+
+	public static bool isBeingControlled;
+	public static bool moveRight;
+	public static bool moveLeft;
+
+	void ChangeAnimationState(string newState)
     {
         if (currentState == newState) return;
 
@@ -131,24 +136,44 @@ public class Player2 : MonoBehaviour
         // -- Handle input and movement --
         float inputX = 0f;
 
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            inputX = -1f;
-            GetComponent<SpriteRenderer>().flipX = true;
-            m_facingDirection = -1;
-        }
-        else if (Input.GetKey(KeyCode.RightArrow))
-        {
-            inputX = 1f;
-            GetComponent<SpriteRenderer>().flipX = false;
-            m_facingDirection = 1;
-        }
+        if(isBeingControlled)
+		{
+			if (moveLeft)
+			{
+				inputX = -1f;
+				GetComponent<SpriteRenderer>().flipX = true;
+				m_facingDirection = -1;
+			}
+			else if (moveRight)
+			{
+				inputX = 1f;
+				GetComponent<SpriteRenderer>().flipX = false;
+				m_facingDirection = 1;
+			}
+
+		} else
+		{
+
+			if (Input.GetKey(KeyCode.LeftArrow))
+			{
+				inputX = -1f;
+				GetComponent<SpriteRenderer>().flipX = true;
+				m_facingDirection = -1;
+			}
+			else if (Input.GetKey(KeyCode.RightArrow))
+			{
+				inputX = 1f;
+				GetComponent<SpriteRenderer>().flipX = false;
+				m_facingDirection = 1;
+			}
+
+		}
 
         // Move
         if (!isAttacking && !knockback)
         {
             m_body2d.velocity = new Vector2(inputX * m_speed, m_body2d.velocity.y);
-            Debug.Log("Luffy Speed");
+            //Debug.Log("Luffy Speed");
         }
 
         //Set AirSpeed in animator
@@ -167,7 +192,7 @@ public class Player2 : MonoBehaviour
             // m_animator.SetTrigger("Attack" + m_currentAttack);
 
             //When the attack animation run the event in animation call the function Attack()
-            Debug.Log("Luffy Attack");
+            //Debug.Log("Luffy Attack");
 
             // Wai until the animation attack end
             yield return new WaitForSeconds(0f);
@@ -212,7 +237,7 @@ public class Player2 : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Keypad3) && (Time.time - lastUltimateTime >= cooldownTime))
         {
             // m_animator.SetTrigger("ultimate");
-            Debug.Log("Gaara Ultimate");
+            //Debug.Log("Gaara Ultimate");
             lastUltimateTime = Time.time; // Update time last pressed "L" button
         }
         // Block
@@ -230,7 +255,7 @@ public class Player2 : MonoBehaviour
             if (m_grounded)
             {
                 ChangeAnimationState(PLAYER_JUMP);
-                Debug.Log("Luffy Jump 1");
+                //Debug.Log("Luffy Jump 1");
                 // m_animator.SetTrigger("Jump");
                 m_grounded = false;
                 // m_animator.SetBool("Grounded", m_grounded);
@@ -240,7 +265,7 @@ public class Player2 : MonoBehaviour
             else if (canDoubleJump)
             {
                 ChangeAnimationState(PLAYER_JUMP);
-                Debug.Log("Luffy Jump 2");
+                //Debug.Log("Luffy Jump 2");
                 // m_animator.SetTrigger("Jump");
                 m_body2d.velocity = new Vector2(m_body2d.velocity.x, m_jumpForce);
                 m_jumpsLeft--;
@@ -249,7 +274,7 @@ public class Player2 : MonoBehaviour
         //Run
         else if (Mathf.Abs(inputX) > Mathf.Epsilon && m_grounded)
         {
-            Debug.Log("Luffy Walk");
+            //Debug.Log("Luffy Walk");
             // Reset timer
             m_delayToIdle = 0.05f;
             // m_animator.SetInteger("AnimState", 1);
@@ -259,7 +284,7 @@ public class Player2 : MonoBehaviour
         //Idle
         else if (m_grounded && !isAttacking)
         {
-            Debug.Log("Luffy Idle");
+            //Debug.Log("Luffy Idle");
             // Prevents flickering transitions to idle
             m_delayToIdle -= Time.deltaTime;
             if (m_delayToIdle < 0)
@@ -278,7 +303,7 @@ public class Player2 : MonoBehaviour
             Player1 hurtComponent = enemy.GetComponent<Player1>();
             if (hurtComponent != null)
             {
-                Debug.Log("Luffy Attack");
+                //Debug.Log("Luffy Attack");
                 hurtComponent.Damage(m_facingDirection);
             }
             else

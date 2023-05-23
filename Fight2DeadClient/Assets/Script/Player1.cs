@@ -7,7 +7,7 @@ public class Player1 : MonoBehaviour
     [SerializeField] float m_speed = 4.0f;
     [SerializeField] float m_jumpForce = 7.5f;
     private Animator m_animator;
-    private Rigidbody2D m_body2d;
+	private Rigidbody2D m_body2d;
     private Sensor m_groundSensor;
     private bool m_grounded = false;
     private int m_facingDirection = 1;
@@ -60,7 +60,13 @@ public class Player1 : MonoBehaviour
     const string PLAYER_DIE_LEFT = "Die_Left";
     const string PLAYER_ATTACK = "Nor";
     public float animTime;
-    void ChangeAnimationState(string newState)
+
+    // @Test
+	public static bool isBeingControlled;
+	public static bool moveRight;
+	public static bool moveLeft;
+
+	void ChangeAnimationState(string newState)
     {
         if (currentState == newState) return;
 
@@ -126,24 +132,42 @@ public class Player1 : MonoBehaviour
 
             // m_grounded = false;
             ChangeAnimationState(PLAYER_FALL);
-            Debug.Log("Gaara Fall");
+            //Debug.Log("Gaara Fall");
             // m_animator.SetBool("Grounded", m_grounded);
         }
         // -- Handle input and movement --
         float inputX = 0f;
+        if(isBeingControlled)
+		{
+			if (moveLeft)
+			{
+				inputX = -1f;
+				GetComponent<SpriteRenderer>().flipX = true;
+				m_facingDirection = -1;
+			}
 
-        if (Input.GetKey(KeyCode.A))
-        {
-            inputX = -1f;
-            GetComponent<SpriteRenderer>().flipX = true;
-            m_facingDirection = -1;
-        }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            inputX = 1f;
-            GetComponent<SpriteRenderer>().flipX = false;
-            m_facingDirection = 1;
-        }
+			else if (moveRight)
+			{
+				inputX = 1f;
+				GetComponent<SpriteRenderer>().flipX = false;
+				m_facingDirection = 1;
+			}
+		} else
+		{
+			if (Input.GetKey(KeyCode.A))
+			{
+				inputX = -1f;
+				GetComponent<SpriteRenderer>().flipX = true;
+				m_facingDirection = -1;
+			}
+
+			else if (Input.GetKey(KeyCode.D))
+			{
+				inputX = 1f;
+				GetComponent<SpriteRenderer>().flipX = false;
+				m_facingDirection = 1;
+			}
+		}
 
 
         //Set AirSpeed in animator
@@ -159,15 +183,16 @@ public class Player1 : MonoBehaviour
         if (!isAttacking && !knockback)
         {
             m_body2d.velocity = new Vector2(inputX * m_speed, m_body2d.velocity.y);
-            Debug.Log("Gaara Speed");
+            //Debug.Log("Gaara Speed");
         }
+
         IEnumerator PerformAttack()
         {
             m_body2d.velocity = Vector2.zero;
             // Call one of three attack animations "Attack1", "Attack2", "Attack3"
             ChangeAnimationState(PLAYER_ATTACK + m_currentAttack.ToString());
             //When the attack animation run the event in animation call the function Attack()
-            Debug.Log("Gaara Attack");
+            //Debug.Log("Gaara Attack");
 
             // Wai until the animation attack end
             yield return new WaitForSeconds(animTime);
@@ -198,7 +223,7 @@ public class Player1 : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.L) && (Time.time - lastUltimateTime >= cooldownTime))
         {
             // m_animator.SetTrigger("ultimate");
-            Debug.Log("Gaara Ultimate");
+            //Debug.Log("Gaara Ultimate");
             lastUltimateTime = Time.time; // Update time last pressed "L" button
         }
         // Block
@@ -220,7 +245,7 @@ public class Player1 : MonoBehaviour
             {
                 // m_animator.SetTrigger("Jump");
                 ChangeAnimationState(PLAYER_JUMP);
-                Debug.Log("Gaara Jump 1");
+                //Debug.Log("Gaara Jump 1");
 
                 m_grounded = false;
                 // m_animator.SetBool("Grounded", m_grounded);
@@ -231,7 +256,7 @@ public class Player1 : MonoBehaviour
             {
                 // m_animator.SetTrigger("Jump");
                 ChangeAnimationState(PLAYER_JUMP);
-                Debug.Log("Gaara Jump 2");
+                //Debug.Log("Gaara Jump 2");
                 m_body2d.velocity = new Vector2(m_body2d.velocity.x, m_jumpForce);
                 m_jumpsLeft--;
             }
@@ -240,7 +265,7 @@ public class Player1 : MonoBehaviour
         else if (Mathf.Abs(inputX) > Mathf.Epsilon && m_grounded)
         {
             // Reset timer
-            Debug.Log("Gaara Walk");
+            //Debug.Log("Gaara Walk");
             m_delayToIdle = 0.05f;
             // m_animator.SetInteger("AnimState", 1);
             ChangeAnimationState(PLAYER_RUN);
@@ -249,7 +274,7 @@ public class Player1 : MonoBehaviour
         //Idle
         else if (m_grounded && !isAttacking)
         {
-            Debug.Log("Gaara Idle");
+            //Debug.Log("Gaara Idle");
             // Prevents flickering transitions to idle
             m_delayToIdle -= Time.deltaTime;
             // if (m_delayToIdle < 0)
@@ -270,7 +295,7 @@ public class Player1 : MonoBehaviour
             Player2 hurtComponent = enemy.GetComponent<Player2>();
             if (hurtComponent != null)
             {
-                Debug.Log("Gaara Attack");
+                //Debug.Log("Gaara Attack");
                 hurtComponent.Damage(m_facingDirection);
             }
             else
