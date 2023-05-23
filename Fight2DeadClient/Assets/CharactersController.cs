@@ -5,9 +5,6 @@ using UnityEngine;
 public class CharactersController : MonoBehaviour
 {
     // Start is called before the first frame update
-    public static int charId = -1;
-    public static bool moveLeft = false;
-    public static bool moveRight = false;
     //public static int facingDir = 0;
 
     void Start()
@@ -18,6 +15,7 @@ public class CharactersController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if(charId != -1)
 		{
             if(charId == 1)
@@ -48,5 +46,6 @@ public class CharactersController : MonoBehaviour
 				}
 			}
 		}
+        */
     }
 }

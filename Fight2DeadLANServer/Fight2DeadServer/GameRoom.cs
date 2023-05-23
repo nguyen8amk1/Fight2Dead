@@ -38,8 +38,8 @@ namespace SocketServer
         }
 
         public void udpProcess(UdpClient udpListener, string[] tokens) {
-            // format: client send to server: rid,pid,x,y,charid,moveleft,moveright 
-            string message = $"{tokens[1]},{tokens[2]},{tokens[3]},{tokens[4]},{tokens[5]},{tokens[6]}";
+            // format: client send to server: rid,pid,x,y,state
+            string message = $"{tokens[1]},{tokens[2]},{tokens[3]},{tokens[4]}";
             int pid = Int32.Parse(tokens[1]);
             UDPClientConnection.sendToOthers(udpPlayers, udpListener, pid, message);
         }

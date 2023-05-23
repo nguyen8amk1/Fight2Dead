@@ -24,9 +24,9 @@ public class GamePlayerNetworkCommutor : MonoBehaviour
 		{
             //hostPlayer = playerA;
             //Debug.Log("player 1 sending to udp server");
-            int moveLeft = (Player1.moveLeft) ? 1: 0;
-            int moveRight = (Player1.moveRight) ? 1: 0;
-			string message = InGameMessageGenerator.tempInGameMessage(playerA.transform.position.x, playerA.transform.position.y, 1, moveLeft, moveRight);
+            //int moveLeft = (globalGameState.player1MoveLeft) ? 1: 0;
+            //int moveRight = (globalGameState.player1MoveRight) ? 1: 0;
+			string message = InGameMessageGenerator.tempInGameMessage(playerA.transform.position.x, playerA.transform.position.y, globalGameState.player1State);
 			ServerCommute.connection.sendToServer(message);
 			playerB.transform.position = new Vector3(globalGameState.playersPosition[1].x, globalGameState.playersPosition[1].y, 0);
 		}
@@ -35,9 +35,9 @@ public class GamePlayerNetworkCommutor : MonoBehaviour
 		{
             //Debug.Log("player 2 sending to udp server");
             //hostPlayer = playerB;
-            int moveLeft = (Player2.moveLeft) ? 1: 0;
-            int moveRight = (Player2.moveRight) ? 1: 0;
-			string message = InGameMessageGenerator.tempInGameMessage(playerB.transform.position.x, playerB.transform.position.y, 2, moveLeft, moveRight);
+            //int moveLeft = 0;
+            //int moveRight = (Player2.moveRight) ? 1: 0;
+			string message = InGameMessageGenerator.tempInGameMessage(playerB.transform.position.x, playerB.transform.position.y, globalGameState.player2State);
 			ServerCommute.connection.sendToServer(message);
 			playerA.transform.position = new Vector3(globalGameState.playersPosition[0].x, globalGameState.playersPosition[0].y, 0);
 		}

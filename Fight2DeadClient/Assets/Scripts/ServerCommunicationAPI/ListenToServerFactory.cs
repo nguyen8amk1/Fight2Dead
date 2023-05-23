@@ -176,7 +176,7 @@ namespace SocketServer {
 
         public static MessageHandlerLambda tempUDPListening()  {
             MessageHandlerLambda messageHandler = (string[] tokens) => {
-				Debug.Log("TODO: handle udp listening");
+				//Debug.Log("TODO: handle udp listening");
 				bool isPositionMessage = Util.getKeyFrom(tokens[0]).Equals("pid") &&
 										 Util.getKeyFrom(tokens[1]).Equals("x") && 
 										 Util.getKeyFrom(tokens[2]).Equals("y");
@@ -185,13 +185,31 @@ namespace SocketServer {
 				float y = float.Parse(tokens[2]);
 				int state = Int32.Parse(tokens[3]);
 
-				//@Test
-				CharactersController.charId = state;
-				CharactersController.moveLeft = (Int32.Parse(tokens[4]) == 1);
-				CharactersController.moveRight =  (Int32.Parse(tokens[5]) == 1);
+				/*
+					walk left(-1)
+					walk right(1)
+					jump(2)
+					fall(-2)
+					got hit(3)
+					idle(0)
+				*/
+
+				if(pid == 1)
+				{
+					gameState.player1IsBeingControlled = true;
+					gameState.player1State = state;
+				}  
+				/*
+				else if(pid == 2)
+				{
+					gameState.player2IsBeingControlled = true;
+					gameState.player2State = Int32.Parse(tokens[4]);
+				}
+				*/
+
 
 				//@Test: for now state is gonna be char id 
-				Debug.Log($"TODO: handle Receive state: {state}");
+				//Debug.Log($"TODO: handle Receive state: {state}");
 				gameState.playersPosition[pid-1].x = x;
 				gameState.playersPosition[pid-1].y = y;
             };
