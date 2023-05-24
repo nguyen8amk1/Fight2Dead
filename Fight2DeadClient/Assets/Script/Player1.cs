@@ -167,6 +167,7 @@ public class Player1 : MonoBehaviour
             m_body2d.velocity = Vector2.zero;
             // Call one of three attack animations "Attack1", "Attack2", "Attack3"
             ChangeAnimationState(PLAYER_ULTIMATE);
+            m_body2d.velocity = new Vector2(inputX * m_speed, m_body2d.velocity.y);
             //When the attack animation run the event in animation call the function Attack()
             Debug.Log("Gaara Ultimate");
 
@@ -176,8 +177,9 @@ public class Player1 : MonoBehaviour
             // Reset isAttacking = false
             isAttacking = false;
 
-            // Reset timer
-            m_timeSinceAttack = 0.0f;
+            // Update time last pressed "L" button
+            lastUltimateTime = Time.time;
+
         }
         IEnumerator PerformAttack()
         {
@@ -192,9 +194,9 @@ public class Player1 : MonoBehaviour
 
             // Reset isAttacking = false
             isAttacking = false;
+            // Reset timer
+            m_timeSinceAttack = 0.0f;
 
-            // Update time last pressed "L" button
-            lastUltimateTime = Time.time;
         }
         //Attack
         if (Input.GetKeyDown(KeyCode.J) && m_timeSinceAttack > 0.25f)
@@ -218,7 +220,7 @@ public class Player1 : MonoBehaviour
             // m_animator.SetTrigger("ultimate");
             isAttacking = true;
             StartCoroutine(PerformUltimate());
-            
+
         }
         // Block
         // else if (Input.GetKeyDown(KeyCode.K))
@@ -256,7 +258,7 @@ public class Player1 : MonoBehaviour
             }
         }
         //Run
-        else if (Mathf.Abs(inputX) > Mathf.Epsilon && m_grounded)
+        else if (Mathf.Abs(inputX) > Mathf.Epsilon && m_grounded && !isAttacking)
         {
             // Reset timer
             Debug.Log("Gaara Walk");
