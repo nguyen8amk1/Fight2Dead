@@ -81,7 +81,7 @@ public class Player1 : MonoBehaviour
         m_body2d = GetComponent<Rigidbody2D>();
         m_groundSensor = transform.Find("GroundSensor").GetComponent<Sensor>();
         // m_animator.SetTrigger("intro");
-        ChangeAnimationState(PLAYER_INTRO);
+        m_animator.Play(PLAYER_INTRO);
 
     }
 
@@ -181,11 +181,46 @@ public class Player1 : MonoBehaviour
             lastUltimateTime = Time.time;
 
         }
-        IEnumerator PerformAttack()
+        // IEnumerator PerformAttack()
+        // {
+        //     m_body2d.velocity = Vector2.zero;
+        //     // Call one of three attack animations "Attack1", "Attack2", "Attack3"
+        //     ChangeAnimationState(PLAYER_ATTACK + m_currentAttack.ToString());
+        //     //When the attack animation run the event in animation call the function Attack()
+        //     Debug.Log("Gaara Attack");
+
+        //     // Wai until the animation attack end
+        //     yield return new WaitForSeconds(0.3f);
+
+        //     // Reset isAttacking = false
+        //     isAttacking = false;
+        //     // Reset timer
+        //     m_timeSinceAttack = 0.0f;
+
+        // }
+
+        // //Attack
+        // if (Input.GetKeyDown(KeyCode.J) && m_timeSinceAttack > 0.25f)
+        // {
+        //     m_currentAttack++;
+        //     // Loop back to one after third attack
+        //     if (m_currentAttack > 3)
+        //         m_currentAttack = 1;
+
+        //     // Reset Attack combo if time since last attack is too large
+        //     if (m_timeSinceAttack > 0.5f)
+        //         m_currentAttack = 1;
+
+        //     isAttacking = true;
+
+        //     // Perform attack and wait for the attack animation to finish
+        //     StartCoroutine(PerformAttack());
+        // }
+
+        IEnumerator PerformAttack(string anim)
         {
             m_body2d.velocity = Vector2.zero;
-            // Call one of three attack animations "Attack1", "Attack2", "Attack3"
-            ChangeAnimationState(PLAYER_ATTACK + m_currentAttack.ToString());
+            ChangeAnimationState(anim);
             //When the attack animation run the event in animation call the function Attack()
             Debug.Log("Gaara Attack");
 
@@ -198,24 +233,29 @@ public class Player1 : MonoBehaviour
             m_timeSinceAttack = 0.0f;
 
         }
-        //Attack
-        if (Input.GetKeyDown(KeyCode.J) && m_timeSinceAttack > 0.25f)
+
+        if (Input.GetKeyDown(KeyCode.J))
         {
-            m_currentAttack++;
-            // Loop back to one after third attack
-            if (m_currentAttack > 3)
-                m_currentAttack = 1;
-
-            // Reset Attack combo if time since last attack is too large
-            if (m_timeSinceAttack > 0.5f)
-                m_currentAttack = 1;
-
+            // m_animator.SetTrigger("ultimate");
             isAttacking = true;
+            StartCoroutine(PerformAttack(PLAYER_ATTACK + "1"));
 
-            // Perform attack and wait for the attack animation to finish
-            StartCoroutine(PerformAttack());
         }
-        else if (Input.GetKeyDown(KeyCode.L) && (Time.time - lastUltimateTime >= cooldownTime))
+        else if (Input.GetKeyDown(KeyCode.K))
+        {
+            // m_animator.SetTrigger("ultimate");
+            isAttacking = true;
+            StartCoroutine(PerformAttack(PLAYER_ATTACK + "2"));
+
+        }
+        else if (Input.GetKeyDown(KeyCode.L))
+        {
+            // m_animator.SetTrigger("ultimate");
+            isAttacking = true;
+            StartCoroutine(PerformAttack(PLAYER_ATTACK + "3"));
+
+        }
+        else if (Input.GetKeyDown(KeyCode.I) && (Time.time - lastUltimateTime >= cooldownTime))
         {
             // m_animator.SetTrigger("ultimate");
             isAttacking = true;

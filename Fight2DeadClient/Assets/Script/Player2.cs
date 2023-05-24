@@ -160,56 +160,93 @@ public class Player2 : MonoBehaviour
         // if (Input.GetKeyDown("q"))
         //     m_animator.SetTrigger("Hurt");
 
-        IEnumerator PerformAttack()
+        // IEnumerator PerformAttack()
+        // {
+        //     m_body2d.velocity = Vector2.zero;
+        //     // Call one of three attack animations "Attack1", "Attack2", "Attack3"
+        //     // m_animator.SetTrigger("Attack" + m_currentAttack);
+
+        //     //When the attack animation run the event in animation call the function Attack()
+        //     Debug.Log("Luffy Attack");
+
+        //     // Wai until the animation attack end
+        //     yield return new WaitForSeconds(0f);
+
+        //     // Reset isAttacking = false
+        //     isAttacking = false;
+
+        //     // Reset timer
+        //     m_timeSinceAttack = 0.0f;
+        // }
+        // //Attack
+        // if (Input.GetKeyDown(KeyCode.Keypad1) && m_timeSinceAttack > 0.25f)
+        // {
+        //     m_currentAttack++;
+
+        //     // Loop back to one after third attack
+        //     if (m_currentAttack > 3)
+        //         m_currentAttack = 1;
+
+        //     // Reset Attack combo if time since last attack is too large
+        //     if (m_timeSinceAttack > 0.5f)
+        //         m_currentAttack = 1;
+
+        //     /*
+        //      if (animator.GetFloat("Weapon.Active") > 0f)
+        //     {
+        //         Attack();
+        //     }
+        //     */
+
+        //     // // Call one of three attack animations "Attack1", "Attack2", "Attack3"
+        //     // m_animator.SetTrigger("Attack" + m_currentAttack);
+        //     // Attack();
+
+        //     // // Reset timer
+        //     // m_timeSinceAttack = 0.0f;
+
+        //     isAttacking = true;
+        //     // Perform attack and wait for the attack animation to finish
+        //     StartCoroutine(PerformAttack());
+        // }
+        IEnumerator PerformAttack(string anim)
         {
             m_body2d.velocity = Vector2.zero;
-            // Call one of three attack animations "Attack1", "Attack2", "Attack3"
-            // m_animator.SetTrigger("Attack" + m_currentAttack);
-
+            ChangeAnimationState(anim);
             //When the attack animation run the event in animation call the function Attack()
             Debug.Log("Luffy Attack");
 
             // Wai until the animation attack end
-            yield return new WaitForSeconds(0f);
+            yield return new WaitForSeconds(0.3f);
 
             // Reset isAttacking = false
             isAttacking = false;
-
             // Reset timer
             m_timeSinceAttack = 0.0f;
+
         }
-        //Attack
-        if (Input.GetKeyDown(KeyCode.Keypad1) && m_timeSinceAttack > 0.25f)
+        if (Input.GetKeyDown(KeyCode.Keypad1))
         {
-            m_currentAttack++;
-
-            // Loop back to one after third attack
-            if (m_currentAttack > 3)
-                m_currentAttack = 1;
-
-            // Reset Attack combo if time since last attack is too large
-            if (m_timeSinceAttack > 0.5f)
-                m_currentAttack = 1;
-
-            /*
-             if (animator.GetFloat("Weapon.Active") > 0f)
-            {
-                Attack();
-            }
-            */
-
-            // // Call one of three attack animations "Attack1", "Attack2", "Attack3"
-            // m_animator.SetTrigger("Attack" + m_currentAttack);
-            // Attack();
-
-            // // Reset timer
-            // m_timeSinceAttack = 0.0f;
-
+            // m_animator.SetTrigger("ultimate");
             isAttacking = true;
-            // Perform attack and wait for the attack animation to finish
-            StartCoroutine(PerformAttack());
+            StartCoroutine(PerformAttack(PLAYER_ATTACK + "1"));
+
         }
-        else if (Input.GetKeyDown(KeyCode.Keypad3) && (Time.time - lastUltimateTime >= cooldownTime))
+        else if (Input.GetKeyDown(KeyCode.Keypad2))
+        {
+            // m_animator.SetTrigger("ultimate");
+            isAttacking = true;
+            StartCoroutine(PerformAttack(PLAYER_ATTACK + "2"));
+
+        }
+        else if (Input.GetKeyDown(KeyCode.Keypad3))
+        {
+            // m_animator.SetTrigger("ultimate");
+            isAttacking = true;
+            StartCoroutine(PerformAttack(PLAYER_ATTACK + "3"));
+
+        }
+        else if (Input.GetKeyDown(KeyCode.Keypad4) && (Time.time - lastUltimateTime >= cooldownTime))
         {
             // m_animator.SetTrigger("ultimate");
             Debug.Log("Gaara Ultimate");
@@ -247,7 +284,7 @@ public class Player2 : MonoBehaviour
             }
         }
         //Run
-        else if (Mathf.Abs(inputX) > Mathf.Epsilon && m_grounded)
+        else if (Mathf.Abs(inputX) > Mathf.Epsilon && m_grounded && !isAttacking)
         {
             Debug.Log("Luffy Walk");
             // Reset timer
