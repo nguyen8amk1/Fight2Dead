@@ -94,18 +94,29 @@ public class Player1 : MonoBehaviour
         if(globalGameState.player1IsBeingControlled)
 		{
             Debug.Log("player 1 is being controlled with state: " + globalGameState.player1State);
-            if(globalGameState.player1State == -1)
-			{
+            if (globalGameState.player1State == -1)
+            {
+                GetComponent<SpriteRenderer>().flipX = true;
                 ChangeAnimationState(PLAYER_RUN);
-			} else if(globalGameState.player1State == 1) 
-			{
-                //ChangeAnimationState(PLAYER_IDLE);
+            }
+            else if (globalGameState.player1State == 1)
+            {
+                GetComponent<SpriteRenderer>().flipX = false;
                 ChangeAnimationState(PLAYER_RUN);
                 Debug.Log("TODO: some how make the player move right  ");
-			} else
-			{
+            }
+            else if (globalGameState.player1State == -2)
+            {
+                ChangeAnimationState(PLAYER_FALL);
+            }
+            else if (globalGameState.player1State == 2)
+            {
+                ChangeAnimationState(PLAYER_JUMP);
+            }
+            else
+            {
                 ChangeAnimationState(PLAYER_IDLE);
-			}
+            }
 		}
         else
 		{
@@ -144,8 +155,8 @@ public class Player1 : MonoBehaviour
 			}
 			if (!m_grounded && !m_groundSensor.State() && m_body2d.velocity.y < 0)
 			{
-
 				// m_grounded = false;
+                globalGameState.player1State = -2;
 				ChangeAnimationState(PLAYER_FALL);
 				//Debug.Log("Gaara Fall");
 				// m_animator.SetBool("Grounded", m_grounded);
@@ -193,12 +204,8 @@ public class Player1 : MonoBehaviour
 				GetComponent<SpriteRenderer>().flipX = true;
 				m_facingDirection = -1;
                 globalGameState.player1State = -1; 
-			} else
-			{
-                globalGameState.player1State = 0; 
 			}
-
-			if (Input.GetKey(KeyCode.D))
+			else if (Input.GetKey(KeyCode.D))
 			{
 				inputX = 1f;
 				GetComponent<SpriteRenderer>().flipX = false;
@@ -207,7 +214,6 @@ public class Player1 : MonoBehaviour
 			} else
 			{
                 globalGameState.player1State = 0; 
-
 			}
 
 
@@ -284,8 +290,9 @@ public class Player1 : MonoBehaviour
 			{
 				if (m_grounded)
 				{
-					// m_animator.SetTrigger("Jump");
+                    // m_animator.SetTrigger("Jump");
 					ChangeAnimationState(PLAYER_JUMP);
+                    globalGameState.player1State = 2;
 					//Debug.Log("Gaara Jump 1");
 
 					m_grounded = false;
@@ -297,6 +304,7 @@ public class Player1 : MonoBehaviour
 				{
 					// m_animator.SetTrigger("Jump");
 					ChangeAnimationState(PLAYER_JUMP);
+                    globalGameState.player1State = 2;
 					//Debug.Log("Gaara Jump 2");
 					m_body2d.velocity = new Vector2(m_body2d.velocity.x, m_jumpForce);
 					m_jumpsLeft--;
