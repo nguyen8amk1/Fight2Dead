@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 538b83229d6945442a05be2db5eb14d7
+guid: a06f0520e478fb64e8ff1dbb00fa9e1b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,799 +105,694 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Venom_intro_0
+      name: Jotaro_Part2_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 7446
-        width: 107
-        height: 143
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        y: 456
+        width: 115
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e16d8ff0a920f5a4b95b608c66c9aa83
-      internalID: 1422352237
+      spriteID: a00418dcb2958a54f8dc3b7339d6ddcd
+      internalID: 1697590849
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Venom_intro_1
+      name: Jotaro_Part2_1
       rect:
         serializedVersion: 2
-        x: 248
-        y: 7445
-        width: 107
-        height: 143
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 305
+        y: 456
+        width: 162
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d04ca0e7db3d19448a90564a6de3b0c
-      internalID: 1882508241
+      spriteID: 6512815dd9862bc40a3dc55ad432730e
+      internalID: -1683093290
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Venom_intro_2
+      name: Jotaro_Part2_2
       rect:
         serializedVersion: 2
-        x: 496
-        y: 7445
-        width: 107
-        height: 143
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 610
+        y: 456
+        width: 161
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1f32d3c0ff657174cb191d85dcb79427
-      internalID: -1946840477
+      spriteID: 07471ed62407032458b7e1d03a81259b
+      internalID: -2118103904
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Venom_intro_3
+      name: Jotaro_Part2_3
       rect:
         serializedVersion: 2
-        x: 744
-        y: 7445
-        width: 109
-        height: 150
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8593463fd21da4c419423b885a90b54b
-      internalID: 1660591077
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Venom_intro_4
-      rect:
-        serializedVersion: 2
-        x: 992
-        y: 7445
-        width: 110
-        height: 143
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7253213f170b4844b8fad1c7046699f5
-      internalID: 2024779445
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Venom_intro_5
-      rect:
-        serializedVersion: 2
-        x: 1240
-        y: 7445
-        width: 113
-        height: 143
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1e5e0388a7ff69a43bf645f8042b4578
-      internalID: 1363798264
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Venom_intro_6
-      rect:
-        serializedVersion: 2
-        x: 1488
-        y: 7445
-        width: 114
-        height: 143
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ee5131ca45967d343a464e27b92fbd8f
-      internalID: -406942274
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Venom_intro_7
-      rect:
-        serializedVersion: 2
-        x: 1736
-        y: 7445
-        width: 122
-        height: 143
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 186156a64d374404cb52791d587f7263
-      internalID: 1745501152
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Venom_intro_8
-      rect:
-        serializedVersion: 2
-        x: 1984
-        y: 7445
-        width: 117
-        height: 142
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7a988c0e1a50e5046805be6353742ed9
-      internalID: -249780431
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Venom_intro_9
-      rect:
-        serializedVersion: 2
-        x: 2232
-        y: 7445
-        width: 110
-        height: 142
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f98e01252665e8b4facb30e1f6dc2ec3
-      internalID: 67036549
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Venom_intro_10
-      rect:
-        serializedVersion: 2
-        x: 2480
-        y: 7445
-        width: 109
-        height: 142
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fd7ae8040a1b9b24aac796f52742a4ce
-      internalID: 1297993515
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Venom_intro_11
-      rect:
-        serializedVersion: 2
-        x: 2728
-        y: 7445
-        width: 109
-        height: 142
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1547de3929bb6ef40a317110f571196f
-      internalID: 1754809688
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Venom_intro_12
-      rect:
-        serializedVersion: 2
-        x: 2976
-        y: 7445
-        width: 109
-        height: 143
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3631389cb2019c34593b21f8e8e202b9
-      internalID: -2143155685
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Venom_intro_13
-      rect:
-        serializedVersion: 2
-        x: 3224
-        y: 7445
-        width: 109
-        height: 144
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4de97c57bd63c654f99e26056a0f0f1a
-      internalID: -775457094
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Venom_intro_14
-      rect:
-        serializedVersion: 2
-        x: 3472
-        y: 7445
-        width: 109
-        height: 143
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c022f4f8e82b4844d9e3e21c8980798d
-      internalID: 1947984659
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Venom_intro_15
-      rect:
-        serializedVersion: 2
-        x: 3720
-        y: 7445
-        width: 108
-        height: 142
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d521d5fd4f8b3af47804785861c866e3
-      internalID: -934274688
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Venom_intro_16
-      rect:
-        serializedVersion: 2
-        x: 3943
-        y: 7445
-        width: 134
-        height: 142
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 613e83bbe8dda2441ab622ca581f1324
-      internalID: 74157112
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Venom_intro_17
-      rect:
-        serializedVersion: 2
-        x: 4216
-        y: 7445
-        width: 128
-        height: 120
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d646aec2f74437c40a10a3d03e495b2e
-      internalID: 1910060837
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Venom_intro_18
-      rect:
-        serializedVersion: 2
-        x: 4464
-        y: 7445
-        width: 137
-        height: 104
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4edd172e8b8e0104c8b6ab67fb044c0e
-      internalID: -4558513
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Venom_intro_19
-      rect:
-        serializedVersion: 2
-        x: 4712
-        y: 7445
-        width: 142
-        height: 93
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4535038487732a145a10ccaa2ddde044
-      internalID: 1588014535
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Venom_intro_20
-      rect:
-        serializedVersion: 2
-        x: 56
-        y: 7248
-        width: 136
-        height: 115
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cfc87d8ee2ec90246b1c43df3e7f80cb
-      internalID: -1877742401
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Venom_intro_21
-      rect:
-        serializedVersion: 2
-        x: 296
-        y: 7249
-        width: 152
-        height: 137
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fcc03036aa8c20c4691c06a30a7977e4
-      internalID: -1891844473
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Venom_intro_22
-      rect:
-        serializedVersion: 2
-        x: 547
-        y: 7248
-        width: 152
-        height: 140
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 34e916d7490957e4caa2ec669f88c4a8
-      internalID: -961922362
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Venom_intro_23
-      rect:
-        serializedVersion: 2
-        x: 768
-        y: 7248
-        width: 203
-        height: 139
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 353f1868b40952243b2105dffd5be3bc
-      internalID: 1755737644
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Venom_intro_24
-      rect:
-        serializedVersion: 2
-        x: 1016
-        y: 7247
-        width: 212
-        height: 156
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 84799c1c0700c2443a2f2d3587f8684a
-      internalID: 1368504423
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Venom_intro_25
-      rect:
-        serializedVersion: 2
-        x: 1267
-        y: 7248
-        width: 204
-        height: 181
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9c7331c3e9e08584f8dec18c60628c8d
-      internalID: -1302597978
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Venom_intro_26
-      rect:
-        serializedVersion: 2
-        x: 1515
-        y: 7248
-        width: 207
-        height: 170
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 51e49e3089dd21948b8adb2759524601
-      internalID: -113803524
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Venom_intro_27
-      rect:
-        serializedVersion: 2
-        x: 1761
-        y: 7248
-        width: 229
-        height: 167
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 746bc2d7ef32c484cae9ba1b22c89307
-      internalID: -573981045
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Venom_intro_28
-      rect:
-        serializedVersion: 2
-        x: 1986
-        y: 7248
-        width: 245
-        height: 172
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 66e2dd72674846f4d9531b442cdd3736
-      internalID: -1591782941
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Venom_intro_29
-      rect:
-        serializedVersion: 2
-        x: 2232
-        y: 7248
-        width: 248
-        height: 171
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b8b9075d48adf144db9d7a6feb979c57
-      internalID: 1177133492
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Venom_intro_30
-      rect:
-        serializedVersion: 2
-        x: 2480
-        y: 7248
-        width: 247
-        height: 160
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4a40c3534cfb990459dfab575339a69d
-      internalID: -602197580
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Venom_intro_31
-      rect:
-        serializedVersion: 2
-        x: 2734
-        y: 7249
-        width: 241
-        height: 156
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 06cf599efc3dd524fb91c06da104385f
-      internalID: 847699126
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Venom_intro_32
-      rect:
-        serializedVersion: 2
-        x: 2991
-        y: 7248
-        width: 210
-        height: 143
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cc625d436c5ad374e85c006a637d5e43
-      internalID: -187718246
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Venom_intro_33
-      rect:
-        serializedVersion: 2
-        x: 3248
-        y: 7248
-        width: 200
-        height: 139
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fd5251e5001ace64cb7bfbbcaa685041
-      internalID: 1185100325
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Venom_intro_34
-      rect:
-        serializedVersion: 2
-        x: 3500
-        y: 7248
-        width: 200
-        height: 139
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c7b96fc9400f93c46bf4f0ae81e2d02a
-      internalID: -52737634
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Venom_intro_35
-      rect:
-        serializedVersion: 2
-        x: 3769
-        y: 7249
-        width: 152
-        height: 126
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f4f92b75be7e0c146a3f0a80d82881f2
-      internalID: -838884453
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Venom_intro_36
-      rect:
-        serializedVersion: 2
-        x: 4018
-        y: 7249
-        width: 136
-        height: 115
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3fd9e97b499782c478352c2c1d9c1fbb
-      internalID: -206649039
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Venom_intro_37
-      rect:
-        serializedVersion: 2
-        x: 4271
-        y: 7249
+        x: 915
+        y: 456
         width: 138
-        height: 102
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 864014735da174c49b78a0d48e76db42
-      internalID: 1158545704
+      spriteID: b7b11a43c2a7f7c44900d48bdb31d507
+      internalID: -1120662470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jotaro_Part2_4
+      rect:
+        serializedVersion: 2
+        x: 1220
+        y: 456
+        width: 138
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d331c007dd18424e94c0c318e7177ef
+      internalID: -1433624574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jotaro_Part2_5
+      rect:
+        serializedVersion: 2
+        x: 1525
+        y: 456
+        width: 122
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b32dc95d9360e7341a5e3dfc3ac16625
+      internalID: -1335764416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jotaro_Part2_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 304
+        width: 97
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 951a1f1ba3c415a41bcba375e56ff75e
+      internalID: 1705187652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jotaro_Part2_7
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 304
+        width: 94
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87ac57fe71e74e8458a77757f750a251
+      internalID: -347207823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jotaro_Part2_8
+      rect:
+        serializedVersion: 2
+        x: 610
+        y: 304
+        width: 131
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 569b816ac2529e949a280cd074256377
+      internalID: 1369304647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jotaro_Part2_9
+      rect:
+        serializedVersion: 2
+        x: 915
+        y: 304
+        width: 164
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7f1f69426279cf46824fa81cf201647
+      internalID: 211592793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jotaro_Part2_10
+      rect:
+        serializedVersion: 2
+        x: 1220
+        y: 304
+        width: 154
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01b94f0978132324181b3a38225c2a90
+      internalID: -1367719872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jotaro_Part2_11
+      rect:
+        serializedVersion: 2
+        x: 1525
+        y: 304
+        width: 167
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ae8185738e670946bdf4a9f3e9f4ab6
+      internalID: 1271137758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jotaro_Part2_12
+      rect:
+        serializedVersion: 2
+        x: 1830
+        y: 304
+        width: 163
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d33251b09086e5b4bba9396449e7c667
+      internalID: -79894277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jotaro_Part2_13
+      rect:
+        serializedVersion: 2
+        x: 2135
+        y: 304
+        width: 163
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cac417324b7a474cb907a28cc69ba54
+      internalID: -2120220225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jotaro_Part2_14
+      rect:
+        serializedVersion: 2
+        x: 2440
+        y: 304
+        width: 121
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5dca673b7707d8b40bb2f41a4656f46c
+      internalID: 1293446562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jotaro_Part2_15
+      rect:
+        serializedVersion: 2
+        x: 2745
+        y: 304
+        width: 119
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff4da9146f328644cabf96c65c0c4331
+      internalID: 100674636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jotaro_Part2_16
+      rect:
+        serializedVersion: 2
+        x: 3050
+        y: 304
+        width: 115
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db1fa5c1c8f171b478bd9d51fd5f0be7
+      internalID: -1086148031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jotaro_Part2_17
+      rect:
+        serializedVersion: 2
+        x: 3355
+        y: 304
+        width: 119
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f9bdf31eb2bfaa4382c5b5bcce7f4c9
+      internalID: 1797905169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jotaro_Part2_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 152
+        width: 90
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba67bc6b0209a3c469f8a6a0ef201f7e
+      internalID: 988098991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jotaro_Part2_19
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 152
+        width: 103
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ba662af67170c648bd31a28b3695447
+      internalID: 369713745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jotaro_Part2_20
+      rect:
+        serializedVersion: 2
+        x: 610
+        y: 152
+        width: 140
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e93033fafda37ab48b008afa59710ed8
+      internalID: -807660788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jotaro_Part2_21
+      rect:
+        serializedVersion: 2
+        x: 915
+        y: 152
+        width: 153
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80fb4ed65843b3f45a5bdf7173b41d23
+      internalID: -665167861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jotaro_Part2_22
+      rect:
+        serializedVersion: 2
+        x: 1220
+        y: 152
+        width: 178
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd8229db58c2430418e246edfbace5a3
+      internalID: 2068587579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jotaro_Part2_23
+      rect:
+        serializedVersion: 2
+        x: 1525
+        y: 152
+        width: 178
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bf152830e0c46946a18dd0ce9139812
+      internalID: 17980237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jotaro_Part2_24
+      rect:
+        serializedVersion: 2
+        x: 1830
+        y: 152
+        width: 159
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a19540d8eed76d24b9bba6c74505acf4
+      internalID: 570186751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jotaro_Part2_25
+      rect:
+        serializedVersion: 2
+        x: 2135
+        y: 152
+        width: 159
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 506a98d57f3bf284a80b792871a0983f
+      internalID: -1674680397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jotaro_Part2_26
+      rect:
+        serializedVersion: 2
+        x: 2440
+        y: 152
+        width: 159
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62a34d32012a6e346a619c422a7be55e
+      internalID: -171126814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jotaro_Part2_27
+      rect:
+        serializedVersion: 2
+        x: 2745
+        y: 152
+        width: 159
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a928d696986578343827d625412cd610
+      internalID: 1843027192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jotaro_Part2_28
+      rect:
+        serializedVersion: 2
+        x: 3050
+        y: 152
+        width: 156
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecca978be1895e241a539a2582f3ee6f
+      internalID: -337224323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jotaro_Part2_29
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 95
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f97a8d2f70bc4e5498fd23ab9cce2da8
+      internalID: -879914784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jotaro_Part2_30
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 0
+        width: 116
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acca6fdc96a51744c8e9624dcef9d868
+      internalID: -1293604181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jotaro_Part2_31
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 0
+        width: 118
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54aacf2bb9cd9534e9fb056b97fc4711
+      internalID: 801724069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jotaro_Part2_32
+      rect:
+        serializedVersion: 2
+        x: 915
+        y: 0
+        width: 118
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d704b0a61ed97234ca4e181f42442911
+      internalID: 660563392
       vertices: []
       indices: 
       edges: []
@@ -913,44 +808,39 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Venom_intro_0: 1422352237
-      Venom_intro_1: 1882508241
-      Venom_intro_10: 1297993515
-      Venom_intro_11: 1754809688
-      Venom_intro_12: -2143155685
-      Venom_intro_13: -775457094
-      Venom_intro_14: 1947984659
-      Venom_intro_15: -934274688
-      Venom_intro_16: 74157112
-      Venom_intro_17: 1910060837
-      Venom_intro_18: -4558513
-      Venom_intro_19: 1588014535
-      Venom_intro_2: -1946840477
-      Venom_intro_20: -1877742401
-      Venom_intro_21: -1891844473
-      Venom_intro_22: -961922362
-      Venom_intro_23: 1755737644
-      Venom_intro_24: 1368504423
-      Venom_intro_25: -1302597978
-      Venom_intro_26: -113803524
-      Venom_intro_27: -573981045
-      Venom_intro_28: -1591782941
-      Venom_intro_29: 1177133492
-      Venom_intro_3: 1660591077
-      Venom_intro_30: -602197580
-      Venom_intro_31: 847699126
-      Venom_intro_32: -187718246
-      Venom_intro_33: 1185100325
-      Venom_intro_34: -52737634
-      Venom_intro_35: -838884453
-      Venom_intro_36: -206649039
-      Venom_intro_37: 1158545704
-      Venom_intro_4: 2024779445
-      Venom_intro_5: 1363798264
-      Venom_intro_6: -406942274
-      Venom_intro_7: 1745501152
-      Venom_intro_8: -249780431
-      Venom_intro_9: 67036549
+      Jotaro_Part2_0: 1697590849
+      Jotaro_Part2_1: -1683093290
+      Jotaro_Part2_10: -1367719872
+      Jotaro_Part2_11: 1271137758
+      Jotaro_Part2_12: -79894277
+      Jotaro_Part2_13: -2120220225
+      Jotaro_Part2_14: 1293446562
+      Jotaro_Part2_15: 100674636
+      Jotaro_Part2_16: -1086148031
+      Jotaro_Part2_17: 1797905169
+      Jotaro_Part2_18: 988098991
+      Jotaro_Part2_19: 369713745
+      Jotaro_Part2_2: -2118103904
+      Jotaro_Part2_20: -807660788
+      Jotaro_Part2_21: -665167861
+      Jotaro_Part2_22: 2068587579
+      Jotaro_Part2_23: 17980237
+      Jotaro_Part2_24: 570186751
+      Jotaro_Part2_25: -1674680397
+      Jotaro_Part2_26: -171126814
+      Jotaro_Part2_27: 1843027192
+      Jotaro_Part2_28: -337224323
+      Jotaro_Part2_29: -879914784
+      Jotaro_Part2_3: -1120662470
+      Jotaro_Part2_30: -1293604181
+      Jotaro_Part2_31: 801724069
+      Jotaro_Part2_32: 660563392
+      Jotaro_Part2_4: -1433624574
+      Jotaro_Part2_5: -1335764416
+      Jotaro_Part2_6: 1705187652
+      Jotaro_Part2_7: -347207823
+      Jotaro_Part2_8: 1369304647
+      Jotaro_Part2_9: 211592793
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

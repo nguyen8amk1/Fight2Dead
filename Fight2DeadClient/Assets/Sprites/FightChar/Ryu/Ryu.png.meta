@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 90f2a9a21e0490041b40a86de2f1f023
+guid: a7f1cbfc9a17b7842973aa8b51dfb229
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Link_UlFix_0
+      name: Ryu_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 760
-        width: 211
-        height: 190
+        y: 512
+        width: 86
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,20 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e50b952571fbec54a9414f10240850b4
-      internalID: 940095257
+      spriteID: f97b51924a313ea419fcde5ea3621b5e
+      internalID: -157752280
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Link_UlFix_1
+      name: Ryu_1
       rect:
         serializedVersion: 2
-        x: 211
-        y: 760
-        width: 211
-        height: 190
+        x: 110
+        y: 512
+        width: 85
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,20 +140,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6e2dad5093d98de49a76972387db610a
-      internalID: -1146213662
+      spriteID: 387943ca292934e4ab998aca7f9aa856
+      internalID: -563385352
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Link_UlFix_2
+      name: Ryu_2
       rect:
         serializedVersion: 2
-        x: 422
-        y: 760
-        width: 211
-        height: 190
+        x: 220
+        y: 512
+        width: 84
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +161,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 116588cb4bfb16246836341c5c72283b
-      internalID: 2046567922
+      spriteID: 09518f54f77719c49a7f7522cf17774c
+      internalID: -271956162
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Link_UlFix_3
+      name: Ryu_3
       rect:
         serializedVersion: 2
-        x: 633
-        y: 760
-        width: 211
-        height: 190
+        x: 330
+        y: 512
+        width: 78
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,20 +182,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 075ddd3a01d2bb64797f7e5decf10dd3
-      internalID: -793048059
+      spriteID: febe8b20f49089a4097ca68fe3d26a76
+      internalID: -1724261310
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Link_UlFix_4
+      name: Ryu_4
       rect:
         serializedVersion: 2
-        x: 844
-        y: 760
-        width: 211
-        height: 190
+        x: 440
+        y: 512
+        width: 74
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,20 +203,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d39780363ab422948add9c364d40c179
-      internalID: -235097274
+      spriteID: 45bf8a036e030cc45946871338306b8d
+      internalID: -446220064
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Link_UlFix_5
+      name: Ryu_5
       rect:
         serializedVersion: 2
-        x: 1055
-        y: 760
-        width: 211
-        height: 190
+        x: 550
+        y: 512
+        width: 77
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,20 +224,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6fd5a38d07475264fbe1c02724ea3bca
-      internalID: 1654678711
+      spriteID: 4957c45673cc06f40aff8d7ebd2e0b7c
+      internalID: -811438192
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Link_UlFix_6
+      name: Ryu_6
       rect:
         serializedVersion: 2
-        x: 1266
-        y: 760
-        width: 211
-        height: 190
+        x: 660
+        y: 512
+        width: 80
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -245,20 +245,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4004b7d1565c6024ba1465dbd40682d8
-      internalID: -1456466701
+      spriteID: 980251ef3fc1e8b4888672f2154a1243
+      internalID: -1893663777
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Link_UlFix_7
+      name: Ryu_7
       rect:
         serializedVersion: 2
-        x: 1477
-        y: 760
-        width: 211
-        height: 190
+        x: 770
+        y: 512
+        width: 75
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -266,20 +266,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a8aff9c16c4bf4d4d845b642404cbd5b
-      internalID: 1058937505
+      spriteID: a041b8da798088c4880675d9a409556c
+      internalID: 1080240527
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Link_UlFix_8
+      name: Ryu_8
       rect:
         serializedVersion: 2
-        x: 1688
-        y: 760
-        width: 211
-        height: 190
+        x: 880
+        y: 512
+        width: 76
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -287,20 +287,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 462d8a00b7499194fa202d10f34a453f
-      internalID: -2126509021
+      spriteID: 59d5de222bfc4fd4e87623e725e6d493
+      internalID: -473077913
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Link_UlFix_9
+      name: Ryu_9
       rect:
         serializedVersion: 2
-        x: 1899
-        y: 760
-        width: 211
-        height: 190
+        x: 991
+        y: 512
+        width: 84
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -308,20 +308,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2192d0d00d5135a4997606b308c018b5
-      internalID: 119722607
+      spriteID: 90e0ce3ef57054b4da776a772c9b5788
+      internalID: 83266177
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Link_UlFix_10
+      name: Ryu_10
       rect:
         serializedVersion: 2
-        x: 2110
-        y: 760
-        width: 211
-        height: 190
+        x: 1100
+        y: 512
+        width: 80
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -329,41 +329,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff6b8f29a6c3f4641a1eb794df644f55
-      internalID: 1566662633
+      spriteID: c5325bfb7310fec4caed224efb4ab49c
+      internalID: 1238859368
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Link_UlFix_11
-      rect:
-        serializedVersion: 2
-        x: 2321
-        y: 760
-        width: 211
-        height: 190
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 91b63e9b02091e6409bbaf4b1fb5d3c8
-      internalID: 519274124
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Link_UlFix_12
+      name: Ryu_11
       rect:
         serializedVersion: 2
         x: 0
-        y: 570
-        width: 211
-        height: 190
+        y: 384
+        width: 76
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -371,20 +350,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd173a19708c6c9489b04054605484a1
-      internalID: -1203500374
+      spriteID: d69fb48eb40a7134bbbf79ccbd00d190
+      internalID: 284309302
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Link_UlFix_13
+      name: Ryu_12
       rect:
         serializedVersion: 2
-        x: 211
-        y: 570
-        width: 211
-        height: 190
+        x: 110
+        y: 385
+        width: 74
+        height: 127
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -392,20 +371,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3edf2192a6426a04b949944023251dcc
-      internalID: 1013346904
+      spriteID: 6bad098980323da4b9549962fddeb80e
+      internalID: 814128574
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Link_UlFix_14
+      name: Ryu_13
       rect:
         serializedVersion: 2
-        x: 422
-        y: 570
-        width: 211
-        height: 190
+        x: 220
+        y: 384
+        width: 74
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -413,20 +392,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4bd13973d03eb7e43ac2a1e1858f9c9f
-      internalID: 1181924838
+      spriteID: d4ec2374b39e6b7439a9a6daa0f4b1f9
+      internalID: 808254703
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Link_UlFix_15
+      name: Ryu_14
       rect:
         serializedVersion: 2
-        x: 633
-        y: 570
-        width: 211
-        height: 190
+        x: 330
+        y: 384
+        width: 78
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -434,20 +413,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d44b61ddf77a5f44ea00f22c12813fac
-      internalID: 656506577
+      spriteID: 3a6e1270a9eea4f4ebcf187dcb42aa2a
+      internalID: 2065845735
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Link_UlFix_16
+      name: Ryu_15
       rect:
         serializedVersion: 2
-        x: 844
-        y: 570
-        width: 211
-        height: 190
+        x: 440
+        y: 384
+        width: 76
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -455,20 +434,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2be06894ddc8f1e468cc14ae391c2f7d
-      internalID: 1868356378
+      spriteID: 7176d0de616792f479c4a285a01e76ca
+      internalID: 254945340
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Link_UlFix_17
+      name: Ryu_16
       rect:
         serializedVersion: 2
-        x: 1055
-        y: 570
-        width: 211
-        height: 190
+        x: 550
+        y: 384
+        width: 69
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -476,20 +455,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 192443cb34c29654a8febde14a2495e8
-      internalID: -1530075208
+      spriteID: 068d89912f04f684994db1fca5965e2d
+      internalID: -2072702963
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Link_UlFix_18
+      name: Ryu_17
       rect:
         serializedVersion: 2
-        x: 1266
-        y: 570
-        width: 211
-        height: 190
+        x: 660
+        y: 384
+        width: 72
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -497,20 +476,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09856c959fc103748aecd6ddfd6d04a3
-      internalID: -425045306
+      spriteID: 9618fd2285207d141aa05130ec8a73ac
+      internalID: 826018214
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Link_UlFix_19
+      name: Ryu_18
       rect:
         serializedVersion: 2
-        x: 1477
-        y: 570
-        width: 211
-        height: 190
+        x: 770
+        y: 384
+        width: 67
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -518,20 +497,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e7a29e86c3d5884b865e1d539294c64
-      internalID: 697861987
+      spriteID: 44c81b042c99a5b4fa5fdcd23698aa52
+      internalID: -421609794
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Link_UlFix_20
+      name: Ryu_19
       rect:
         serializedVersion: 2
-        x: 1688
-        y: 570
-        width: 211
-        height: 190
+        x: 880
+        y: 384
+        width: 73
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -539,20 +518,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 99a941f7b29e09f4ba9a39bcccab5cf6
-      internalID: 1103475029
+      spriteID: ebee26502aba4df4896651d94ff6ab5d
+      internalID: -993486264
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Link_UlFix_21
+      name: Ryu_20
       rect:
         serializedVersion: 2
-        x: 1899
-        y: 570
-        width: 211
-        height: 190
+        x: 990
+        y: 384
+        width: 80
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -560,20 +539,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 431b9eeb580af584998a38b17c907de4
-      internalID: -2032692509
+      spriteID: b22e0ba03c21a9440af591093a1a2e8c
+      internalID: -1192776049
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Link_UlFix_22
+      name: Ryu_21
       rect:
         serializedVersion: 2
-        x: 2110
-        y: 570
-        width: 211
-        height: 190
+        x: 1100
+        y: 384
+        width: 69
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -581,20 +560,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 11fe26137f3080543b261bb1c6b4a698
-      internalID: 1982420529
+      spriteID: 655f284a4142f2842bcd9de88a446458
+      internalID: -1027954408
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Link_UlFix_23
+      name: Ryu_22
       rect:
         serializedVersion: 2
-        x: 2321
-        y: 570
-        width: 211
-        height: 190
+        x: 1210
+        y: 384
+        width: 67
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -602,335 +581,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5c9fe195d43f96043a2238350868ee39
-      internalID: -88885005
+      spriteID: ea084789bd9f2964793a7b501aeb4676
+      internalID: 311819015
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Link_UlFix_24
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 380
-        width: 211
-        height: 190
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a73d3c52175e74e48ba1283f6a9802ac
-      internalID: -691973899
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Link_UlFix_25
-      rect:
-        serializedVersion: 2
-        x: 211
-        y: 380
-        width: 211
-        height: 190
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9af9cab90a5e93543a2abe87f5fb16dc
-      internalID: 1096455861
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Link_UlFix_26
-      rect:
-        serializedVersion: 2
-        x: 422
-        y: 380
-        width: 211
-        height: 190
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 68ddccfe813cf0641b8b5df1682480cb
-      internalID: 1307649189
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Link_UlFix_27
-      rect:
-        serializedVersion: 2
-        x: 633
-        y: 380
-        width: 211
-        height: 190
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b90e807d9595c7f40bb6167fb5facd8e
-      internalID: 1925199293
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Link_UlFix_28
-      rect:
-        serializedVersion: 2
-        x: 844
-        y: 380
-        width: 211
-        height: 190
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4886a0f431e27b2488bac436742b9006
-      internalID: 1199879952
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Link_UlFix_29
-      rect:
-        serializedVersion: 2
-        x: 1055
-        y: 380
-        width: 211
-        height: 190
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8c71ad1f5e454d44c965c99d9f345e4d
-      internalID: 2005159560
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Link_UlFix_30
-      rect:
-        serializedVersion: 2
-        x: 1266
-        y: 380
-        width: 211
-        height: 190
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6f694228d4ed82f4a9367c3e70643f2f
-      internalID: -393398354
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Link_UlFix_31
-      rect:
-        serializedVersion: 2
-        x: 1477
-        y: 380
-        width: 211
-        height: 190
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0c06f2a232f96ad49a3ec5ce83dbfd17
-      internalID: -565068818
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Link_UlFix_32
-      rect:
-        serializedVersion: 2
-        x: 1688
-        y: 380
-        width: 211
-        height: 190
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8b3bb599ae94a284fbf6c3dd953c645b
-      internalID: -731713048
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Link_UlFix_33
-      rect:
-        serializedVersion: 2
-        x: 1899
-        y: 380
-        width: 211
-        height: 190
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: adea6845f766e0847a6f02bb300c0304
-      internalID: -943512875
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Link_UlFix_34
-      rect:
-        serializedVersion: 2
-        x: 2110
-        y: 380
-        width: 211
-        height: 190
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 14cc922ff4c86a646875950453963c73
-      internalID: 1831607385
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Link_UlFix_35
-      rect:
-        serializedVersion: 2
-        x: 2321
-        y: 380
-        width: 211
-        height: 190
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b13a9eedb0be00245aa01cb448a65a5b
-      internalID: -1617021463
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Link_UlFix_36
-      rect:
-        serializedVersion: 2
-        x: 2532
-        y: 380
-        width: 211
-        height: 190
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1abf4fa0c1b2b2540b3d60910908103b
-      internalID: -929804423
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Link_UlFix_37
-      rect:
-        serializedVersion: 2
-        x: 2743
-        y: 380
-        width: 211
-        height: 190
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3acb252f91c9c65439d6495f7e62ab61
-      internalID: -2047254090
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Link_UlFix_38
-      rect:
-        serializedVersion: 2
-        x: 2954
-        y: 380
-        width: 211
-        height: 190
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7a66768c2595e7043b34e8eb7ec72429
-      internalID: 458474889
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Link_UlFix_39
+      name: Ryu_23
       rect:
         serializedVersion: 2
         x: 0
-        y: 190
-        width: 211
-        height: 190
+        y: 256
+        width: 80
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -938,20 +602,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 35f982970f7d4a847b5e4b9a9d268c6d
-      internalID: 1557727077
+      spriteID: 3edf75169d24c784a8dad7f622c0427d
+      internalID: -831118722
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Link_UlFix_40
+      name: Ryu_24
       rect:
         serializedVersion: 2
-        x: 211
-        y: 190
-        width: 211
-        height: 190
+        x: 110
+        y: 256
+        width: 86
+        height: 129
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -959,20 +623,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2302ba532e869c949839eac8635caa8a
-      internalID: 1035185531
+      spriteID: f9ef88ae3e99c084eb309d8ffe088209
+      internalID: 979164761
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Link_UlFix_41
+      name: Ryu_25
       rect:
         serializedVersion: 2
-        x: 422
-        y: 190
-        width: 211
-        height: 190
+        x: 220
+        y: 256
+        width: 110
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -980,20 +644,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 521ac371a25b1804fadf341879ad4574
-      internalID: -1742740489
+      spriteID: 8ad7f8ab9fc7b334882f100828aa76f5
+      internalID: -539212749
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Link_UlFix_42
+      name: Ryu_26
       rect:
         serializedVersion: 2
-        x: 633
-        y: 190
-        width: 211
-        height: 190
+        x: 330
+        y: 256
+        width: 79
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1001,20 +665,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d8d6a753cb14c0d42bf6ab94159098ce
-      internalID: -302551530
+      spriteID: 90f1909f087889b48ba102ce88edaf60
+      internalID: 250480445
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Link_UlFix_43
+      name: Ryu_27
       rect:
         serializedVersion: 2
-        x: 844
-        y: 190
-        width: 211
-        height: 190
+        x: 440
+        y: 256
+        width: 73
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1022,20 +686,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9f372f4c68d35b44f963349c99d11681
-      internalID: -212341791
+      spriteID: f00c715ef78b7ba4ba634e495b46c876
+      internalID: -469097394
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Link_UlFix_44
+      name: Ryu_28
       rect:
         serializedVersion: 2
-        x: 1055
-        y: 190
-        width: 211
-        height: 190
+        x: 550
+        y: 256
+        width: 90
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1043,20 +707,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c840f0b29dc48c14a8f50e2fd6b7b7eb
-      internalID: -1317550750
+      spriteID: 241948bb83e822b42b50b709e038876d
+      internalID: -1344261210
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Link_UlFix_45
+      name: Ryu_29
       rect:
         serializedVersion: 2
-        x: 1266
-        y: 190
-        width: 211
-        height: 190
+        x: 660
+        y: 256
+        width: 84
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1064,20 +728,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dcfc3112ab939f34d9f0bdc6774accb1
-      internalID: 745588565
+      spriteID: b8f28ed7c6dc2684aa8d1370347b95af
+      internalID: 1814336522
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Link_UlFix_46
+      name: Ryu_30
       rect:
         serializedVersion: 2
-        x: 1477
-        y: 190
-        width: 211
-        height: 190
+        x: 770
+        y: 256
+        width: 84
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1085,20 +749,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cff210e082328fd4aa2463be4a4193b2
-      internalID: 1278925186
+      spriteID: 984820b815d0ac645979451dc6a31c5c
+      internalID: 186334625
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Link_UlFix_47
+      name: Ryu_31
       rect:
         serializedVersion: 2
-        x: 1688
-        y: 190
-        width: 211
-        height: 190
+        x: 880
+        y: 256
+        width: 91
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1106,20 +770,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5b02a6e3aaf2ae4886cf6cc87062bbd
-      internalID: -486846132
+      spriteID: be4d21c8d2027b148b2a1d0504eec489
+      internalID: -527496134
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Link_UlFix_48
+      name: Ryu_32
       rect:
         serializedVersion: 2
-        x: 1899
-        y: 190
-        width: 211
-        height: 190
+        x: 990
+        y: 256
+        width: 93
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1127,20 +791,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1bb6fa711418e314fab0dd3d4aeb0d72
-      internalID: -1966644125
+      spriteID: f5d01bc6a9577f949b4be2f695a49e2b
+      internalID: -203833147
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Link_UlFix_49
+      name: Ryu_33
       rect:
         serializedVersion: 2
-        x: 2110
-        y: 190
-        width: 211
-        height: 190
+        x: 1100
+        y: 256
+        width: 96
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1148,20 +812,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ae064bce38f2fa4caef5b7cb37db5c6
-      internalID: 226988366
+      spriteID: bda8ee805e3fc8e49b8f4ea38cc4279e
+      internalID: -1717222841
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Link_UlFix_50
+      name: Ryu_34
       rect:
         serializedVersion: 2
-        x: 2321
-        y: 190
-        width: 211
-        height: 190
+        x: 1210
+        y: 256
+        width: 95
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1169,20 +833,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 27a179b465385944b8c35808ffc2e8ef
-      internalID: -537701052
+      spriteID: cbd96143399cf23448c652a47016cba6
+      internalID: 910004780
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Link_UlFix_51
+      name: Ryu_35
       rect:
         serializedVersion: 2
-        x: 2532
-        y: 190
-        width: 211
-        height: 190
+        x: 1320
+        y: 256
+        width: 110
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1190,20 +854,230 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aaea4320a273497428f92a8b58c44b97
-      internalID: 1010180071
+      spriteID: c5d1abd73db70db42809345635da02f9
+      internalID: -418053522
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Link_UlFix_52
+      name: Ryu_36
+      rect:
+        serializedVersion: 2
+        x: 1430
+        y: 256
+        width: 110
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2f74b95688d8204f8b2e8d462000492
+      internalID: 1680068538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ryu_37
+      rect:
+        serializedVersion: 2
+        x: 1540
+        y: 256
+        width: 110
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 338f7e1217466d24e9ee55389d76921a
+      internalID: 1568266281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ryu_38
+      rect:
+        serializedVersion: 2
+        x: 1650
+        y: 256
+        width: 110
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 791429b94690b4746a5241d4ac4bce7b
+      internalID: 686182059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ryu_39
+      rect:
+        serializedVersion: 2
+        x: 1760
+        y: 256
+        width: 110
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17fc6b34cc30f214cb307f4ce9afe7a6
+      internalID: 4670483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ryu_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 93
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 797f4b6089744e345bb53168e7e4ae67
+      internalID: -497359164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ryu_41
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 127
+        width: 84
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2d1ed68399bcb34ea1655a67cd1d42a
+      internalID: 516001316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ryu_42
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 128
+        width: 84
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4dd5504ec2030cd40a62c0e68de23c32
+      internalID: 1705596304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ryu_43
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 128
+        width: 85
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 115548f8e7d39e747ab2103d04d6ca76
+      internalID: -386505952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ryu_44
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 128
+        width: 81
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 535c0df0b05472c49b5407d61af744ea
+      internalID: 159777262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ryu_45
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 128
+        width: 71
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 445879f180e64b941b5be0fec99f3122
+      internalID: 1665002693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ryu_46
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 211
-        height: 190
+        width: 75
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1211,20 +1085,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1efbc5f7a30206141b016a0c0d62c9b8
-      internalID: 1797805250
+      spriteID: 95357c8df5256c7478ac0c9e20a08168
+      internalID: 679363219
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Link_UlFix_53
+      name: Ryu_47
       rect:
         serializedVersion: 2
-        x: 211
+        x: 110
         y: 0
-        width: 211
-        height: 190
+        width: 70
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1232,20 +1106,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d325809d3b20e44499d85f83d15eb6ed
-      internalID: -1934789918
+      spriteID: 1bfd8ae2f1173094cb02c3691d26f9f2
+      internalID: -1604220577
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Link_UlFix_54
+      name: Ryu_48
       rect:
         serializedVersion: 2
-        x: 422
+        x: 220
         y: 0
-        width: 211
-        height: 190
+        width: 79
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1253,20 +1127,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a41ca0ba25cda644eafa3963ab049c7a
-      internalID: 2070838876
+      spriteID: e11f9aaa021a6c345be8d8ae84883f31
+      internalID: 614544599
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Link_UlFix_55
+      name: Ryu_49
       rect:
         serializedVersion: 2
-        x: 633
+        x: 330
         y: 0
-        width: 211
-        height: 190
+        width: 87
+        height: 129
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1274,20 +1148,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 932994775520f1a4f8de6a0397d6216f
-      internalID: -333862134
+      spriteID: 54799ebb732aafa49a08c548cb61e9c9
+      internalID: 1006614551
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Link_UlFix_56
+      name: Ryu_50
       rect:
         serializedVersion: 2
-        x: 844
+        x: 440
         y: 0
-        width: 211
-        height: 190
+        width: 78
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1295,20 +1169,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad40354703b132f428dabd19a169f96f
-      internalID: 1398063298
+      spriteID: eb3df4373e5657244a5e18c3b83f2d35
+      internalID: -795042198
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Link_UlFix_57
+      name: Ryu_51
       rect:
         serializedVersion: 2
-        x: 1055
+        x: 550
         y: 0
-        width: 211
-        height: 190
+        width: 74
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1316,20 +1190,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 21092e853f4075c41b6dd7c5014c4e88
-      internalID: 1324253940
+      spriteID: 6e89c53edb4f76341ae3a6bd1d3e1eaa
+      internalID: -1305605873
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Link_UlFix_58
+      name: Ryu_52
       rect:
         serializedVersion: 2
-        x: 1266
+        x: 660
         y: 0
-        width: 211
-        height: 190
+        width: 77
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1337,20 +1211,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 45efa7e996f2c1141beabe42b972a078
-      internalID: 300619651
+      spriteID: 0e35487a601ed984c9bb1837b965e390
+      internalID: 1827396753
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Link_UlFix_59
+      name: Ryu_53
       rect:
         serializedVersion: 2
-        x: 1477
+        x: 770
         y: 0
-        width: 211
-        height: 190
+        width: 81
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1358,20 +1232,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae9c4231faa183749b96cf89e6c79689
-      internalID: 714515454
+      spriteID: 368eda4b61e1fe04085ad07f01c0e287
+      internalID: -794066391
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Link_UlFix_60
+      name: Ryu_54
       rect:
         serializedVersion: 2
-        x: 1688
+        x: 880
         y: 0
-        width: 211
-        height: 190
+        width: 80
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1379,20 +1253,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ef5063a27b177d543ae4229060372834
-      internalID: -863299296
+      spriteID: c13e87ea31316d146b786d1c5c6537eb
+      internalID: 335101892
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Link_UlFix_61
+      name: Ryu_55
       rect:
         serializedVersion: 2
-        x: 1899
+        x: 991
         y: 0
-        width: 211
-        height: 190
+        width: 73
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1400,92 +1274,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 596d530547474904c9b24fb37edffe67
-      internalID: -2099899010
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Link_UlFix_62
-      rect:
-        serializedVersion: 2
-        x: 2110
-        y: 0
-        width: 211
-        height: 190
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5cd3832655cc8144f8e817c07b92c95c
-      internalID: -2037545480
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Link_UlFix_63
-      rect:
-        serializedVersion: 2
-        x: 2321
-        y: 0
-        width: 211
-        height: 190
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 478483c51334c8a4d857144aaa276265
-      internalID: -1917250938
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Link_UlFix_64
-      rect:
-        serializedVersion: 2
-        x: 2532
-        y: 0
-        width: 211
-        height: 190
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b73dcac78500ffa4eb92d94fb828a3ca
-      internalID: -1145915702
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Link_UlFix_65
-      rect:
-        serializedVersion: 2
-        x: 2743
-        y: 0
-        width: 211
-        height: 190
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ed4c1f959e6ba0344a2583622e978f70
-      internalID: 746410617
+      spriteID: efaf05bf107cfa2409d938d827addcbf
+      internalID: 620279389
       vertices: []
       indices: 
       edges: []
@@ -1501,72 +1291,62 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Link_UlFix_0: 940095257
-      Link_UlFix_1: -1146213662
-      Link_UlFix_10: 1566662633
-      Link_UlFix_11: 519274124
-      Link_UlFix_12: -1203500374
-      Link_UlFix_13: 1013346904
-      Link_UlFix_14: 1181924838
-      Link_UlFix_15: 656506577
-      Link_UlFix_16: 1868356378
-      Link_UlFix_17: -1530075208
-      Link_UlFix_18: -425045306
-      Link_UlFix_19: 697861987
-      Link_UlFix_2: 2046567922
-      Link_UlFix_20: 1103475029
-      Link_UlFix_21: -2032692509
-      Link_UlFix_22: 1982420529
-      Link_UlFix_23: -88885005
-      Link_UlFix_24: -691973899
-      Link_UlFix_25: 1096455861
-      Link_UlFix_26: 1307649189
-      Link_UlFix_27: 1925199293
-      Link_UlFix_28: 1199879952
-      Link_UlFix_29: 2005159560
-      Link_UlFix_3: -793048059
-      Link_UlFix_30: -393398354
-      Link_UlFix_31: -565068818
-      Link_UlFix_32: -731713048
-      Link_UlFix_33: -943512875
-      Link_UlFix_34: 1831607385
-      Link_UlFix_35: -1617021463
-      Link_UlFix_36: -929804423
-      Link_UlFix_37: -2047254090
-      Link_UlFix_38: 458474889
-      Link_UlFix_39: 1557727077
-      Link_UlFix_4: -235097274
-      Link_UlFix_40: 1035185531
-      Link_UlFix_41: -1742740489
-      Link_UlFix_42: -302551530
-      Link_UlFix_43: -212341791
-      Link_UlFix_44: -1317550750
-      Link_UlFix_45: 745588565
-      Link_UlFix_46: 1278925186
-      Link_UlFix_47: -486846132
-      Link_UlFix_48: -1966644125
-      Link_UlFix_49: 226988366
-      Link_UlFix_5: 1654678711
-      Link_UlFix_50: -537701052
-      Link_UlFix_51: 1010180071
-      Link_UlFix_52: 1797805250
-      Link_UlFix_53: -1934789918
-      Link_UlFix_54: 2070838876
-      Link_UlFix_55: -333862134
-      Link_UlFix_56: 1398063298
-      Link_UlFix_57: 1324253940
-      Link_UlFix_58: 300619651
-      Link_UlFix_59: 714515454
-      Link_UlFix_6: -1456466701
-      Link_UlFix_60: -863299296
-      Link_UlFix_61: -2099899010
-      Link_UlFix_62: -2037545480
-      Link_UlFix_63: -1917250938
-      Link_UlFix_64: -1145915702
-      Link_UlFix_65: 746410617
-      Link_UlFix_7: 1058937505
-      Link_UlFix_8: -2126509021
-      Link_UlFix_9: 119722607
+      Ryu_0: -157752280
+      Ryu_1: -563385352
+      Ryu_10: 1238859368
+      Ryu_11: 284309302
+      Ryu_12: 814128574
+      Ryu_13: 808254703
+      Ryu_14: 2065845735
+      Ryu_15: 254945340
+      Ryu_16: -2072702963
+      Ryu_17: 826018214
+      Ryu_18: -421609794
+      Ryu_19: -993486264
+      Ryu_2: -271956162
+      Ryu_20: -1192776049
+      Ryu_21: -1027954408
+      Ryu_22: 311819015
+      Ryu_23: -831118722
+      Ryu_24: 979164761
+      Ryu_25: -539212749
+      Ryu_26: 250480445
+      Ryu_27: -469097394
+      Ryu_28: -1344261210
+      Ryu_29: 1814336522
+      Ryu_3: -1724261310
+      Ryu_30: 186334625
+      Ryu_31: -527496134
+      Ryu_32: -203833147
+      Ryu_33: -1717222841
+      Ryu_34: 910004780
+      Ryu_35: -418053522
+      Ryu_36: 1680068538
+      Ryu_37: 1568266281
+      Ryu_38: 686182059
+      Ryu_39: 4670483
+      Ryu_4: -446220064
+      Ryu_40: -497359164
+      Ryu_41: 516001316
+      Ryu_42: 1705596304
+      Ryu_43: -386505952
+      Ryu_44: 159777262
+      Ryu_45: 1665002693
+      Ryu_46: 679363219
+      Ryu_47: -1604220577
+      Ryu_48: 614544599
+      Ryu_49: 1006614551
+      Ryu_5: -811438192
+      Ryu_50: -795042198
+      Ryu_51: -1305605873
+      Ryu_52: 1827396753
+      Ryu_53: -794066391
+      Ryu_54: 335101892
+      Ryu_55: 620279389
+      Ryu_6: -1893663777
+      Ryu_7: 1080240527
+      Ryu_8: -473077913
+      Ryu_9: 83266177
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

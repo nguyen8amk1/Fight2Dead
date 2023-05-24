@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a24b7f7674e6dec4ca7815cb544969ed
+guid: 1cb7d9a68e9fd6c4281fc98d0d357032
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,988 +105,1114 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: captain_sprite_0
+      name: Cap_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 1422.9
-        width: 229.2
-        height: 158.1
+        y: 724
+        width: 121
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a80d0a30a9f1fae478d2afe2ee4b230d
-      internalID: -391262627
+      spriteID: 2ecd0ee62b7e16340bd751651306072a
+      internalID: -619240055
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: captain_sprite_1
+      name: Cap_1
       rect:
         serializedVersion: 2
-        x: 229
-        y: 1422.9
-        width: 229.2
-        height: 158.1
+        x: 231
+        y: 724
+        width: 120
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 93f72f051714fdc478be6c275beada44
-      internalID: -1160436846
+      spriteID: cb3d87c510a6d184ba51bbed43e4ab3f
+      internalID: 1167857710
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: captain_sprite_2
+      name: Cap_2
       rect:
         serializedVersion: 2
-        x: 458
-        y: 1422.9
-        width: 229.2
-        height: 158.1
+        x: 462
+        y: 724
+        width: 105
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 64738b45757998646acea488701d3ece
-      internalID: 434402112
+      spriteID: 2e7ddde4b8805f449a259948ab1b31dd
+      internalID: 76668606
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: captain_sprite_3
+      name: Cap_3
       rect:
         serializedVersion: 2
-        x: 687
-        y: 1422.9
-        width: 229.2
-        height: 158.1
+        x: 693
+        y: 724
+        width: 113
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 98b6809acd221db48b096c51d1639e87
-      internalID: -1477335724
+      spriteID: dfaa7da972578f04cb8a3720e871ed4d
+      internalID: -95359076
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: captain_sprite_4
+      name: Cap_4
       rect:
         serializedVersion: 2
-        x: 916
-        y: 1422.9
-        width: 229.2
-        height: 158.1
+        x: 924
+        y: 724
+        width: 112
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0970b664745dc8641bd2c106aca944a0
-      internalID: -929002088
+      spriteID: 6488da29a4ae4fe4dad470f2376b1314
+      internalID: -1551502218
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: captain_sprite_5
+      name: Cap_5
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1264.9
-        width: 229.2
-        height: 158.1
+        x: 1155
+        y: 724
+        width: 123
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 50d2af7442f90654c8ef3813def2202e
-      internalID: 1938123684
+      spriteID: 7a240864366bfa1468c31b77714877aa
+      internalID: -943220431
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: captain_sprite_6
+      name: Cap_6
       rect:
         serializedVersion: 2
-        x: 229
-        y: 1264.9
-        width: 229.2
-        height: 158.1
+        x: 1386
+        y: 724
+        width: 130
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9376eb64d6aea6b4fb4c8cd2687de0e4
-      internalID: 1215687149
+      spriteID: a20b1580a0ff2724cb93a9e9cb366804
+      internalID: 1511957400
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: captain_sprite_7
+      name: Cap_7
       rect:
         serializedVersion: 2
-        x: 458
-        y: 1264.9
-        width: 229.2
-        height: 158.1
+        x: 1617
+        y: 724
+        width: 104
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0894a05f23163074d93fea816d429fa6
-      internalID: -1872273411
+      spriteID: 89dc65f704331454ca49bd263faabc76
+      internalID: -1270638249
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: captain_sprite_8
+      name: Cap_8
       rect:
         serializedVersion: 2
-        x: 687
-        y: 1264.9
-        width: 229.2
-        height: 158.1
+        x: 1848
+        y: 724
+        width: 104
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 15205cda7c00bb045b1823846750531f
-      internalID: -1970437619
+      spriteID: b5791ea894aa8b443b5ab59f31e8cd80
+      internalID: 1855078298
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: captain_sprite_9
+      name: Cap_9
       rect:
         serializedVersion: 2
-        x: 916
-        y: 1264.9
-        width: 229.2
-        height: 158.1
+        x: 2079
+        y: 724
+        width: 106
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 281b916904001a146ab432f83971abcc
-      internalID: 213733815
+      spriteID: 2c46e106028c5d34eb61ea1452e81c80
+      internalID: 155149753
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: captain_sprite_10
+      name: Cap_10
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1106.9
-        width: 229.2
-        height: 158.1
+        x: 2310
+        y: 724
+        width: 120
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c2bd43e7bc5362e47993de9eb620acab
-      internalID: 1111295879
+      spriteID: fd93fdfd9f6fd564e91aa2778fd0e2b3
+      internalID: 504415860
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: captain_sprite_11
+      name: Cap_11
       rect:
         serializedVersion: 2
-        x: 229
-        y: 1106.9
-        width: 229.2
-        height: 158.1
+        x: 2541
+        y: 724
+        width: 107
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d0a62942aa6a4864c958b9987878f044
-      internalID: 378593400
+      spriteID: eb8875548786cf843aa8602b194303d6
+      internalID: -173814864
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: captain_sprite_12
+      name: Cap_12
       rect:
         serializedVersion: 2
-        x: 458
-        y: 1106.9
-        width: 229.2
-        height: 158.1
+        x: 2772
+        y: 724
+        width: 117
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 137da198200d64b438a5e25fb33de552
-      internalID: -557996021
+      spriteID: 4e0e06c73571e094b82dc167bc85658d
+      internalID: -1834057701
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: captain_sprite_13
-      rect:
-        serializedVersion: 2
-        x: 687
-        y: 1106.9
-        width: 229.2
-        height: 158.1
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e26a7fe31a44ca740b3ccdcdbd44a8fe
-      internalID: -2007904220
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: captain_sprite_14
-      rect:
-        serializedVersion: 2
-        x: 916
-        y: 1106.9
-        width: 229.2
-        height: 158.1
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a187efd002774aa438b2f8aae2c862c6
-      internalID: 2075626779
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: captain_sprite_15
+      name: Cap_13
       rect:
         serializedVersion: 2
         x: 0
-        y: 948.9
-        width: 229.2
-        height: 158.1
+        y: 543
+        width: 131
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a495eee4a26cc7b4db0866bee3c0a2f1
-      internalID: 814400847
+      spriteID: cfd0e6249af19534fb89f252293c1e27
+      internalID: -2132610796
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: captain_sprite_16
+      name: Cap_14
       rect:
         serializedVersion: 2
-        x: 229
-        y: 948.9
-        width: 229.2
-        height: 158.1
+        x: 231
+        y: 543
+        width: 142
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 451a9291f980f434aab546355dda2b7c
-      internalID: 1168035556
+      spriteID: 144f919ad0823ee43a0af0ca86a583f0
+      internalID: 1369666799
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: captain_sprite_17
+      name: Cap_15
       rect:
         serializedVersion: 2
-        x: 458
-        y: 948.9
-        width: 229.2
-        height: 158.1
+        x: 462
+        y: 543
+        width: 141
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc0e805ab4c398444b39036e35b24d06
-      internalID: 988888659
+      spriteID: 3fdcf44fbc9c4e7449270ba39902d215
+      internalID: 1303112961
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: captain_sprite_18
+      name: Cap_16
       rect:
         serializedVersion: 2
-        x: 687
-        y: 948.9
-        width: 229.2
-        height: 158.1
+        x: 693
+        y: 543
+        width: 124
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 536be3e2da9c85547a664cd9f3194bdc
-      internalID: -1718004368
+      spriteID: 1c8f51977e6f58e41a93e222b800c6a3
+      internalID: 1870500140
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: captain_sprite_19
+      name: Cap_17
       rect:
         serializedVersion: 2
-        x: 916
-        y: 948.9
-        width: 229.2
-        height: 158.1
+        x: 924
+        y: 543
+        width: 130
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 08f7f622e62551343a0414bdf4776622
-      internalID: -315469826
+      spriteID: 88fd4eb408ecfdc41b6ab4a7ba203d8e
+      internalID: -741457266
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: captain_sprite_20
+      name: Cap_18
       rect:
         serializedVersion: 2
-        x: 0
-        y: 790.9
-        width: 229.2
-        height: 158.1
+        x: 1154
+        y: 543
+        width: 145
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 95c7a5a2707cd1841bd068e1fdae4ea8
-      internalID: 1651374320
+      spriteID: 5bd29333c9556e840b674ec995f25f26
+      internalID: -592322052
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: captain_sprite_21
+      name: Cap_19
       rect:
         serializedVersion: 2
-        x: 229
-        y: 790.9
-        width: 229.2
-        height: 158.1
+        x: 1385
+        y: 543
+        width: 133
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de255cf0de2ff1045b7e491e442ad6c4
-      internalID: 1735368937
+      spriteID: 50ceca7932fa17a45a90ce4c1dc44560
+      internalID: -34759678
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: captain_sprite_22
+      name: Cap_20
       rect:
         serializedVersion: 2
-        x: 458
-        y: 790.9
-        width: 229.2
-        height: 158.1
+        x: 1616
+        y: 543
+        width: 132
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d32814393c54ffa45aa67ccea0e56149
-      internalID: -1127312063
+      spriteID: 000249274d480cb49b7e6943c4006aa5
+      internalID: 1832124565
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: captain_sprite_23
+      name: Cap_21
       rect:
         serializedVersion: 2
-        x: 687
-        y: 790.9
-        width: 229.2
-        height: 158.1
+        x: 1848
+        y: 543
+        width: 150
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91c85610e2b486240ba63a861ec9590c
-      internalID: 1513223218
+      spriteID: 8c5089a6e4b8b864c9218eb186362717
+      internalID: -1949380766
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: captain_sprite_24
+      name: Cap_22
       rect:
         serializedVersion: 2
-        x: 916
-        y: 790.9
-        width: 229.2
-        height: 158.1
+        x: 2079
+        y: 543
+        width: 131
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d115b581d9a24a147b517d246d349734
-      internalID: 717653009
+      spriteID: 442b66558e0984747ade968f5b95970d
+      internalID: 1321819386
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: captain_sprite_25
+      name: Cap_23
       rect:
         serializedVersion: 2
-        x: 0
-        y: 632.9
-        width: 229.2
-        height: 158.1
+        x: 2310
+        y: 543
+        width: 231
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 040f825f2d2a10d4b989c16b5a0e03a8
-      internalID: -1411092456
+      spriteID: ad65a299fb65d8442b4dd55e26abf8d3
+      internalID: -1820024483
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: captain_sprite_26
+      name: Cap_24
       rect:
         serializedVersion: 2
-        x: 229
-        y: 632.9
-        width: 229.2
-        height: 158.1
+        x: 2541
+        y: 543
+        width: 231
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f14d1c1c7db2ca24abf657a1d2ba7890
-      internalID: -86168869
+      spriteID: 6733445dbdc637742a841c5dfbc9b60f
+      internalID: -2105763624
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: captain_sprite_27
+      name: Cap_25
       rect:
         serializedVersion: 2
-        x: 458
-        y: 632.9
-        width: 229.2
-        height: 158.1
+        x: 2772
+        y: 544
+        width: 149
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c8d89cdbe0e3df4ea01ae004278e6c4
-      internalID: 294286498
+      spriteID: ca52225335988384b92bfc6b71f23af6
+      internalID: -875220017
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: captain_sprite_28
-      rect:
-        serializedVersion: 2
-        x: 687
-        y: 632.9
-        width: 229.2
-        height: 158.1
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f645f1dc3aa22e7458c922a97e3e1a1a
-      internalID: 226334758
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: captain_sprite_29
-      rect:
-        serializedVersion: 2
-        x: 916
-        y: 632.9
-        width: 229.2
-        height: 158.1
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 99ce30f8cc456124ab855dc3722bdf65
-      internalID: -115130332
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: captain_sprite_30
+      name: Cap_26
       rect:
         serializedVersion: 2
         x: 0
-        y: 474.9
-        width: 229.2
-        height: 158.1
+        y: 362
+        width: 130
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d6bc795f79ddaa4e95b00faeb38fe4c
-      internalID: 922064317
+      spriteID: 24fda4667f9f0a742b08af06d5c7b561
+      internalID: -1056432798
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: captain_sprite_31
+      name: Cap_27
       rect:
         serializedVersion: 2
-        x: 229
-        y: 474.9
-        width: 229.2
-        height: 158.1
+        x: 231
+        y: 362
+        width: 141
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7341d48f76cb8b74ea154d9d0baa4f81
-      internalID: 903359706
+      spriteID: ab5011c17f65f744e8a7cdc48588764a
+      internalID: 1007468635
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: captain_sprite_32
+      name: Cap_28
       rect:
         serializedVersion: 2
-        x: 458
-        y: 474.9
-        width: 229.2
-        height: 158.1
+        x: 462
+        y: 362
+        width: 231
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f24adfe1435dbb4b9606f3b698e431c
-      internalID: -680999406
+      spriteID: 5652309f124efa043ab3d2a04b8f7d96
+      internalID: -1162092813
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: captain_sprite_33
+      name: Cap_29
       rect:
         serializedVersion: 2
-        x: 687
-        y: 474.9
-        width: 229.2
-        height: 158.1
+        x: 693
+        y: 362
+        width: 231
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 16fae4a6af7eb6d4eb8fdb7e37f1907d
-      internalID: 1306710114
+      spriteID: 934c17ceb33022543982115f76fcab1c
+      internalID: -1531297610
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: captain_sprite_34
+      name: Cap_30
       rect:
         serializedVersion: 2
-        x: 916
-        y: 474.9
-        width: 229.2
-        height: 158.1
+        x: 924
+        y: 362
+        width: 200
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a0b271ccc391284fa1f64db73f09dca
-      internalID: -1640522003
+      spriteID: b9605f1d1674863458d97136cb8ab0d9
+      internalID: -1035264901
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: captain_sprite_35
+      name: Cap_31
       rect:
         serializedVersion: 2
-        x: 0
-        y: 316.9
-        width: 229.2
-        height: 158.1
+        x: 1155
+        y: 362
+        width: 173
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c85c632e6cfe4d143986532f516e7323
-      internalID: 2071089432
+      spriteID: 28e1b53c2bd36c4448fd2a7d78a6b5ed
+      internalID: -1097453925
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: captain_sprite_36
+      name: Cap_32
       rect:
         serializedVersion: 2
-        x: 229
-        y: 316.9
-        width: 229.2
-        height: 158.1
+        x: 1387
+        y: 362
+        width: 188
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dfc6cc3ef36f47945820acb932cfb351
-      internalID: 199890700
+      spriteID: 29443cd3cae302c4f84c2d9fdbff4182
+      internalID: -1882913616
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: captain_sprite_37
+      name: Cap_33
       rect:
         serializedVersion: 2
-        x: 458
-        y: 316.9
-        width: 229.2
-        height: 158.1
+        x: 1618
+        y: 362
+        width: 198
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b7d3544c5c0d4b447a5b4954deba8992
-      internalID: 616537084
+      spriteID: a3850c6a9b305424bbc46dbacab46244
+      internalID: 2135158728
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: captain_sprite_38
+      name: Cap_34
       rect:
         serializedVersion: 2
-        x: 687
-        y: 316.9
-        width: 229.2
-        height: 158.1
+        x: 1848
+        y: 362
+        width: 164
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea22f52872ad16340ad0e7662094b825
-      internalID: -1619395845
+      spriteID: d430d2dd3f53a2e4e961419bf70a29d1
+      internalID: -357718877
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: captain_sprite_39
-      rect:
-        serializedVersion: 2
-        x: 916
-        y: 316.9
-        width: 229.2
-        height: 158.1
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 335a4848b9f80ab4886039cd7b1c970d
-      internalID: 483370547
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: captain_sprite_40
+      name: Cap_35
       rect:
         serializedVersion: 2
         x: 0
-        y: 158.9
-        width: 229.2
-        height: 158.1
+        y: 181
+        width: 145
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd23222b4721e2448be6dfa16c8c7940
-      internalID: -631301541
+      spriteID: 07f010184c1f46a4fab6b2a845095415
+      internalID: 1172157211
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: captain_sprite_41
+      name: Cap_36
       rect:
         serializedVersion: 2
-        x: 229
-        y: 158.9
-        width: 229.2
-        height: 158.1
+        x: 231
+        y: 181
+        width: 129
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4a63a3baf7abb704e86270c4585bc27f
-      internalID: -1529363288
+      spriteID: 60ecf06b36edffc4c9e41cc64e5d7221
+      internalID: 616356405
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: captain_sprite_42
+      name: Cap_37
       rect:
         serializedVersion: 2
-        x: 458
-        y: 158.9
-        width: 229.2
-        height: 158.1
+        x: 462
+        y: 181
+        width: 165
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1cf2a66e8ee94d84894b79ad6a731c4c
-      internalID: 1332333827
+      spriteID: 2f4bcca83dc9f724b9c79e0e2ef2b9f7
+      internalID: -2072751196
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: captain_sprite_43
+      name: Cap_38
       rect:
         serializedVersion: 2
-        x: 687
-        y: 158.9
-        width: 229.2
-        height: 158.1
+        x: 693
+        y: 181
+        width: 194
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e5d2f4d0e7c96d4db434ada5251acfe
-      internalID: -124156231
+      spriteID: e702dc1d8e991b34f8ba8687d28d7d66
+      internalID: -1192777784
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: captain_sprite_44
+      name: Cap_39
       rect:
         serializedVersion: 2
-        x: 916
-        y: 158.9
-        width: 229.2
-        height: 158.1
+        x: 924
+        y: 181
+        width: 180
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 064fce5b21979a441b54cf4318416fc4
-      internalID: 1694156478
+      spriteID: b5a1f19d6f9d8a34a86840839fbeb046
+      internalID: -33178326
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: captain_sprite_45
+      name: Cap_40
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0.8999939
-        width: 229.2
-        height: 158.1
+        x: 1155
+        y: 181
+        width: 145
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8df6037ee70c0a841b5f9744c427028d
-      internalID: -1529816129
+      spriteID: 292e0242bc25b1e448044a71b7b5e332
+      internalID: -1105806866
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: captain_sprite_46
+      name: Cap_41
       rect:
         serializedVersion: 2
-        x: 229
-        y: 0.8999939
-        width: 229.2
-        height: 158.1
+        x: 69
+        y: 0
+        width: 162
+        height: 181
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09c9331f9a723d9429b5ec69cc71623c
-      internalID: -728012025
+      spriteID: a6c4e9d1f454d9f4eacf41fda0a858ab
+      internalID: 1767447473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cap_42
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 0
+        width: 150
+        height: 181
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89f11d19e7fe96c4bbb3c3d179834fe5
+      internalID: -541753562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cap_43
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 0
+        width: 135
+        height: 181
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e56951e6924b1de4d85a44592911f1fc
+      internalID: -1026082108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cap_44
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 0
+        width: 144
+        height: 181
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f36f4d1b1a9ad34dbba5a2134661a80
+      internalID: -1866343908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cap_45
+      rect:
+        serializedVersion: 2
+        x: 924
+        y: 0
+        width: 231
+        height: 181
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cc4664c6305b784fad0d0cc1613dd58
+      internalID: 429881814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cap_46
+      rect:
+        serializedVersion: 2
+        x: 1231
+        y: 0
+        width: 155
+        height: 181
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4be2d979103e0c4d8e37a7cec587b49
+      internalID: -931830535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cap_47
+      rect:
+        serializedVersion: 2
+        x: 1447
+        y: 0
+        width: 170
+        height: 181
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92589670c03e9d74b98581b02faf3b65
+      internalID: -2001047884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cap_48
+      rect:
+        serializedVersion: 2
+        x: 1665
+        y: 0
+        width: 183
+        height: 181
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 845a149fe12b81c459a50bfa07df4632
+      internalID: 1545896543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cap_49
+      rect:
+        serializedVersion: 2
+        x: 1897
+        y: 0
+        width: 182
+        height: 181
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 973bab373f58c4f46b822bafb296f5ad
+      internalID: -1837615389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cap_50
+      rect:
+        serializedVersion: 2
+        x: 2149
+        y: 0
+        width: 161
+        height: 181
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5066c36fc71fca44f99bf8a18980567c
+      internalID: 390981462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cap_51
+      rect:
+        serializedVersion: 2
+        x: 2366
+        y: 0
+        width: 175
+        height: 181
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6365c1ad9f616144f979bd865ed5443a
+      internalID: -605032623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cap_52
+      rect:
+        serializedVersion: 2
+        x: 2592
+        y: 0
+        width: 180
+        height: 181
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9155e975c9d1490499ff8f8cdaeacefe
+      internalID: 792479297
       vertices: []
       indices: 
       edges: []
@@ -1102,53 +1228,59 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      captain_sprite_0: -391262627
-      captain_sprite_1: -1160436846
-      captain_sprite_10: 1111295879
-      captain_sprite_11: 378593400
-      captain_sprite_12: -557996021
-      captain_sprite_13: -2007904220
-      captain_sprite_14: 2075626779
-      captain_sprite_15: 814400847
-      captain_sprite_16: 1168035556
-      captain_sprite_17: 988888659
-      captain_sprite_18: -1718004368
-      captain_sprite_19: -315469826
-      captain_sprite_2: 434402112
-      captain_sprite_20: 1651374320
-      captain_sprite_21: 1735368937
-      captain_sprite_22: -1127312063
-      captain_sprite_23: 1513223218
-      captain_sprite_24: 717653009
-      captain_sprite_25: -1411092456
-      captain_sprite_26: -86168869
-      captain_sprite_27: 294286498
-      captain_sprite_28: 226334758
-      captain_sprite_29: -115130332
-      captain_sprite_3: -1477335724
-      captain_sprite_30: 922064317
-      captain_sprite_31: 903359706
-      captain_sprite_32: -680999406
-      captain_sprite_33: 1306710114
-      captain_sprite_34: -1640522003
-      captain_sprite_35: 2071089432
-      captain_sprite_36: 199890700
-      captain_sprite_37: 616537084
-      captain_sprite_38: -1619395845
-      captain_sprite_39: 483370547
-      captain_sprite_4: -929002088
-      captain_sprite_40: -631301541
-      captain_sprite_41: -1529363288
-      captain_sprite_42: 1332333827
-      captain_sprite_43: -124156231
-      captain_sprite_44: 1694156478
-      captain_sprite_45: -1529816129
-      captain_sprite_46: -728012025
-      captain_sprite_5: 1938123684
-      captain_sprite_6: 1215687149
-      captain_sprite_7: -1872273411
-      captain_sprite_8: -1970437619
-      captain_sprite_9: 213733815
+      Cap_0: -619240055
+      Cap_1: 1167857710
+      Cap_10: 504415860
+      Cap_11: -173814864
+      Cap_12: -1834057701
+      Cap_13: -2132610796
+      Cap_14: 1369666799
+      Cap_15: 1303112961
+      Cap_16: 1870500140
+      Cap_17: -741457266
+      Cap_18: -592322052
+      Cap_19: -34759678
+      Cap_2: 76668606
+      Cap_20: 1832124565
+      Cap_21: -1949380766
+      Cap_22: 1321819386
+      Cap_23: -1820024483
+      Cap_24: -2105763624
+      Cap_25: -875220017
+      Cap_26: -1056432798
+      Cap_27: 1007468635
+      Cap_28: -1162092813
+      Cap_29: -1531297610
+      Cap_3: -95359076
+      Cap_30: -1035264901
+      Cap_31: -1097453925
+      Cap_32: -1882913616
+      Cap_33: 2135158728
+      Cap_34: -357718877
+      Cap_35: 1172157211
+      Cap_36: 616356405
+      Cap_37: -2072751196
+      Cap_38: -1192777784
+      Cap_39: -33178326
+      Cap_4: -1551502218
+      Cap_40: -1105806866
+      Cap_41: 1767447473
+      Cap_42: -541753562
+      Cap_43: -1026082108
+      Cap_44: -1866343908
+      Cap_45: 429881814
+      Cap_46: -931830535
+      Cap_47: -2001047884
+      Cap_48: 1545896543
+      Cap_49: -1837615389
+      Cap_5: -943220431
+      Cap_50: 390981462
+      Cap_51: -605032623
+      Cap_52: 792479297
+      Cap_6: 1511957400
+      Cap_7: -1270638249
+      Cap_8: 1855078298
+      Cap_9: 155149753
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
