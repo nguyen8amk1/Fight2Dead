@@ -57,6 +57,13 @@ public sealed class GameState
 
     public int[] charactersState = new int[] { 0, 0, 0, 0 };
 
+    // Animation variables 
+	public bool player1IsBeingControlled;
+	public int player1State;
+
+	public bool player2IsBeingControlled;
+	public int player2State;
+
 	private GameState()
     {
         roomId = 0;
