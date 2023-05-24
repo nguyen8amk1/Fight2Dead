@@ -73,6 +73,7 @@ namespace SocketServer
 			{
 				Console.WriteLine("Server is listening....");
 				string message = receiveNewConnectionMessage(tcpClient);
+				if (message == null) break;
 				Console.WriteLine($"Message: {message}");
 				dlog.newConnectionMessageReceived(tcpClient, 1, message);
 
@@ -161,12 +162,15 @@ namespace SocketServer
 				// End of received data reached without encountering a termination character
 				// You can choose to handle this case accordingly
 				return messageBuilder.ToString();
+			} else
+			{
+				Console.WriteLine("DITME DEO CO CAI LON GI HET V");
 			}
+			return null;
 			/*
 			if (bytesRead > 0)
 				return Encoding.ASCII.GetString(buffer, 0, bytesRead);
 			*/
-            throw new Exception("DITME DEO CO CAI LON GI HET V");
         }
 
         private void udpListening()

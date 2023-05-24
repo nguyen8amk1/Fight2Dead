@@ -1,9 +1,10 @@
 TODAY: 
-	actually find the LAN SERVER when join (1h) []
-
+	quit message and handle room exit properly (2h) []
+	Global server tcp close and stuff (2h) []
 TODO: 
 
 DONE: 
+	actually find the LAN SERVER when join (1h) [X]
 	// ACTUALLY FIX THE SAMPLE GAMEPLAY SCENE FIRST :v  (1h) [X] 
 /*
 TODO: Determine what the client received and format for each of them 

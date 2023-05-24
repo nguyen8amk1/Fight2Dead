@@ -28,7 +28,7 @@ namespace SocketServer
         private TcpClient tcpClient;
         private NetworkStream tcpStream;
 
-        private string serverIp = "127.0.0.1";
+        public static string serverIp = "127.0.0.1";
         private int tcpPort = 5500;
 
         private LANTCPServerConnection() { 

@@ -9,6 +9,7 @@ using System.Threading;
 using System.Net.Sockets;
 using System.Text;
 using System.Diagnostics;
+using System.Net;
 
 public class MenuSelectButton : MonoBehaviour
 {
@@ -48,11 +49,22 @@ public class MenuSelectButton : MonoBehaviour
         if(joinRoomPressed)
         {
             UnityEngine.Debug.Log("TODO: find a lan server");
-			// connect to that lan server 
-			ServerCommute.connection = LANTCPServerConnection.Instance;
-			ServerCommute.listenToServerThread.Abort();
-			ServerCommute.listenToServerThread = ServerCommute.connection.createListenToServerThread(ListenToServerFactory.tempTCPListening());
-			ServerCommute.listenToServerThread.Start();
+
+            // connect to that lan server 
+            string serverIpAddress = SearchTcpServerOnLocalNetwork(5500);
+            if (!string.IsNullOrEmpty(serverIpAddress))
+            {
+                //Console.WriteLine("Found TCP server at IP: {0}", serverIpAddress);
+                LANTCPServerConnection.serverIp = serverIpAddress; 
+				ServerCommute.connection = LANTCPServerConnection.Instance;
+				ServerCommute.listenToServerThread.Abort();
+				ServerCommute.listenToServerThread = ServerCommute.connection.createListenToServerThread(ListenToServerFactory.tempTCPListening());
+				ServerCommute.listenToServerThread.Start();
+            }
+            else
+            {
+                UnityEngine.Debug.Log("No TCP server found on the local network.");
+            }
         }
 
 
@@ -88,6 +100,45 @@ public class MenuSelectButton : MonoBehaviour
             return;
 		}
 
+    }
+
+    private static string SearchTcpServerOnLocalNetwork(int serverPort)
+    {
+        // Get the local IP addresses of the machine
+        IPAddress[] localIPs = Dns.GetHostAddresses(Dns.GetHostName());
+
+        // Iterate over the local IP addresses
+        foreach (IPAddress localIP in localIPs)
+        {
+            // Skip non-IPv4 and loopback addresses
+            if (localIP.AddressFamily != AddressFamily.InterNetwork || IPAddress.IsLoopback(localIP))
+                continue;
+
+            // Create a TCP client socket
+            TcpClient client = new TcpClient();
+            try
+            {
+                // Attempt to connect to the server at the specified IP address and port
+                client.Connect(localIP, serverPort);
+
+                // Get the IP address of the server
+                IPAddress serverIP = ((IPEndPoint)client.Client.RemoteEndPoint).Address;
+
+                return serverIP.ToString();
+            }
+            catch (SocketException)
+            {
+                // No server found at this IP address
+                Console.WriteLine("Error: No server found");
+            }
+            finally
+            {
+                // Close the TCP client socket
+                client.Close();
+            }
+        }
+
+        return null; // No server found
     }
 
 }
