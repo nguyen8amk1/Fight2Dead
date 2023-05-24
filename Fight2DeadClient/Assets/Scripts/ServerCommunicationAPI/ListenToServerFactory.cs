@@ -199,13 +199,11 @@ namespace SocketServer {
 					gameState.player1IsBeingControlled = true;
 					gameState.player1State = state;
 				}  
-				/*
 				else if(pid == 2)
 				{
 					gameState.player2IsBeingControlled = true;
-					gameState.player2State = Int32.Parse(tokens[4]);
+					gameState.player2State = state;
 				}
-				*/
 
 
 				//@Test: for now state is gonna be char id 

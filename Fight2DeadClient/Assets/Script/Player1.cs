@@ -93,7 +93,6 @@ public class Player1 : MonoBehaviour
         // TODO: just change animation using this way 
         if(globalGameState.player1IsBeingControlled)
 		{
-            Debug.Log("player 1 is being controlled with state: " + globalGameState.player1State);
             if (globalGameState.player1State == -1)
             {
                 GetComponent<SpriteRenderer>().flipX = true;
@@ -103,7 +102,6 @@ public class Player1 : MonoBehaviour
             {
                 GetComponent<SpriteRenderer>().flipX = false;
                 ChangeAnimationState(PLAYER_RUN);
-                Debug.Log("TODO: some how make the player move right  ");
             }
             else if (globalGameState.player1State == -2)
             {
@@ -161,73 +159,33 @@ public class Player1 : MonoBehaviour
 				//Debug.Log("Gaara Fall");
 				// m_animator.SetBool("Grounded", m_grounded);
 			}
+
 			// -- Handle input and movement --
 			float inputX = 0f;
-			/*
-			if(isBeingControlled)
-			{
-				if (moveLeft)
-				{
-					inputX = -1f;
-					GetComponent<SpriteRenderer>().flipX = true;
-					m_facingDirection = -1;
-				}
-
-				else if (moveRight)
-				{
-					inputX = 1f;
-					GetComponent<SpriteRenderer>().flipX = false;
-					m_facingDirection = 1;
-				}
-			} else
-			{
-				if (Input.GetKey(KeyCode.A))
-				{
-					inputX = -1f;
-					GetComponent<SpriteRenderer>().flipX = true;
-					m_facingDirection = -1;
-				}
-
-				else if (Input.GetKey(KeyCode.D))
-				{
-					inputX = 1f;
-					GetComponent<SpriteRenderer>().flipX = false;
-					m_facingDirection = 1;
-				}
-			}
-			*/
-
-            // @Test
 			if (Input.GetKey(KeyCode.A))
 			{
 				inputX = -1f;
 				GetComponent<SpriteRenderer>().flipX = true;
 				m_facingDirection = -1;
-                globalGameState.player1State = -1; 
 			}
 			else if (Input.GetKey(KeyCode.D))
 			{
 				inputX = 1f;
 				GetComponent<SpriteRenderer>().flipX = false;
 				m_facingDirection = 1;
-                globalGameState.player1State = 1; 
-			} else
-			{
-                globalGameState.player1State = 0; 
 			}
 
+            //Set AirSpeed in animator
+            // m_animator.SetFloat("AirSpeedY", m_body2d.velocity.y);
 
-			//Set AirSpeed in animator
-			// m_animator.SetFloat("AirSpeedY", m_body2d.velocity.y);
+            // -- Handle Animations --
 
-			// -- Handle Animations --
+            // //Hurt
+            // if (Input.GetKeyDown("q"))
+            //     m_animator.SetTrigger("Hurt");
 
-			// //Hurt
-			// if (Input.GetKeyDown("q"))
-			//     m_animator.SetTrigger("Hurt");
-
-			// Move
-			if (!isAttacking && !knockback)
+            // Move
+            if (!isAttacking && !knockback)
 			{
 				m_body2d.velocity = new Vector2(inputX * m_speed, m_body2d.velocity.y);
                 //Debug.Log("Gaara Speed");
@@ -317,6 +275,13 @@ public class Player1 : MonoBehaviour
 				//Debug.Log("Gaara Walk");
 				m_delayToIdle = 0.05f;
 				// m_animator.SetInteger("AnimState", 1);
+				if(inputX == 1f)
+				{
+					globalGameState.player1State = 1; 
+				} else if(inputX == -1f)
+				{
+					globalGameState.player1State = -1; 
+				}
 				ChangeAnimationState(PLAYER_RUN);
 			}
 
@@ -329,7 +294,10 @@ public class Player1 : MonoBehaviour
 				// if (m_delayToIdle < 0)
 				// m_animator.SetInteger("AnimState", 0);
 				if (m_delayToIdle < 0)
+				{
 					ChangeAnimationState(PLAYER_IDLE);
+					globalGameState.player1State = 0; 
+				}
 			}
 		}
     }
