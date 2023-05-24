@@ -59,6 +59,7 @@ public class Player1 : MonoBehaviour
     const string PLAYER_DIE_BOTTOM = "Die_Bottom";
     const string PLAYER_DIE_LEFT = "Die_Left";
     const string PLAYER_ATTACK = "Nor";
+    const string PLAYER_ULTIMATE = "Ultimate";
     public float animTime;
     void ChangeAnimationState(string newState)
     {
@@ -161,6 +162,23 @@ public class Player1 : MonoBehaviour
             m_body2d.velocity = new Vector2(inputX * m_speed, m_body2d.velocity.y);
             Debug.Log("Gaara Speed");
         }
+        IEnumerator PerformUltimate()
+        {
+            m_body2d.velocity = Vector2.zero;
+            // Call one of three attack animations "Attack1", "Attack2", "Attack3"
+            ChangeAnimationState(PLAYER_ULTIMATE);
+            //When the attack animation run the event in animation call the function Attack()
+            Debug.Log("Gaara Ultimate");
+
+            // Wai until the animation attack end
+            yield return new WaitForSeconds(1.0f);
+
+            // Reset isAttacking = false
+            isAttacking = false;
+
+            // Reset timer
+            m_timeSinceAttack = 0.0f;
+        }
         IEnumerator PerformAttack()
         {
             m_body2d.velocity = Vector2.zero;
@@ -170,13 +188,13 @@ public class Player1 : MonoBehaviour
             Debug.Log("Gaara Attack");
 
             // Wai until the animation attack end
-            yield return new WaitForSeconds(animTime);
+            yield return new WaitForSeconds(0.3f);
 
             // Reset isAttacking = false
             isAttacking = false;
 
-            // Reset timer
-            m_timeSinceAttack = 0.0f;
+            // Update time last pressed "L" button
+            lastUltimateTime = Time.time;
         }
         //Attack
         if (Input.GetKeyDown(KeyCode.J) && m_timeSinceAttack > 0.25f)
@@ -198,8 +216,9 @@ public class Player1 : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.L) && (Time.time - lastUltimateTime >= cooldownTime))
         {
             // m_animator.SetTrigger("ultimate");
-            Debug.Log("Gaara Ultimate");
-            lastUltimateTime = Time.time; // Update time last pressed "L" button
+            isAttacking = true;
+            StartCoroutine(PerformUltimate());
+            
         }
         // Block
         // else if (Input.GetKeyDown(KeyCode.K))
@@ -334,7 +353,7 @@ public class Player1 : MonoBehaviour
         {
             ChangeAnimationState(PLAYER_HURT_LEFT);
         }
-        if(!playerOnLeft)
+        if (!playerOnLeft)
         {
             ChangeAnimationState(PLAYER_HURT_RIGHT);
         }
