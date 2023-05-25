@@ -60,6 +60,9 @@ public class Player2 : MonoBehaviour
     const string PLAYER_DIE_LEFT = "Die_Left";
     const string PLAYER_ATTACK = "Nor";
     public float animTime;
+    public float nor1Time;
+    public float nor2Time;
+    public float nor3Time;
     void ChangeAnimationState(string newState)
     {
         if (currentState == newState) return;
@@ -209,7 +212,7 @@ public class Player2 : MonoBehaviour
         //     // Perform attack and wait for the attack animation to finish
         //     StartCoroutine(PerformAttack());
         // }
-        IEnumerator PerformAttack(string anim)
+        IEnumerator PerformAttack(string anim,float norTime)
         {
             m_body2d.velocity = Vector2.zero;
             ChangeAnimationState(anim);
@@ -217,7 +220,7 @@ public class Player2 : MonoBehaviour
             Debug.Log("Luffy Attack");
 
             // Wai until the animation attack end
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(norTime);
 
             // Reset isAttacking = false
             isAttacking = false;
@@ -229,21 +232,21 @@ public class Player2 : MonoBehaviour
         {
             // m_animator.SetTrigger("ultimate");
             isAttacking = true;
-            StartCoroutine(PerformAttack(PLAYER_ATTACK + "1"));
+            StartCoroutine(PerformAttack((PLAYER_ATTACK + "1"),nor1Time));
 
         }
         else if (Input.GetKeyDown(KeyCode.Keypad2))
         {
             // m_animator.SetTrigger("ultimate");
             isAttacking = true;
-            StartCoroutine(PerformAttack(PLAYER_ATTACK + "2"));
+            StartCoroutine(PerformAttack((PLAYER_ATTACK + "2"),nor2Time));
 
         }
         else if (Input.GetKeyDown(KeyCode.Keypad3))
         {
             // m_animator.SetTrigger("ultimate");
             isAttacking = true;
-            StartCoroutine(PerformAttack(PLAYER_ATTACK + "3"));
+            StartCoroutine(PerformAttack((PLAYER_ATTACK + "3"),nor3Time));
 
         }
         else if (Input.GetKeyDown(KeyCode.Keypad4) && (Time.time - lastUltimateTime >= cooldownTime))
@@ -424,6 +427,10 @@ public class Player2 : MonoBehaviour
     public void UpdateAttackRangeY(float y)
     {
         attackRangeY = y;
+    }
+        public void UpdateAnimTime(float a)
+    {
+        animTime = a;
     }
     public void SpawnObject()
     {

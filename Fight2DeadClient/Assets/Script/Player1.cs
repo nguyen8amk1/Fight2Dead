@@ -61,6 +61,9 @@ public class Player1 : MonoBehaviour
     const string PLAYER_ATTACK = "Nor";
     const string PLAYER_ULTIMATE = "Ultimate";
     public float animTime;
+    public float nor1Time;
+    public float nor2Time;
+    public float nor3Time;
     void ChangeAnimationState(string newState)
     {
         if (currentState == newState) return;
@@ -217,7 +220,7 @@ public class Player1 : MonoBehaviour
         //     StartCoroutine(PerformAttack());
         // }
 
-        IEnumerator PerformAttack(string anim)
+        IEnumerator PerformAttack(string anim, float norTime)
         {
             m_body2d.velocity = Vector2.zero;
             ChangeAnimationState(anim);
@@ -238,21 +241,22 @@ public class Player1 : MonoBehaviour
         {
             // m_animator.SetTrigger("ultimate");
             isAttacking = true;
-            StartCoroutine(PerformAttack(PLAYER_ATTACK + "1"));
+            StartCoroutine(PerformAttack((PLAYER_ATTACK + "1"), nor1Time));
+
 
         }
         else if (Input.GetKeyDown(KeyCode.K))
         {
             // m_animator.SetTrigger("ultimate");
             isAttacking = true;
-            StartCoroutine(PerformAttack(PLAYER_ATTACK + "2"));
+            StartCoroutine(PerformAttack((PLAYER_ATTACK + "2"),nor2Time));
 
         }
         else if (Input.GetKeyDown(KeyCode.L))
         {
             // m_animator.SetTrigger("ultimate");
             isAttacking = true;
-            StartCoroutine(PerformAttack(PLAYER_ATTACK + "3"));
+            StartCoroutine(PerformAttack((PLAYER_ATTACK + "3"),nor3Time));
 
         }
         else if (Input.GetKeyDown(KeyCode.I) && (Time.time - lastUltimateTime >= cooldownTime))

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f2679eeeb23253c47ac14c918419ba39
+guid: 45c9f4aaa998e874eace4444a6926cac
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: luffy5_nor1_0
+      name: luffy5_ultimate2_0
       rect:
         serializedVersion: 2
-        x: 283
-        y: 787
-        width: 50
-        height: 54
+        x: 730
+        y: 5450
+        width: 540
+        height: 1500
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,20 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb1d882d76498214dafbf8ee11ccecb3
-      internalID: -888259471
+      spriteID: 1f88de0d6bd618b479964a9104fecb01
+      internalID: 1890475256
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: luffy5_nor1_1
+      name: luffy5_ultimate2_1
       rect:
         serializedVersion: 2
-        x: 280
-        y: 630
-        width: 50
-        height: 46
+        x: 885
+        y: 1000
+        width: 331
+        height: 2000
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,71 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ef0d4957b46ce1247971bc38102dd184
-      internalID: -82619833
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: luffy5_nor1_2
-      rect:
-        serializedVersion: 2
-        x: 248
-        y: 491
-        width: 110
-        height: 47
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0a60fe9c4eee97d47bead31a93c97611
-      internalID: -303255330
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: luffy5_nor1_3
-      rect:
-        serializedVersion: 2
-        x: 213
-        y: 336
-        width: 175
-        height: 47
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fcd0a3287a543de4ba960bd54b6629c7
-      internalID: -1350625849
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: luffy5_nor1_4
-      rect:
-        serializedVersion: 2
-        x: 187
-        y: 159
-        width: 235
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 15de770a159a98b45a37ac9fa4771bc5
-      internalID: -930215569
+      spriteID: 9d8c8b7cc46c85e4eb71047fc1728281
+      internalID: 80442387
       vertices: []
       indices: 
       edges: []
@@ -220,11 +157,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      luffy5_nor1_0: -888259471
-      luffy5_nor1_1: -82619833
-      luffy5_nor1_2: -303255330
-      luffy5_nor1_3: -1350625849
-      luffy5_nor1_4: -930215569
+      luffy5_ultimate2_0: 1890475256
+      luffy5_ultimate2_1: 80442387
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

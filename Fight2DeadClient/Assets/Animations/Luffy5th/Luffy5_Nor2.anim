@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Luffy5_Nor1
+  m_Name: Luffy5_Nor2
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,15 +20,17 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -888259471, guid: f2679eeeb23253c47ac14c918419ba39, type: 3}
-    - time: 0.083333336
-      value: {fileID: -82619833, guid: f2679eeeb23253c47ac14c918419ba39, type: 3}
-    - time: 0.16666667
-      value: {fileID: -303255330, guid: f2679eeeb23253c47ac14c918419ba39, type: 3}
-    - time: 0.25
-      value: {fileID: -1350625849, guid: f2679eeeb23253c47ac14c918419ba39, type: 3}
+      value: {fileID: 333989414, guid: accdbfaf19a8c6d4c98dc796b2ea0679, type: 3}
+    - time: 0.11666667
+      value: {fileID: 698824311, guid: accdbfaf19a8c6d4c98dc796b2ea0679, type: 3}
+    - time: 0.21666667
+      value: {fileID: -667681515, guid: accdbfaf19a8c6d4c98dc796b2ea0679, type: 3}
     - time: 0.33333334
-      value: {fileID: -930215569, guid: f2679eeeb23253c47ac14c918419ba39, type: 3}
+      value: {fileID: 1401719943, guid: accdbfaf19a8c6d4c98dc796b2ea0679, type: 3}
+    - time: 0.41666666
+      value: {fileID: -450862435, guid: 66ad082be46eba544ade4565776910f1, type: 3}
+    - time: 0.5
+      value: {fileID: -450862435, guid: 66ad082be46eba544ade4565776910f1, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -48,17 +50,18 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -888259471, guid: f2679eeeb23253c47ac14c918419ba39, type: 3}
-    - {fileID: -82619833, guid: f2679eeeb23253c47ac14c918419ba39, type: 3}
-    - {fileID: -303255330, guid: f2679eeeb23253c47ac14c918419ba39, type: 3}
-    - {fileID: -1350625849, guid: f2679eeeb23253c47ac14c918419ba39, type: 3}
-    - {fileID: -930215569, guid: f2679eeeb23253c47ac14c918419ba39, type: 3}
+    - {fileID: 333989414, guid: accdbfaf19a8c6d4c98dc796b2ea0679, type: 3}
+    - {fileID: 698824311, guid: accdbfaf19a8c6d4c98dc796b2ea0679, type: 3}
+    - {fileID: -667681515, guid: accdbfaf19a8c6d4c98dc796b2ea0679, type: 3}
+    - {fileID: 1401719943, guid: accdbfaf19a8c6d4c98dc796b2ea0679, type: 3}
+    - {fileID: -450862435, guid: 66ad082be46eba544ade4565776910f1, type: 3}
+    - {fileID: -450862435, guid: 66ad082be46eba544ade4565776910f1, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.35000002
+    m_StopTime: 0.51666665
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -82,21 +85,21 @@ AnimationClip:
     functionName: UpdateAttackRangeX
     data: 
     objectReferenceParameter: {fileID: 0}
-    floatParameter: 9
+    floatParameter: 12
     intParameter: 0
     messageOptions: 0
   - time: 0
     functionName: UpdateAttackRangeY
     data: 
     objectReferenceParameter: {fileID: 0}
-    floatParameter: 1
+    floatParameter: 4.3
     intParameter: 0
     messageOptions: 0
   - time: 0
     functionName: UpdateAttackOffsetX
     data: 
     objectReferenceParameter: {fileID: 0}
-    floatParameter: 5
+    floatParameter: 8
     intParameter: 0
     messageOptions: 0
   - time: 0
@@ -110,10 +113,10 @@ AnimationClip:
     functionName: UpdateAnimTime
     data: 
     objectReferenceParameter: {fileID: 0}
-    floatParameter: 0.2
+    floatParameter: 0.3
     intParameter: 0
     messageOptions: 0
-  - time: 0.28333333
+  - time: 0.41666666
     functionName: Attack
     data: 
     objectReferenceParameter: {fileID: 0}
