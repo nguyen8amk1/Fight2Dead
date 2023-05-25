@@ -59,10 +59,12 @@ public class Player2 : MonoBehaviour
     const string PLAYER_DIE_BOTTOM = "Die_Bottom";
     const string PLAYER_DIE_LEFT = "Die_Left";
     const string PLAYER_ATTACK = "Nor";
+    const string PLAYER_ULTIMATE = "Ultimate";
     public float animTime;
     public float nor1Time;
     public float nor2Time;
     public float nor3Time;
+    public float ultimateTime;
     void ChangeAnimationState(string newState)
     {
         if (currentState == newState) return;
@@ -212,7 +214,28 @@ public class Player2 : MonoBehaviour
         //     // Perform attack and wait for the attack animation to finish
         //     StartCoroutine(PerformAttack());
         // }
-        IEnumerator PerformAttack(string anim,float norTime)
+        IEnumerator PerformUltimate(float animUltimateTime)
+        {
+            m_body2d.velocity = Vector2.zero;
+
+            ChangeAnimationState(PLAYER_ULTIMATE);
+
+            m_body2d.velocity = new Vector2(inputX * m_speed, m_body2d.velocity.y);
+
+            //When the attack animation run the event in animation call the function Attack()
+            Debug.Log("Luffy Ultimate");
+
+            // Wai until the animation attack end
+            yield return new WaitForSeconds(animUltimateTime);
+
+            // Reset isAttacking = false
+            isAttacking = false;
+
+            // Update time last pressed "L" button
+            lastUltimateTime = Time.time;
+
+        }
+        IEnumerator PerformAttack(string anim, float norTime)
         {
             m_body2d.velocity = Vector2.zero;
             ChangeAnimationState(anim);
@@ -232,28 +255,28 @@ public class Player2 : MonoBehaviour
         {
             // m_animator.SetTrigger("ultimate");
             isAttacking = true;
-            StartCoroutine(PerformAttack((PLAYER_ATTACK + "1"),nor1Time));
+            StartCoroutine(PerformAttack((PLAYER_ATTACK + "1"), nor1Time));
 
         }
         else if (Input.GetKeyDown(KeyCode.Keypad2))
         {
             // m_animator.SetTrigger("ultimate");
             isAttacking = true;
-            StartCoroutine(PerformAttack((PLAYER_ATTACK + "2"),nor2Time));
+            StartCoroutine(PerformAttack((PLAYER_ATTACK + "2"), nor2Time));
 
         }
         else if (Input.GetKeyDown(KeyCode.Keypad3))
         {
             // m_animator.SetTrigger("ultimate");
             isAttacking = true;
-            StartCoroutine(PerformAttack((PLAYER_ATTACK + "3"),nor3Time));
+            StartCoroutine(PerformAttack((PLAYER_ATTACK + "3"), nor3Time));
 
         }
         else if (Input.GetKeyDown(KeyCode.Keypad4) && (Time.time - lastUltimateTime >= cooldownTime))
         {
             // m_animator.SetTrigger("ultimate");
-            Debug.Log("Gaara Ultimate");
-            lastUltimateTime = Time.time; // Update time last pressed "L" button
+            isAttacking = true;
+            StartCoroutine(PerformUltimate(ultimateTime));
         }
         // Block
         // else if (Input.GetMouseButtonDown(1))
@@ -428,7 +451,7 @@ public class Player2 : MonoBehaviour
     {
         attackRangeY = y;
     }
-        public void UpdateAnimTime(float a)
+    public void UpdateAnimTime(float a)
     {
         animTime = a;
     }

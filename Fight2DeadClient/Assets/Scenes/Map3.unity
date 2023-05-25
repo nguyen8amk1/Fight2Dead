@@ -375,6 +375,7 @@ MonoBehaviour:
   nor1Time: 0
   nor2Time: 0
   nor3Time: 0
+  ultimateTime: 0
 --- !u!50 &112796976
 Rigidbody2D:
   serializedVersion: 4
@@ -509,7 +510,7 @@ Transform:
   - {fileID: 2006096251}
   - {fileID: 574876014}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &182484965
 GameObject:
@@ -817,7 +818,7 @@ Transform:
   - {fileID: 66408825}
   - {fileID: 2085705119}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &205332299
 Rigidbody2D:
@@ -875,6 +876,7 @@ MonoBehaviour:
   nor1Time: 0
   nor2Time: 0
   nor3Time: 0
+  ultimateTime: 0
 --- !u!1 &261648185
 GameObject:
   m_ObjectHideFlags: 0
@@ -1509,6 +1511,7 @@ MonoBehaviour:
   nor1Time: 0
   nor2Time: 0
   nor3Time: 0
+  ultimateTime: 0
 --- !u!50 &402822091
 Rigidbody2D:
   serializedVersion: 4
@@ -1622,7 +1625,7 @@ Transform:
   m_Children:
   - {fileID: 1683956929}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &402822095
 Animator:
@@ -2456,7 +2459,7 @@ Transform:
   - {fileID: 674751634}
   - {fileID: 2101631600}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &708356651
 MonoBehaviour:
@@ -2493,6 +2496,7 @@ MonoBehaviour:
   nor1Time: 0
   nor2Time: 0
   nor3Time: 0
+  ultimateTime: 0
 --- !u!50 &708356652
 Rigidbody2D:
   serializedVersion: 4
@@ -2870,6 +2874,7 @@ MonoBehaviour:
   nor1Time: 0
   nor2Time: 0
   nor3Time: 0
+  ultimateTime: 0
 --- !u!95 &863426593
 Animator:
   serializedVersion: 5
@@ -2956,7 +2961,7 @@ Transform:
   m_Children:
   - {fileID: 509498691}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &863426596
 Rigidbody2D:
@@ -3055,7 +3060,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &898669609
 GameObject:
@@ -3779,6 +3784,7 @@ MonoBehaviour:
   nor1Time: 0
   nor2Time: 0
   nor3Time: 0
+  ultimateTime: 0
 --- !u!50 &1199172086
 Rigidbody2D:
   serializedVersion: 4
@@ -3913,7 +3919,7 @@ Transform:
   - {fileID: 1748137695}
   - {fileID: 1797617322}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1238524065
 GameObject:
@@ -4307,6 +4313,7 @@ MonoBehaviour:
   nor1Time: 0
   nor2Time: 0
   nor3Time: 0
+  ultimateTime: 0
 --- !u!95 &1438621605
 Animator:
   serializedVersion: 5
@@ -4393,7 +4400,7 @@ Transform:
   m_Children:
   - {fileID: 204953580}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &1438621608
 Rigidbody2D:
@@ -4579,6 +4586,7 @@ MonoBehaviour:
   nor1Time: 0
   nor2Time: 0
   nor3Time: 0
+  ultimateTime: 0
 --- !u!61 &1515664661
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4692,7 +4700,7 @@ Transform:
   - {fileID: 846576597}
   - {fileID: 1823579214}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &1515664665
 Rigidbody2D:
@@ -4895,7 +4903,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   knockbackSpeedX: 1
-  knockbackSpeedY: 1
+  knockbackSpeedY: 2
   knockbackDuration: 0.01
   applyKnockback: 1
   hitParticle: {fileID: 6240072112886026631, guid: 25aeb624df7917e4aa9cbe2204b85ed6, type: 3}
@@ -4907,6 +4915,7 @@ MonoBehaviour:
   nor1Time: 0.3
   nor2Time: 0.3
   nor3Time: 0.3
+  ultimateTime: 1
 --- !u!1 &1683956928
 GameObject:
   m_ObjectHideFlags: 0
@@ -5479,7 +5488,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1937736734
 GameObject:
@@ -6073,14 +6082,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2144307032}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.18, y: -4.26, z: -0.63688666}
+  m_LocalPosition: {x: 18.2, y: 9.9, z: -0.63688666}
   m_LocalScale: {x: 8.252232, y: 9.060092, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 488959643}
   - {fileID: 1270831110}
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2144307036
 MonoBehaviour:
@@ -6098,7 +6107,7 @@ MonoBehaviour:
   m_jumpForce: 14
   attackPoint: {fileID: 1270831110}
   attackRangeX: 24
-  attackRangeY: 40
+  attackRangeY: 60
   attackOffsetX: 1
   attackOffsetY: 21
   enemyLayers:
@@ -6111,12 +6120,13 @@ MonoBehaviour:
   hitParticle: {fileID: 6240072112886026631, guid: 25aeb624df7917e4aa9cbe2204b85ed6, type: 3}
   cooldownTime: 10
   gameObject: {fileID: 2144307032}
-  spawnPosition: {x: 0, y: 0, z: 0}
+  spawnPosition: {x: 18.2, y: 7.6, z: 0}
   numberRespawn: 1
   animTime: 0
-  nor1Time: 0.3
-  nor2Time: 0.4
-  nor3Time: 1.1
+  nor1Time: 0.25
+  nor2Time: 0.35
+  nor3Time: 1
+  ultimateTime: 1.3
 --- !u!50 &2144307037
 Rigidbody2D:
   serializedVersion: 4
