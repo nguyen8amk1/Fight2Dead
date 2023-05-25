@@ -47,7 +47,7 @@ public class Player1 : MonoBehaviour
     public GameObject gameObject;
     public Vector3 spawnPosition;
     public int numberRespawn = 1;
-    //test
+    //animation
     private string currentState;
     const string PLAYER_IDLE = "Idle";
     const string PLAYER_RUN = "Run";
@@ -60,11 +60,15 @@ public class Player1 : MonoBehaviour
     const string PLAYER_DIE_LEFT = "Die_Left";
     const string PLAYER_ATTACK = "Nor";
     const string PLAYER_ULTIMATE = "Ultimate";
+    //time animation of attack
     public float animTime;
     public float nor1Time;
     public float nor2Time;
     public float nor3Time;
     public float ultimateTime;
+    //sound effect
+    public AudioSource attackSound;
+     public AudioSource attackkSound_1;
     void ChangeAnimationState(string newState)
     {
         if (currentState == newState) return;
@@ -227,6 +231,7 @@ public class Player1 : MonoBehaviour
         IEnumerator PerformAttack(string anim, float norTime)
         {
             m_body2d.velocity = Vector2.zero;
+            
             ChangeAnimationState(anim);
             //When the attack animation run the event in animation call the function Attack()
             Debug.Log("Gaara Attack");
@@ -245,6 +250,7 @@ public class Player1 : MonoBehaviour
         {
             // m_animator.SetTrigger("ultimate");
             isAttacking = true;
+            attackSound.Play();
             StartCoroutine(PerformAttack((PLAYER_ATTACK + "1"), nor1Time));
 
 
@@ -253,6 +259,7 @@ public class Player1 : MonoBehaviour
         {
             // m_animator.SetTrigger("ultimate");
             isAttacking = true;
+            attackSound.Play();
             StartCoroutine(PerformAttack((PLAYER_ATTACK + "2"), nor2Time));
 
         }
@@ -260,6 +267,7 @@ public class Player1 : MonoBehaviour
         {
             // m_animator.SetTrigger("ultimate");
             isAttacking = true;
+            attackkSound_1.Play();
             StartCoroutine(PerformAttack((PLAYER_ATTACK + "3"), nor3Time));
 
         }
