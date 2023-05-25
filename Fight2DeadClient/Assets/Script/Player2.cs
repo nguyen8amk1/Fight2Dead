@@ -59,13 +59,14 @@ public class Player2 : MonoBehaviour
     const string PLAYER_DIE_BOTTOM = "Die_Bottom";
     const string PLAYER_DIE_LEFT = "Die_Left";
     const string PLAYER_ATTACK = "Nor";
+    const string PLAYER_ULTIMATE = "Ultimate";
     public float animTime;
 
-	public static bool isBeingControlled;
-	public static bool moveRight;
-	public static bool moveLeft;
-
-	void ChangeAnimationState(string newState)
+    public float nor1Time;
+    public float nor2Time;
+    public float nor3Time;
+    public float ultimateTime;
+    void ChangeAnimationState(string newState)
     {
         if (currentState == newState) return;
 
@@ -109,233 +110,272 @@ public class Player2 : MonoBehaviour
             {
                 ChangeAnimationState(PLAYER_FALL);
             }
-            else if (globalGameState.player2State == 2)
-            {
+            else if (globalGameState.player2State == 2) {
+
                 ChangeAnimationState(PLAYER_JUMP);
+            }
+            else {
+                ChangeAnimationState(PLAYER_IDLE);
+            }
+        } else
+		{
+            CheckKnockback();
+
+            if (m_grounded)
+            {
+                canDoubleJump = true;
+                m_jumpsLeft = 2; // reset jumps when grounded
+            }
+            else if (m_jumpsLeft == 2)
+            {
+                canDoubleJump = true;
             }
             else
             {
-                ChangeAnimationState(PLAYER_IDLE);
+                canDoubleJump = false;
             }
-		}
-        else
-		{
-			CheckKnockback();
-
-			if (m_grounded)
-			{
-				canDoubleJump = true;
-				m_jumpsLeft = 2; // reset jumps when grounded
-			}
-			else if (m_jumpsLeft == 2)
-			{
-				canDoubleJump = true;
-			}
-			else
-			{
-				canDoubleJump = false;
-			}
-			// Increase timer that controls attack combo
-			m_timeSinceAttack += Time.deltaTime;
+            // Increase timer that controls attack combo
+            m_timeSinceAttack += Time.deltaTime;
 
 
 
-			//Check if character just landed on the ground
-			if (!m_grounded && m_groundSensor.State())
-			{
-				m_grounded = true;
-				// m_animator.SetBool("Grounded", m_grounded);
-			}
-			if (!m_grounded && !m_groundSensor.State() && m_body2d.velocity.y < 0)
-			{
+            //Check if character just landed on the ground
+            if (!m_grounded && m_groundSensor.State())
+            {
+                m_grounded = true;
+                // m_animator.SetBool("Grounded", m_grounded);
+            }
+            if (!m_grounded && !m_groundSensor.State() && m_body2d.velocity.y < 0)
+            {
 
-				// m_grounded = false;
-				ChangeAnimationState(PLAYER_FALL);
-                globalGameState.player2State = -2;
-				Debug.Log("Luffy Fall");
-				// m_animator.SetBool("Grounded", m_grounded);
-			}
+                // m_grounded = false;
+                ChangeAnimationState(PLAYER_FALL);
+                globalGameState.player2State = -2;	
+                Debug.Log("Luffy Fall");
+                // m_animator.SetBool("Grounded", m_grounded);
+            }
 
-			//Check if character just started falling
-			if (m_grounded && !m_groundSensor.State())
-			{
-				m_grounded = false;
-				// m_animator.SetBool("Grounded", m_grounded);
-			}
+            //Check if character just started falling
+            if (m_grounded && !m_groundSensor.State())
+            {
+                m_grounded = false;
+                // m_animator.SetBool("Grounded", m_grounded);
+            }
 
-			// -- Handle input and movement --
-			float inputX = 0f;
+            // -- Handle input and movement --
+            float inputX = 0f;
 
-			if(isBeingControlled)
-			{
-				if (moveLeft)
-				{
-					inputX = -1f;
-					GetComponent<SpriteRenderer>().flipX = true;
-					m_facingDirection = -1;
-				}
-				else if (moveRight)
-				{
-					inputX = 1f;
-					GetComponent<SpriteRenderer>().flipX = false;
-					m_facingDirection = 1;
-				}
+            if (Input.GetKey(KeyCode.LeftArrow))
+            {
+                inputX = -1f;
+                GetComponent<SpriteRenderer>().flipX = true;
+                m_facingDirection = -1;
+            }
+            else if (Input.GetKey(KeyCode.RightArrow))
+            {
+                inputX = 1f;
+                GetComponent<SpriteRenderer>().flipX = false;
+                m_facingDirection = 1;
+            }
 
-			} else
-			{
+            // Move
+            if (!isAttacking && !knockback)
+            {
+                m_body2d.velocity = new Vector2(inputX * m_speed, m_body2d.velocity.y);
+                Debug.Log("Luffy Speed");
+            }
 
-				if (Input.GetKey(KeyCode.LeftArrow))
-				{
-					inputX = -1f;
-					GetComponent<SpriteRenderer>().flipX = true;
-					m_facingDirection = -1;
-				}
-				else if (Input.GetKey(KeyCode.RightArrow))
-				{
-					inputX = 1f;
-					GetComponent<SpriteRenderer>().flipX = false;
-					m_facingDirection = 1;
-				}
+            //Set AirSpeed in animator
+            // m_animator.SetFloat("AirSpeedY", m_body2d.velocity.y);
 
-			}
+            // -- Handle Animations --
 
-			// Move
-			if (!isAttacking && !knockback)
-			{
-				m_body2d.velocity = new Vector2(inputX * m_speed, m_body2d.velocity.y);
-				//Debug.Log("Luffy Speed");
-			}
+            // //Hurt
+            // if (Input.GetKeyDown("q"))
+            //     m_animator.SetTrigger("Hurt");
 
-			//Set AirSpeed in animator
-			// m_animator.SetFloat("AirSpeedY", m_body2d.velocity.y);
+            // IEnumerator PerformAttack()
+            // {
+            //     m_body2d.velocity = Vector2.zero;
+            //     // Call one of three attack animations "Attack1", "Attack2", "Attack3"
+            //     // m_animator.SetTrigger("Attack" + m_currentAttack);
 
-			// -- Handle Animations --
+            //     //When the attack animation run the event in animation call the function Attack()
+            //     Debug.Log("Luffy Attack");
 
-			// //Hurt
-			// if (Input.GetKeyDown("q"))
-			//     m_animator.SetTrigger("Hurt");
+            //     // Wai until the animation attack end
+            //     yield return new WaitForSeconds(0f);
 
-			IEnumerator PerformAttack()
-			{
-				m_body2d.velocity = Vector2.zero;
-				// Call one of three attack animations "Attack1", "Attack2", "Attack3"
-				// m_animator.SetTrigger("Attack" + m_currentAttack);
+            //     // Reset isAttacking = false
+            //     isAttacking = false;
 
-				//When the attack animation run the event in animation call the function Attack()
-				//Debug.Log("Luffy Attack");
+            //     // Reset timer
+            //     m_timeSinceAttack = 0.0f;
+            // }
+            // //Attack
+            // if (Input.GetKeyDown(KeyCode.Keypad1) && m_timeSinceAttack > 0.25f)
+            // {
+            //     m_currentAttack++;
 
-				// Wai until the animation attack end
-				yield return new WaitForSeconds(0f);
+            //     // Loop back to one after third attack
+            //     if (m_currentAttack > 3)
+            //         m_currentAttack = 1;
 
-				// Reset isAttacking = false
-				isAttacking = false;
+            //     // Reset Attack combo if time since last attack is too large
+            //     if (m_timeSinceAttack > 0.5f)
+            //         m_currentAttack = 1;
 
-				// Reset timer
-				m_timeSinceAttack = 0.0f;
-			}
-			//Attack
-			if (Input.GetKeyDown(KeyCode.Keypad1) && m_timeSinceAttack > 0.25f)
-			{
-				m_currentAttack++;
+            //     /*
+            //      if (animator.GetFloat("Weapon.Active") > 0f)
+            //     {
+            //         Attack();
+            //     }
+            //     */
 
-				// Loop back to one after third attack
-				if (m_currentAttack > 3)
-					m_currentAttack = 1;
+            //     // // Call one of three attack animations "Attack1", "Attack2", "Attack3"
+            //     // m_animator.SetTrigger("Attack" + m_currentAttack);
+            //     // Attack();
 
-				// Reset Attack combo if time since last attack is too large
-				if (m_timeSinceAttack > 0.5f)
-					m_currentAttack = 1;
+            //     // // Reset timer
+            //     // m_timeSinceAttack = 0.0f;
 
-				/*
-				 if (animator.GetFloat("Weapon.Active") > 0f)
-				{
-					Attack();
-				}
-				*/
+            //     isAttacking = true;
+            //     // Perform attack and wait for the attack animation to finish
+            //     StartCoroutine(PerformAttack());
+            // }
+            IEnumerator PerformUltimate(float animUltimateTime)
+            {
+                m_body2d.velocity = Vector2.zero;
 
-				// // Call one of three attack animations "Attack1", "Attack2", "Attack3"
-				// m_animator.SetTrigger("Attack" + m_currentAttack);
-				// Attack();
+                ChangeAnimationState(PLAYER_ULTIMATE);
 
-				// // Reset timer
-				// m_timeSinceAttack = 0.0f;
+                m_body2d.velocity = new Vector2(inputX * m_speed, m_body2d.velocity.y);
 
-				isAttacking = true;
-				// Perform attack and wait for the attack animation to finish
-				StartCoroutine(PerformAttack());
-			}
-			else if (Input.GetKeyDown(KeyCode.Keypad3) && (Time.time - lastUltimateTime >= cooldownTime))
-			{
-				// m_animator.SetTrigger("ultimate");
-				//Debug.Log("Gaara Ultimate");
-				lastUltimateTime = Time.time; // Update time last pressed "L" button
-			}
-			// Block
-			// else if (Input.GetMouseButtonDown(1))
-			// {
-			//     // m_animator.SetTrigger("Block");
-			//     m_animator.SetBool("IdleBlock", true);
-			// }
+                //When the attack animation run the event in animation call the function Attack()
+                Debug.Log("Luffy Ultimate");
 
-			// else if (Input.GetMouseButtonUp(1))
-			//     m_animator.SetBool("IdleBlock", false);
+                // Wai until the animation attack end
+                yield return new WaitForSeconds(animUltimateTime);
 
-			else if (Input.GetKeyDown(KeyCode.UpArrow))
-			{
-				if (m_grounded)
-				{
-					ChangeAnimationState(PLAYER_JUMP);
-                    globalGameState.player2State = 2; 
-					//Debug.Log("Luffy Jump 1");
-					// m_animator.SetTrigger("Jump");
-					m_grounded = false;
-					// m_animator.SetBool("Grounded", m_grounded);
-					m_body2d.velocity = new Vector2(m_body2d.velocity.x, m_jumpForce);
-					m_groundSensor.Disable(0.2f);
-				}
-				else if (canDoubleJump)
-				{
-					ChangeAnimationState(PLAYER_JUMP);
-                    globalGameState.player2State = 2; 
-					//Debug.Log("Luffy Jump 2");
-					// m_animator.SetTrigger("Jump");
-					m_body2d.velocity = new Vector2(m_body2d.velocity.x, m_jumpForce);
-					m_jumpsLeft--;
-				}
-			}
-			//Run
-			else if (Mathf.Abs(inputX) > Mathf.Epsilon && m_grounded)
-			{
-				//Debug.Log("Luffy Walk");
-				// Reset timer
-				m_delayToIdle = 0.05f;
-				// m_animator.SetInteger("AnimState", 1);
-				if(inputX == 1f)
-				{
-					globalGameState.player2State = 1; 
-				} else if(inputX == -1f)
-				{
-					globalGameState.player2State = -1; 
-				}
-				ChangeAnimationState(PLAYER_RUN);
-			}
+                // Reset isAttacking = false
+                isAttacking = false;
 
-			//Idle
-			else if (m_grounded && !isAttacking)
-			{
-				//Debug.Log("Luffy Idle");
-				// Prevents flickering transitions to idle
-				m_delayToIdle -= Time.deltaTime;
-				if (m_delayToIdle < 0)
-				{
-					ChangeAnimationState(PLAYER_IDLE);
+                // Update time last pressed "L" button
+                lastUltimateTime = Time.time;
+
+            }
+            IEnumerator PerformAttack(string anim, float norTime)
+            {
+                m_body2d.velocity = Vector2.zero;
+                ChangeAnimationState(anim);
+                //When the attack animation run the event in animation call the function Attack()
+                Debug.Log("Luffy Attack");
+
+                // Wai until the animation attack end
+                yield return new WaitForSeconds(norTime);
+
+                // Reset isAttacking = false
+                isAttacking = false;
+                // Reset timer
+                m_timeSinceAttack = 0.0f;
+
+            }
+            if (Input.GetKeyDown(KeyCode.Keypad1))
+            {
+                // m_animator.SetTrigger("ultimate");
+                isAttacking = true;
+                StartCoroutine(PerformAttack((PLAYER_ATTACK + "1"), nor1Time));
+
+            }
+            else if (Input.GetKeyDown(KeyCode.Keypad2))
+            {
+                // m_animator.SetTrigger("ultimate");
+                isAttacking = true;
+                StartCoroutine(PerformAttack((PLAYER_ATTACK + "2"), nor2Time));
+
+            }
+            else if (Input.GetKeyDown(KeyCode.Keypad3))
+            {
+                // m_animator.SetTrigger("ultimate");
+                isAttacking = true;
+                StartCoroutine(PerformAttack((PLAYER_ATTACK + "3"), nor3Time));
+
+            }
+            else if (Input.GetKeyDown(KeyCode.Keypad4) && (Time.time - lastUltimateTime >= cooldownTime))
+            {
+                // m_animator.SetTrigger("ultimate");
+                isAttacking = true;
+                StartCoroutine(PerformUltimate(ultimateTime));
+            }
+            // Block
+            // else if (Input.GetMouseButtonDown(1))
+            // {
+            //     // m_animator.SetTrigger("Block");
+            //     m_animator.SetBool("IdleBlock", true);
+            // }
+
+            // else if (Input.GetMouseButtonUp(1))
+            //     m_animator.SetBool("IdleBlock", false);
+
+            else if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                if (m_grounded)
+                {
+                    ChangeAnimationState(PLAYER_JUMP);
+                    globalGameState.player2State = 2;	
+                    Debug.Log("Luffy Jump 1");
+                    // m_animator.SetTrigger("Jump");
+                    m_grounded = false;
+                    // m_animator.SetBool("Grounded", m_grounded);
+                    m_body2d.velocity = new Vector2(m_body2d.velocity.x, m_jumpForce);
+                    m_groundSensor.Disable(0.2f);
+                }
+                else if (canDoubleJump)
+                {
+                    ChangeAnimationState(PLAYER_JUMP);
+                    globalGameState.player2State = 2;	
+                    Debug.Log("Luffy Jump 2");
+                    // m_animator.SetTrigger("Jump");
+                    m_body2d.velocity = new Vector2(m_body2d.velocity.x, m_jumpForce);
+                    m_jumpsLeft--;
+                }
+            }
+
+            //Run
+            else if (Mathf.Abs(inputX) > Mathf.Epsilon && m_grounded && !isAttacking)
+            {
+                Debug.Log("Luffy Walk");
+                // Reset timer
+                m_delayToIdle = 0.05f;
+                // m_animator.SetInteger("AnimState", 1);
+
+                if(inputX == 1f)	
+                {	
+                    globalGameState.player2State = 1;	
+                } else if(inputX == -1f)	
+                {	
+                    globalGameState.player2State = -1;	
+                }
+                ChangeAnimationState(PLAYER_RUN);
+            }
+
+            //Idle
+            else if (m_grounded && !isAttacking && !knockback)
+            {
+                Debug.Log("Luffy Idle");
+                // Prevents flickering transitions to idle
+                m_delayToIdle -= Time.deltaTime;
+                if (m_delayToIdle < 0) {
+                    ChangeAnimationState(PLAYER_IDLE);
                     globalGameState.player2State = 0;
-				}
-				// m_animator.SetInteger("AnimState", 0);
-			}
+                }
+        
+
+                // m_animator.SetInteger("AnimState", 0);
+            }
+
 		}
     }
-
     private void Attack()
     {
         Vector2 attackDirection = new Vector2(GetFacingDirection(), 0f); // Hướng của nhân vật
@@ -455,6 +495,10 @@ public class Player2 : MonoBehaviour
     public void UpdateAttackRangeY(float y)
     {
         attackRangeY = y;
+    }
+    public void UpdateAnimTime(float a)
+    {
+        animTime = a;
     }
     public void SpawnObject()
     {

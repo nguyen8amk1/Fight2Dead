@@ -47,7 +47,7 @@ public class Player1 : MonoBehaviour
     public GameObject gameObject;
     public Vector3 spawnPosition;
     public int numberRespawn = 1;
-    //test
+    //animation
     private string currentState;
     const string PLAYER_IDLE = "Idle";
     const string PLAYER_RUN = "Run";
@@ -59,12 +59,18 @@ public class Player1 : MonoBehaviour
     const string PLAYER_DIE_BOTTOM = "Die_Bottom";
     const string PLAYER_DIE_LEFT = "Die_Left";
     const string PLAYER_ATTACK = "Nor";
-    public float animTime;
-
     private GameState globalGameState = GameState.Instance;
-
-
-	void ChangeAnimationState(string newState)
+    const string PLAYER_ULTIMATE = "Ultimate";
+    //time animation of attack
+    public float animTime;
+    public float nor1Time;
+    public float nor2Time;
+    public float nor3Time;
+    public float ultimateTime;
+    //sound effect
+    public AudioSource attackSound;
+     public AudioSource attackkSound_1;
+    void ChangeAnimationState(string newState)
     {
         if (currentState == newState) return;
 
@@ -83,7 +89,7 @@ public class Player1 : MonoBehaviour
         m_body2d = GetComponent<Rigidbody2D>();
         m_groundSensor = transform.Find("GroundSensor").GetComponent<Sensor>();
         // m_animator.SetTrigger("intro");
-        ChangeAnimationState(PLAYER_INTRO);
+        m_animator.Play(PLAYER_INTRO);
 
     }
 
@@ -115,65 +121,67 @@ public class Player1 : MonoBehaviour
             {
                 ChangeAnimationState(PLAYER_IDLE);
             }
-		}
-        else
-		{
-			CheckKnockback();
+        } else 
+        {
+            CheckKnockback();
 
-			if (m_grounded)
-			{
-				canDoubleJump = true;
-				m_jumpsLeft = 2; // reset jumps when grounded
-			}
-			else if (m_jumpsLeft == 2)
-			{
-				canDoubleJump = true;
-			}
-			else
-			{
-				canDoubleJump = false;
-			}
-			// Increase timer that controls attack combo
-			m_timeSinceAttack += Time.deltaTime;
+            if (m_grounded)
+            {
+                canDoubleJump = true;
+                m_jumpsLeft = 2; // reset jumps when grounded
+            }
+            else if (m_jumpsLeft == 2)
+            {
+                canDoubleJump = true;
+            }
+            else
+            {
+                canDoubleJump = false;
+            }
+            // Increase timer that controls attack combo
+            m_timeSinceAttack += Time.deltaTime;
 
 
-			//Check if character just landed on the ground
-			if (!m_grounded && m_groundSensor.State())
-			{
-				m_grounded = true;
-				// m_animator.SetBool("Grounded", m_grounded);
-			}
 
-			//Check if character just started falling
-			if (m_grounded && !m_groundSensor.State() && m_body2d.velocity.y < 0)
-			{
+            //Check if character just landed on the ground
+            if (!m_grounded && m_groundSensor.State())
+            {
+                m_grounded = true;
+                // m_animator.SetBool("Grounded", m_grounded);
+            }
 
-				m_grounded = false;
-				// m_animator.SetBool("Grounded", m_grounded);
-			}
-			if (!m_grounded && !m_groundSensor.State() && m_body2d.velocity.y < 0)
-			{
-				// m_grounded = false;
-                globalGameState.player1State = -2;
-				ChangeAnimationState(PLAYER_FALL);
-				//Debug.Log("Gaara Fall");
-				// m_animator.SetBool("Grounded", m_grounded);
-			}
+            //Check if character just started falling
+            if (m_grounded && !m_groundSensor.State() && m_body2d.velocity.y < 0)
+            {
 
-			// -- Handle input and movement --
-			float inputX = 0f;
-			if (Input.GetKey(KeyCode.A))
-			{
-				inputX = -1f;
-				GetComponent<SpriteRenderer>().flipX = true;
-				m_facingDirection = -1;
-			}
-			else if (Input.GetKey(KeyCode.D))
-			{
-				inputX = 1f;
-				GetComponent<SpriteRenderer>().flipX = false;
-				m_facingDirection = 1;
-			}
+                m_grounded = false;
+                // m_animator.SetBool("Grounded", m_grounded);
+            }
+            if (!m_grounded && !m_groundSensor.State() && m_body2d.velocity.y < 0)
+            {
+
+                // m_grounded = false;
+                ChangeAnimationState(PLAYER_FALL);
+                globalGameState.player1State = -2;	
+                //Debug.Log("Gaara Fall");
+                // m_animator.SetBool("Grounded", m_grounded);
+            }
+            // -- Handle input and movement --
+            float inputX = 0f;
+
+            if (Input.GetKey(KeyCode.A))
+            {
+                inputX = -1f;
+                GetComponent<SpriteRenderer>().flipX = true;
+                m_facingDirection = -1;
+            }
+            else if (Input.GetKey(KeyCode.D))
+            {
+                inputX = 1f;
+                GetComponent<SpriteRenderer>().flipX = false;
+                m_facingDirection = 1;
+            }
+
 
             //Set AirSpeed in animator
             // m_animator.SetFloat("AirSpeedY", m_body2d.velocity.y);
@@ -186,120 +194,186 @@ public class Player1 : MonoBehaviour
 
             // Move
             if (!isAttacking && !knockback)
-			{
-				m_body2d.velocity = new Vector2(inputX * m_speed, m_body2d.velocity.y);
-                //Debug.Log("Gaara Speed");
-			}
+            {
+                m_body2d.velocity = new Vector2(inputX * m_speed, m_body2d.velocity.y);
+                Debug.Log("Gaara Speed");
+            }
+            // IEnumerator PerformAttack()
+            // {
+            //     m_body2d.velocity = Vector2.zero;
+            //     // Call one of three attack animations "Attack1", "Attack2", "Attack3"
+            //     ChangeAnimationState(PLAYER_ATTACK + m_currentAttack.ToString());
+            //     //When the attack animation run the event in animation call the function Attack()
+            //     Debug.Log("Gaara Attack");
 
-			IEnumerator PerformAttack()
-			{
-				m_body2d.velocity = Vector2.zero;
-				// Call one of three attack animations "Attack1", "Attack2", "Attack3"
-				ChangeAnimationState(PLAYER_ATTACK + m_currentAttack.ToString());
-				//When the attack animation run the event in animation call the function Attack()
-				//Debug.Log("Gaara Attack");
+            //     // Wai until the animation attack end
+            //     yield return new WaitForSeconds(0.3f);
 
-				// Wai until the animation attack end
-				yield return new WaitForSeconds(animTime);
+            //     // Reset isAttacking = false
+            //     isAttacking = false;
+            //     // Reset timer
+            //     m_timeSinceAttack = 0.0f;
 
-				// Reset isAttacking = false
-				isAttacking = false;
+            // }
 
-				// Reset timer
-				m_timeSinceAttack = 0.0f;
-			}
-			//Attack
-			if (Input.GetKeyDown(KeyCode.J) && m_timeSinceAttack > 0.25f)
-			{
-				m_currentAttack++;
-				// Loop back to one after third attack
-				if (m_currentAttack > 3)
-					m_currentAttack = 1;
+            // //Attack
+            // if (Input.GetKeyDown(KeyCode.J) && m_timeSinceAttack > 0.25f)
+            // {
+            //     m_currentAttack++;
+            //     // Loop back to one after third attack
+            //     if (m_currentAttack > 3)
+            //         m_currentAttack = 1;
 
-				// Reset Attack combo if time since last attack is too large
-				if (m_timeSinceAttack > 0.5f)
-					m_currentAttack = 1;
+            //     // Reset Attack combo if time since last attack is too large
+            //     if (m_timeSinceAttack > 0.5f)
+            //         m_currentAttack = 1;
 
-				isAttacking = true;
+            //     isAttacking = true;
 
-				// Perform attack and wait for the attack animation to finish
-				StartCoroutine(PerformAttack());
-			}
-			else if (Input.GetKeyDown(KeyCode.L) && (Time.time - lastUltimateTime >= cooldownTime))
-			{
-				// m_animator.SetTrigger("ultimate");
-				//Debug.Log("Gaara Ultimate");
-				lastUltimateTime = Time.time; // Update time last pressed "L" button
-			}
-			// Block
-			// else if (Input.GetKeyDown(KeyCode.K))
-			// {
-			//     isBlocked = true;
-			//     m_animator.SetTrigger("Block");
-			//     m_animator.SetBool("IdleBlock", true);
-			// }
+            //     // Perform attack and wait for the attack animation to finish
+            //     StartCoroutine(PerformAttack());
+            // }
+            IEnumerator PerformUltimate(float animUltimateTime)
+            {
+                m_body2d.velocity = Vector2.zero;
 
-			// else if (Input.GetKeyUp(KeyCode.K))
-			// {
-			//     isBlocked = false;
-			//     m_animator.SetBool("IdleBlock", false);
-			// }
-			else if (Input.GetKeyDown("w"))
-			{
-				if (m_grounded)
-				{
+                ChangeAnimationState(PLAYER_ULTIMATE);
+
+                m_body2d.velocity = new Vector2(inputX * m_speed, m_body2d.velocity.y);
+
+                //When the attack animation run the event in animation call the function Attack()
+                Debug.Log("Gaara Ultimate");
+
+                // Wai until the animation attack end
+                yield return new WaitForSeconds(animUltimateTime);
+
+                // Reset isAttacking = false
+                isAttacking = false;
+
+                // Update time last pressed "L" button
+                lastUltimateTime = Time.time;
+
+            }
+
+            IEnumerator PerformAttack(string anim, float norTime)
+            {
+                m_body2d.velocity = Vector2.zero;
+                
+                ChangeAnimationState(anim);
+                //When the attack animation run the event in animation call the function Attack()
+                Debug.Log("Gaara Attack");
+
+                // Wai until the animation attack end
+                yield return new WaitForSeconds(0.3f);
+
+                // Reset isAttacking = false
+                isAttacking = false;
+                // Reset timer
+                m_timeSinceAttack = 0.0f;
+
+            }
+
+            if (Input.GetKeyDown(KeyCode.J))
+            {
+                // m_animator.SetTrigger("ultimate");
+                isAttacking = true;
+                attackSound.Play();
+                StartCoroutine(PerformAttack((PLAYER_ATTACK + "1"), nor1Time));
+
+
+            }
+            else if (Input.GetKeyDown(KeyCode.K))
+            {
+                // m_animator.SetTrigger("ultimate");
+                isAttacking = true;
+                attackSound.Play();
+                StartCoroutine(PerformAttack((PLAYER_ATTACK + "2"), nor2Time));
+
+            }
+            else if (Input.GetKeyDown(KeyCode.L))
+            {
+                // m_animator.SetTrigger("ultimate");
+                isAttacking = true;
+                attackkSound_1.Play();
+                StartCoroutine(PerformAttack((PLAYER_ATTACK + "3"), nor3Time));
+
+            }
+            else if (Input.GetKeyDown(KeyCode.I) && (Time.time - lastUltimateTime >= cooldownTime))
+            {
+                // m_animator.SetTrigger("ultimate");
+                isAttacking = true;
+                StartCoroutine(PerformUltimate(ultimateTime));
+
+            }
+            // Block
+            // else if (Input.GetKeyDown(KeyCode.K))
+            // {
+            //     isBlocked = true;
+            //     m_animator.SetTrigger("Block");
+            //     m_animator.SetBool("IdleBlock", true);
+            // }
+
+            // else if (Input.GetKeyUp(KeyCode.K))
+            // {
+            //     isBlocked = false;
+            //     m_animator.SetBool("IdleBlock", false);
+            // }
+            else if (Input.GetKeyDown("w"))
+            {
+                if (m_grounded)
+                {
                     // m_animator.SetTrigger("Jump");
-					ChangeAnimationState(PLAYER_JUMP);
+                    ChangeAnimationState(PLAYER_JUMP);
                     globalGameState.player1State = 2;
-					//Debug.Log("Gaara Jump 1");
+                    //Debug.Log("Gaara Jump 1");
 
-					m_grounded = false;
-					// m_animator.SetBool("Grounded", m_grounded);
-					m_body2d.velocity = new Vector2(m_body2d.velocity.x, m_jumpForce);
-					m_groundSensor.Disable(0.2f);
-				}
-				else if (canDoubleJump)
-				{
-					// m_animator.SetTrigger("Jump");
-					ChangeAnimationState(PLAYER_JUMP);
-                    globalGameState.player1State = 2;
-					//Debug.Log("Gaara Jump 2");
-					m_body2d.velocity = new Vector2(m_body2d.velocity.x, m_jumpForce);
-					m_jumpsLeft--;
-				}
-			}
-			//Run
-			else if (Mathf.Abs(inputX) > Mathf.Epsilon && m_grounded)
-			{
-				// Reset timer
-				//Debug.Log("Gaara Walk");
-				m_delayToIdle = 0.05f;
-				// m_animator.SetInteger("AnimState", 1);
-				if(inputX == 1f)
-				{
-					globalGameState.player1State = 1; 
-				} else if(inputX == -1f)
-				{
-					globalGameState.player1State = -1; 
-				}
-				ChangeAnimationState(PLAYER_RUN);
-			}
+                    m_grounded = false;
+                    // m_animator.SetBool("Grounded", m_grounded);
+                    m_body2d.velocity = new Vector2(m_body2d.velocity.x, m_jumpForce);
+                    m_groundSensor.Disable(0.2f);
+                }
+                else if (canDoubleJump)
+                {
+                    // m_animator.SetTrigger("Jump");
+                    ChangeAnimationState(PLAYER_JUMP);
+                    globalGameState.player1State = 2;	
+                    //Debug.Log("Gaara Jump 2");
+                    m_body2d.velocity = new Vector2(m_body2d.velocity.x, m_jumpForce);
+                    m_jumpsLeft--;
+                }
+            }
+            //Run
+            else if (Mathf.Abs(inputX) > Mathf.Epsilon && m_grounded && !isAttacking)
+            {
+                // Reset timer
+                Debug.Log("Gaara Walk");
+                m_delayToIdle = 0.05f;
+                // m_animator.SetInteger("AnimState", 1);
+                if(inputX == 1f)	
+                {	
+                    globalGameState.player1State = 1;	
+                } else if(inputX == -1f)	
+                {	
+                    globalGameState.player1State = -1;	
+                }	
+                ChangeAnimationState(PLAYER_RUN);
+            }
 
-			//Idle
-			else if (m_grounded && !isAttacking)
-			{
-				//Debug.Log("Gaara Idle");
-				// Prevents flickering transitions to idle
-				m_delayToIdle -= Time.deltaTime;
-				// if (m_delayToIdle < 0)
-				// m_animator.SetInteger("AnimState", 0);
-				if (m_delayToIdle < 0)
-				{
-					ChangeAnimationState(PLAYER_IDLE);
-					globalGameState.player1State = 0; 
-				}
-			}
-		}
+            //Idle
+            else if (m_grounded && !isAttacking && !knockback)
+            {
+                Debug.Log("Gaara Idle");
+                // Prevents flickering transitions to idle
+                m_delayToIdle -= Time.deltaTime;
+                // if (m_delayToIdle < 0)
+                // m_animator.SetInteger("AnimState", 0);
+                if (m_delayToIdle < 0) {
+                    ChangeAnimationState(PLAYER_IDLE);
+                    globalGameState.player1State = 0;	
+                }
+
+            }
+        }
     }
 
     private void Attack()
