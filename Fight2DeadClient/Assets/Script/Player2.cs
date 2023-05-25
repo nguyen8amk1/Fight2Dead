@@ -320,7 +320,7 @@ public class Player2 : MonoBehaviour
         }
 
         //Idle
-        else if (m_grounded && !isAttacking)
+        else if (m_grounded && !isAttacking && !knockback)
         {
             Debug.Log("Luffy Idle");
             // Prevents flickering transitions to idle
