@@ -66,40 +66,17 @@ namespace SocketServer
 					break;
 				}
 
-				// -> sent message: "allready"
-				try
-				{
-					byte[] buffer = new byte[1024];
-					int bytesRead = stream.Read(buffer, 0, buffer.Length);
-					string message = Encoding.ASCII.GetString(buffer, 0, bytesRead);
-					Console.WriteLine("receive in tcp loop: " + message);
-					if(String.IsNullOrEmpty(message)) continue;
+				byte[] buffer = new byte[1024];
+				int bytesRead = stream.Read(buffer, 0, buffer.Length);
+				string message = Encoding.ASCII.GetString(buffer, 0, bytesRead);
+				Console.WriteLine("receive in tcp loop: " + message);
+				if(String.IsNullOrEmpty(message)) continue;
 
-					// TODO: handle quit message and break the loop 
-					Console.WriteLine("Here is tcp listening loop of player " + player.id);
-					PreGameMessageHandler messageHandler = factory.whatPreGameMessage(message);
-					messageHandler.handle(id, player, message);
-				} catch (Exception ex)
-				{
-					Console.WriteLine("Network stream is close: " + ex.Message);
-					return;
-				}
-
+				// TODO: handle quit message and break the loop 
+				Console.WriteLine("Here is tcp listening loop of player " + player.id);
+				PreGameMessageHandler messageHandler = factory.whatPreGameMessage(message);
+				messageHandler.handle(id, player, message);
 			}
-
-			// Clean up the network stream and client socket
-			//stream.Dispose();
-			client.Close();
-
-            /*
-            try
-            {
-            }
-            catch (Exception ex)
-            {
-                // Handle any exceptions that occur while handling the client
-            }
-            */
         }
 
     }

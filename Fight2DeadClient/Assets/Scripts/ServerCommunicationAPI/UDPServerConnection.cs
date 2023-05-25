@@ -23,7 +23,6 @@ namespace SocketServer
         private int udpPort = 8000;
         private UdpClient udpClient = new UdpClient();
 
-        // YEAHHH: i found the problem :))
         public static string serverIp;
 
         private UDPServerConnection()
@@ -63,7 +62,6 @@ namespace SocketServer
         {
             while (true)
             {
-                // TODO: 
                 IPEndPoint remoteEndPoint = new IPEndPoint(IPAddress.Parse(serverIp), udpPort);
                 int listeningPort = ((IPEndPoint)udpClient.Client.LocalEndPoint).Port;
                 Debug.Log("UDP Listening for server at port " + listeningPort);

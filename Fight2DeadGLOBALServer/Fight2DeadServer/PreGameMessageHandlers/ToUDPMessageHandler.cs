@@ -28,7 +28,9 @@ namespace SocketServer
                 {
                     //p.tcpClient.Close();
                     room.udpPlayers.Add(p.id, p);
+                    Console.WriteLine($"UDP PLAYER: {p.id}, {p.endPoint.Address}:{p.endPoint.Port}");
                     p.quitListen = true;
+                    //p.tcpClient.Close();
                 }
 
                 dlog.switchToUDP(roomId);

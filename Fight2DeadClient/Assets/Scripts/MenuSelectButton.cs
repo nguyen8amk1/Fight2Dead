@@ -86,7 +86,7 @@ public class MenuSelectButton : MonoBehaviour
         if(globalPressed)
 		{
             UnityEngine.Debug.Log("set online mode to global");
-            globalGameState.onlineMode = "GLOBAL";
+            globalGameState.onlineMode = "GLOBAL"; 
             UDPServerConnection.serverIp = "103.162.20.146";
             return;
 		}

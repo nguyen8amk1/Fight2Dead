@@ -6,6 +6,8 @@ using System.Threading;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.IO;
+using System.Xml.Serialization;
+using Org.BouncyCastle.Crypto.Signers;
 
 namespace SocketServer
 {
@@ -31,26 +33,15 @@ namespace SocketServer
 		// FIXME: the server get spammed some how when client send login info  
 		// FIXME: the matching is not work anymore 
 
-		// @Test
-		public static string serversendpath = "serversend.txt";
-
 		public void run()
         {
             dbConnection = new MySQLDatabaseConnection(dataCredentialFilePath);
-
-			// @Test
-			if (!File.Exists(serversendpath))
-			{
-				// Create a file to write to.
-				using (StreamWriter sw = File.CreateText(serversendpath))
-				{
-				}
-			}
 
 			initConnections();
 
             Thread udpListeningThread = new Thread(() => udpListening());
             udpListeningThread.Start();
+
 			Thread createRoomThread = new Thread(() => createRoom());
 			createRoomThread.Start();
 
@@ -118,6 +109,7 @@ namespace SocketServer
 
 		private void createRoom()
 		{
+			Console.WriteLine("Create room thread created");
 			while(true)
 			{
 				if(twoPlayersRoomWaitList.Count >= 2)
@@ -237,36 +229,16 @@ namespace SocketServer
 
         private void udpListening()
         {
-			/*
-			Task.Run(async () =>
-			{
-				using (var udpListener = new UdpClient(udpPort))
-				{
-					while (true)
-					{
-						//IPEndPoint object will allow us to read datagrams sent from any source.
-						var receivedResults = await udpListener.ReceiveAsync();
-						string message = Encoding.ASCII.GetString(receivedResults.Buffer);
-
-						string[] tokens = message.Split(',');
-
-						string rid = Util.getValueFrom(tokens[0]);
-						string pid = Util.getValueFrom(tokens[1]);
-
-						dlog.messageReceived(pid, 3, message);
-						rooms[rid].udpProcess(udpListener, tokens);
-					}
-				}
-			});
-			*/
-			
 			UdpClient udpListener = new UdpClient(udpPort);
+			Console.WriteLine("Udp listener started");
+
             while (true)
             {
                 if (udpListener.Available > 0)
                 {
                     IPEndPoint remoteEP = new IPEndPoint(IPAddress.Any, 0);
                     byte[] buffer = udpListener.Receive(ref remoteEP);
+					Console.WriteLine("Receive message from: " + remoteEP.Address.ToString() + ":" + remoteEP.Port);
                     string message = Encoding.ASCII.GetString(buffer);
                     string[] tokens = message.Split(',');
 
