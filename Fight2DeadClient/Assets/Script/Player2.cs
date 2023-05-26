@@ -70,6 +70,7 @@ public class Player2 : MonoBehaviour
     public AudioSource attackSound;
     public AudioSource attackSound_1;
     public AudioSource ultimateSound;
+    public AudioSource fallSound;
     void ChangeAnimationState(string newState)
     {
         if (currentState == newState) return;
@@ -435,6 +436,9 @@ public class Player2 : MonoBehaviour
 
         // Reset vận tốc về 0 sau khi knockback kết thúc
         m_body2d.velocity = Vector2.zero;
+        fallSound.Play();
+        ChangeAnimationState(PLAYER_IDLE);
+
     }
     public void CheckKnockback()
     {
