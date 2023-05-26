@@ -198,7 +198,7 @@ namespace SocketServer {
 				{
 					gameState.player1IsBeingControlled = true;
 					gameState.player1State = state;
-				}  
+				}
 				else if(pid == 2)
 				{
 					gameState.player2IsBeingControlled = true;

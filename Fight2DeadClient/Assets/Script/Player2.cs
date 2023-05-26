@@ -78,6 +78,18 @@ public class Player2 : MonoBehaviour
         return m_facingDirection;
     }
 
+	const int WALK_LEFT  = (-1);
+	 const int WALK_RIGHT  = (1);
+	 const int JUMP  = (2);
+	 const int FALL  = (-2);
+	 const int IDLE  = (0);
+	 const int HURT_LEFT  = (-3);
+	 const int HURT_RIGHT  = (-4);
+	 const int ATTACK1  = (3);
+	 const int ATTACK2  = (4);
+	 const int ATTACK3  = (5);
+	 const int ULTIMATE  = (9);
+
     void Start()
     {
 
@@ -114,6 +126,7 @@ public class Player2 : MonoBehaviour
 
                 ChangeAnimationState(PLAYER_JUMP);
             }
+
             else {
                 ChangeAnimationState(PLAYER_IDLE);
             }
@@ -376,6 +389,7 @@ public class Player2 : MonoBehaviour
 
 		}
     }
+
     private void Attack()
     {
         Vector2 attackDirection = new Vector2(GetFacingDirection(), 0f); // Hướng của nhân vật

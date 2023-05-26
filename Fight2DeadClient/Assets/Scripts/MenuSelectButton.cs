@@ -27,7 +27,7 @@ public class MenuSelectButton : MonoBehaviour
         {
             try
 			{
-				string exePath = "D:\\Programming\\UnityProject\\Fight2Dead\\Fight2DeadClient\\LANServer\\Debug\\Fight2DeadServer.exe";
+				string exePath = "D:\\Programming\\UnityProject\\Fight2Dead\\Fight2DeadLANServer\\Fight2DeadServer\\bin\\Debug\\Fight2DeadServer.exe";
                 // Create a new process start info
                 ProcessStartInfo startInfo = new ProcessStartInfo();
 				startInfo.FileName = exePath;

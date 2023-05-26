@@ -11,8 +11,8 @@ public class GamePlayerNetworkCommutor : MonoBehaviour
 
     public GameObject playerA; // gaara 
     public GameObject playerB; // luffy 
-    public Text player1State;
-    public Text player2State;
+    //public Text player1State;
+    //public Text player2State;
 
     void Start()
     {
@@ -29,7 +29,7 @@ public class GamePlayerNetworkCommutor : MonoBehaviour
             //Debug.Log("player 1 sending to udp server");
             //int moveLeft = (globalGameState.player1MoveLeft) ? 1: 0;
             //int moveRight = (globalGameState.player1MoveRight) ? 1: 0;
-            player1State.text = $"Player1 State: {globalGameState.player1State}";
+            //player1State.text = $"Player1 State: {globalGameState.player1State}";
 			string message = InGameMessageGenerator.tempInGameMessage(playerA.transform.position.x, playerA.transform.position.y, globalGameState.player1State);
 			ServerCommute.connection.sendToServer(message);
 			playerB.transform.position = new Vector3(globalGameState.playersPosition[1].x, globalGameState.playersPosition[1].y, 0);
@@ -41,7 +41,7 @@ public class GamePlayerNetworkCommutor : MonoBehaviour
             //hostPlayer = playerB;
             //int moveLeft = 0;
             //int moveRight = (Player2.moveRight) ? 1: 0;
-            player2State.text = $"Player2 State: {globalGameState.player2State}";
+            //player2State.text = $"Player2 State: {globalGameState.player2State}";
 			string message = InGameMessageGenerator.tempInGameMessage(playerB.transform.position.x, playerB.transform.position.y, globalGameState.player2State);
 			ServerCommute.connection.sendToServer(message);
 			playerA.transform.position = new Vector3(globalGameState.playersPosition[0].x, globalGameState.playersPosition[0].y, 0);

@@ -479,7 +479,7 @@ public class LoadingSceneController : MonoBehaviour
             }
 
             ServerCommute.listenToServerThread.Abort();
-            //TCPServerConnection.Instance.close();
+            TCPServerConnection.Instance.close();
             ServerCommute.connection = UDPServerConnection.Instance;
 
             Console.WriteLine("Started UDP listen to server thread");

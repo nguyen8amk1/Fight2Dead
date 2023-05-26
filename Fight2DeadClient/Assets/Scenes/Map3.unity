@@ -4956,7 +4956,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1327495836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4970,7 +4970,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerA: {fileID: 1652342533}
-  playerB: {fileID: 205332289}
+  playerB: {fileID: 2144307032}
 --- !u!4 &1327495837
 Transform:
   m_ObjectHideFlags: 0
