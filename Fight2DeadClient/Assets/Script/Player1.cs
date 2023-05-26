@@ -68,7 +68,8 @@ public class Player1 : MonoBehaviour
     public float ultimateTime;
     //sound effect
     public AudioSource attackSound;
-     public AudioSource attackkSound_1;
+    public AudioSource attackSound_1;
+    public AudioSource ultimateSound;
     void ChangeAnimationState(string newState)
     {
         if (currentState == newState) return;
@@ -231,7 +232,7 @@ public class Player1 : MonoBehaviour
         IEnumerator PerformAttack(string anim, float norTime)
         {
             m_body2d.velocity = Vector2.zero;
-            
+
             ChangeAnimationState(anim);
             //When the attack animation run the event in animation call the function Attack()
             Debug.Log("Gaara Attack");
@@ -267,7 +268,7 @@ public class Player1 : MonoBehaviour
         {
             // m_animator.SetTrigger("ultimate");
             isAttacking = true;
-            attackkSound_1.Play();
+            attackSound_1.Play();
             StartCoroutine(PerformAttack((PLAYER_ATTACK + "3"), nor3Time));
 
         }
@@ -275,6 +276,7 @@ public class Player1 : MonoBehaviour
         {
             // m_animator.SetTrigger("ultimate");
             isAttacking = true;
+            ultimateSound.Play();
             StartCoroutine(PerformUltimate(ultimateTime));
 
         }
