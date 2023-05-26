@@ -429,6 +429,7 @@ public class Player2 : MonoBehaviour
             m_body2d.velocity = knockbackForce;
 
             timeInAir += Time.deltaTime;
+            
             yield return null;
         }
 
