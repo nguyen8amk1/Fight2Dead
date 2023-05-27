@@ -469,13 +469,13 @@ public class LoadingSceneController : MonoBehaviour
 				string message = PreGameMessageGenerator.toUDPMessage();
 				ServerCommute.connection.sendToServer(message);
 
-				ServerCommute.listenToServerThread.Abort();
-				TCPServerConnection.Instance.close();
+				//ServerCommute.listenToServerThread.Abort();
 
 				ServerCommute.connection = UDPServerConnection.Instance;
 				Console.WriteLine("Started UDP listen to server thread");
 				
 				ServerCommute.listenToServerThread.Abort();
+				//TCPServerConnection.Instance.close();
 
 				ServerCommute.listenToServerThread = ServerCommute.connection.createListenToServerThread(ListenToServerFactory.tempUDPListening());
 				ServerCommute.listenToServerThread.Start();

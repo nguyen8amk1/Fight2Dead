@@ -37,6 +37,7 @@ public class MenuSelectButton : MonoBehaviour
 
 				ServerCommute.connection = LANTCPServerConnection.Instance;
 				ServerCommute.listenToServerThread.Abort();
+
 				ServerCommute.listenToServerThread = ServerCommute.connection.createListenToServerThread(ListenToServerFactory.tempTCPListening());
 				ServerCommute.listenToServerThread.Start();
 
