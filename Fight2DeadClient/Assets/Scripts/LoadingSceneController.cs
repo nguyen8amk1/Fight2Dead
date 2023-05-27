@@ -465,6 +465,7 @@ public class LoadingSceneController : MonoBehaviour
 
             if(globalGameState.onlineMode == "LAN")
 			{
+                /*
 				UDPServerConnection.Instance.inheritPortFromLAN(LANTCPServerConnection.Instance); 
 				string message = PreGameMessageGenerator.toUDPMessage();
 				ServerCommute.connection.sendToServer(message);
@@ -479,7 +480,24 @@ public class LoadingSceneController : MonoBehaviour
 
 				ServerCommute.listenToServerThread = ServerCommute.connection.createListenToServerThread(ListenToServerFactory.tempUDPListening());
 				ServerCommute.listenToServerThread.Start();
-			}
+                */
+
+                string message = PreGameMessageGenerator.toUDPMessage();
+                ServerCommute.connection.sendToServer(message);
+
+
+                Debug.Log("TODO: There are udp connection bug right here");
+				UDPServerConnection.Instance.inheritPortFromLAN(LANTCPServerConnection.Instance);
+
+                ServerCommute.listenToServerThread.Abort();
+                TCPServerConnection.Instance.close();
+                ServerCommute.connection = UDPServerConnection.Instance;
+
+                Console.WriteLine("Started UDP listen to server thread");
+
+                ServerCommute.listenToServerThread = ServerCommute.connection.createListenToServerThread(ListenToServerFactory.tempUDPListening());
+                ServerCommute.listenToServerThread.Start();
+            }
 			else if (globalGameState.onlineMode == "GLOBAL")
 			{
 				//UDPServerConnection.Instance.inheritPortFromGLOBAL(TCPServerConnection.Instance);

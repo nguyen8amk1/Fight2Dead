@@ -36,11 +36,10 @@ public class MenuSelectButton : MonoBehaviour
                 Thread.Sleep(1000);
 
 				ServerCommute.connection = LANTCPServerConnection.Instance;
-				ServerCommute.listenToServerThread.Abort();
 
+				ServerCommute.listenToServerThread.Abort();
 				ServerCommute.listenToServerThread = ServerCommute.connection.createListenToServerThread(ListenToServerFactory.tempTCPListening());
 				ServerCommute.listenToServerThread.Start();
-
 			} catch (Exception e)
 			{
 				UnityEngine.Debug.Log("Something wrong happens when create the room: " + e.Message);

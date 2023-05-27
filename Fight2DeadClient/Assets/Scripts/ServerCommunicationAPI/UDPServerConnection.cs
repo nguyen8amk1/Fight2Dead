@@ -41,8 +41,7 @@ namespace SocketServer
 
         public Thread createListenToServerThread(ListenToServerFactory.MessageHandlerLambda messageHandler)
         {
-            //return new Thread(() => listenToUDPServer(messageHandler));
-            return null;
+            return new Thread(() => listenToUDPServer(messageHandler));
         }
 
         public void close()
@@ -50,18 +49,10 @@ namespace SocketServer
             udpClient.Close();
         }
 
-
-        public void inheritPortFromGLOBAL(TCPServerConnection tcpConnection)
-        {
-            int sourcePort = ((IPEndPoint)tcpConnection.getTcpClient().Client.LocalEndPoint).Port;
-            // @Debug
-            //udpClient.Client.Bind(new IPEndPoint(IPAddress.Any, sourcePort));
-        }
-
         public void inheritPortFromLAN(LANTCPServerConnection tcpConnection)
         {
             int sourcePort = ((IPEndPoint)tcpConnection.getTcpClient().Client.LocalEndPoint).Port;
-            //udpClient.Client.Bind(new IPEndPoint(IPAddress.Any, sourcePort));
+            udpClient.Client.Bind(new IPEndPoint(IPAddress.Any, sourcePort));
         }
 
 
@@ -69,7 +60,6 @@ namespace SocketServer
         {
 
             Debug.Log("UDP listening thread started");
-            /*
             while (true)
             {
                 IPEndPoint remoteEndPoint = new IPEndPoint(IPAddress.Any, 0);
@@ -82,45 +72,6 @@ namespace SocketServer
 
                 string[] tokens = message.Split(',');
                 messageHandler(tokens);
-            }
-
-            */
-            //IPAddress serverIP = IPAddress.Parse("103.162.20.146"); // Server IP address
-            //IPAddress serverIP = IPAddress.Parse("127.0.0.1"); // Server IP address
-            //int serverPort = 8000; // Server port
-
-            using (UdpClient client = new UdpClient())
-            {
-                IPAddress serverIP = IPAddress.Parse("103.162.20.146"); // Server IP address
-                                                                        //IPAddress serverIP = IPAddress.Parse("127.0.0.1"); // Server IP address
-                int serverPort = 8000; // Server port
-
-                try
-                {
-                    while (true)
-                    {
-                        string message = "Hello server";
-                        byte[] data = Encoding.ASCII.GetBytes(message);
-
-                        client.Send(data, data.Length, serverIP.ToString(), serverPort);
-                        Debug.Log($"Sent: {message}");
-
-                        IPEndPoint remoteEndPoint = new IPEndPoint(IPAddress.Any, 0);
-                        byte[] receiveData = client.Receive(ref remoteEndPoint);
-                        string receivedMessage = Encoding.ASCII.GetString(receiveData);
-
-                        Debug.Log($"Received: {receivedMessage}");
-
-                        /*
-						string[] tokens = receivedMessage.Split(',');
-						messageHandler(tokens);
-                        */
-                    }
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine("Exception: " + e.Message);
-                }
             }
         }
     }
