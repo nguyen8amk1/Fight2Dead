@@ -26,6 +26,7 @@ public class RegisterManage : MonoBehaviour
     private float fadeDuration = 3f;
     private bool isDuplicate = false;
     // Start is called before the first frame update
+
     void Start()
     {
         ServerCommute.listenToServerThread = ServerCommute.connection.createListenToServerThread(ListenToServerFactory.tempTCPListening());

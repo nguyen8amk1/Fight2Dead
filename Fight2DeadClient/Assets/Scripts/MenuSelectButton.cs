@@ -36,10 +36,10 @@ public class MenuSelectButton : MonoBehaviour
                 Thread.Sleep(1000);
 
 				ServerCommute.connection = LANTCPServerConnection.Instance;
+
 				ServerCommute.listenToServerThread.Abort();
 				ServerCommute.listenToServerThread = ServerCommute.connection.createListenToServerThread(ListenToServerFactory.tempTCPListening());
 				ServerCommute.listenToServerThread.Start();
-
 			} catch (Exception e)
 			{
 				UnityEngine.Debug.Log("Something wrong happens when create the room: " + e.Message);
@@ -86,7 +86,7 @@ public class MenuSelectButton : MonoBehaviour
         if(globalPressed)
 		{
             UnityEngine.Debug.Log("set online mode to global");
-            globalGameState.onlineMode = "GLOBAL";
+            globalGameState.onlineMode = "GLOBAL"; 
             UDPServerConnection.serverIp = "103.162.20.146";
             return;
 		}

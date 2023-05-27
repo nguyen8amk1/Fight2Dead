@@ -5,6 +5,7 @@ using System;
 using System.Linq;
 using System.Text;
 using System.Security.Cryptography;
+using System.Transactions;
 
 namespace SocketServer
 {
@@ -27,9 +28,11 @@ namespace SocketServer
         public void newConnectionMessageReceived(TcpClient tcpClient, int phase, string message)
         {
             tempNames.Add(tcpClient, generateRandomString());
-            string protocol = whatProtocol(phase);
-            Console.WriteLine("Client {0} to Server (Phase {1} - {2}): {3}", tempNames[tcpClient], phase, protocol, message);
-        }
+			string protocol = whatProtocol(phase);
+			IPAddress ipAddress = ((IPEndPoint)tcpClient.Client.RemoteEndPoint).Address;
+			int port = ((IPEndPoint)tcpClient.Client.RemoteEndPoint).Port;
+			Console.WriteLine("Client {0} ({4}) to Server (Phase {1} - {2}): {3}", tempNames[tcpClient], phase, protocol, message, $"{ipAddress}:{port}");
+		}
 
 		public void newConnectionMessageSent(TcpClient tcpClient, int phase, string message)
         {

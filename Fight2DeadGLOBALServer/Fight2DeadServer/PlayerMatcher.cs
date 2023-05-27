@@ -25,7 +25,6 @@ namespace SocketServer
                     // Console.WriteLine("last index: " + (lastIndex).ToString());
                     Player player = unmatchedPlayers[lastIndex];
                     player.rid = roomId.ToString();
-                    player.endPoint = (IPEndPoint)player.tcpClient.Client.RemoteEndPoint;
                     TcpClient client = player.tcpClient;
 
                     string m = $"p{i+1}:{player.username},";

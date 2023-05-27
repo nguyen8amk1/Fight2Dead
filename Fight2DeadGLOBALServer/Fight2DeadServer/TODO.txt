@@ -1,61 +1,20 @@
+WHAT TO DO NEXT: 
+    a new player sending system: 
+        not get the client ip from tcp client anymore, get the newly created udp client ip and port and store it inside the dict (udpplayers perhaps ?? )
+        not identify the others players through pid anymore, iden through endpoint.tostring 
+        endpoint.tostring as a value, pid as key 
+
+        -> CHANGE HOW TOUDP HANDLER WORKS  
+
 TODAY: 
 i have 5 days: start from tomorrow 
-    1st day: 
-		IMPLEMENT LAN MODE (2h) [] 
-            JOIN ROOM -> DO THE MATCHING [] 
-                search for room in the lan -> if exist -> join 
-
-            CREATE ROOM -> MATCHING SCENE [] -> 
-                wait for matching just like normal 
-
-            ERROR: currently not working -> @current
-
-            SOLUTION: 
-            => the tcp client have to first connect to the global to log in then you can play using LAN 
-            -> the login checking server is on a different location 
-                -> the login checking server is the same as the global game server -> no change on global 
-
-            -> the game server is on a different location, in LAN version:
-                CREATE ROOM
-                -> 1. connect to global location to check login info 
-                -> 2. after finish checking, (click create room) change to lan server connection -> do the matching scene 
-					-> change the connection to lan server right after click on LAN Create room 
-                        how to change the connection -> change the servercommute.connection to something else like LANTCPConnection.
-
-                -> 3. do the connection as usual 
-
-                JOIN ROOM 
-                -> 1. connect to global location to check login info 
-                -> 2. after finish checking, (click join room) -> find the available server in LAN; do the matching scene 
-                -> 3. do the connection as usual 
-
-            -> just simple random matching still :v
-
-            STUCK THE LAN SERVER TO THE CLIENT AND RUN IT ON ANOTHER THREAD []
-            HAVE A SEARCH FOR GAME_SERVER_IN_LAN METHOD FOR JOIN ROOM SCENE []
-
-		-> FINISH THIS TODAY 
-
-		PUSH THE SERVER TO VPS (global mode) (4h) [] - before that MAKE SURE EVERYTHING WORKS FINE IN THE LOCAL FIRST 
-			what potential problems need to be address ??: (creating and quitting the game problems)
-			check if multiple rooms and be created simunatioulys 
-			and room quitting when player quit not in order have any problems
-
-			SERVER: 
-				stuff more players into one room, then that's pretty much it really :v 
-
-            -> FINISH GLOBAL MODE 
-
-        -> FINISH TO DAY AS WELL  
-
-        tong cong: 4 + 2 = 6 -> 5h + 6h = 11h 
-
     2nd day: 
+        SYNC THE ANIMATION 
 		STORE PASSWORD HASH (USE HASHING ON THE CLIENT) ON TO THE SERVER (1h) [] - but plain text for now 
 		CHECK ROOM CREATION AND QUIT CHECKING (2h) []
-
-
         GAME START, GAME OVER SCREEN AFTER FINISH A GAME (4h) []
+
+        FIX THE GLOBAL 
 
     3rd day: 
 		APPLY SSL INTO THE TRANSMISSION (2h) []  -> LEARN HOW IT WORKS FIRST 
@@ -178,6 +137,55 @@ BUG:
         AND ANOTHER ROOM CREATED AND THAT ROOM QUIT -> EXCEPTION @fixthis
 
 DONE: 
+		IMPLEMENT LAN MODE (2h) [X] 
+            JOIN ROOM -> DO THE MATCHING [] 
+                search for room in the lan -> if exist -> join 
+
+            CREATE ROOM -> MATCHING SCENE [] -> 
+                wait for matching just like normal 
+
+            ERROR: currently not working -> @current
+
+            SOLUTION: 
+            => the tcp client have to first connect to the global to log in then you can play using LAN 
+            -> the login checking server is on a different location 
+                -> the login checking server is the same as the global game server -> no change on global 
+
+            -> the game server is on a different location, in LAN version:
+                CREATE ROOM
+                -> 1. connect to global location to check login info 
+                -> 2. after finish checking, (click create room) change to lan server connection -> do the matching scene 
+					-> change the connection to lan server right after click on LAN Create room 
+                        how to change the connection -> change the servercommute.connection to something else like LANTCPConnection.
+
+                -> 3. do the connection as usual 
+
+                JOIN ROOM 
+                -> 1. connect to global location to check login info 
+                -> 2. after finish checking, (click join room) -> find the available server in LAN; do the matching scene 
+                -> 3. do the connection as usual 
+
+            -> just simple random matching still :v
+
+            STUCK THE LAN SERVER TO THE CLIENT AND RUN IT ON ANOTHER THREAD []
+            HAVE A SEARCH FOR GAME_SERVER_IN_LAN METHOD FOR JOIN ROOM SCENE []
+
+		-> FINISH THIS TODAY 
+
+		PUSH THE SERVER TO VPS (global mode) (4h) [] - before that MAKE SURE EVERYTHING WORKS FINE IN THE LOCAL FIRST 
+			what potential problems need to be address ??: (creating and quitting the game problems)
+			check if multiple rooms and be created simunatioulys 
+			and room quitting when player quit not in order have any problems
+
+			SERVER: 
+				stuff more players into one room, then that's pretty much it really :v 
+
+            -> FINISH GLOBAL MODE 
+
+        -> FINISH TO DAY AS WELL  
+
+        tong cong: 4 + 2 = 6 -> 5h + 6h = 11h 
+
 	chon nhan vat co thu tu: [X] -> kinda works, not 100%
 		2v2: 
 			p1 chon truoc p2 

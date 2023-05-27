@@ -8,7 +8,7 @@ using System.IO;
 
 namespace SocketServer
 {
-    public sealed class UDPServerConnection : IServerConnection
+	public sealed class UDPServerConnection : IServerConnection
     {
         private static readonly UDPServerConnection instance = new UDPServerConnection();
 
@@ -20,11 +20,11 @@ namespace SocketServer
             }
         }
 
-        private int udpPort = 8000;
-        private UdpClient udpClient = new UdpClient();
+        public static int udpPort = 8000;
+        public static UdpClient udpClient = new UdpClient();
 
-        // YEAHHH: i found the problem :))
         public static string serverIp;
+        private static GameState globalGameState = GameState.Instance;
 
         private UDPServerConnection()
         {
@@ -33,6 +33,8 @@ namespace SocketServer
 
         public void sendToServer(string message)
         {
+            //int port = ((IPEndPoint)udpClient.Client.LocalEndPoint).Port;
+            //Debug.Log($"Send to server using : {udpClient.Client.LocalEndPoint.ToString()}");
             byte[] udpMessage = Encoding.ASCII.GetBytes(message);
             udpClient.Send(udpMessage, udpMessage.Length, serverIp, udpPort);
         }
@@ -47,26 +49,22 @@ namespace SocketServer
             udpClient.Close();
         }
 
-        public void inheritPortFromGLOBAL(TCPServerConnection tcpConnection)
-        {
-            int sourcePort = ((IPEndPoint)tcpConnection.getTcpClient().Client.LocalEndPoint).Port;
-            udpClient.Client.Bind(new IPEndPoint(IPAddress.Any, sourcePort));
-        }
-
         public void inheritPortFromLAN(LANTCPServerConnection tcpConnection)
         {
             int sourcePort = ((IPEndPoint)tcpConnection.getTcpClient().Client.LocalEndPoint).Port;
             udpClient.Client.Bind(new IPEndPoint(IPAddress.Any, sourcePort));
         }
 
-        private void listenToUDPServer(ListenToServerFactory.MessageHandlerLambda messageHandler)
+
+        public static void listenToUDPServer(ListenToServerFactory.MessageHandlerLambda messageHandler)
         {
+
+            Debug.Log("UDP listening thread started");
             while (true)
             {
-                // TODO: 
-                IPEndPoint remoteEndPoint = new IPEndPoint(IPAddress.Parse(serverIp), udpPort);
+                IPEndPoint remoteEndPoint = new IPEndPoint(IPAddress.Any, 0);
                 int listeningPort = ((IPEndPoint)udpClient.Client.LocalEndPoint).Port;
-                Debug.Log("UDP Listening for server at port " + listeningPort);
+                Debug.Log($"UDP Listening for server at {listeningPort}");
                 byte[] bytes = udpClient.Receive(ref remoteEndPoint);
                 string message = Encoding.ASCII.GetString(bytes);
                 Debug.Log("Received udp data: " + message);
@@ -77,5 +75,4 @@ namespace SocketServer
             }
         }
     }
-
 }

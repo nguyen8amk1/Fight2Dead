@@ -10,8 +10,6 @@ namespace SocketServer
     public sealed class TCPServerConnection : IServerConnection
     {
         private static readonly TCPServerConnection instance = new TCPServerConnection();
-        public static bool LAN_MODE = false;
-
         public static TCPServerConnection Instance
         {
             get
@@ -23,10 +21,10 @@ namespace SocketServer
         private TcpClient tcpClient;
         private NetworkStream tcpStream;
 
-        private TcpClient LANtcpClient;
-        private NetworkStream LANtcpStream;
-
         private string serverIp = "103.162.20.146";
+        
+        // @Test for debug only 
+        //private string serverIp = "127.0.0.1";
         private int tcpPort = 5000;
 
         private TCPServerConnection() { 
@@ -34,26 +32,12 @@ namespace SocketServer
             tcpStream = tcpClient.GetStream();
         }
 
-        public void changeToLAN(string serverIP, int port) {
-            //udpClient.Client.Bind(new IPEndPoint(IPAddress.Any, sourcePort));
-
-            int sourcePort = ((IPEndPoint)tcpClient.Client.LocalEndPoint).Port;
-            tcpClient.Client.Bind(new IPEndPoint(IPAddress.Parse(serverIP), sourcePort));
-
-            /*
-            LANtcpClient = new TcpClient(serverIp, port);
-            LANtcpStream = LANtcpClient.GetStream();
-            */
-        }
-
         public void sendToServer(string message) {
+            int port = ((IPEndPoint)tcpClient.Client.LocalEndPoint).Port;
+            Debug.Log($"Send to server using port: {port}");
 			byte[] tcpMessage = Encoding.ASCII.GetBytes(message);
-            if(!LAN_MODE)
-			{
-				tcpStream.Write(tcpMessage, 0, tcpMessage.Length);
-                return;
-			} 
-			LANtcpStream.Write(tcpMessage, 0, tcpMessage.Length);
+			tcpStream.Write(tcpMessage, 0, tcpMessage.Length);
+			return;
         }
 
         public Thread createListenToServerThread(ListenToServerFactory.MessageHandlerLambda messageHandler)
@@ -80,6 +64,7 @@ namespace SocketServer
 					Int32 bytes = tcpStream.Read(data, 0, data.Length); //(**This receives the data using the byte method**)
 					responseData = System.Text.Encoding.ASCII.GetString(data, 0, bytes); //(**This converts it to string**)
 					Debug.Log("Received tcp data: " + responseData);
+                    if (responseData.Length == 0) return;
 
 					string[] tokns = responseData.Split(',');
 					messageHandler(tokns);

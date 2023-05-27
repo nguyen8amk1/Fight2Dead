@@ -10,6 +10,7 @@ using System.Runtime.CompilerServices;
 using System.ComponentModel.Design;
 using System.Web;
 using Org.BouncyCastle.Utilities.IO;
+using System.Reflection.Metadata.Ecma335;
 
 namespace SocketServer
 {
@@ -25,7 +26,7 @@ namespace SocketServer
         public int playersNum { get; set; }
         public Dictionary<string, Player> players = new Dictionary<string, Player>();
         public Dictionary<string, Player> toUdpWaitList = new Dictionary<string, Player>();
-        public Dictionary<string, Player> udpPlayers = new Dictionary<string, Player>();
+        public Dictionary<string, IPEndPoint> udpPlayers = new Dictionary<string, IPEndPoint>();
         public string onlineMode = "GLOBAL"; // @Test 
 
         private MessageHandlerFactory factory = new MessageHandlerFactory(); 
@@ -46,7 +47,9 @@ namespace SocketServer
             // format: client send to server: rid,pid,x,y,state 
             string message = $"{tokens[1]},{tokens[2]},{tokens[3]},{tokens[4]}";
             int pid = Int32.Parse(tokens[1]);
-            UDPClientConnection.sendToOthers(udpPlayers, udpListener, pid, message);
+
+            //UDPClientConnection.sendToClient(udpListener, udpPlayers["1"].endPoint.Address.ToString(), 9999, "hello");
+            //UDPClientConnection.sendToOthers(udpPlayers, udpListener, pid, message);
         }
 
         // These message the room will do
@@ -66,40 +69,17 @@ namespace SocketServer
 					break;
 				}
 
-				// -> sent message: "allready"
-				try
-				{
-					byte[] buffer = new byte[1024];
-					int bytesRead = stream.Read(buffer, 0, buffer.Length);
-					string message = Encoding.ASCII.GetString(buffer, 0, bytesRead);
-					Console.WriteLine("receive in tcp loop: " + message);
-					if(String.IsNullOrEmpty(message)) continue;
+				byte[] buffer = new byte[1024];
+				int bytesRead = stream.Read(buffer, 0, buffer.Length);
+				string message = Encoding.ASCII.GetString(buffer, 0, bytesRead);
+				Console.WriteLine("receive in tcp loop: " + message);
+                if (String.IsNullOrEmpty(message)) return;
 
-					// TODO: handle quit message and break the loop 
-					Console.WriteLine("Here is tcp listening loop of player " + player.id);
-					PreGameMessageHandler messageHandler = factory.whatPreGameMessage(message);
-					messageHandler.handle(id, player, message);
-				} catch (Exception ex)
-				{
-					Console.WriteLine("Network stream is close: " + ex.Message);
-					return;
-				}
-
+				// TODO: handle quit message and break the loop 
+				Console.WriteLine("Here is tcp listening loop of player " + player.id);
+				PreGameMessageHandler messageHandler = factory.whatPreGameMessage(message);
+				messageHandler.handle(id, player, message);
 			}
-
-			// Clean up the network stream and client socket
-			//stream.Dispose();
-			client.Close();
-
-            /*
-            try
-            {
-            }
-            catch (Exception ex)
-            {
-                // Handle any exceptions that occur while handling the client
-            }
-            */
         }
 
     }

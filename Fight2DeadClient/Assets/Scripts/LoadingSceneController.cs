@@ -33,7 +33,7 @@ public class LoadingSceneController : MonoBehaviour
     // TODO: find sound effects (2h) []
     // how many sounds are there: 
     // nhac delay: normal theme song 
-    // 4ps in ->  nhac  (téo téo teo) [] (about 2s), force to wait for 2s ?? (VERSUS SOUNDTRACK)
+    // 4ps in ->  nhac  (tï¿½o tï¿½o teo) [] (about 2s), force to wait for 2s ?? (VERSUS SOUNDTRACK)
     // tieng no -> tieng no chill (no "dung" nhung ma khong qua to) [] (boom sound effect)
 
     // tieng transition -> deo biet ?? (hien tai chua can) [] ()
@@ -461,31 +461,50 @@ public class LoadingSceneController : MonoBehaviour
             // move to next scene ;
             // currentState = GlobalTimingStates.TO_VS_FILL;
             Debug.Log("TO NEXT SCENE");
-
             Debug.Log("Transition to UDP right here");
-            string message = PreGameMessageGenerator.toUDPMessage();
-            ServerCommute.connection.sendToServer(message);
-            
 
-            Debug.Log("TODO: There are udp connection bug right here");
             if(globalGameState.onlineMode == "LAN")
 			{
+                /*
 				UDPServerConnection.Instance.inheritPortFromLAN(LANTCPServerConnection.Instance); 
-			}
+				string message = PreGameMessageGenerator.toUDPMessage();
+				ServerCommute.connection.sendToServer(message);
 
-            else if (globalGameState.onlineMode == "GLOBAL")
-            {
-                UDPServerConnection.Instance.inheritPortFromGLOBAL(TCPServerConnection.Instance);
+				//ServerCommute.listenToServerThread.Abort();
+
+				ServerCommute.connection = UDPServerConnection.Instance;
+				Console.WriteLine("Started UDP listen to server thread");
+				
+				ServerCommute.listenToServerThread.Abort();
+				//TCPServerConnection.Instance.close();
+
+				ServerCommute.listenToServerThread = ServerCommute.connection.createListenToServerThread(ListenToServerFactory.tempUDPListening());
+				ServerCommute.listenToServerThread.Start();
+                */
+
+                string message = PreGameMessageGenerator.toUDPMessage();
+                ServerCommute.connection.sendToServer(message);
+
+
+                Debug.Log("TODO: There are udp connection bug right here");
+				UDPServerConnection.Instance.inheritPortFromLAN(LANTCPServerConnection.Instance);
+
+                ServerCommute.listenToServerThread.Abort();
+                TCPServerConnection.Instance.close();
+                ServerCommute.connection = UDPServerConnection.Instance;
+
+                Console.WriteLine("Started UDP listen to server thread");
+
+                ServerCommute.listenToServerThread = ServerCommute.connection.createListenToServerThread(ListenToServerFactory.tempUDPListening());
+                ServerCommute.listenToServerThread.Start();
             }
-
-            ServerCommute.listenToServerThread.Abort();
-            TCPServerConnection.Instance.close();
-            ServerCommute.connection = UDPServerConnection.Instance;
-
-            Console.WriteLine("Started UDP listen to server thread");
-
-            ServerCommute.listenToServerThread = ServerCommute.connection.createListenToServerThread(ListenToServerFactory.tempUDPListening());
-            ServerCommute.listenToServerThread.Start();
+			else if (globalGameState.onlineMode == "GLOBAL")
+			{
+				//UDPServerConnection.Instance.inheritPortFromGLOBAL(TCPServerConnection.Instance);
+				globalGameState.playerMessage = $"{globalGameState.RoomId},{globalGameState.PlayerId},0,0,0";
+				Thread thread = new Thread(() => GlobalUDPServerConnection.listenToUDPServer(ListenToServerFactory.tempUDPListening()));
+				thread.Start();
+			}
             
             Util.toNextScene();
         }
