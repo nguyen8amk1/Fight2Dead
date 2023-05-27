@@ -33,6 +33,8 @@ namespace SocketServer
         }
 
         public void sendToServer(string message) {
+            int port = ((IPEndPoint)tcpClient.Client.LocalEndPoint).Port;
+            Debug.Log($"Send to server using port: {port}");
 			byte[] tcpMessage = Encoding.ASCII.GetBytes(message);
 			tcpStream.Write(tcpMessage, 0, tcpMessage.Length);
 			return;

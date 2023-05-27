@@ -32,6 +32,8 @@ namespace SocketServer
 
         public void sendToServer(string message)
         {
+            int port = ((IPEndPoint)udpClient.Client.LocalEndPoint).Port;
+            //Debug.Log($"Send to server using port: {port}");
             byte[] udpMessage = Encoding.ASCII.GetBytes(message);
             udpClient.Send(udpMessage, udpMessage.Length, serverIp, udpPort);
         }
@@ -48,8 +50,9 @@ namespace SocketServer
 
         public void inheritPortFromGLOBAL(TCPServerConnection tcpConnection)
         {
-            int sourcePort = ((IPEndPoint)tcpConnection.getTcpClient().Client.LocalEndPoint).Port;
-            udpClient.Client.Bind(new IPEndPoint(IPAddress.Any, sourcePort));
+            //int sourcePort = ((IPEndPoint)tcpConnection.getTcpClient().Client.LocalEndPoint).Port;
+            // @Debug
+            udpClient.Client.Bind(new IPEndPoint(IPAddress.Any, 9999));
         }
 
         public void inheritPortFromLAN(LANTCPServerConnection tcpConnection)
@@ -62,9 +65,9 @@ namespace SocketServer
         {
             while (true)
             {
-                IPEndPoint remoteEndPoint = new IPEndPoint(IPAddress.Parse(serverIp), udpPort);
+                IPEndPoint remoteEndPoint = new IPEndPoint(IPAddress.Any, 0);
                 int listeningPort = ((IPEndPoint)udpClient.Client.LocalEndPoint).Port;
-                Debug.Log("UDP Listening for server at port " + listeningPort);
+                Debug.Log($"UDP Listening for server at {listeningPort}");
                 byte[] bytes = udpClient.Receive(ref remoteEndPoint);
                 string message = Encoding.ASCII.GetString(bytes);
                 Debug.Log("Received udp data: " + message);

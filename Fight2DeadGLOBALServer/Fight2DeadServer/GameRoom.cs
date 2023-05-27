@@ -10,6 +10,7 @@ using System.Runtime.CompilerServices;
 using System.ComponentModel.Design;
 using System.Web;
 using Org.BouncyCastle.Utilities.IO;
+using System.Reflection.Metadata.Ecma335;
 
 namespace SocketServer
 {
@@ -44,9 +45,10 @@ namespace SocketServer
 
         public void udpProcess(UdpClient udpListener, string[] tokens) {
             // format: client send to server: rid,pid,x,y,state 
-            string message = $"{tokens[1]},{tokens[2]},{tokens[3]},{tokens[4]}";
-            int pid = Int32.Parse(tokens[1]);
-            UDPClientConnection.sendToOthers(udpPlayers, udpListener, pid, message);
+            //string message = $"{tokens[1]},{tokens[2]},{tokens[3]},{tokens[4]}";
+            //int pid = Int32.Parse(tokens[1]);
+            UDPClientConnection.sendToClient(udpListener, "125.235.215.169", 9999, "ditme");
+            //UDPClientConnection.sendToOthers(udpPlayers, udpListener, pid, message);
         }
 
         // These message the room will do
