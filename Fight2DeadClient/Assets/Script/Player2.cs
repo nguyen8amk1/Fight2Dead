@@ -7,7 +7,7 @@ public class Player2 : MonoBehaviour
     //Movement
     [SerializeField] float m_speed = 4.0f;
     [SerializeField] float m_jumpForce = 7.5f;
-	private Animator m_animator;
+    private Animator m_animator;
     private Rigidbody2D m_body2d;
     private Sensor m_groundSensor;
     private bool m_grounded = false;
@@ -47,7 +47,7 @@ public class Player2 : MonoBehaviour
     public GameObject gameObject;
     public Vector3 spawnPosition;
     public int numberRespawn = 1;
-    //test
+    //animation
     private string currentState;
     const string PLAYER_IDLE = "Idle";
     const string PLAYER_RUN = "Run";
@@ -61,11 +61,15 @@ public class Player2 : MonoBehaviour
     const string PLAYER_ATTACK = "Nor";
     const string PLAYER_ULTIMATE = "Ultimate";
     public float animTime;
-
+    //time animation of attack
     public float nor1Time;
     public float nor2Time;
     public float nor3Time;
     public float ultimateTime;
+    //sound effect
+    public AudioSource attackSound;
+    public AudioSource attackkSound_1;
+    public AudioSource ultimateSound;
     void ChangeAnimationState(string newState)
     {
         if (currentState == newState) return;
@@ -78,17 +82,17 @@ public class Player2 : MonoBehaviour
         return m_facingDirection;
     }
 
-	const int WALK_LEFT  = (-1);
-	 const int WALK_RIGHT  = (1);
-	 const int JUMP  = (2);
-	 const int FALL  = (-2);
-	 const int IDLE  = (0);
-	 const int HURT_LEFT  = (-3);
-	 const int HURT_RIGHT  = (-4);
-	 const int ATTACK1  = (3);
-	 const int ATTACK2  = (4);
-	 const int ATTACK3  = (5);
-	 const int ULTIMATE  = (9);
+    const int WALK_LEFT = (-1);
+    const int WALK_RIGHT = (1);
+    const int JUMP = (2);
+    const int FALL = (-2);
+    const int IDLE = (0);
+    const int HURT_LEFT = (-3);
+    const int HURT_RIGHT = (-4);
+    const int ATTACK1 = (3);
+    const int ATTACK2 = (4);
+    const int ATTACK3 = (5);
+    const int ULTIMATE = (9);
 
     void Start()
     {
@@ -106,9 +110,9 @@ public class Player2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(globalGameState.player2IsBeingControlled)
-		{
-			if (globalGameState.player2State == -1)
+        if (globalGameState.player2IsBeingControlled)
+        {
+            if (globalGameState.player2State == -1)
             {
                 GetComponent<SpriteRenderer>().flipX = true;
                 ChangeAnimationState(PLAYER_RUN);
@@ -122,16 +126,19 @@ public class Player2 : MonoBehaviour
             {
                 ChangeAnimationState(PLAYER_FALL);
             }
-            else if (globalGameState.player2State == 2) {
+            else if (globalGameState.player2State == 2)
+            {
 
                 ChangeAnimationState(PLAYER_JUMP);
             }
 
-            else {
+            else
+            {
                 ChangeAnimationState(PLAYER_IDLE);
             }
-        } else
-		{
+        }
+        else
+        {
             CheckKnockback();
 
             if (m_grounded)
@@ -163,7 +170,7 @@ public class Player2 : MonoBehaviour
 
                 // m_grounded = false;
                 ChangeAnimationState(PLAYER_FALL);
-                globalGameState.player2State = -2;	
+                globalGameState.player2State = -2;
                 Debug.Log("Luffy Fall");
                 // m_animator.SetBool("Grounded", m_grounded);
             }
@@ -297,6 +304,7 @@ public class Player2 : MonoBehaviour
             {
                 // m_animator.SetTrigger("ultimate");
                 isAttacking = true;
+                attackSound.Play();
                 StartCoroutine(PerformAttack((PLAYER_ATTACK + "1"), nor1Time));
 
             }
@@ -304,6 +312,7 @@ public class Player2 : MonoBehaviour
             {
                 // m_animator.SetTrigger("ultimate");
                 isAttacking = true;
+                attackSound.Play();
                 StartCoroutine(PerformAttack((PLAYER_ATTACK + "2"), nor2Time));
 
             }
@@ -311,6 +320,7 @@ public class Player2 : MonoBehaviour
             {
                 // m_animator.SetTrigger("ultimate");
                 isAttacking = true;
+                attackkSound_1.Play();
                 StartCoroutine(PerformAttack((PLAYER_ATTACK + "3"), nor3Time));
 
             }
@@ -318,6 +328,7 @@ public class Player2 : MonoBehaviour
             {
                 // m_animator.SetTrigger("ultimate");
                 isAttacking = true;
+                ultimateSound.Play();
                 StartCoroutine(PerformUltimate(ultimateTime));
             }
             // Block
@@ -335,7 +346,7 @@ public class Player2 : MonoBehaviour
                 if (m_grounded)
                 {
                     ChangeAnimationState(PLAYER_JUMP);
-                    globalGameState.player2State = 2;	
+                    globalGameState.player2State = 2;
                     Debug.Log("Luffy Jump 1");
                     // m_animator.SetTrigger("Jump");
                     m_grounded = false;
@@ -346,7 +357,7 @@ public class Player2 : MonoBehaviour
                 else if (canDoubleJump)
                 {
                     ChangeAnimationState(PLAYER_JUMP);
-                    globalGameState.player2State = 2;	
+                    globalGameState.player2State = 2;
                     Debug.Log("Luffy Jump 2");
                     // m_animator.SetTrigger("Jump");
                     m_body2d.velocity = new Vector2(m_body2d.velocity.x, m_jumpForce);
@@ -362,12 +373,13 @@ public class Player2 : MonoBehaviour
                 m_delayToIdle = 0.05f;
                 // m_animator.SetInteger("AnimState", 1);
 
-                if(inputX == 1f)	
-                {	
-                    globalGameState.player2State = 1;	
-                } else if(inputX == -1f)	
-                {	
-                    globalGameState.player2State = -1;	
+                if (inputX == 1f)
+                {
+                    globalGameState.player2State = 1;
+                }
+                else if (inputX == -1f)
+                {
+                    globalGameState.player2State = -1;
                 }
                 ChangeAnimationState(PLAYER_RUN);
             }
@@ -378,16 +390,17 @@ public class Player2 : MonoBehaviour
                 Debug.Log("Luffy Idle");
                 // Prevents flickering transitions to idle
                 m_delayToIdle -= Time.deltaTime;
-                if (m_delayToIdle < 0) {
+                if (m_delayToIdle < 0)
+                {
                     ChangeAnimationState(PLAYER_IDLE);
                     globalGameState.player2State = 0;
                 }
-        
+
 
                 // m_animator.SetInteger("AnimState", 0);
             }
 
-		}
+        }
     }
 
     private void Attack()
