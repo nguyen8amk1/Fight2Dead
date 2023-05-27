@@ -64,6 +64,11 @@ public sealed class GameState
 	public bool player2IsBeingControlled;
 	public int player2State;
 
+	public bool sendP1Info = false;
+	public bool sendP2Info = false;
+
+	public string playerMessage = "null";
+
 	private GameState()
     {
         roomId = 0;

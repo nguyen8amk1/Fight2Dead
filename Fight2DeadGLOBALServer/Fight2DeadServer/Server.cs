@@ -229,6 +229,7 @@ namespace SocketServer
 
         private void udpListening()
         {
+			/*
 			UdpClient udpListener = new UdpClient(udpPort);
 			Console.WriteLine("Udp listener started");
 
@@ -238,16 +239,51 @@ namespace SocketServer
                 {
                     IPEndPoint remoteEP = new IPEndPoint(IPAddress.Any, 0);
                     byte[] buffer = udpListener.Receive(ref remoteEP);
-					Console.WriteLine("Receive message from: " + remoteEP.Address.ToString() + ":" + remoteEP.Port);
+					//Console.WriteLine("Receive message from: " + remoteEP.Address.ToString() + ":" + remoteEP.Port);
                     string message = Encoding.ASCII.GetString(buffer);
-                    string[] tokens = message.Split(',');
 
-                    string rid = tokens[0];
+					//@Debug start
+					Console.WriteLine("Received from {0}: {1}", remoteEP.ToString(), message);
+					string responseMessage = "Hello client";
+					byte[] sendData = Encoding.ASCII.GetBytes(responseMessage);
+					udpListener.Send(sendData, sendData.Length, remoteEP);
+					// @Debug end
+
+					string[] tokens = message.Split(',');
+
+                    //string rid = tokens[0];
 
                     //dlog.messageReceived("ditme", 3, message);
-                    rooms[rid].udpProcess(udpListener, tokens);
+                    //rooms[rid].udpProcess(udpListener, tokens);
                 }
             }
+			*/
+			using (UdpClient server = new UdpClient(udpPort))
+			{
+				IPEndPoint clientEndPoint = new IPEndPoint(IPAddress.Any, 0);
+
+				try
+				{
+					Console.WriteLine("Server started. Waiting for messages...");
+
+					while (true)
+					{
+						byte[] receiveData = server.Receive(ref clientEndPoint);
+						string receivedMessage = Encoding.ASCII.GetString(receiveData);
+
+						Console.WriteLine("Received from {0}: {1}", clientEndPoint.ToString(), receivedMessage);
+
+						string responseMessage = "Hello client";
+						byte[] sendData = Encoding.ASCII.GetBytes(responseMessage);
+
+						server.Send(sendData, sendData.Length, clientEndPoint);
+					}
+				}
+				catch (Exception e)
+				{
+					Console.WriteLine("Exception: " + e.Message);
+				}
+			}
 		}
 
         static void Main(string[] args)

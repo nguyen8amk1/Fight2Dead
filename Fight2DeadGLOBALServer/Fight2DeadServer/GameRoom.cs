@@ -45,9 +45,10 @@ namespace SocketServer
 
         public void udpProcess(UdpClient udpListener, string[] tokens) {
             // format: client send to server: rid,pid,x,y,state 
-            //string message = $"{tokens[1]},{tokens[2]},{tokens[3]},{tokens[4]}";
-            //int pid = Int32.Parse(tokens[1]);
-            UDPClientConnection.sendToClient(udpListener, "125.235.215.169", 9999, "ditme");
+            string message = $"{tokens[1]},{tokens[2]},{tokens[3]},{tokens[4]}";
+            int pid = Int32.Parse(tokens[1]);
+
+            //UDPClientConnection.sendToClient(udpListener, udpPlayers["1"].endPoint.Address.ToString(), 9999, "hello");
             //UDPClientConnection.sendToOthers(udpPlayers, udpListener, pid, message);
         }
 
@@ -72,7 +73,7 @@ namespace SocketServer
 				int bytesRead = stream.Read(buffer, 0, buffer.Length);
 				string message = Encoding.ASCII.GetString(buffer, 0, bytesRead);
 				Console.WriteLine("receive in tcp loop: " + message);
-				if(String.IsNullOrEmpty(message)) continue;
+                if (String.IsNullOrEmpty(message)) return;
 
 				// TODO: handle quit message and break the loop 
 				Console.WriteLine("Here is tcp listening loop of player " + player.id);

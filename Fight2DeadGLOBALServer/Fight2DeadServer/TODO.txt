@@ -1,3 +1,11 @@
+WHAT TO DO NEXT: 
+    a new player sending system: 
+        not get the client ip from tcp client anymore, get the newly created udp client ip and port and store it inside the dict (udpplayers perhaps ?? )
+        not identify the others players through pid anymore, iden through endpoint.tostring 
+        endpoint.tostring as a value, pid as key 
+
+        -> CHANGE HOW TOUDP HANDLER WORKS  
+
 TODAY: 
 i have 5 days: start from tomorrow 
     2nd day: 

@@ -30,8 +30,9 @@ public class GamePlayerNetworkCommutor : MonoBehaviour
             //int moveLeft = (globalGameState.player1MoveLeft) ? 1: 0;
             //int moveRight = (globalGameState.player1MoveRight) ? 1: 0;
             player1State.text = $"Player1 State: {globalGameState.player1State}";
-			string message = InGameMessageGenerator.tempInGameMessage(playerA.transform.position.x, playerA.transform.position.y, globalGameState.player1State);
-			ServerCommute.connection.sendToServer(message);
+			globalGameState.playerMessage = InGameMessageGenerator.tempInGameMessage(playerA.transform.position.x, playerA.transform.position.y, globalGameState.player1State);
+            //globalGameState.sendP1Info = true;
+		    //UDPServerConnection.sendToServer(message);
 			playerB.transform.position = new Vector3(globalGameState.playersPosition[1].x, globalGameState.playersPosition[1].y, 0);
 		}
 
@@ -42,8 +43,9 @@ public class GamePlayerNetworkCommutor : MonoBehaviour
             //int moveLeft = 0;
             //int moveRight = (Player2.moveRight) ? 1: 0;
             player2State.text = $"Player2 State: {globalGameState.player2State}";
-			string message = InGameMessageGenerator.tempInGameMessage(playerB.transform.position.x, playerB.transform.position.y, globalGameState.player2State);
-			ServerCommute.connection.sendToServer(message);
+			globalGameState.playerMessage = InGameMessageGenerator.tempInGameMessage(playerB.transform.position.x, playerB.transform.position.y, globalGameState.player2State);
+            //globalGameState.sendP2Info = true;
+			//UDPServerConnection.sendToServer(message);
 			playerA.transform.position = new Vector3(globalGameState.playersPosition[0].x, globalGameState.playersPosition[0].y, 0);
 		}
     }
