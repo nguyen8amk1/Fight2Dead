@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Xml.Serialization;
 using Org.BouncyCastle.Crypto.Signers;
+using System.Web;
+using System.Runtime.CompilerServices;
 
 namespace SocketServer
 {
@@ -261,7 +263,6 @@ namespace SocketServer
 			using (UdpClient server = new UdpClient(udpPort))
 			{
 				IPEndPoint clientEndPoint = new IPEndPoint(IPAddress.Any, 0);
-
 				try
 				{
 					Console.WriteLine("Server started. Waiting for messages...");
@@ -273,10 +274,62 @@ namespace SocketServer
 
 						Console.WriteLine("Received from {0}: {1}", clientEndPoint.ToString(), receivedMessage);
 
-						string responseMessage = "Hello client";
-						byte[] sendData = Encoding.ASCII.GetBytes(responseMessage);
+						string[] tokens = receivedMessage.Split(',');
+						string rid = tokens[0];
+						string pid = tokens[1];
 
-						server.Send(sendData, sendData.Length, clientEndPoint);
+						bool theRoomIsFull = rooms[rid].udpPlayers.Count == rooms[rid].playersNum;
+						if(theRoomIsFull)
+						{
+							// TODO: send the message to all the other clients in the room  
+							foreach(string id in rooms[rid].udpPlayers.Keys)
+							{
+								if (pid == id)
+									continue;
+								string[] ts= receivedMessage.Split(',');
+								string message = $"{ts[1]},{ts[2]},{ts[3]},{ts[4]}"; 
+								byte[] sendData = Encoding.ASCII.GetBytes(message);
+								server.Send(sendData, sendData.Length, rooms[rid].udpPlayers[id]);
+							}
+						} else
+						{
+							bool clientAlreadyExist = rooms[rid].udpPlayers.ContainsKey(pid);
+							if(!clientAlreadyExist)
+							{
+								// TODO: add the client into the server
+								Console.WriteLine("A client added to the udp clients");
+								rooms[rid].udpPlayers.Add(pid, clientEndPoint);
+							} 
+							bool roomfull = rooms[rid].udpPlayers.Count == rooms[rid].playersNum;
+							if (roomfull)
+							{
+								// TODO: send the message to all the other clients in the room  
+								foreach (string id in rooms[rid].udpPlayers.Keys)
+								{
+									if (pid == id)
+										continue;
+
+									string[] ts= receivedMessage.Split(',');
+									string message = $"{ts[1]},{ts[2]},{ts[3]},{ts[4]}"; 
+									byte[] sendData = Encoding.ASCII.GetBytes(message);
+									server.Send(sendData, sendData.Length, rooms[rid].udpPlayers[id]);
+								}
+							}
+						}
+
+						//dlog.messageReceived("ditme", 3, message);
+						/*
+						Dictionary<IPEndPoint, string> clientToSendList = rooms[rid].udpProcess(tokens);
+
+						foreach(IPEndPoint endpoint in clientToSendList.Keys)
+						{
+							if (endpoint.ToString().Equals(clientEndPoint.ToString()))
+								continue;
+							string responseMessage = clientToSendList[endpoint];
+							byte[] sendData = Encoding.ASCII.GetBytes(responseMessage);
+							server.Send(sendData, sendData.Length, endpoint);
+						}
+						*/
 					}
 				}
 				catch (Exception e)

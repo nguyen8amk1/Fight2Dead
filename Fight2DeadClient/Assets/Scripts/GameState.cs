@@ -67,10 +67,11 @@ public sealed class GameState
 	public bool sendP1Info = false;
 	public bool sendP2Info = false;
 
-	public string playerMessage = "null";
+	public string playerMessage;
 
 	private GameState()
     {
+
         roomId = 0;
         playerId = 0;
 

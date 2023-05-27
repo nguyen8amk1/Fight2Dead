@@ -463,35 +463,31 @@ public class LoadingSceneController : MonoBehaviour
             Debug.Log("TO NEXT SCENE");
             Debug.Log("Transition to UDP right here");
 
-            //string message = PreGameMessageGenerator.toUDPMessage();
-            //ServerCommute.connection.sendToServer(message);
-            /*
-
             if(globalGameState.onlineMode == "LAN")
 			{
 				UDPServerConnection.Instance.inheritPortFromLAN(LANTCPServerConnection.Instance); 
+				string message = PreGameMessageGenerator.toUDPMessage();
+				ServerCommute.connection.sendToServer(message);
+
+				ServerCommute.listenToServerThread.Abort();
+				TCPServerConnection.Instance.close();
+
+				ServerCommute.connection = UDPServerConnection.Instance;
+				Console.WriteLine("Started UDP listen to server thread");
+				
+				ServerCommute.listenToServerThread.Abort();
+
+				ServerCommute.listenToServerThread = ServerCommute.connection.createListenToServerThread(ListenToServerFactory.tempUDPListening());
+				ServerCommute.listenToServerThread.Start();
+			}
+			else if (globalGameState.onlineMode == "GLOBAL")
+			{
+				//UDPServerConnection.Instance.inheritPortFromGLOBAL(TCPServerConnection.Instance);
+				globalGameState.playerMessage = $"{globalGameState.RoomId},{globalGameState.PlayerId},0,0,0";
+				Thread thread = new Thread(() => GlobalUDPServerConnection.listenToUDPServer(ListenToServerFactory.tempUDPListening()));
+				thread.Start();
 			}
 
-            else if (globalGameState.onlineMode == "GLOBAL")
-            {
-                UDPServerConnection.Instance.inheritPortFromGLOBAL(TCPServerConnection.Instance);
-            }
-            */
-
-            TCPServerConnection.Instance.close();
-            ServerCommute.listenToServerThread.Abort();
-            //ServerCommute.connection = UDPServerConnection.Instance;
-
-            //ServerCommute.connection = UDPServerConnection.Instance;
-            //Console.WriteLine("Started UDP listen to server thread");
-            
-            //ServerCommute.listenToServerThread.Abort();
-
-            //ServerCommute.listenToServerThread = ServerCommute.connection.createListenToServerThread(ListenToServerFactory.tempUDPListening());
-            //ServerCommute.listenToServerThread.Start();
-
-            Thread thread = new Thread(() => UDPServerConnection.listenToUDPServer());
-            thread.Start();
             
             Util.toNextScene();
         }

@@ -45,8 +45,8 @@ namespace SocketServer
                 {
                     //p.tcpClient.Close();
                     p.endPoint.Port = 9999;
-                    room.udpPlayers.Add(p.id, p);
-                    Console.WriteLine($"UDP PLAYER: {p.id}, {p.endPoint.Address}:{p.endPoint.Port}");
+                    //room.udpPlayers.Add(p.id, p);
+                    //Console.WriteLine($"UDP PLAYER: {p.id}, {p.endPoint.Address}:{p.endPoint.Port}");
                     p.quitListen = true;
                     //p.tcpClient.Close();
                 }

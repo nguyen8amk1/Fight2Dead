@@ -64,6 +64,7 @@ namespace SocketServer
 					Int32 bytes = tcpStream.Read(data, 0, data.Length); //(**This receives the data using the byte method**)
 					responseData = System.Text.Encoding.ASCII.GetString(data, 0, bytes); //(**This converts it to string**)
 					Debug.Log("Received tcp data: " + responseData);
+                    if (responseData.Length == 0) return;
 
 					string[] tokns = responseData.Split(',');
 					messageHandler(tokns);

@@ -177,9 +177,12 @@ namespace SocketServer {
         public static MessageHandlerLambda tempUDPListening()  {
             MessageHandlerLambda messageHandler = (string[] tokens) => {
 				//Debug.Log("TODO: handle udp listening");
+				/*
 				bool isPositionMessage = Util.getKeyFrom(tokens[0]).Equals("pid") &&
 										 Util.getKeyFrom(tokens[1]).Equals("x") && 
 										 Util.getKeyFrom(tokens[2]).Equals("y");
+				*/
+
 				int pid = Int32.Parse(tokens[0]);
 				float x = float.Parse(tokens[1]);
 				float y = float.Parse(tokens[2]);
