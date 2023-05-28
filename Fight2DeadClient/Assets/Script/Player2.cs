@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class Player2 : MonoBehaviour
 {
@@ -73,6 +75,12 @@ public class Player2 : MonoBehaviour
     public AudioSource attackkSound_1;
     public AudioSource ultimateSound;
     public AudioSource dieSound;
+    //tanker check
+    public bool isTank;
+    //dame UI
+    public Text textDame;
+
+    public Text textRespawn;
     void ChangeAnimationState(string newState)
     {
         if (currentState == newState) return;
@@ -105,7 +113,7 @@ public class Player2 : MonoBehaviour
         m_groundSensor = transform.Find("GroundSensor").GetComponent<Sensor>();
         // m_animator.SetTrigger("intro");
         ChangeAnimationState(PLAYER_INTRO);
-        
+
     }
 
     private GameState globalGameState = GameState.Instance;
@@ -113,6 +121,7 @@ public class Player2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        UpdateText();
         if (globalGameState.player2IsBeingControlled)
         {
             if (globalGameState.player2State == -1)
@@ -344,7 +353,7 @@ public class Player2 : MonoBehaviour
             // else if (Input.GetMouseButtonUp(1))
             //     m_animator.SetBool("IdleBlock", false);
 
-            else if (Input.GetKeyDown(KeyCode.UpArrow))
+            else if (Input.GetKeyDown(KeyCode.UpArrow) && !isRespawn)
             {
                 if (m_grounded)
                 {
@@ -455,8 +464,16 @@ public class Player2 : MonoBehaviour
         {
             //Knockback
             Knockback(playerFacingDirection);
-            knockbackSpeedX++;
-            knockbackSpeedY++;
+            if (isTank)
+            {
+                knockbackSpeedX += 0.5f;
+                knockbackSpeedY += 0.5f;
+            }
+            else
+            {
+                knockbackSpeedX++;
+                knockbackSpeedY++;
+            }
         }
 
     }
@@ -590,5 +607,17 @@ public class Player2 : MonoBehaviour
         // GetComponent<SpriteRenderer>().flipX = isFlipped;
 
         SpawnObject();
+    }
+    void UpdateText()
+    {
+        if (textDame != null)
+        {
+            textDame.text = knockbackSpeedX.ToString() + "%";
+        }
+        if (textRespawn != null)
+        {
+            textRespawn.text = "x" + numberRespawn.ToString();
+        }
+
     }
 }
