@@ -5,13 +5,12 @@ TODAY:
 
 	4 PLAYER MODE HAVE TO BE PLAYABLE (2h) []
 	QUIT MESSAGE AND HANDLE ROOM EXIT PROPERLY (2H) []
-
 	GLOBAL MODE: 
 		LAG WHEN PLAYING IN GLOBAL MODE, -> lerp between position (2h) []
 		OFTEN GET STUCK -> make the loop keep running (2h) []
-
 	-> DONE ALL TODAY 
 
+	OPENSLL ENCRYPTION []
 	have 2 days left 
 TODO: 
 
