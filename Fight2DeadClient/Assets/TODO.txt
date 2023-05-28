@@ -1,20 +1,27 @@
 TODAY: 
-	FIND OUT THE CORRECT PATH TO LANSERVER FOLDER (1h) [X] 
-	MAKE THE LAN MODE TRULY WORKS [], can play on different computers (2h) []
-	-> these 2 should be done today
+	QUIT MESSAGE AND HANDLE ROOM EXIT PROPERLY (2H) []
+		-> how server should response to quit event of client ?? 
+		-> how client should repsonse to quit event of them or other players quit ?? 
 
 	4 PLAYER MODE HAVE TO BE PLAYABLE (2h) []
-	QUIT MESSAGE AND HANDLE ROOM EXIT PROPERLY (2H) []
+		-> decide how 4 player control works ?  (player switch and stuff like that)
+
 	GLOBAL MODE: 
 		LAG WHEN PLAYING IN GLOBAL MODE, -> lerp between position (2h) []
 		OFTEN GET STUCK -> make the loop keep running (2h) []
+
 	-> DONE ALL TODAY 
 
+
+	MAKE THE LAN MODE TRULY WORKS [], can play on different computers (2h) []
+	-> these 2 should be done today
 	OPENSLL ENCRYPTION []
+	-> the other day
 	have 2 days left 
 TODO: 
 
 DONE: 
+	FIND OUT THE CORRECT PATH TO LANSERVER FOLDER (1h) [X] 
 	FIX THE GLOBAL UDP CONNECTION [X]
 	GLOBAL SERVER TCP CLOSE AND STUFF (2H) [X] 
 	SEND FIGHTING DATA TO SERVER AND UPDATE IT ON THE OTHER SCREEN (2h) [X]
