@@ -18,6 +18,7 @@ public class SwitchPlayer : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
+            
             SwitchPlayers();
         }
     }
@@ -33,6 +34,7 @@ public class SwitchPlayer : MonoBehaviour
             player1.SetActive(false);
             player2.SetActive(true);
             player2.transform.position = currentPlayerPosition;
+            Debug.Log("PLAYER 1 SWITCH TO PLAYER 2");
         }
         else if (isPlayer2Active)
         {
@@ -43,6 +45,7 @@ public class SwitchPlayer : MonoBehaviour
             player2.SetActive(false);
             player1.SetActive(true);
             player1.transform.position = currentPlayerPosition;
+            Debug.Log("PLAYER 2 SWITCH TO PLAYER 1");
         }
     }
 }
