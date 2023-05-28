@@ -60,7 +60,7 @@ public class Player1 : MonoBehaviour
     const string PLAYER_DIE_BOTTOM = "Die_Bottom";
     const string PLAYER_DIE_LEFT = "Die_Left";
     const string PLAYER_ATTACK = "Nor";
-
+    const string PLAYER_SWITCH = "SwitchPlayer";
 
 
     // enum
@@ -88,6 +88,7 @@ public class Player1 : MonoBehaviour
     public AudioSource attackSound;
     public AudioSource attackkSound_1;
     public AudioSource ultimateSound;
+    public AudioSource dieSound;
     void ChangeAnimationState(string newState)
     {
         if (currentState == newState) return;
@@ -107,7 +108,7 @@ public class Player1 : MonoBehaviour
         m_body2d = GetComponent<Rigidbody2D>();
         m_groundSensor = transform.Find("GroundSensor").GetComponent<Sensor>();
         // m_animator.SetTrigger("intro");
-        m_animator.Play(PLAYER_INTRO);
+        ChangeAnimationState(PLAYER_INTRO);
 
     }
 
@@ -442,6 +443,7 @@ public class Player1 : MonoBehaviour
                 }
 
             }
+
         }
     }
 
@@ -578,7 +580,7 @@ public class Player1 : MonoBehaviour
         else
         {
             Debug.Log("Gaara actually dead");
-            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
     private IEnumerator KeepObjectAtSpawnPosition()
@@ -602,6 +604,7 @@ public class Player1 : MonoBehaviour
 
         // Play the die animation
         Debug.Log(gameObject.transform.position.y);
+        dieSound.Play();
         if (gameObject.transform.position.y < -17f)
         {
             // m_animator.SetTrigger("die_bottom");

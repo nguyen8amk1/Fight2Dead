@@ -61,6 +61,7 @@ public class Player2 : MonoBehaviour
     const string PLAYER_DIE_LEFT = "Die_Left";
     const string PLAYER_ATTACK = "Nor";
     const string PLAYER_ULTIMATE = "Ultimate";
+    const string PLAYER_SWITCH = "SwitchPlayer";
     public float animTime;
     //time animation of attack
     public float nor1Time;
@@ -71,6 +72,7 @@ public class Player2 : MonoBehaviour
     public AudioSource attackSound;
     public AudioSource attackkSound_1;
     public AudioSource ultimateSound;
+    public AudioSource dieSound;
     void ChangeAnimationState(string newState)
     {
         if (currentState == newState) return;
@@ -103,7 +105,7 @@ public class Player2 : MonoBehaviour
         m_groundSensor = transform.Find("GroundSensor").GetComponent<Sensor>();
         // m_animator.SetTrigger("intro");
         ChangeAnimationState(PLAYER_INTRO);
-
+        
     }
 
     private GameState globalGameState = GameState.Instance;
@@ -544,7 +546,7 @@ public class Player2 : MonoBehaviour
         else
         {
             Debug.Log("Luffy actually dead");
-            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
     private IEnumerator KeepObjectAtSpawnPosition()
@@ -555,11 +557,11 @@ public class Player2 : MonoBehaviour
         gameObject.GetComponent<Rigidbody2D>().gravityScale = 0f;
         gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 
-        isRespawn=true;
+        isRespawn = true;
         Debug.Log("Luffy Respawn");
         // Đợi 2 giây
         yield return new WaitForSeconds(1f);
-        isRespawn=false;
+        isRespawn = false;
         gameObject.GetComponent<Rigidbody2D>().gravityScale = 2f;
 
     }
@@ -573,6 +575,7 @@ public class Player2 : MonoBehaviour
 
         // Play the die animation
         Debug.Log(gameObject.transform.position.y);
+        dieSound.Play();
         if (gameObject.transform.position.y < -17f)
         {
             // m_animator.SetTrigger("die_bottom");

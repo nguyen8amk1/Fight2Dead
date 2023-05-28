@@ -33,6 +33,8 @@ public class GamePlay : MonoBehaviour
     private GameObject p2t2;
     private Vector3 currentPlayerPosition;
 
+    public GameObject swtichParticle;
+
     void Start()
     {
         SetTeam1(Player1_Team1);
@@ -139,6 +141,9 @@ public class GamePlay : MonoBehaviour
             p1t1.SetActive(false);
             p2t1.SetActive(true);
             p2t1.transform.position = currentPlayerPosition;
+            currentPlayerPosition.y -= 1.0f;
+            Instantiate(swtichParticle, currentPlayerPosition, Quaternion.identity);
+
             Debug.Log("TEAM1: PLAYER 1 SWITCH TO PLAYER 2");
         }
         else if (isPlayer2Active_Team1)
@@ -150,6 +155,8 @@ public class GamePlay : MonoBehaviour
             p2t1.SetActive(false);
             p1t1.SetActive(true);
             p1t1.transform.position = currentPlayerPosition;
+            currentPlayerPosition.y -= 1.0f;
+            Instantiate(swtichParticle, currentPlayerPosition, Quaternion.identity);
             Debug.Log("TEAM1: PLAYER 2 SWITCH TO PLAYER 1");
         }
     }
@@ -165,6 +172,8 @@ public class GamePlay : MonoBehaviour
             p1t2.SetActive(false);
             p2t2.SetActive(true);
             p2t2.transform.position = currentPlayerPosition;
+            currentPlayerPosition.y -= 1.0f;
+            Instantiate(swtichParticle, currentPlayerPosition, Quaternion.identity);
             Debug.Log("TEAM2: PLAYER 1 SWITCH TO PLAYER 2");
         }
         else if (isPlayer2Active_Team2)
@@ -176,6 +185,8 @@ public class GamePlay : MonoBehaviour
             p2t2.SetActive(false);
             p1t2.SetActive(true);
             p1t2.transform.position = currentPlayerPosition;
+            currentPlayerPosition.y -= 1.0f;
+            Instantiate(swtichParticle, currentPlayerPosition, Quaternion.identity);
             Debug.Log("TEAM2: PLAYER 2 SWITCH TO PLAYER 1");
         }
     }
