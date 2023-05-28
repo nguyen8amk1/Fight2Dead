@@ -47,6 +47,7 @@ public class Player1 : MonoBehaviour
     public GameObject gameObject;
     public Vector3 spawnPosition;
     public int numberRespawn = 1;
+    private bool isRespawn = false;
     //animation
     private string currentState;
     const string PLAYER_IDLE = "Idle";
@@ -145,7 +146,7 @@ public class Player1 : MonoBehaviour
             Debug.Log("Gaara Attack");
 
             // Wai until the animation attack end
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(norTime);
 
             // Reset isAttacking = false
             isAttacking = false;
@@ -279,7 +280,7 @@ public class Player1 : MonoBehaviour
             //     m_animator.SetTrigger("Hurt");
 
             // Move
-            if (!isAttacking && !knockback)
+            if (!isAttacking && !knockback && !isRespawn)
             {
                 m_body2d.velocity = new Vector2(inputX * m_speed, m_body2d.velocity.y);
                 Debug.Log("Gaara Speed");
@@ -562,6 +563,7 @@ public class Player1 : MonoBehaviour
 
     public void SpawnObject()
     {
+        //delay for dead animation show
         float delay = 0.6f;
         Invoke("MoveObjectToSpawnPosition", delay);
     }
@@ -587,9 +589,11 @@ public class Player1 : MonoBehaviour
         // Vô hiệu hóa trọng lực
         gameObject.GetComponent<Rigidbody2D>().gravityScale = 0f;
         gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        // Đợi 2 giây
-        yield return new WaitForSeconds(2f);
 
+        isRespawn = true;
+        // Đợi 2 giây
+        yield return new WaitForSeconds(1f);
+        isRespawn = false;
         gameObject.GetComponent<Rigidbody2D>().gravityScale = 2f;
 
     }

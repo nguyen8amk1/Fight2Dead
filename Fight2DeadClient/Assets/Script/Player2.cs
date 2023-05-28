@@ -47,6 +47,7 @@ public class Player2 : MonoBehaviour
     public GameObject gameObject;
     public Vector3 spawnPosition;
     public int numberRespawn = 1;
+    private bool isRespawn = false;
     //animation
     private string currentState;
     const string PLAYER_IDLE = "Idle";
@@ -199,7 +200,7 @@ public class Player2 : MonoBehaviour
             }
 
             // Move
-            if (!isAttacking && !knockback)
+            if (!isAttacking && !knockback && !isRespawn)
             {
                 m_body2d.velocity = new Vector2(inputX * m_speed, m_body2d.velocity.y);
                 Debug.Log("Luffy Speed");
@@ -553,10 +554,12 @@ public class Player2 : MonoBehaviour
         // Vô hiệu hóa trọng lực
         gameObject.GetComponent<Rigidbody2D>().gravityScale = 0f;
         gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+
+        isRespawn=true;
         Debug.Log("Luffy Respawn");
         // Đợi 2 giây
-        yield return new WaitForSeconds(2f);
-
+        yield return new WaitForSeconds(1f);
+        isRespawn=false;
         gameObject.GetComponent<Rigidbody2D>().gravityScale = 2f;
 
     }
