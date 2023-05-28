@@ -128,11 +128,30 @@ public class GamePlay : MonoBehaviour
 
             SwitchPlayersTeam2();
         }
+        Debug.Log(isPlayer1Active_Team1);
+        //auto switch to another player if 1 player left all numberRespawn
+        if (p1t1 == null)
+        {
+            p2t1.SetActive(true);
+        }
+        else if (p2t1 == null)
+        {
+            p1t1.SetActive(true);
+        }
+
+        if (p1t2 == null)
+        {
+            p2t2.SetActive(true);
+        }
+        else if (p2t2 == null)
+        {
+            p1t2.SetActive(true);
+        }
     }
 
     void SwitchPlayersTeam1()
     {
-        if (isPlayer1Active_Team1)
+        if (isPlayer1Active_Team1 && p2t1 != null && p1t1!=null)
         {
             currentPlayerPosition = p1t1.transform.position;
 
@@ -146,7 +165,7 @@ public class GamePlay : MonoBehaviour
 
             Debug.Log("TEAM1: PLAYER 1 SWITCH TO PLAYER 2");
         }
-        else if (isPlayer2Active_Team1)
+        else if (isPlayer2Active_Team1 && p2t1 != null && p1t1!=null)
         {
             currentPlayerPosition = p2t1.transform.position;
 
@@ -159,11 +178,15 @@ public class GamePlay : MonoBehaviour
             Instantiate(swtichParticle, currentPlayerPosition, Quaternion.identity);
             Debug.Log("TEAM1: PLAYER 2 SWITCH TO PLAYER 1");
         }
+        else
+        {
+            return;
+        }
     }
 
     void SwitchPlayersTeam2()
     {
-        if (isPlayer1Active_Team2)
+        if (isPlayer1Active_Team2 && p2t2 != null && p1t2 != null)
         {
             currentPlayerPosition = p1t2.transform.position;
 
@@ -176,7 +199,7 @@ public class GamePlay : MonoBehaviour
             Instantiate(swtichParticle, currentPlayerPosition, Quaternion.identity);
             Debug.Log("TEAM2: PLAYER 1 SWITCH TO PLAYER 2");
         }
-        else if (isPlayer2Active_Team2)
+        else if (isPlayer2Active_Team2 && p2t2 != null && p1t2 != null)
         {
             currentPlayerPosition = p2t2.transform.position;
 
@@ -188,6 +211,10 @@ public class GamePlay : MonoBehaviour
             currentPlayerPosition.y -= 1.0f;
             Instantiate(swtichParticle, currentPlayerPosition, Quaternion.identity);
             Debug.Log("TEAM2: PLAYER 2 SWITCH TO PLAYER 1");
+        }
+        else
+        {
+            return;
         }
     }
 }
