@@ -1,9 +1,11 @@
 TODAY: 
 	FIND OUT THE CORRECT PATH TO LANSERVER FOLDER (1h) [] 
 	MAKE THE LAN MODE TRULY WORKS [], can play on different computers (2h) []
+	-> these 2 should be done today
+
 	GLOBAL MODE: 
-		LAG WHEN PLAYING IN GLOBAL MODE, -> lerp between position []
-		OFTEN GET STUCK -> make the loop keep running []
+		LAG WHEN PLAYING IN GLOBAL MODE, -> lerp between position (2h) []
+		OFTEN GET STUCK -> make the loop keep running (2h) []
 
 
 TODO: 
