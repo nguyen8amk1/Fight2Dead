@@ -26,7 +26,6 @@ public sealed class GameState
     public bool opponentReady = false;
 
     // character 
-    public string[] chosenCharacters = new string[4] {null, null, null, null};
 
     // map 
     public bool hostPlayerMapChosen = false;
@@ -50,7 +49,10 @@ public sealed class GameState
 
 	public string username;
 	public bool someoneChooseMap;
+	//public string chosenMapName = "Yoshi";
+    //public string[] chosenCharacters = new string[4] {"capa", "venom", "link", "ryu"};
 	public string chosenMapName = null;
+    public string[] chosenCharacters = new string[4] {null, null, null, null};
 
 	public bool player1IsChosen_2v2 = false;
 	public bool player3IsChosen_2v2 = false;
@@ -68,6 +70,9 @@ public sealed class GameState
 	public bool sendP2Info = false;
 
 	public string playerMessage;
+
+	public GameObject camPlayer1 = null;
+	public GameObject camPlayer2 = null;
 
 	private GameState()
     {

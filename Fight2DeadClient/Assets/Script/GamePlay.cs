@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -33,8 +34,16 @@ public class GamePlay : MonoBehaviour
     private GameObject p2t2;
     private Vector3 currentPlayerPosition;
 
+    private GameState globalGameState = GameState.Instance;
+
     void Start()
     {
+        Player1_Team1 = convertToCorrectName(globalGameState.chosenCharacters[0]);
+        Player2_Team1 = convertToCorrectName(globalGameState.chosenCharacters[1]);
+        Player1_Team2 = convertToCorrectName(globalGameState.chosenCharacters[2]);
+        Player2_Team2 = convertToCorrectName(globalGameState.chosenCharacters[3]);
+        mapName = convertToCorrectMapName(globalGameState.chosenMapName);
+
         SetTeam1(Player1_Team1);
         SetTeam1(Player2_Team1);
 
@@ -50,8 +59,91 @@ public class GamePlay : MonoBehaviour
 
         p2t1.SetActive(false);
         p2t2.SetActive(false);
+
+        globalGameState.camPlayer1 = p1t1;
+        globalGameState.camPlayer2 = p1t2;
     }
-    private void SetMap(string objectName)
+
+    private string convertToCorrectMapName(string chosenMapName)
+    {
+        // Note ten lai :
+        // ngoi lang -> map 2 (menu chua co)
+        // toan la nha cao tang -> fourside -> map 3
+        // co du quay -> yoshiisland -> map 1
+        // thousand sunny -> cuop bien -> map 5
+        // lau dai tren may -> Temple -> map 4
+        // lau dai tern may mau cut -> Palutena's Shrine -> xai do thanh map 2 @temp
+        /*
+            private string[] mapName = new string[] {"Yoshi", "Sunny", "Palutena", "Fourside", "Temple" };
+         */
+        if (chosenMapName.Equals("Yoshi") || chosenMapName.Equals("Yoshi\n"))
+        {
+            return "Map1";
+        }
+        else if (chosenMapName.Equals("Fourside") || chosenMapName.Equals("Fourside\n"))
+        {
+            return "Map3";
+        }
+        else if (chosenMapName.Equals("Temple") || chosenMapName.Equals("Temple\n"))
+        {
+            return "Map4";
+        }
+        else if (chosenMapName.Equals("Palutena") || chosenMapName.Equals("Palutena\n")) // @Temp
+        {
+            return "Map2";
+        }
+        else if (chosenMapName.Equals("Sunny") || chosenMapName.Equals("Sunny\n"))
+        {
+            return "Map5";
+        }
+        throw new Exception("Map name not recognize: " + chosenMapName);
+	}
+
+	private string[] charName = new string[] { "capa", "venom", "sasori", "gaara", "ken", "ryu",
+        "link","reborn","jotaro" };
+	private string convertToCorrectName(string name)
+	{
+        if (name.Equals("capa"))
+        {
+            return "Captain";
+        }
+        else if (name.Equals("link"))
+        {
+            return "Link";
+        }
+        else if (name.Equals("sasori")) // @Temp
+        {
+            return "Byakuya";
+        }
+        else if (name.Equals("gaara"))
+        {
+            return "Gaara";
+        }
+        else if (name.Equals("jotaro"))
+        {
+            return "Jotaro";
+        }
+        else if (name.Equals("venom"))
+        {
+            return "Venom";
+        }
+        else if (name.Equals("ken"))
+        {
+            return "Ken";
+        }
+        else if (name.Equals("ryu"))
+        {
+            return "Ryu";
+        }
+        else if (name.Equals("reborn")) // @Temp
+        {
+            return "Luffy5th";
+        }
+
+        throw new Exception("Name not recognize: " + name);
+	}
+
+	private void SetMap(string objectName)
     {
         foreach (GameObject obj in mapObjects)
         {
@@ -140,6 +232,7 @@ public class GamePlay : MonoBehaviour
             p2t1.SetActive(true);
             p2t1.transform.position = currentPlayerPosition;
             Debug.Log("TEAM1: PLAYER 1 SWITCH TO PLAYER 2");
+			globalGameState.camPlayer1 = p2t1;
         }
         else if (isPlayer2Active_Team1)
         {
@@ -151,6 +244,7 @@ public class GamePlay : MonoBehaviour
             p1t1.SetActive(true);
             p1t1.transform.position = currentPlayerPosition;
             Debug.Log("TEAM1: PLAYER 2 SWITCH TO PLAYER 1");
+			globalGameState.camPlayer1 = p1t1;
         }
     }
 
@@ -166,6 +260,7 @@ public class GamePlay : MonoBehaviour
             p2t2.SetActive(true);
             p2t2.transform.position = currentPlayerPosition;
             Debug.Log("TEAM2: PLAYER 1 SWITCH TO PLAYER 2");
+			globalGameState.camPlayer2 = p2t2;
         }
         else if (isPlayer2Active_Team2)
         {
@@ -177,6 +272,7 @@ public class GamePlay : MonoBehaviour
             p1t2.SetActive(true);
             p1t2.transform.position = currentPlayerPosition;
             Debug.Log("TEAM2: PLAYER 2 SWITCH TO PLAYER 1");
+			globalGameState.camPlayer2 = p1t2;
         }
     }
 }

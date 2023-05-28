@@ -9,20 +9,36 @@ public class GamePlayerNetworkCommutor : MonoBehaviour
     // Start is called before the first frame update
     private GameState globalGameState = GameState.Instance;
 
-    public GameObject playerA; // gaara 
-    public GameObject playerB; // luffy 
+    public GameObject playerA = null;
+    public GameObject playerB = null;
+    int count1 = 0;
+    int count2 = 0;
     //public Text player1State;
     //public Text player2State;
 
     void Start()
     {
-        globalGameState.playersPosition[0] = new Player(playerA.transform.position.x, playerA.transform.position.y); 
-        globalGameState.playersPosition[1] = new Player(playerB.transform.position.x, playerB.transform.position.y);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(globalGameState.camPlayer1 != null && globalGameState.camPlayer2 != null)
+		{
+            if(count1 == 0)
+			{
+                playerA = globalGameState.camPlayer1;
+				globalGameState.playersPosition[0] = new Player(playerA.transform.position.x, playerA.transform.position.y);
+                count1 = 1;
+			} 
+            if(count2 == 0)
+			{
+                playerB = globalGameState.camPlayer2;
+				globalGameState.playersPosition[1] = new Player(playerB.transform.position.x, playerB.transform.position.y);
+                count2 = 1; 
+			}
+		}
+
         if(globalGameState.PlayerId == 1)
 		{
             //hostPlayer = playerA;

@@ -194,7 +194,6 @@ public class MapSelect : MonoBehaviour
             Debug.Log(mapName[selectVal]);
             string message = PreGameMessageGenerator.chooseMapMessage(mapName[selectVal]);
             ServerCommute.connection.sendToServer(message);
-
             Debug.Log($"TODO: Send this message to server: {message}");
         }    
 
