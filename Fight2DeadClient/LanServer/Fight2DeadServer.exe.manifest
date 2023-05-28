@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Fight2DeadServer.exe" size="20448">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Fight2DeadServer.exe" size="21472">
       <assemblyIdentity name="Fight2DeadServer" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>nJdPmIZis6G7HPNv4ESBYZ3FIYKVxqhMIQmvphswXbs=</dsig:DigestValue>
+        <dsig:DigestValue>mnBbmOodCoQvEr32T7PaKoG25lZIQGkhfw9sJb4SNiA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -74,13 +74,13 @@
       <dsig:DigestValue>R+Wg8QGvQVHX8T0ta/qbhH1bXkqY0fRnS3wBV3J0bN8=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="TODO.txt" size="12025">
+  <file name="TODO.txt" size="9685">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>kGnrkEDMp8ypLl5m8RcFcRuauVVMvzppyDeTf65XgEY=</dsig:DigestValue>
+      <dsig:DigestValue>S2fTqWzsdqXJTMsUEnYlEOUL0uCWHiYArenqy44OceQ=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

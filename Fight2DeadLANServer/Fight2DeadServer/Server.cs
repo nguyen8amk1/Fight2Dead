@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.IO;
 using System.Runtime.CompilerServices;
+using System.Net.NetworkInformation;
 
 namespace SocketServer
 {
@@ -50,6 +51,10 @@ namespace SocketServer
 			Thread createRoomThread = new Thread(() => createRoom());
 			createRoomThread.Start();
 
+			Console.WriteLine($"THIS IS THE HOST IP: {getHostIP()}");
+			Console.WriteLine("GIVE THE HOST IP TO WHOEVER YOU WANT TO JOIN THE ROOM");
+
+
             while (true)
             {
 				Console.WriteLine($"Listening for client on port {tcpPort}: ");
@@ -61,6 +66,30 @@ namespace SocketServer
             }
 
         }
+		static string getHostIP()
+		{
+			string ipAddress = string.Empty;
+
+			foreach (NetworkInterface netInterface in NetworkInterface.GetAllNetworkInterfaces())
+			{
+				if (netInterface.NetworkInterfaceType == NetworkInterfaceType.Wireless80211 && netInterface.OperationalStatus == OperationalStatus.Up)
+				{
+					foreach (UnicastIPAddressInformation ip in netInterface.GetIPProperties().UnicastAddresses)
+					{
+						if (ip.Address.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
+						{
+							ipAddress = ip.Address.ToString();
+							break;
+						}
+					}
+				}
+
+				if (!string.IsNullOrEmpty(ipAddress))
+					break;
+			}
+
+			return ipAddress;
+		}
 
 		private void handleClient(TcpClient tcpClient)
 		{

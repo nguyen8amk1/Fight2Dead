@@ -474,9 +474,7 @@ MonoBehaviour:
   nor3Time: 0
   ultimateTime: 0
   attackSound: {fileID: 0}
-  attackSound_1: {fileID: 0}
-  ultimateSound: {fileID: 0}
-  fallSound: {fileID: 0}
+  attackkSound_1: {fileID: 0}
 --- !u!50 &112796976
 Rigidbody2D:
   serializedVersion: 4
@@ -1210,10 +1208,6 @@ MonoBehaviour:
   nor2Time: 0
   nor3Time: 0
   ultimateTime: 0
-  attackSound: {fileID: 0}
-  attackSound_1: {fileID: 0}
-  ultimateSound: {fileID: 0}
-  fallSound: {fileID: 0}
 --- !u!1 &261648185
 GameObject:
   m_ObjectHideFlags: 0
@@ -1853,9 +1847,7 @@ MonoBehaviour:
   nor3Time: 0.4
   ultimateTime: 0.45
   attackSound: {fileID: 402822098}
-  attackSound_1: {fileID: 402822096}
-  ultimateSound: {fileID: 0}
-  fallSound: {fileID: 402822097}
+  attackkSound_1: {fileID: 0}
 --- !u!50 &402822091
 Rigidbody2D:
   serializedVersion: 4
@@ -3162,9 +3154,7 @@ MonoBehaviour:
   nor3Time: 0
   ultimateTime: 0
   attackSound: {fileID: 0}
-  attackSound_1: {fileID: 0}
-  ultimateSound: {fileID: 0}
-  fallSound: {fileID: 0}
+  attackkSound_1: {fileID: 0}
 --- !u!50 &708356652
 Rigidbody2D:
   serializedVersion: 4
@@ -3644,9 +3634,7 @@ MonoBehaviour:
   nor3Time: 0.33
   ultimateTime: 1.02
   attackSound: {fileID: 863426600}
-  attackSound_1: {fileID: 863426598}
-  ultimateSound: {fileID: 0}
-  fallSound: {fileID: 863426599}
+  attackkSound_1: {fileID: 0}
 --- !u!95 &863426593
 Animator:
   serializedVersion: 5
@@ -4878,9 +4866,7 @@ MonoBehaviour:
   nor3Time: 0
   ultimateTime: 0
   attackSound: {fileID: 0}
-  attackSound_1: {fileID: 0}
-  ultimateSound: {fileID: 0}
-  fallSound: {fileID: 0}
+  attackkSound_1: {fileID: 0}
 --- !u!50 &1199172086
 Rigidbody2D:
   serializedVersion: 4
@@ -5616,7 +5602,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1327495836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5630,7 +5616,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerA: {fileID: 1652342533}
-  playerB: {fileID: 205332289}
+  playerB: {fileID: 1438621602}
 --- !u!4 &1327495837
 Transform:
   m_ObjectHideFlags: 0
@@ -5763,10 +5749,6 @@ MonoBehaviour:
   nor2Time: 0.37
   nor3Time: 0.37
   ultimateTime: 2.02
-  attackSound: {fileID: 1438621610}
-  attackSound_1: {fileID: 1438621610}
-  ultimateSound: {fileID: 1438621609}
-  fallSound: {fileID: 1438621611}
 --- !u!95 &1438621605
 Animator:
   serializedVersion: 5
@@ -6329,9 +6311,7 @@ MonoBehaviour:
   nor3Time: 0
   ultimateTime: 0
   attackSound: {fileID: 0}
-  attackSound_1: {fileID: 0}
-  ultimateSound: {fileID: 0}
-  fallSound: {fileID: 0}
+  attackkSound_1: {fileID: 0}
 --- !u!61 &1515664661
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6666,9 +6646,7 @@ MonoBehaviour:
   nor3Time: 0.3
   ultimateTime: 1
   attackSound: {fileID: 1652342542}
-  attackSound_1: {fileID: 1652342543}
-  ultimateSound: {fileID: 1652342544}
-  fallSound: {fileID: 1652342545}
+  attackkSound_1: {fileID: 0}
 --- !u!82 &1652342542
 AudioSource:
   m_ObjectHideFlags: 0
@@ -8598,10 +8576,6 @@ MonoBehaviour:
   nor2Time: 0.35
   nor3Time: 1
   ultimateTime: 1.3
-  attackSound: {fileID: 2144307039}
-  attackSound_1: {fileID: 2144307041}
-  ultimateSound: {fileID: 2144307040}
-  fallSound: {fileID: 2144307042}
 --- !u!50 &2144307037
 Rigidbody2D:
   serializedVersion: 4

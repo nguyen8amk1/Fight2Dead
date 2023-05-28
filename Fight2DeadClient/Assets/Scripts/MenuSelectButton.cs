@@ -10,6 +10,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Diagnostics;
 using System.Net;
+using System.IO;
 
 public class MenuSelectButton : MonoBehaviour
 {
@@ -27,19 +28,34 @@ public class MenuSelectButton : MonoBehaviour
         {
             try
 			{
-				string exePath = "D:\\Programming\\UnityProject\\Fight2Dead\\Fight2DeadLANServer\\Fight2DeadServer\\bin\\Debug\\Fight2DeadServer.exe";
-                // Create a new process start info
-                ProcessStartInfo startInfo = new ProcessStartInfo();
-				startInfo.FileName = exePath;
-                Process.Start(startInfo);
+                string currentDirectory = Directory.GetCurrentDirectory();
+				UnityEngine.Debug.Log(currentDirectory);
 
-                Thread.Sleep(1000);
+                // Create a relative path to the file
+                string relativePath = Path.Combine(currentDirectory, "LanServer", "Fight2DeadServer.exe");
 
-				ServerCommute.connection = LANTCPServerConnection.Instance;
+                // Check if the file exists
+                if (File.Exists(relativePath))
+                {
+					// Create a new process start info
+					ProcessStartInfo startInfo = new ProcessStartInfo();
+					startInfo.FileName = relativePath;
+					Process.Start(startInfo);
 
-				ServerCommute.listenToServerThread.Abort();
-				ServerCommute.listenToServerThread = ServerCommute.connection.createListenToServerThread(ListenToServerFactory.tempTCPListening());
-				ServerCommute.listenToServerThread.Start();
+					Thread.Sleep(1000);
+
+					ServerCommute.connection = LANTCPServerConnection.Instance;
+
+					ServerCommute.listenToServerThread.Abort();
+					ServerCommute.listenToServerThread = ServerCommute.connection.createListenToServerThread(ListenToServerFactory.tempTCPListening());
+					ServerCommute.listenToServerThread.Start();
+                }
+                else
+                {
+                    UnityEngine.Debug.Log("File does not exist.");
+                }
+
+
 			} catch (Exception e)
 			{
 				UnityEngine.Debug.Log("Something wrong happens when create the room: " + e.Message);
@@ -50,8 +66,10 @@ public class MenuSelectButton : MonoBehaviour
         {
             UnityEngine.Debug.Log("TODO: find a lan server");
 
+
             // connect to that lan server 
-            string serverIpAddress = SearchTcpServerOnLocalNetwork(5500);
+            string serverIpAddress = "192.168.86.212"; // TODO: get the ip from a form that user typed into
+
             if (!string.IsNullOrEmpty(serverIpAddress))
             {
                 //Console.WriteLine("Found TCP server at IP: {0}", serverIpAddress);
