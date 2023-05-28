@@ -29,12 +29,13 @@ public class CharacterSelect : MonoBehaviour
     private float speed = 3.0f;
     private bool enterHitP1 = false, enterHitP2 = false;
     private int enterCount1 = 0, enterCount2 = 0;
-    string[] charName = new string[] { "Cap", "Venom", "Sasori", "Gaara", "Ken", "Ryu",
-        "Link","Reborn","Jotaro" };
+    string[] charName = new string[] { "Cap", "Venom", "Luffy", "Gaara", "Ken", "Ryu",
+        "Link","Byakuya","Jotaro" };
     private bool P1Log1 = false, P1Log2 = false, P2Log1 = false, P2Log2 = false;
     private bool P1Log = false, P2Log = false, P3Log = false, P4Log = false;
     private bool p1EnterHit = false, p2EnterHit = false, p3EnterHit = false, p4EnterHit = false;
     private bool vhit = false;
+    public AudioSource soundPlayer, soundEnter;
     // Start is called before the first frame update
     void Start()
     {
@@ -157,6 +158,7 @@ public class CharacterSelect : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Return))
         {
+            soundEnter.Play();
             if (twoPlayerID == 1)
             {
                 enterHitP1 = true;
@@ -196,18 +198,22 @@ public class CharacterSelect : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             selectVal = (selectVal + 1) % 9;
+            soundPlayer.Play();
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             selectVal = (selectVal - 1 + 9) % 9;
+            soundPlayer.Play();
         }
         else if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             selectVal = (selectVal - 3 + 9) % 9;
+            soundPlayer.Play();
         }
         else if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             selectVal = (selectVal + 3) % 9;
+            soundPlayer.Play();
         }
 
         if (selectVal == 0)

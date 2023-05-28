@@ -10,7 +10,8 @@ public class MapSelect : MonoBehaviour
     public static int selectVal = 0;
     public GameObject map,map0, map1, map2, map3, map4;
     public GameObject pointer0, pointer1, pointer2, pointer3, pointer4;
-    private string[] mapName = new string[] {"Yoshi", "Sunny", "Palutena", "Fourside", "Temple" };
+    private string[] mapName = new string[] {"Yoshi", "Sunny", "Leaf", "Fourside", "Temple" };
+    public AudioSource moveSound, enterSound;
     private IEnumerator FadeOutMap(GameObject map)
     {
         float startAlpha = 1;
@@ -72,6 +73,7 @@ public class MapSelect : MonoBehaviour
     {
         if (selectVal == 0)
         {
+            moveSound.Play();
             mapGroup.alpha = 0;          
             map0.SetActive(true);
             StartCoroutine(FadeInMap());
@@ -83,6 +85,7 @@ public class MapSelect : MonoBehaviour
         }
         else if (selectVal == 1)
         {
+            moveSound.Play();
             mapGroup.alpha = 0;
             map1.SetActive(true);
             StartCoroutine(FadeInMap());
@@ -94,6 +97,7 @@ public class MapSelect : MonoBehaviour
         }
         else if (selectVal == 2)
         {
+            moveSound.Play();
             mapGroup.alpha = 0;
             map2.SetActive(true);
             StartCoroutine(FadeInMap());
@@ -105,6 +109,7 @@ public class MapSelect : MonoBehaviour
         }
         else if (selectVal == 3)
         {
+            moveSound.Play();
             mapGroup.alpha = 0;
             map3.SetActive(true);
             StartCoroutine(FadeInMap());
@@ -116,6 +121,7 @@ public class MapSelect : MonoBehaviour
         }
         else if (selectVal == 4)
         {
+            moveSound.Play();
             mapGroup.alpha = 0;
             map4.SetActive(true);
             StartCoroutine(FadeInMap());
@@ -155,6 +161,7 @@ public class MapSelect : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.Return))
         {
+            enterSound.Play();
             Debug.Log(mapName[selectVal]);
         }    
 

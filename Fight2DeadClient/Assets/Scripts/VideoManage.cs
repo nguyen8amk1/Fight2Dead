@@ -5,52 +5,48 @@ using UnityEngine.Video;
 
 public class VideoManage : MonoBehaviour
 {
-    public VideoPlayer[] videoPlayers;
-    private int currentVideoIndex = 0;
+    public VideoPlayer videoPlayer1;
+    public VideoPlayer videoPlayer2;
+    public GameObject cube1;
+    public GameObject cube2;
+    public float transitionDuration = 1f; 
 
     private void Start()
     {
-        PlayCurrentVideo();
+        videoPlayer1.loopPointReached += OnVideo1End;
     }
 
-    private void PlayCurrentVideo()
+    private void OnVideo1End(VideoPlayer vp)
     {
-        // Ensure the currentVideoIndex is within bounds
-        if (currentVideoIndex < 0 || currentVideoIndex >= videoPlayers.Length)
-        {
-            Debug.Log("Invalid current video index");
-            return;
-        }
-
-        // Get the reference to the VideoPlayer component for the current video
-        VideoPlayer currentVideoPlayer = videoPlayers[currentVideoIndex];
-
-        // Subscribe to the current videoPlayer loopPointReached event
-        currentVideoPlayer.loopPointReached += OnVideoFinished;
-
-        // Play the current video
-        currentVideoPlayer.Play();
+        StartCoroutine(TransitionVideos());
     }
 
-    private void OnVideoFinished(VideoPlayer vp)
+    IEnumerator TransitionVideos()
     {
-        // Video has finished playing
-        Debug.Log("Video finished playing");
-
-        // Unsubscribe from the current videoPlayer loopPointReached event
-        vp.loopPointReached -= OnVideoFinished;
-
-        // Move to the next video
-        currentVideoIndex++;
-
-        // Check if all videos have been played
-        if (currentVideoIndex >= videoPlayers.Length)
+        
+        float timer = 0f;
+        while (timer < transitionDuration)
         {
-            Debug.Log("All videos finished playing");
-            return;
+            float t = timer / transitionDuration;
+
+           
+            videoPlayer1.targetCameraAlpha = 1f - t;
+
+           
+            videoPlayer2.targetCameraAlpha = t;
+
+            timer += Time.deltaTime;
+            yield return null;
         }
 
-        // Play the next video
-        PlayCurrentVideo();
+       
+        videoPlayer1.gameObject.SetActive(false);
+        cube1.SetActive(false);
+        videoPlayer2.gameObject.SetActive(true);
+        cube2.SetActive(true);
+
+        
+        videoPlayer1.targetCameraAlpha = 1f;
+        videoPlayer2.targetCameraAlpha = 1f;
     }
 }
