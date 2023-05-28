@@ -165,7 +165,7 @@ public class GamePlay : MonoBehaviour
             p1t2.SetActive(false);
             p2t2.SetActive(true);
             p2t2.transform.position = currentPlayerPosition;
-            Debug.Log("PLAYER 1 SWITCH TO PLAYER 2");
+            Debug.Log("TEAM2: PLAYER 1 SWITCH TO PLAYER 2");
         }
         else if (isPlayer2Active_Team2)
         {
@@ -176,7 +176,7 @@ public class GamePlay : MonoBehaviour
             p2t2.SetActive(false);
             p1t2.SetActive(true);
             p1t2.transform.position = currentPlayerPosition;
-            Debug.Log("PLAYER 2 SWITCH TO PLAYER 1");
+            Debug.Log("TEAM2: PLAYER 2 SWITCH TO PLAYER 1");
         }
     }
 }
