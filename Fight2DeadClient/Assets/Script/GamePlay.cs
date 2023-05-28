@@ -1,3 +1,4 @@
+using SocketServer;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -62,6 +63,12 @@ public class GamePlay : MonoBehaviour
 
         globalGameState.camPlayer1 = p1t1;
         globalGameState.camPlayer2 = p1t2;
+
+        globalGameState.p1CharName = Player1_Team1;
+        globalGameState.p2CharName = Player1_Team2;
+
+        p1t1.AddComponent<P1ControlScript>();
+        p1t2.AddComponent<P2ControlScript>();
     }
 
     private string convertToCorrectMapName(string chosenMapName)

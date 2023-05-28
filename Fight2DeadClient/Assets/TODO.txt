@@ -1,19 +1,35 @@
 TODAY: 
-	4 PLAYER CHOSING CHARACTER SYNC FROM CHOOSEN CHARACTER AND MAP AND STUFF LIKE THAT (2h) []
-		-> photoshop the little thing the fly around for Luffy  
+	LET'S UPDATE THE GAME CONTROL FIRST
+	SEND TRANSFORM INFO TO THE OTHER PLAYER AS WELL -> whose turn to control the game 
+	LET'S SEE HOW EVERYTHING SHOULD WORKS ?
+		the same set of keys to control 
+		2players: 
+			-> attach control script into player dynamically 
 
+			if on player1 window -> player 1 move 
+			if on player2 window -> player 2 move 
 
+		4players: 
 
-	FIND OUT THE CORRECT PATH TO LANSERVER FOLDER (1h) [X] 
-	MAKE THE LAN MODE TRULY WORKS [], can play on different computers (2h) []
-	-> these 2 should be done today
+	FIGURE OUT WHAT'S THE PROBLEM WITH THE CONTROL OF THE GAMEPLAY (4h)
+		-> 2 PLAYER MODE, 4 PLAYER MODE, PLAYER TRANSITION, GAME INPUT ?? 
+
+	IF CHOOSE THE SAME CHARACTER ON THEN THE CAMERA IS FLICKERING SINCE THERE ARE ONLY ONE CHARACTER ON THE SCREEN  
 
 	4 PLAYER MODE HAVE TO BE PLAYABLE (2h) []
-	QUIT MESSAGE AND HANDLE ROOM EXIT PROPERLY (2H) []
+		-> decide how 4 player control works ?  (player switch and stuff like that)
+
+
 	GLOBAL MODE: 
 		LAG WHEN PLAYING IN GLOBAL MODE, -> lerp between position (2h) []
 		OFTEN GET STUCK -> make the loop keep running (2h) []
 		FIX THESE ASAP 
+
+		-> tong cong 8 tieng dong ho 
+
+
+	MAKE THE LAN MODE TRULY WORKS [], can play on different computers (2h) []
+	-> these 2 should be done today
 
 	QUIT MESSAGE AND HANDLE ROOM EXIT PROPERLY (2H) [X] -> @temporary done :v 
 		-> how server should response to quit event of client ?? 
@@ -32,9 +48,6 @@ TODAY:
 				-> send tcp message when close the game 
 			-> then LAN (1h) 
 
-	4 PLAYER MODE HAVE TO BE PLAYABLE (2h) []
-		-> decide how 4 player control works ?  (player switch and stuff like that)
-
 	-> DONE ALL TODAY -> 8 hours of work 
 
 
@@ -46,6 +59,9 @@ TODAY:
 TODO: 
 
 DONE: 
+	4 PLAYER CHOSING CHARACTER SYNC FROM CHOOSEN CHARACTER AND MAP AND STUFF LIKE THAT (2h) [X]
+		-> photoshop the little thing the fly around for Luffy  
+
 	FIND OUT THE CORRECT PATH TO LANSERVER FOLDER (1h) [X] 
 	FIX THE GLOBAL UDP CONNECTION [X]
 	GLOBAL SERVER TCP CLOSE AND STUFF (2H) [X] 

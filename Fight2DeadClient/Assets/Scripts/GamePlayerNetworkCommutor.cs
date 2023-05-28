@@ -16,7 +16,7 @@ public class GamePlayerNetworkCommutor : MonoBehaviour
     //public Text player1State;
     //public Text player2State;
 
-    void Start()
+	void Start()
     {
     }
 

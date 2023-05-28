@@ -73,6 +73,8 @@ public sealed class GameState
 
 	public GameObject camPlayer1 = null;
 	public GameObject camPlayer2 = null;
+	public string p1CharName;
+	public string p2CharName;
 
 	private GameState()
     {
