@@ -121,6 +121,7 @@ namespace SocketServer
 						dlog.roomCreated(room);
 						room.start();
 						rooms.Add(room.id, room);
+						playerId = 1; 
 					}
 				}
 				if(fourPlayersRoomWaitList.Count >= 4)
@@ -130,6 +131,7 @@ namespace SocketServer
 						dlog.roomCreated(room);
 						room.start();
 						rooms.Add(room.id, room);
+						playerId = 1; 
 					}
 				}
 			}
@@ -231,35 +233,6 @@ namespace SocketServer
 
         private void udpListening()
         {
-			/*
-			UdpClient udpListener = new UdpClient(udpPort);
-			Console.WriteLine("Udp listener started");
-
-            while (true)
-            {
-                if (udpListener.Available > 0)
-                {
-                    IPEndPoint remoteEP = new IPEndPoint(IPAddress.Any, 0);
-                    byte[] buffer = udpListener.Receive(ref remoteEP);
-					//Console.WriteLine("Receive message from: " + remoteEP.Address.ToString() + ":" + remoteEP.Port);
-                    string message = Encoding.ASCII.GetString(buffer);
-
-					//@Debug start
-					Console.WriteLine("Received from {0}: {1}", remoteEP.ToString(), message);
-					string responseMessage = "Hello client";
-					byte[] sendData = Encoding.ASCII.GetBytes(responseMessage);
-					udpListener.Send(sendData, sendData.Length, remoteEP);
-					// @Debug end
-
-					string[] tokens = message.Split(',');
-
-                    //string rid = tokens[0];
-
-                    //dlog.messageReceived("ditme", 3, message);
-                    //rooms[rid].udpProcess(udpListener, tokens);
-                }
-            }
-			*/
 			using (UdpClient server = new UdpClient(udpPort))
 			{
 				IPEndPoint clientEndPoint = new IPEndPoint(IPAddress.Any, 0);

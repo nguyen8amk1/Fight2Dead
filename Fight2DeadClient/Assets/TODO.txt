@@ -1,16 +1,30 @@
 TODAY: 
-	QUIT MESSAGE AND HANDLE ROOM EXIT PROPERLY (2H) []
+	GLOBAL MODE: 
+		LAG WHEN PLAYING IN GLOBAL MODE, -> lerp between position (2h) []
+		OFTEN GET STUCK -> make the loop keep running (2h) []
+		FIX THESE ASAP 
+
+	QUIT MESSAGE AND HANDLE ROOM EXIT PROPERLY (2H) [X] -> @temporary done :v 
 		-> how server should response to quit event of client ?? 
 		-> how client should repsonse to quit event of them or other players quit ?? 
+
+		when could a player exit the game:  
+			after they finish a match -> send tcp message to quit and remove them from room 
+
+
+			*ONLY HANDLE THE GLOBAL FOR THE MOMENT 
+			
+			WHAT HAPPPENED TO THE SERVER WHEN CLOSE THE GAME RIGHT NOW ? 
+				*currently nothing happen when close in the global 
+
+			-> works on global first (1h) 
+				-> send tcp message when close the game 
+			-> then LAN (1h) 
 
 	4 PLAYER MODE HAVE TO BE PLAYABLE (2h) []
 		-> decide how 4 player control works ?  (player switch and stuff like that)
 
-	GLOBAL MODE: 
-		LAG WHEN PLAYING IN GLOBAL MODE, -> lerp between position (2h) []
-		OFTEN GET STUCK -> make the loop keep running (2h) []
-
-	-> DONE ALL TODAY 
+	-> DONE ALL TODAY -> 8 hours of work 
 
 
 	MAKE THE LAN MODE TRULY WORKS [], can play on different computers (2h) []
