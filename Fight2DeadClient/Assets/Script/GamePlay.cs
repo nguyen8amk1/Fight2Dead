@@ -73,6 +73,19 @@ public class GamePlay : MonoBehaviour
 			p2t1.AddComponent<P1ControlScript>();
 			p1t2.AddComponent<P2ControlScript>();
 			p2t2.AddComponent<P2ControlScript>();
+		} else if (globalGameState.numPlayers == 4)
+		{
+			p1t1.AddComponent<P1ControlScript>();
+			//p2t1.AddComponent<P1ControlScript>();
+			p1t2.AddComponent<P2ControlScript>();
+			//p2t2.AddComponent<P2ControlScript>();
+
+            /*
+            if(globalGameState.PlayerId==1) 
+			{
+				p1t1.AddComponent<P1ControlScript>();
+			} 
+            */
 		}
     }
 
@@ -234,19 +247,25 @@ public class GamePlay : MonoBehaviour
             }
 		}
          
+        // current problem 
+        // p1 position does not update on p3, but does update on p2 and p4 
+
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             if(globalGameState.numPlayers == 4)
 			{
 				if(globalGameState.PlayerId == 1 || globalGameState.PlayerId == 2)
 				{
-					// TODO: set some info to send to the other side
-					//SwitchPlayersTeam1(globalGameState.PlayerId == 1);
+                    // TODO: set some info to send to the other side
+                    //SwitchPlayersTeam1(globalGameState.PlayerId == 1);
+                    //globalGameState.p1IsPlaying = !globalGameState.p1IsPlaying;
+					SwitchPlayersTeam1();
 				}
 				if(globalGameState.PlayerId == 3 || globalGameState.PlayerId == 4)
 				{
 					// TODO: set some info to send to the other side
 					//SwitchPlayersTeam2(globalGameState.PlayerId == 3);
+					SwitchPlayersTeam2();
 				}
 			} else if(globalGameState.numPlayers == 2)
 			{

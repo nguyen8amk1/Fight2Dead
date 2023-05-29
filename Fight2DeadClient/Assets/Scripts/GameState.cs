@@ -87,6 +87,9 @@ public sealed class GameState
 	public bool p1Transformed;
 	public bool p2Transformed;
 
+	public int currentTeam1Player = 1;
+	public int currentTeam2Player = 3;
+
 	private GameState()
     {
 

@@ -2,8 +2,9 @@ TODAY:
 	LET'S UPDATE THE GAME CONTROL FIRST -> 2 players [X]
 
 	SEND TRANSFORM INFO TO THE OTHER PLAYER AS WELL -> whose turn to control the game 
-		how 2 player character transition should work ??  updating the state between the 2 is hard 
+		how 2 player character transition should work ??  updating the state between the 2 is hard [X]
 		how 4 player control should works ?? 
+			only 1 person (in each team) can control at one time 
 
 	GLOBAL MODE: 
 		LAG WHEN PLAYING IN GLOBAL MODE, -> lerp between position (2h) []

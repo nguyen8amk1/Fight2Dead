@@ -39,41 +39,105 @@ public class GamePlayerNetworkCommutor : MonoBehaviour
 			}
 		}
 
-        if(globalGameState.PlayerId == 1)
+        if(globalGameState.numPlayers == 2)
 		{
-            //hostPlayer = playerA;
-            //Debug.Log("player 1 sending to udp server");
-            //int moveLeft = (globalGameState.player1MoveLeft) ? 1: 0;
-            //int moveRight = (globalGameState.player1MoveRight) ? 1: 0;
-            //player1State.text = $"Player1 State: {globalGameState.player1State}";
-            if(globalGameState.onlineMode == "GLOBAL")
+			if(globalGameState.PlayerId == 1)
 			{
-				globalGameState.playerMessage = InGameMessageGenerator.tempInGameMessage(playerA.transform.position.x, playerA.transform.position.y, globalGameState.player1State, globalGameState.currentCharT1);
+				//hostPlayer = playerA;
+				//Debug.Log("player 1 sending to udp server");
+				//int moveLeft = (globalGameState.player1MoveLeft) ? 1: 0;
+				//int moveRight = (globalGameState.player1MoveRight) ? 1: 0;
+				//player1State.text = $"Player1 State: {globalGameState.player1State}";
+				if(globalGameState.onlineMode == "GLOBAL")
+				{
+					globalGameState.playerMessage = InGameMessageGenerator.tempInGameMessage(playerA.transform.position.x, playerA.transform.position.y, globalGameState.player1State, globalGameState.currentCharT1);
 
-			} else if (globalGameState.onlineMode == "LAN")
-			{
-				string message = InGameMessageGenerator.tempInGameMessage(playerA.transform.position.x, playerA.transform.position.y, globalGameState.player1State, globalGameState.currentCharT1);
-				ServerCommute.connection.sendToServer(message);
+				} else if (globalGameState.onlineMode == "LAN")
+				{
+					string message = InGameMessageGenerator.tempInGameMessage(playerA.transform.position.x, playerA.transform.position.y, globalGameState.player1State, globalGameState.currentCharT1);
+					ServerCommute.connection.sendToServer(message);
+				}
+				playerB.transform.position = new Vector3(globalGameState.playersPosition[1].x, globalGameState.playersPosition[1].y, 0);
 			}
-			playerB.transform.position = new Vector3(globalGameState.playersPosition[1].x, globalGameState.playersPosition[1].y, 0);
-		}
 
-        if(globalGameState.PlayerId == 2)
+			if(globalGameState.PlayerId == 2)
+			{
+				//Debug.Log("player 2 sending to udp server");
+				//hostPlayer = playerB;
+				//int moveLeft = 0;
+				//int moveRight = (Player2.moveRight) ? 1: 0;
+				//player2State.text = $"Player2 State: {globalGameState.player2State}";
+				if(globalGameState.onlineMode == "GLOBAL")
+				{
+					globalGameState.playerMessage = InGameMessageGenerator.tempInGameMessage(playerB.transform.position.x, playerB.transform.position.y, globalGameState.player2State, globalGameState.currentCharT2);
+				} else if (globalGameState.onlineMode == "LAN")
+				{
+					string message = InGameMessageGenerator.tempInGameMessage(playerB.transform.position.x, playerB.transform.position.y, globalGameState.player2State, globalGameState.currentCharT2);
+					ServerCommute.connection.sendToServer(message);
+				}
+				playerA.transform.position = new Vector3(globalGameState.playersPosition[0].x, globalGameState.playersPosition[0].y, 0);
+			}
+
+		} else if(globalGameState.numPlayers == 4)
 		{
-            //Debug.Log("player 2 sending to udp server");
-            //hostPlayer = playerB;
-            //int moveLeft = 0;
-            //int moveRight = (Player2.moveRight) ? 1: 0;
-            //player2State.text = $"Player2 State: {globalGameState.player2State}";
-            if(globalGameState.onlineMode == "GLOBAL")
+			if(globalGameState.PlayerId == 2 || globalGameState.PlayerId == 4)
 			{
-				globalGameState.playerMessage = InGameMessageGenerator.tempInGameMessage(playerB.transform.position.x, playerB.transform.position.y, globalGameState.player2State, globalGameState.currentCharT2);
-			} else if (globalGameState.onlineMode == "LAN")
-			{
-				string message = InGameMessageGenerator.tempInGameMessage(playerB.transform.position.x, playerB.transform.position.y, globalGameState.player2State, globalGameState.currentCharT2);
-				ServerCommute.connection.sendToServer(message);
+				playerA.transform.position = new Vector3(globalGameState.playersPosition[0].x, globalGameState.playersPosition[0].y, 0);
+				playerB.transform.position = new Vector3(globalGameState.playersPosition[1].x, globalGameState.playersPosition[1].y, 0);
 			}
+
+			/*
 			playerA.transform.position = new Vector3(globalGameState.playersPosition[0].x, globalGameState.playersPosition[0].y, 0);
+			playerB.transform.position = new Vector3(globalGameState.playersPosition[1].x, globalGameState.playersPosition[1].y, 0);
+			*/
+
+
+			/*
+			if((globalGameState.PlayerId == 2 || globalGameState.PlayerId == 1) && globalGameState.PlayerId != globalGameState.currentTeam1Player)
+			{
+				playerA.transform.position = new Vector3(globalGameState.playersPosition[0].x, globalGameState.playersPosition[0].y, 0);
+			}
+
+			if(globalGameState.PlayerId == 2)
+			{
+			}
+			if(globalGameState.PlayerId == 3 || globalGameState.PlayerId == 4)
+			{
+			}
+			*/
+
+			if(globalGameState.PlayerId == globalGameState.currentTeam1Player)
+			{
+				if(globalGameState.onlineMode == "GLOBAL")
+				{
+					globalGameState.playerMessage = InGameMessageGenerator.tempInGameMessage(playerA.transform.position.x, playerA.transform.position.y, globalGameState.player1State, globalGameState.currentCharT1);
+
+				} else if (globalGameState.onlineMode == "LAN")
+				{
+					string message = InGameMessageGenerator.tempInGameMessage(playerA.transform.position.x, playerA.transform.position.y, globalGameState.player1State, globalGameState.currentCharT1);
+					ServerCommute.connection.sendToServer(message);
+				}
+				playerB.transform.position = new Vector3(globalGameState.playersPosition[1].x, globalGameState.playersPosition[1].y, 0);
+			}
+
+			if(globalGameState.PlayerId == globalGameState.currentTeam2Player)
+			{
+				//Debug.Log("player 2 sending to udp server");
+				//hostPlayer = playerB;
+				//int moveLeft = 0;
+				//int moveRight = (Player2.moveRight) ? 1: 0;
+				//player2State.text = $"Player2 State: {globalGameState.player2State}";
+				if (globalGameState.onlineMode == "GLOBAL")
+				{
+					globalGameState.playerMessage = InGameMessageGenerator.tempInGameMessage(playerB.transform.position.x, playerB.transform.position.y, globalGameState.player2State, globalGameState.currentCharT2);
+				} else if (globalGameState.onlineMode == "LAN")
+				{
+					string message = InGameMessageGenerator.tempInGameMessage(playerB.transform.position.x, playerB.transform.position.y, globalGameState.player2State, globalGameState.currentCharT2);
+					ServerCommute.connection.sendToServer(message);
+				}
+				playerA.transform.position = new Vector3(globalGameState.playersPosition[0].x, globalGameState.playersPosition[0].y, 0);
+			}
 		}
+
     }
 }

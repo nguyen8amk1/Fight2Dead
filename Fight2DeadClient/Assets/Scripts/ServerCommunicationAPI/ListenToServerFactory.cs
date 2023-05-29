@@ -186,38 +186,39 @@ namespace SocketServer {
 				float x = float.Parse(tokens[1]);
 				float y = float.Parse(tokens[2]);
 				int state = Int32.Parse(tokens[3]);
-				int currentChar = Int32.Parse(tokens[4]); 
+				int currentChar = Int32.Parse(tokens[4]);
 
-				/*
-					walk left(-1)
-					walk right(1)
-					jump(2)
-					fall(-2)
-					got hit(3)
-					idle(0)
-				*/
-
-				if(pid == 1)
+			/*
+				walk left(-1)
+				walk right(1)
+				jump(2)
+				fall(-2)
+				got hit(3)
+				idle(0)
+			*/
+			if (gameState.numPlayers == 2)
+			{
+				if (pid == 1)
 				{
 					gameState.player1IsBeingControlled = true;
 					gameState.player1State = state;
-					if(currentChar != gameState.currentCharT1)
+					if (currentChar != gameState.currentCharT1)
 					{
 						gameState.p1Transformed = true;
-						gameState.currentCharT1 = currentChar; 
+						gameState.currentCharT1 = currentChar;
 					} else
 					{
 						gameState.p1Transformed = false;
 					}
 				}
-				else if(pid == 2)
+				else if (pid == 2)
 				{
 					gameState.player2IsBeingControlled = true;
 					gameState.player2State = state;
-					if(currentChar != gameState.currentCharT2)
+					if (currentChar != gameState.currentCharT2)
 					{
 						gameState.p2Transformed = true;
-						gameState.currentCharT2 = currentChar; 
+						gameState.currentCharT2 = currentChar;
 					} else
 					{
 						gameState.p2Transformed = false;
@@ -227,8 +228,106 @@ namespace SocketServer {
 
 				//@Test: for now state is gonna be char id 
 				//Debug.Log($"TODO: handle Receive state: {state}");
-				gameState.playersPosition[pid-1].x = x;
-				gameState.playersPosition[pid-1].y = y;
+				gameState.playersPosition[pid - 1].x = x;
+				gameState.playersPosition[pid - 1].y = y;
+			} else if (gameState.numPlayers == 4)
+			{
+					/*
+					// TODO
+					if(pid == 1)
+					{
+						gameState.player1IsBeingControlled = true;
+						gameState.player1State = state;
+						if(currentChar != gameState.currentCharT1)
+						{
+							gameState.p1Transformed = true;
+							gameState.currentCharT1 = currentChar; 
+						} else
+						{
+							gameState.p1Transformed = false;
+						}
+					}
+					else if(pid == 2)
+					{
+						gameState.player2IsBeingControlled = true;
+						gameState.player2State = state;
+						if(currentChar != gameState.currentCharT2)
+						{
+							gameState.p2Transformed = true;
+							gameState.currentCharT2 = currentChar; 
+						} else
+						{
+							gameState.p2Transformed = false;
+						}
+					}
+					*/
+
+					//@Test: for now state is gonna be char id 
+					//Debug.Log($"TODO: handle Receive state: {state}");
+
+					// playerid = 1 -> lay cua player 3
+					// playerid = 2 -> lay cua player1 va player 3
+					// playerid = 3 -> lay cua player 1 
+					// playerid = 4 -> lay cua player1 va player 3
+
+					if(gameState.PlayerId == 2)
+					{
+						if(pid == 1)
+						{
+							gameState.playersPosition[0].x = x;
+							gameState.playersPosition[0].y = y;
+						}
+						if(pid == 3)
+						{
+							gameState.playersPosition[1].x = x;
+							gameState.playersPosition[1].y = y;
+						}
+					}
+
+					if(gameState.PlayerId == 4)
+					{
+						if(pid == 1)
+						{
+							gameState.playersPosition[0].x = x;
+							gameState.playersPosition[0].y = y;
+						}
+						if(pid == 3)
+						{
+							gameState.playersPosition[1].x = x;
+							gameState.playersPosition[1].y = y;
+						}
+					}
+					if(gameState.PlayerId == 1)
+					{
+						if(pid == 3)
+						{
+							gameState.playersPosition[1].x = x;
+							gameState.playersPosition[1].y = y;
+						}
+					}
+					if(gameState.PlayerId == 3)
+					{
+						if(pid == 1)
+						{
+							gameState.playersPosition[0].x = x;
+							gameState.playersPosition[0].y = y;
+						}
+					}
+
+					/*
+					if ((gameState.PlayerId == 1 || gameState.PlayerId == 2) && (pid == gameState.currentTeam2Player))
+					{
+						gameState.playersPosition[1].x = x;
+						gameState.playersPosition[1].y = y;
+					}
+					else if((gameState.PlayerId == 3 || gameState.PlayerId == 4) && (pid == gameState.currentTeam1Player))
+					{
+						gameState.playersPosition[0].x = x;
+						gameState.playersPosition[0].y = y;
+					}
+					*/
+				}
+
             };
             return messageHandler;
         }
