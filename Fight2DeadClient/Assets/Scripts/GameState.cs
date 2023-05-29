@@ -84,11 +84,12 @@ public sealed class GameState
 	public bool player2Transform;
 	public bool player3Transform;
 	public bool player4Transform;
+
 	public bool p1Transformed;
 	public bool p2Transformed;
 
-	public int currentTeam1Player = 1;
-	public int currentTeam2Player = 3;
+	public int currentTeam1Player = 2;
+	public int currentTeam2Player = 4;
 
 	private GameState()
     {

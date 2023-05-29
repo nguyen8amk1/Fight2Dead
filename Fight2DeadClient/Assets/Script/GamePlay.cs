@@ -76,7 +76,7 @@ public class GamePlay : MonoBehaviour
 		} else if (globalGameState.numPlayers == 4)
 		{
 			p1t1.AddComponent<P1ControlScript>();
-			//p2t1.AddComponent<P1ControlScript>();
+            //p2t1.AddComponent<P1ControlScript>();
 			p1t2.AddComponent<P2ControlScript>();
 			//p2t2.AddComponent<P2ControlScript>();
 
@@ -260,12 +260,30 @@ public class GamePlay : MonoBehaviour
                     //SwitchPlayersTeam1(globalGameState.PlayerId == 1);
                     //globalGameState.p1IsPlaying = !globalGameState.p1IsPlaying;
 					SwitchPlayersTeam1();
+                    /*
+                    if(globalGameState.currentTeam1Player == 1)
+					{
+                        globalGameState.currentTeam1Player = 2;
+					} else if(globalGameState.currentTeam1Player == 2) 
+					{
+                        globalGameState.currentTeam1Player = 1;
+					}
+                    */
 				}
 				if(globalGameState.PlayerId == 3 || globalGameState.PlayerId == 4)
 				{
 					// TODO: set some info to send to the other side
 					//SwitchPlayersTeam2(globalGameState.PlayerId == 3);
 					SwitchPlayersTeam2();
+                    /*
+                    if(globalGameState.currentTeam1Player == 3)
+					{
+                        globalGameState.currentTeam1Player = 4;
+					} else if(globalGameState.currentTeam1Player == 4) 
+					{
+                        globalGameState.currentTeam1Player = 3;
+					}
+                    */
 				}
 			} else if(globalGameState.numPlayers == 2)
 			{

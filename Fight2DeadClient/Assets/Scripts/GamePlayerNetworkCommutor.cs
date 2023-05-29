@@ -80,31 +80,38 @@ public class GamePlayerNetworkCommutor : MonoBehaviour
 
 		} else if(globalGameState.numPlayers == 4)
 		{
-			if(globalGameState.PlayerId == 2 || globalGameState.PlayerId == 4)
+			if(globalGameState.currentTeam1Player == 1 && globalGameState.currentTeam2Player == 3)
 			{
-				playerA.transform.position = new Vector3(globalGameState.playersPosition[0].x, globalGameState.playersPosition[0].y, 0);
-				playerB.transform.position = new Vector3(globalGameState.playersPosition[1].x, globalGameState.playersPosition[1].y, 0);
+				if(globalGameState.PlayerId == 2 || globalGameState.PlayerId == 4)
+				{
+					playerA.transform.position = new Vector3(globalGameState.playersPosition[0].x, globalGameState.playersPosition[0].y, 0);
+					playerB.transform.position = new Vector3(globalGameState.playersPosition[1].x, globalGameState.playersPosition[1].y, 0);
+				}
 			}
-
-			/*
-			playerA.transform.position = new Vector3(globalGameState.playersPosition[0].x, globalGameState.playersPosition[0].y, 0);
-			playerB.transform.position = new Vector3(globalGameState.playersPosition[1].x, globalGameState.playersPosition[1].y, 0);
-			*/
-
-
-			/*
-			if((globalGameState.PlayerId == 2 || globalGameState.PlayerId == 1) && globalGameState.PlayerId != globalGameState.currentTeam1Player)
+			if(globalGameState.currentTeam1Player == 2 && globalGameState.currentTeam2Player == 3)
 			{
-				playerA.transform.position = new Vector3(globalGameState.playersPosition[0].x, globalGameState.playersPosition[0].y, 0);
+				if(globalGameState.PlayerId == 1 || globalGameState.PlayerId == 4)
+				{
+					playerA.transform.position = new Vector3(globalGameState.playersPosition[0].x, globalGameState.playersPosition[0].y, 0);
+					playerB.transform.position = new Vector3(globalGameState.playersPosition[1].x, globalGameState.playersPosition[1].y, 0);
+				}
 			}
-
-			if(globalGameState.PlayerId == 2)
+			if(globalGameState.currentTeam1Player == 1 && globalGameState.currentTeam2Player == 4)
 			{
+				if(globalGameState.PlayerId == 2 || globalGameState.PlayerId == 3)
+				{
+					playerA.transform.position = new Vector3(globalGameState.playersPosition[0].x, globalGameState.playersPosition[0].y, 0);
+					playerB.transform.position = new Vector3(globalGameState.playersPosition[1].x, globalGameState.playersPosition[1].y, 0);
+				}
 			}
-			if(globalGameState.PlayerId == 3 || globalGameState.PlayerId == 4)
+			if(globalGameState.currentTeam1Player == 2 && globalGameState.currentTeam2Player == 4)
 			{
+				if(globalGameState.PlayerId == 1 || globalGameState.PlayerId == 3)
+				{
+					playerA.transform.position = new Vector3(globalGameState.playersPosition[0].x, globalGameState.playersPosition[0].y, 0);
+					playerB.transform.position = new Vector3(globalGameState.playersPosition[1].x, globalGameState.playersPosition[1].y, 0);
+				}
 			}
-			*/
 
 			if(globalGameState.PlayerId == globalGameState.currentTeam1Player)
 			{

@@ -265,68 +265,235 @@ namespace SocketServer {
 					//@Test: for now state is gonna be char id 
 					//Debug.Log($"TODO: handle Receive state: {state}");
 
+					// 1 vs 3
 					// playerid = 1 -> lay cua player 3
 					// playerid = 2 -> lay cua player1 va player 3
 					// playerid = 3 -> lay cua player 1 
 					// playerid = 4 -> lay cua player1 va player 3
 
-					if(gameState.PlayerId == 2)
+					// 2 vs 4 
+					// playerid = 2 -> lay cua player 4
+					// playerid = 1 -> lay cua player 2 va player 4
+					// playerid = 4 -> lay cua player 2
+					// playerid = 3 -> lay cua player 2 va player 4
+
+
+
+
+
+					if(gameState.currentTeam1Player == 2 && gameState.currentTeam2Player == 4)
 					{
-						if(pid == 1)
+						if(gameState.PlayerId == 1)
 						{
-							gameState.playersPosition[0].x = x;
-							gameState.playersPosition[0].y = y;
+							if(pid == 2)
+							{
+								gameState.playersPosition[0].x = x;
+								gameState.playersPosition[0].y = y;
+							}
+							if(pid == 4)
+							{
+								gameState.playersPosition[1].x = x;
+								gameState.playersPosition[1].y = y;
+							}
 						}
-						if(pid == 3)
+
+						if(gameState.PlayerId == 3)
 						{
-							gameState.playersPosition[1].x = x;
-							gameState.playersPosition[1].y = y;
+							if(pid == 2)
+							{
+								gameState.playersPosition[0].x = x;
+								gameState.playersPosition[0].y = y;
+							}
+							if(pid == 4)
+							{
+								gameState.playersPosition[1].x = x;
+								gameState.playersPosition[1].y = y;
+							}
 						}
+
+						if(gameState.PlayerId == 2)
+						{
+							if(pid == 4)
+							{
+								gameState.playersPosition[1].x = x;
+								gameState.playersPosition[1].y = y;
+							}
+						}
+						if(gameState.PlayerId == 4)
+						{
+							if(pid == 2)
+							{
+								gameState.playersPosition[0].x = x;
+								gameState.playersPosition[0].y = y;
+							}
+						}
+
+					}
+					else if(gameState.currentTeam1Player == 1 && gameState.currentTeam2Player == 4)
+					{
+						// 1 vs 4 @
+						// playerid = 1 -> lay cua player 4
+						// playerid = 2 -> lay cua player 1 va player 4
+						// playerid = 3 -> lay cua player 1 va player 4
+						// playerid = 4 -> lay cua player 1
+
+						if(gameState.PlayerId == 2)
+						{
+							if(pid == 1)
+							{
+								gameState.playersPosition[0].x = x;
+								gameState.playersPosition[0].y = y;
+							}
+							if(pid == 4)
+							{
+								gameState.playersPosition[1].x = x;
+								gameState.playersPosition[1].y = y;
+							}
+						}
+
+						if(gameState.PlayerId == 3)
+						{
+							if(pid == 1)
+							{
+								gameState.playersPosition[0].x = x;
+								gameState.playersPosition[0].y = y;
+							}
+							if(pid == 4)
+							{
+								gameState.playersPosition[1].x = x;
+								gameState.playersPosition[1].y = y;
+							}
+						}
+
+						if(gameState.PlayerId == 1)
+						{
+							if(pid == 4)
+							{
+								gameState.playersPosition[1].x = x;
+								gameState.playersPosition[1].y = y;
+							}
+						}
+
+						if(gameState.PlayerId == 4)
+						{
+							if(pid == 2)
+							{
+								gameState.playersPosition[0].x = x;
+								gameState.playersPosition[0].y = y;
+							}
+						}
+
 					}
 
-					if(gameState.PlayerId == 4)
+					else if(gameState.currentTeam1Player == 1 && gameState.currentTeam2Player == 3)
 					{
-						if(pid == 1)
+						if(gameState.PlayerId == 2)
 						{
-							gameState.playersPosition[0].x = x;
-							gameState.playersPosition[0].y = y;
+							if(pid == 1)
+							{
+								gameState.playersPosition[0].x = x;
+								gameState.playersPosition[0].y = y;
+							}
+							if(pid == 3)
+							{
+								gameState.playersPosition[1].x = x;
+								gameState.playersPosition[1].y = y;
+							}
 						}
-						if(pid == 3)
+
+						if(gameState.PlayerId == 4)
 						{
-							gameState.playersPosition[1].x = x;
-							gameState.playersPosition[1].y = y;
+							if(pid == 1)
+							{
+								gameState.playersPosition[0].x = x;
+								gameState.playersPosition[0].y = y;
+							}
+							if(pid == 3)
+							{
+								gameState.playersPosition[1].x = x;
+								gameState.playersPosition[1].y = y;
+							}
 						}
-					}
-					if(gameState.PlayerId == 1)
-					{
-						if(pid == 3)
+						if(gameState.PlayerId == 1)
 						{
-							gameState.playersPosition[1].x = x;
-							gameState.playersPosition[1].y = y;
+							if(pid == 3)
+							{
+								gameState.playersPosition[1].x = x;
+								gameState.playersPosition[1].y = y;
+							}
 						}
-					}
-					if(gameState.PlayerId == 3)
-					{
-						if(pid == 1)
+						if(gameState.PlayerId == 3)
 						{
-							gameState.playersPosition[0].x = x;
-							gameState.playersPosition[0].y = y;
+							if(pid == 1)
+							{
+								gameState.playersPosition[0].x = x;
+								gameState.playersPosition[0].y = y;
+							}
 						}
+
 					}
 
-					/*
-					if ((gameState.PlayerId == 1 || gameState.PlayerId == 2) && (pid == gameState.currentTeam2Player))
-					{
-						gameState.playersPosition[1].x = x;
-						gameState.playersPosition[1].y = y;
+
 					}
-					else if((gameState.PlayerId == 3 || gameState.PlayerId == 4) && (pid == gameState.currentTeam1Player))
+					else if(gameState.currentTeam1Player == 2 && gameState.currentTeam2Player == 3)
 					{
-						gameState.playersPosition[0].x = x;
-						gameState.playersPosition[0].y = y;
+						// TODO: 
+						// 2 vs 3 @
+						// playerid = 1 -> lay cua player 2 va player 3
+						// playerid = 2 -> lay cua player 3 
+						// playerid = 3 -> lay cua player 2 
+						// playerid = 4 -> lay cua player 2 va player 3
+
+						if(gameState.PlayerId == 1)
+						{
+							if(pid == 2)
+							{
+								gameState.playersPosition[0].x = x;
+								gameState.playersPosition[0].y = y;
+							}
+							if(pid == 3)
+							{
+								gameState.playersPosition[1].x = x;
+								gameState.playersPosition[1].y = y;
+							}
+						}
+
+						if(gameState.PlayerId == 4)
+						{
+							if(pid == 2)
+							{
+								gameState.playersPosition[0].x = x;
+								gameState.playersPosition[0].y = y;
+							}
+							if(pid == 3)
+							{
+								gameState.playersPosition[1].x = x;
+								gameState.playersPosition[1].y = y;
+							}
+						}
+
+						if(gameState.PlayerId == 2)
+						{
+							if(pid == 3)
+							{
+								gameState.playersPosition[1].x = x;
+								gameState.playersPosition[1].y = y;
+							}
+						}
+
+						if(gameState.PlayerId == 3)
+						{
+							if(pid == 2)
+							{
+								gameState.playersPosition[0].x = x;
+								gameState.playersPosition[0].y = y;
+							}
+						}
+
+
 					}
-					*/
-				}
+
+
 
             };
             return messageHandler;
