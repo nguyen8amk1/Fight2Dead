@@ -85,11 +85,12 @@ public sealed class GameState
 	public bool player3Transform;
 	public bool player4Transform;
 
-	public bool p1Transformed;
-	public bool p2Transformed;
+	public bool p1Transformed = false;
+	public bool p2Transformed = false;
 
-	public int currentTeam1Player = 2;
-	public int currentTeam2Player = 4;
+    // only use in 4 player mode 
+	public int currentTeam1Player = 1;
+	public int currentTeam2Player = 3;
 
 	private GameState()
     {

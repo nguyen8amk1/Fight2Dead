@@ -13,7 +13,6 @@ public class MapSelect : MonoBehaviour
     public GameObject pointer0, pointer1, pointer2, pointer3, pointer4;
     private string[] mapName = new string[] {"Yoshi", "Sunny", "Palutena", "Fourside", "Temple" };
     private GameState globalGameState = GameState.Instance;
-    private bool allPlayersChosen = false;
 
     private IEnumerator FadeOutMap(GameObject map)
     {

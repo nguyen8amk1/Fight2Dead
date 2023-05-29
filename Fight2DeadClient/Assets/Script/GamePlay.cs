@@ -236,6 +236,28 @@ public class GamePlay : MonoBehaviour
     {
         if(globalGameState.numPlayers == 4)
 		{
+            /*
+            if(globalGameState.p1Transformed) { 
+                if(globalGameState.currentTeam1Player == 1)
+				{
+					SwitchPlayersTeam1(true);
+				}
+                else if(globalGameState.currentTeam1Player == 2)
+				{
+					SwitchPlayersTeam1(false);
+				}
+            }
+            else if(globalGameState.p2Transformed) { 
+                if(globalGameState.currentTeam1Player == 3)
+				{
+					SwitchPlayersTeam2(true);
+				}
+                else if(globalGameState.currentTeam1Player == 4)
+				{
+					SwitchPlayersTeam2(false);
+				}
+            }
+            */
 		} else if(globalGameState.numPlayers == 2)
 		{
             if(globalGameState.p1Transformed) { 
@@ -356,8 +378,8 @@ public class GamePlay : MonoBehaviour
             p2t2.transform.position = currentPlayerPosition;
             Debug.Log("TEAM2: PLAYER 1 SWITCH TO PLAYER 2");
 			globalGameState.camPlayer2 = p2t2;
-            globalGameState.currentCharT2 = 2; 
             p2t2.GetComponent<P2ControlScript>().initControlScript(Player2_Team2);
+            globalGameState.currentCharT2 = 2; 
             GamePlayerNetworkCommutor.count2 = 0;
         }
         else if(isPlayer2Active_Team2) 
@@ -377,7 +399,6 @@ public class GamePlay : MonoBehaviour
         }
     }
 
-        /*
     void SwitchPlayersTeam1(bool isP1)
     {
         if (isP1)
@@ -392,6 +413,8 @@ public class GamePlay : MonoBehaviour
             p2t1.transform.position = currentPlayerPosition;
             Debug.Log("TEAM1: PLAYER 1 SWITCH TO PLAYER 2");
 			globalGameState.camPlayer1 = p2t1;
+            globalGameState.currentCharT1 = 2; 
+            GamePlayerNetworkCommutor.count1 = 0;
         }
         else 
         {
@@ -403,6 +426,8 @@ public class GamePlay : MonoBehaviour
             p1t1.transform.position = currentPlayerPosition;
             Debug.Log("TEAM1: PLAYER 2 SWITCH TO PLAYER 1");
 			globalGameState.camPlayer1 = p1t1;
+            globalGameState.currentCharT1 = 1; 
+            GamePlayerNetworkCommutor.count1 = 0;
         }
     }
 
@@ -419,6 +444,8 @@ public class GamePlay : MonoBehaviour
             p2t2.transform.position = currentPlayerPosition;
             Debug.Log("TEAM2: PLAYER 1 SWITCH TO PLAYER 2");
 			globalGameState.camPlayer2 = p2t2;
+            globalGameState.currentCharT2 = 2; 
+            GamePlayerNetworkCommutor.count2 = 0;
         }
         else 
         {
@@ -431,7 +458,8 @@ public class GamePlay : MonoBehaviour
             p1t2.transform.position = currentPlayerPosition;
             Debug.Log("TEAM2: PLAYER 2 SWITCH TO PLAYER 1");
 			globalGameState.camPlayer2 = p1t2;
+            globalGameState.currentCharT2 = 1; 
+            GamePlayerNetworkCommutor.count2 = 0;
         }
     }
-        */
 }

@@ -232,35 +232,34 @@ namespace SocketServer {
 				gameState.playersPosition[pid - 1].y = y;
 			} else if (gameState.numPlayers == 4)
 			{
-					/*
-					// TODO
-					if(pid == 1)
+				/*
+				if(pid == 1)
+				{
+					gameState.player1IsBeingControlled = true;
+					gameState.player1State = state;
+					if(currentChar != gameState.currentCharT1)
 					{
-						gameState.player1IsBeingControlled = true;
-						gameState.player1State = state;
-						if(currentChar != gameState.currentCharT1)
-						{
-							gameState.p1Transformed = true;
-							gameState.currentCharT1 = currentChar; 
-						} else
-						{
-							gameState.p1Transformed = false;
-						}
-					}
-					else if(pid == 2)
+						gameState.p1Transformed = true;
+						gameState.currentCharT1 = currentChar; 
+					} else
 					{
-						gameState.player2IsBeingControlled = true;
-						gameState.player2State = state;
-						if(currentChar != gameState.currentCharT2)
-						{
-							gameState.p2Transformed = true;
-							gameState.currentCharT2 = currentChar; 
-						} else
-						{
-							gameState.p2Transformed = false;
-						}
+						gameState.p1Transformed = false;
 					}
-					*/
+				}
+				else if(pid == 2)
+				{
+					gameState.player2IsBeingControlled = true;
+					gameState.player2State = state;
+					if(currentChar != gameState.currentCharT2)
+					{
+						gameState.p2Transformed = true;
+						gameState.currentCharT2 = currentChar; 
+					} else
+					{
+						gameState.p2Transformed = false;
+					}
+				}
+				*/
 
 					//@Test: for now state is gonna be char id 
 					//Debug.Log($"TODO: handle Receive state: {state}");
