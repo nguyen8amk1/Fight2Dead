@@ -67,7 +67,7 @@ public class FloatingFace : MonoBehaviour
                         ResetFace(face8);
                         float c = (float)(timingVar / .5f);
                         face2.transform.position = Vector3.Lerp(startMaker, endMaker, c);
-                        face2.transform.localScale = new Vector3(3.6f, 8.099999f, 1);
+                        face2.transform.localScale = new Vector3(0.43f, 0.53f, 1);
                         break;
                     case 3:
                         ResetFace(face0);
@@ -132,7 +132,7 @@ public class FloatingFace : MonoBehaviour
                         ResetFace(face8);
                         float h = (float)(timingVar / .5f);
                         face7.transform.position = Vector3.Lerp(startMaker, endMaker, h);
-                        face7.transform.localScale = new Vector3(2.6f, 3.15f, 1);
+                        face7.transform.localScale = new Vector3(0.75f, 0.95f, 1);
                         break;
                     case 8:
                         ResetFace(face0);
@@ -196,7 +196,7 @@ public class FloatingFace : MonoBehaviour
                         ResetFace(face8_1);
                         float c = (float)(timingVar / .5f);
                         face2_1.transform.position = Vector3.Lerp(startMaker_1, endMaker_1, c);
-                        face2_1.transform.localScale = new Vector3(3.6f, 8.099999f, 1);
+                        face2_1.transform.localScale = new Vector3(0.43f, 0.53f, 1);
                         break;
                     case 3:
                         ResetFace(face0_1);
@@ -232,7 +232,7 @@ public class FloatingFace : MonoBehaviour
                         ResetFace(face4_1);
                         ResetFace(face6_1);
                         ResetFace(face7_1);
-                        ResetFace(face8);
+                        ResetFace(face8_1);
                         float f = (float)(timingVar / .5f);
                         face5_1.transform.position = Vector3.Lerp(startMaker_1, endMaker_1, f);
                         face5_1.transform.localScale = new Vector3(4.5f, 4.5f, 1);
@@ -261,7 +261,7 @@ public class FloatingFace : MonoBehaviour
                         ResetFace(face8_1);
                         float h = (float)(timingVar / .5f);
                         face7_1.transform.position = Vector3.Lerp(startMaker_1, endMaker_1, h);
-                        face7_1.transform.localScale = new Vector3(2.6f, 3.15f, 1);
+                        face7_1.transform.localScale = new Vector3(0.75f, 0.95f, 1);
                         break;
                     case 8:
                         ResetFace(face0_1);

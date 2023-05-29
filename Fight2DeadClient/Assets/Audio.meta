@@ -1,6 +1,10 @@
 fileFormatVersion: 2
-guid: 9bcc025a84e1118499a66706f0582d53
+<<<<<<<< HEAD:Fight2DeadClient/Assets/Scenes/Map1.unity.meta
+guid: 7ecdcae1e43b87f4c94ebcf0a1cee879
+========
+guid: 0440ed25f6eaa3a4b8d68867a3ead4ae
 folderAsset: yes
+>>>>>>>> lobby:Fight2DeadClient/Assets/Audio.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

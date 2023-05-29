@@ -14,7 +14,7 @@ public class MapSelect : MonoBehaviour
     private string[] mapName = new string[] {"Yoshi", "Sunny", "Palutena", "Fourside", "Temple" };
     private GameState globalGameState = GameState.Instance;
     private bool allPlayersChosen = false;
-
+    public AudioSource moveSound, enterSound;
     private IEnumerator FadeOutMap(GameObject map)
     {
         float startAlpha = 1;
@@ -76,6 +76,7 @@ public class MapSelect : MonoBehaviour
     {
         if (selectVal == 0)
         {
+            moveSound.Play();
             mapGroup.alpha = 0;          
             map0.SetActive(true);
             StartCoroutine(FadeInMap());
@@ -87,6 +88,7 @@ public class MapSelect : MonoBehaviour
         }
         else if (selectVal == 1)
         {
+            moveSound.Play();
             mapGroup.alpha = 0;
             map1.SetActive(true);
             StartCoroutine(FadeInMap());
@@ -98,6 +100,7 @@ public class MapSelect : MonoBehaviour
         }
         else if (selectVal == 2)
         {
+            moveSound.Play();
             mapGroup.alpha = 0;
             map2.SetActive(true);
             StartCoroutine(FadeInMap());
@@ -109,6 +112,7 @@ public class MapSelect : MonoBehaviour
         }
         else if (selectVal == 3)
         {
+            moveSound.Play();
             mapGroup.alpha = 0;
             map3.SetActive(true);
             StartCoroutine(FadeInMap());
@@ -120,6 +124,7 @@ public class MapSelect : MonoBehaviour
         }
         else if (selectVal == 4)
         {
+            moveSound.Play();
             mapGroup.alpha = 0;
             map4.SetActive(true);
             StartCoroutine(FadeInMap());
@@ -191,6 +196,7 @@ public class MapSelect : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.Return))
         {
+            enterSound.Play();
             Debug.Log(mapName[selectVal]);
             string message = PreGameMessageGenerator.chooseMapMessage(mapName[selectVal]);
             ServerCommute.connection.sendToServer(message);

@@ -52,6 +52,10 @@ public class CharacterSelect : MonoBehaviour
 
 	// Start is called before the first frame update
 	void Start()
+    private bool vhit = false;
+    public AudioSource soundPlayer, soundEnter;
+    // Start is called before the first frame update
+    void Start()
     {
         Application.targetFrameRate = 60;
         if (globalGameState.numPlayers == 2)
@@ -224,6 +228,7 @@ public class CharacterSelect : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Return))
         {
+            soundEnter.Play();
             if (twoPlayerID == 1)
             {
                 enterHitP1 = true;
@@ -269,18 +274,22 @@ public class CharacterSelect : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             selectVal = (selectVal + 1) % 9;
+            soundPlayer.Play();
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             selectVal = (selectVal - 1 + 9) % 9;
+            soundPlayer.Play();
         }
         else if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             selectVal = (selectVal - 3 + 9) % 9;
+            soundPlayer.Play();
         }
         else if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             selectVal = (selectVal + 3) % 9;
+            soundPlayer.Play();
         }
 
         if (selectVal == 0)
