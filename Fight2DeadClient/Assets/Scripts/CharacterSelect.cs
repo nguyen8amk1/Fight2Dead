@@ -51,7 +51,6 @@ public class CharacterSelect : MonoBehaviour
     // TODO: when a character is chosen stop it from keep moving  
 
 	// Start is called before the first frame update
-	void Start()
     private bool vhit = false;
     public AudioSource soundPlayer, soundEnter;
     // Start is called before the first frame update
