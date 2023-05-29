@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player1 : MonoBehaviour
 {
@@ -60,7 +61,7 @@ public class Player1 : MonoBehaviour
     const string PLAYER_DIE_BOTTOM = "Die_Bottom";
     const string PLAYER_DIE_LEFT = "Die_Left";
     const string PLAYER_ATTACK = "Nor";
-
+    const string PLAYER_SWITCH = "SwitchPlayer";
 
 
     // enum
@@ -88,6 +89,13 @@ public class Player1 : MonoBehaviour
     public AudioSource attackSound;
     public AudioSource attackkSound_1;
     public AudioSource ultimateSound;
+    public AudioSource dieSound;
+    //tanker check
+    public bool isTank;
+    //dame UI
+    public Text textDame;
+
+    public Text textRespawn;
     void ChangeAnimationState(string newState)
     {
         if (currentState == newState) return;
@@ -107,13 +115,15 @@ public class Player1 : MonoBehaviour
         m_body2d = GetComponent<Rigidbody2D>();
         m_groundSensor = transform.Find("GroundSensor").GetComponent<Sensor>();
         // m_animator.SetTrigger("intro");
-        m_animator.Play(PLAYER_INTRO);
+        ChangeAnimationState(PLAYER_INTRO);
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        UpdateText();
+
         float inputX = 0f;
         IEnumerator PerformUltimate(float animUltimateTime)
         {
@@ -385,7 +395,7 @@ public class Player1 : MonoBehaviour
             //     isBlocked = false;
             //     m_animator.SetBool("IdleBlock", false);
             // }
-            else if (Input.GetKeyDown("w"))
+            else if (Input.GetKeyDown("w") && !isRespawn)
             {
                 if (m_grounded)
                 {
@@ -442,6 +452,7 @@ public class Player1 : MonoBehaviour
                 }
 
             }
+
         }
     }
 
@@ -503,7 +514,16 @@ public class Player1 : MonoBehaviour
 
             //Knockback
             Knockback(playerFacingDirection);
-            knockbackSpeedX++;
+            if (isTank)
+            {
+                knockbackSpeedX += 0.5f;
+                knockbackSpeedY += 0.5f;
+            }
+            else
+            {
+                knockbackSpeedX++;
+                knockbackSpeedY++;
+            }
         }
 
     }
@@ -572,13 +592,15 @@ public class Player1 : MonoBehaviour
     {
         if (numberRespawn > 0)
         {
+            knockbackSpeedX=2;
+            knockbackSpeedY=2;
             StartCoroutine(KeepObjectAtSpawnPosition());
             numberRespawn--;
         }
         else
         {
             Debug.Log("Gaara actually dead");
-            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
     private IEnumerator KeepObjectAtSpawnPosition()
@@ -602,6 +624,7 @@ public class Player1 : MonoBehaviour
 
         // Play the die animation
         Debug.Log(gameObject.transform.position.y);
+        dieSound.Play();
         if (gameObject.transform.position.y < -17f)
         {
             // m_animator.SetTrigger("die_bottom");
@@ -636,5 +659,16 @@ public class Player1 : MonoBehaviour
     {
         animTime = a;
     }
+    void UpdateText()
+    {
+        if (textDame != null)
+        {
+            textDame.text = knockbackSpeedX.ToString() + "%";
+        }
+        if (textRespawn != null)
+        {
+            textRespawn.text = "x" + numberRespawn.ToString();
+        }
 
+    }
 }

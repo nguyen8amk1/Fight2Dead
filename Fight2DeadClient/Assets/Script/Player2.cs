@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class Player2 : MonoBehaviour
 {
@@ -61,6 +63,7 @@ public class Player2 : MonoBehaviour
     const string PLAYER_DIE_LEFT = "Die_Left";
     const string PLAYER_ATTACK = "Nor";
     const string PLAYER_ULTIMATE = "Ultimate";
+    const string PLAYER_SWITCH = "SwitchPlayer";
     public float animTime;
     //time animation of attack
     public float nor1Time;
@@ -71,6 +74,13 @@ public class Player2 : MonoBehaviour
     public AudioSource attackSound;
     public AudioSource attackkSound_1;
     public AudioSource ultimateSound;
+    public AudioSource dieSound;
+    //tanker check
+    public bool isTank;
+    //dame UI
+    public Text textDame;
+
+    public Text textRespawn;
     void ChangeAnimationState(string newState)
     {
         if (currentState == newState) return;
@@ -111,6 +121,7 @@ public class Player2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        UpdateText();
         if (globalGameState.player2IsBeingControlled)
         {
             if (globalGameState.player2State == -1)
@@ -342,7 +353,7 @@ public class Player2 : MonoBehaviour
             // else if (Input.GetMouseButtonUp(1))
             //     m_animator.SetBool("IdleBlock", false);
 
-            else if (Input.GetKeyDown(KeyCode.UpArrow))
+            else if (Input.GetKeyDown(KeyCode.UpArrow) && !isRespawn)
             {
                 if (m_grounded)
                 {
@@ -453,8 +464,16 @@ public class Player2 : MonoBehaviour
         {
             //Knockback
             Knockback(playerFacingDirection);
-            knockbackSpeedX++;
-            knockbackSpeedY++;
+            if (isTank)
+            {
+                knockbackSpeedX += 0.5f;
+                knockbackSpeedY += 0.5f;
+            }
+            else
+            {
+                knockbackSpeedX++;
+                knockbackSpeedY++;
+            }
         }
 
     }
@@ -538,13 +557,15 @@ public class Player2 : MonoBehaviour
     {
         if (numberRespawn > 0)
         {
+            knockbackSpeedX=2;
+            knockbackSpeedY=2;
             StartCoroutine(KeepObjectAtSpawnPosition());
             numberRespawn--;
         }
         else
         {
             Debug.Log("Luffy actually dead");
-            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
     private IEnumerator KeepObjectAtSpawnPosition()
@@ -555,11 +576,11 @@ public class Player2 : MonoBehaviour
         gameObject.GetComponent<Rigidbody2D>().gravityScale = 0f;
         gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 
-        isRespawn=true;
+        isRespawn = true;
         Debug.Log("Luffy Respawn");
         // Đợi 2 giây
         yield return new WaitForSeconds(1f);
-        isRespawn=false;
+        isRespawn = false;
         gameObject.GetComponent<Rigidbody2D>().gravityScale = 2f;
 
     }
@@ -573,6 +594,7 @@ public class Player2 : MonoBehaviour
 
         // Play the die animation
         Debug.Log(gameObject.transform.position.y);
+        dieSound.Play();
         if (gameObject.transform.position.y < -17f)
         {
             // m_animator.SetTrigger("die_bottom");
@@ -587,5 +609,17 @@ public class Player2 : MonoBehaviour
         // GetComponent<SpriteRenderer>().flipX = isFlipped;
 
         SpawnObject();
+    }
+    void UpdateText()
+    {
+        if (textDame != null)
+        {
+            textDame.text = knockbackSpeedX.ToString() + "%";
+        }
+        if (textRespawn != null)
+        {
+            textRespawn.text = "x" + numberRespawn.ToString();
+        }
+
     }
 }
