@@ -592,6 +592,8 @@ public class Player1 : MonoBehaviour
     {
         if (numberRespawn > 0)
         {
+            knockbackSpeedX=2;
+            knockbackSpeedY=2;
             StartCoroutine(KeepObjectAtSpawnPosition());
             numberRespawn--;
         }
