@@ -1,4 +1,5 @@
 using SocketServer;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +16,7 @@ public class GamePlayerNetworkCommutor : MonoBehaviour
     public static int count2 = 0;
     //public Text player1State;
     //public Text player2State;
+	private float t = 0;
 
 	void Start()
     {
@@ -57,7 +59,30 @@ public class GamePlayerNetworkCommutor : MonoBehaviour
 					string message = InGameMessageGenerator.tempInGameMessage(playerA.transform.position.x, playerA.transform.position.y, globalGameState.player1State, globalGameState.currentCharT1);
 					ServerCommute.connection.sendToServer(message);
 				}
-				playerB.transform.position = new Vector3(globalGameState.playersPosition[1].x, globalGameState.playersPosition[1].y, 0);
+
+				// TODO: interpolate between frames for smoother movement 
+				// how it should work:  
+				// let's have 3 pos: start pos, end pos, new pos
+				// start pos gonna lerp to endpos, if there is no new pos coming  (endpos == newpos) 
+				// if there is new pos coming -> endpos = newpos,
+
+				if(globalGameState.startPos != null && globalGameState.endPos != null)
+				{
+					Vector3 newPos = new Vector3(globalGameState.playersPosition[1].x, globalGameState.playersPosition[1].y, 0);
+
+					if(compareVector3(globalGameState.endPos, newPos, 0.01f))
+					{
+					} else
+					{
+						globalGameState.startPos = globalGameState.endPos;
+						globalGameState.endPos = newPos;
+						t = 0;
+					}
+
+					Vector3 intermediatePos = Vector3.Lerp(globalGameState.startPos, globalGameState.endPos, t); 
+					playerB.transform.position = intermediatePos;
+					t += Time.deltaTime;	
+				}
 			}
 
 			if(globalGameState.PlayerId == 2)
@@ -75,7 +100,26 @@ public class GamePlayerNetworkCommutor : MonoBehaviour
 					string message = InGameMessageGenerator.tempInGameMessage(playerB.transform.position.x, playerB.transform.position.y, globalGameState.player2State, globalGameState.currentCharT2);
 					ServerCommute.connection.sendToServer(message);
 				}
-				playerA.transform.position = new Vector3(globalGameState.playersPosition[0].x, globalGameState.playersPosition[0].y, 0);
+
+				if(globalGameState.startPos != null && globalGameState.endPos != null)
+				{
+					Vector3 newPos = new Vector3(globalGameState.playersPosition[0].x, globalGameState.playersPosition[0].y, 0);
+
+					if(compareVector3(globalGameState.endPos, newPos, 0.01f))
+					{
+					} else
+					{
+						globalGameState.startPos = globalGameState.endPos;
+						globalGameState.endPos = newPos;
+						t = 0;
+					}
+
+					Vector3 intermediatePos = Vector3.Lerp(globalGameState.startPos, globalGameState.endPos, t); 
+
+					playerA.transform.position = intermediatePos;
+					//playerA.transform.position = new Vector3(globalGameState.playersPosition[0].x, globalGameState.playersPosition[0].y, 0);
+					t += Time.deltaTime;	
+				}
 			}
 
 		} else if(globalGameState.numPlayers == 4)
@@ -146,5 +190,10 @@ public class GamePlayerNetworkCommutor : MonoBehaviour
 			}
 		}
 
-    }
+		bool compareVector3(Vector3 a, Vector3 b, float epsilon)
+		{
+			return Vector3.Distance(a, b) <= epsilon;
+		}
+
+	}
 }

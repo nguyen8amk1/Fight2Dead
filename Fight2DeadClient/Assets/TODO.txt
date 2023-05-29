@@ -1,4 +1,11 @@
 TODAY: 
+	GLOBAL MODE: 
+		LAG WHEN PLAYING IN GLOBAL MODE, -> lerp between position (2h) []
+		OFTEN GET STUCK -> make the loop keep running (2h) []
+		FIX THESE ASAP 
+		-> tong cong 8 tieng dong ho 
+
+
 	LET'S UPDATE THE GAME CONTROL FIRST -> 2 players [X]
 
 	SEND TRANSFORM INFO TO THE OTHER PLAYER AS WELL -> whose turn to control the game 
@@ -6,11 +13,6 @@ TODAY:
 		how 4 player control should works ?? 
 			only 1 person (in each team) can control at one time 
 
-	GLOBAL MODE: 
-		LAG WHEN PLAYING IN GLOBAL MODE, -> lerp between position (2h) []
-		OFTEN GET STUCK -> make the loop keep running (2h) []
-		FIX THESE ASAP 
-		-> tong cong 8 tieng dong ho 
 
 	MAKE THE LAN MODE TRULY WORKS [], can play on different computers (2h) []
 		-> these 2 should be done today

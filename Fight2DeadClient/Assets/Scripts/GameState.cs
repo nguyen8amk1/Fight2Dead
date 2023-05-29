@@ -91,6 +91,8 @@ public sealed class GameState
     // only use in 4 player mode 
 	public int currentTeam1Player = 1;
 	public int currentTeam2Player = 3;
+	public Vector3 endPos;
+	public Vector3 startPos;
 
 	private GameState()
     {

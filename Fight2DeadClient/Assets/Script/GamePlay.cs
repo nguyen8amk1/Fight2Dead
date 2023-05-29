@@ -73,6 +73,17 @@ public class GamePlay : MonoBehaviour
 			p2t1.AddComponent<P1ControlScript>();
 			p1t2.AddComponent<P2ControlScript>();
 			p2t2.AddComponent<P2ControlScript>();
+            if(globalGameState.PlayerId == 1)
+			{
+				globalGameState.startPos = GameObject.Find(Player1_Team1).transform.position;
+				globalGameState.endPos = globalGameState.startPos;
+			}
+            else if(globalGameState.PlayerId == 2)
+			{
+				globalGameState.startPos = GameObject.Find(Player1_Team2).transform.position;
+				globalGameState.endPos = globalGameState.startPos;
+			}
+
 		} else if (globalGameState.numPlayers == 4)
 		{
 			p1t1.AddComponent<P1ControlScript>();
