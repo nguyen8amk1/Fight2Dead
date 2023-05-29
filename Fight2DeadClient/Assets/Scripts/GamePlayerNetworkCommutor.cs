@@ -11,8 +11,8 @@ public class GamePlayerNetworkCommutor : MonoBehaviour
 
     public GameObject playerA = null;
     public GameObject playerB = null;
-    int count1 = 0;
-    int count2 = 0;
+    public static int count1 = 0;
+    public static int count2 = 0;
     //public Text player1State;
     //public Text player2State;
 
@@ -48,11 +48,11 @@ public class GamePlayerNetworkCommutor : MonoBehaviour
             //player1State.text = $"Player1 State: {globalGameState.player1State}";
             if(globalGameState.onlineMode == "GLOBAL")
 			{
-				globalGameState.playerMessage = InGameMessageGenerator.tempInGameMessage(playerA.transform.position.x, playerA.transform.position.y, globalGameState.player1State);
+				globalGameState.playerMessage = InGameMessageGenerator.tempInGameMessage(playerA.transform.position.x, playerA.transform.position.y, globalGameState.player1State, globalGameState.currentCharT1);
 
 			} else if (globalGameState.onlineMode == "LAN")
 			{
-				string message = InGameMessageGenerator.tempInGameMessage(playerA.transform.position.x, playerA.transform.position.y, globalGameState.player1State);
+				string message = InGameMessageGenerator.tempInGameMessage(playerA.transform.position.x, playerA.transform.position.y, globalGameState.player1State, globalGameState.currentCharT1);
 				ServerCommute.connection.sendToServer(message);
 			}
 			playerB.transform.position = new Vector3(globalGameState.playersPosition[1].x, globalGameState.playersPosition[1].y, 0);
@@ -67,10 +67,10 @@ public class GamePlayerNetworkCommutor : MonoBehaviour
             //player2State.text = $"Player2 State: {globalGameState.player2State}";
             if(globalGameState.onlineMode == "GLOBAL")
 			{
-				globalGameState.playerMessage = InGameMessageGenerator.tempInGameMessage(playerB.transform.position.x, playerB.transform.position.y, globalGameState.player2State);
+				globalGameState.playerMessage = InGameMessageGenerator.tempInGameMessage(playerB.transform.position.x, playerB.transform.position.y, globalGameState.player2State, globalGameState.currentCharT2);
 			} else if (globalGameState.onlineMode == "LAN")
 			{
-				string message = InGameMessageGenerator.tempInGameMessage(playerB.transform.position.x, playerB.transform.position.y, globalGameState.player2State);
+				string message = InGameMessageGenerator.tempInGameMessage(playerB.transform.position.x, playerB.transform.position.y, globalGameState.player2State, globalGameState.currentCharT2);
 				ServerCommute.connection.sendToServer(message);
 			}
 			playerA.transform.position = new Vector3(globalGameState.playersPosition[0].x, globalGameState.playersPosition[0].y, 0);

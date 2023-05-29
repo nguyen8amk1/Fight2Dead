@@ -67,8 +67,13 @@ public class GamePlay : MonoBehaviour
         globalGameState.p1CharName = Player1_Team1;
         globalGameState.p2CharName = Player1_Team2;
 
-        p1t1.AddComponent<P1ControlScript>();
-        p1t2.AddComponent<P2ControlScript>();
+        if(globalGameState.numPlayers == 2)
+		{
+			p1t1.AddComponent<P1ControlScript>();
+			p2t1.AddComponent<P1ControlScript>();
+			p1t2.AddComponent<P2ControlScript>();
+			p2t2.AddComponent<P2ControlScript>();
+		}
     }
 
     private string convertToCorrectMapName(string chosenMapName)
@@ -213,20 +218,59 @@ public class GamePlay : MonoBehaviour
 
         return null;
     }
+
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if(globalGameState.numPlayers == 4)
+		{
+		} else if(globalGameState.numPlayers == 2)
+		{
+            if(globalGameState.p1Transformed) { 
+				SwitchPlayersTeam1();
+            }
+            if (globalGameState.p2Transformed)
+            {
+                SwitchPlayersTeam2();
+            }
+		}
+         
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
-
-            SwitchPlayersTeam1();
+            if(globalGameState.numPlayers == 4)
+			{
+				if(globalGameState.PlayerId == 1 || globalGameState.PlayerId == 2)
+				{
+					// TODO: set some info to send to the other side
+					//SwitchPlayersTeam1(globalGameState.PlayerId == 1);
+				}
+				if(globalGameState.PlayerId == 3 || globalGameState.PlayerId == 4)
+				{
+					// TODO: set some info to send to the other side
+					//SwitchPlayersTeam2(globalGameState.PlayerId == 3);
+				}
+			} else if(globalGameState.numPlayers == 2)
+			{
+				if(globalGameState.PlayerId == 1)
+				{
+					// TODO: set some info to send to the other side
+					SwitchPlayersTeam1();
+				}
+				if(globalGameState.PlayerId == 2)
+				{
+					// TODO: set some info to send to the other side
+					SwitchPlayersTeam2();
+				}
+			}
         }
+
+        /*
         if (Input.GetKeyDown(KeyCode.RightShift))
         {
 
             SwitchPlayersTeam2();
         }
+        */
     }
-
     void SwitchPlayersTeam1()
     {
         if (isPlayer1Active_Team1)
@@ -237,14 +281,17 @@ public class GamePlay : MonoBehaviour
             isPlayer2Active_Team1 = true;
             p1t1.SetActive(false);
             p2t1.SetActive(true);
+
             p2t1.transform.position = currentPlayerPosition;
             Debug.Log("TEAM1: PLAYER 1 SWITCH TO PLAYER 2");
 			globalGameState.camPlayer1 = p2t1;
+            globalGameState.currentCharT1 = 2; 
+            GamePlayerNetworkCommutor.count1 = 0;
+            p2t1.GetComponent<P1ControlScript>().initControlScript(Player2_Team1);
         }
-        else if (isPlayer2Active_Team1)
+        else if(isPlayer2Active_Team1)
         {
             currentPlayerPosition = p2t1.transform.position;
-
             isPlayer1Active_Team1 = true;
             isPlayer2Active_Team1 = false;
             p2t1.SetActive(false);
@@ -252,6 +299,10 @@ public class GamePlay : MonoBehaviour
             p1t1.transform.position = currentPlayerPosition;
             Debug.Log("TEAM1: PLAYER 2 SWITCH TO PLAYER 1");
 			globalGameState.camPlayer1 = p1t1;
+            globalGameState.currentCharT1 = 1; 
+            GamePlayerNetworkCommutor.count1 = 0;
+            GamePlayerNetworkCommutor.count1 = 0;
+            p1t1.GetComponent<P1ControlScript>().initControlScript(Player1_Team1);
         }
     }
 
@@ -268,8 +319,11 @@ public class GamePlay : MonoBehaviour
             p2t2.transform.position = currentPlayerPosition;
             Debug.Log("TEAM2: PLAYER 1 SWITCH TO PLAYER 2");
 			globalGameState.camPlayer2 = p2t2;
+            globalGameState.currentCharT2 = 2; 
+            p2t2.GetComponent<P2ControlScript>().initControlScript(Player2_Team2);
+            GamePlayerNetworkCommutor.count2 = 0;
         }
-        else if (isPlayer2Active_Team2)
+        else if(isPlayer2Active_Team2) 
         {
             currentPlayerPosition = p2t2.transform.position;
 
@@ -280,6 +334,67 @@ public class GamePlay : MonoBehaviour
             p1t2.transform.position = currentPlayerPosition;
             Debug.Log("TEAM2: PLAYER 2 SWITCH TO PLAYER 1");
 			globalGameState.camPlayer2 = p1t2;
+            globalGameState.currentCharT2 = 1; 
+            p1t2.GetComponent<P2ControlScript>().initControlScript(Player1_Team2);
+            GamePlayerNetworkCommutor.count2 = 0;
         }
     }
+
+        /*
+    void SwitchPlayersTeam1(bool isP1)
+    {
+        if (isP1)
+        {
+            currentPlayerPosition = p1t1.transform.position;
+
+            //isPlayer1Active_Team1 = false;
+            //isPlayer2Active_Team1 = true;
+            p1t1.SetActive(false);
+            p2t1.SetActive(true);
+
+            p2t1.transform.position = currentPlayerPosition;
+            Debug.Log("TEAM1: PLAYER 1 SWITCH TO PLAYER 2");
+			globalGameState.camPlayer1 = p2t1;
+        }
+        else 
+        {
+            currentPlayerPosition = p2t1.transform.position;
+            //isPlayer1Active_Team1 = true;
+            //isPlayer2Active_Team1 = false;
+            p2t1.SetActive(false);
+            p1t1.SetActive(true);
+            p1t1.transform.position = currentPlayerPosition;
+            Debug.Log("TEAM1: PLAYER 2 SWITCH TO PLAYER 1");
+			globalGameState.camPlayer1 = p1t1;
+        }
+    }
+
+    void SwitchPlayersTeam2(bool isP3)
+    {
+        if (isP3)
+        {
+            currentPlayerPosition = p1t2.transform.position;
+
+            //isPlayer1Active_Team2 = false;
+            //isPlayer2Active_Team2 = true;
+            p1t2.SetActive(false);
+            p2t2.SetActive(true);
+            p2t2.transform.position = currentPlayerPosition;
+            Debug.Log("TEAM2: PLAYER 1 SWITCH TO PLAYER 2");
+			globalGameState.camPlayer2 = p2t2;
+        }
+        else 
+        {
+            currentPlayerPosition = p2t2.transform.position;
+
+            //isPlayer1Active_Team2 = true;
+            //isPlayer2Active_Team2 = false;
+            p2t2.SetActive(false);
+            p1t2.SetActive(true);
+            p1t2.transform.position = currentPlayerPosition;
+            Debug.Log("TEAM2: PLAYER 2 SWITCH TO PLAYER 1");
+			globalGameState.camPlayer2 = p1t2;
+        }
+    }
+        */
 }

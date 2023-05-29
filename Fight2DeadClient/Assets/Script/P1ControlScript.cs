@@ -11,66 +11,66 @@ namespace SocketServer
 	class P1ControlScript: MonoBehaviour
 	{
 
-		float m_speed = 4.0f;
-		float m_jumpForce = 7.5f;
-		private Animator m_animator;
-		private Rigidbody2D m_body2d;
-		private Sensor m_groundSensor;
-		private bool m_grounded = false;
-		private int m_facingDirection = 1;
-		private int m_currentAttack = 0;
-		private float m_timeSinceAttack = 0.0f;
-		private float m_delayToIdle = 0.0f;
+		static float m_speed = 4.0f;
+		static float m_jumpForce = 7.5f;
+		private static Animator m_animator;
+		private static Rigidbody2D m_body2d;
+		private static Sensor m_groundSensor;
+		private static bool m_grounded = false;
+		private static int m_facingDirection = 1;
+		private static int m_currentAttack = 0;
+		private static float m_timeSinceAttack = 0.0f;
+		private static float m_delayToIdle = 0.0f;
 		//DOUBLE JUMP
-		private int m_jumpsLeft = 2;
-		private bool canDoubleJump;
+		private static int m_jumpsLeft = 2;
+		private static bool canDoubleJump;
 		//FIGHT1
-		public Transform attackPoint;
-		public float attackRangeX;
-		public float attackRangeY;
+		public static Transform attackPoint;
+		public static float attackRangeX;
+		public static float attackRangeY;
 		// public float attackoffset;
-		[SerializeField] private float attackOffsetX;
-		[SerializeField] private float attackOffsetY;
+		[SerializeField] private static float attackOffsetX;
+		[SerializeField] private static float attackOffsetY;
 
-		public LayerMask enemyLayers;
-		private bool isAttacking = false;
+		public static LayerMask enemyLayers;
+		private static bool isAttacking = false;
 		//Knockback
 		[SerializeField]
-		public float knockbackSpeedX, knockbackSpeedY, knockbackDuration;
+		public static float knockbackSpeedX, knockbackSpeedY, knockbackDuration;
 		[SerializeField]
-		private bool applyKnockback;
+		private static bool applyKnockback;
 		[SerializeField]
-		private GameObject hitParticle;
+		private static GameObject hitParticle;
 
-		private float knockbackStart;
+		private static float knockbackStart;
 
-		private int playerFacingDirection;
-		private int mylayerFacingDirection;
-		private bool playerOnLeft, knockback;
+		private static int playerFacingDirection;
+		private static int mylayerFacingDirection;
+		private static bool playerOnLeft, knockback;
 		//Ultimate cooldown
-		public float cooldownTime = 10f;
-		private float lastUltimateTime = 0f;
+		public static float cooldownTime = 10f;
+		private static float lastUltimateTime = 0f;
 
 		//Spawn
-		public Vector3 spawnPosition;
-		public int numberRespawn = 1;
-		private bool isRespawn = false;
-		private string currentState;
+		public static Vector3 spawnPosition;
+		public static int numberRespawn = 1;
+		private static bool isRespawn = false;
+		private static string currentState;
 
 
-		private GameState globalGameState = GameState.Instance;
+		private static GameState globalGameState = GameState.Instance;
 		const string PLAYER_ULTIMATE = "Ultimate";
 		//time animation of attack
-		public float animTime;
-		public float nor1Time;
-		public float nor2Time;
-		public float nor3Time;
-		public float ultimateTime;
+		public static float animTime;
+		public static float nor1Time;
+		public static float nor2Time;
+		public static float nor3Time;
+		public static float ultimateTime;
 
 		//sound effect
-		public AudioSource attackSound;
-		public AudioSource attackkSound_1;
-		public AudioSource ultimateSound;
+		public static AudioSource attackSound;
+		public static AudioSource attackkSound_1;
+		public static AudioSource ultimateSound;
 
 		//animation
 		const string PLAYER_IDLE = "Idle";
@@ -98,7 +98,8 @@ namespace SocketServer
 		const int ATTACK2 = (4);
 		const int ATTACK3 = (5);
 		const int ULTIMATE = (9);
-		void ChangeAnimationState(string newState)
+
+		public static void ChangeAnimationState(string newState)
 		{
 			if (currentState == newState) return;
 
@@ -113,7 +114,12 @@ namespace SocketServer
 
 		void Start()
 		{
-			GameObject c = GameObject.Find(globalGameState.p1CharName);
+			initControlScript(globalGameState.p1CharName);
+		}
+
+		public void initControlScript(string charname)
+		{
+			GameObject c = GameObject.Find(charname);
 			Player1 cs = c.GetComponent<Player1>();
 
 			m_speed = cs.m_speed;

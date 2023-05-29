@@ -501,7 +501,7 @@ public class LoadingSceneController : MonoBehaviour
 			else if (globalGameState.onlineMode == "GLOBAL")
 			{
 				//UDPServerConnection.Instance.inheritPortFromGLOBAL(TCPServerConnection.Instance);
-				globalGameState.playerMessage = $"{globalGameState.RoomId},{globalGameState.PlayerId},0,0,0";
+				globalGameState.playerMessage = $"{globalGameState.RoomId},{globalGameState.PlayerId},0,0,0,1,1";
 				Thread thread = new Thread(() => GlobalUDPServerConnection.listenToUDPServer(ListenToServerFactory.tempUDPListening()));
 				thread.Start();
 			}

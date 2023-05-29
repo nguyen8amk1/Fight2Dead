@@ -182,11 +182,11 @@ namespace SocketServer {
 										 Util.getKeyFrom(tokens[1]).Equals("x") && 
 										 Util.getKeyFrom(tokens[2]).Equals("y");
 				*/
-
 				int pid = Int32.Parse(tokens[0]);
 				float x = float.Parse(tokens[1]);
 				float y = float.Parse(tokens[2]);
 				int state = Int32.Parse(tokens[3]);
+				int currentChar = Int32.Parse(tokens[4]); 
 
 				/*
 					walk left(-1)
@@ -201,11 +201,27 @@ namespace SocketServer {
 				{
 					gameState.player1IsBeingControlled = true;
 					gameState.player1State = state;
+					if(currentChar != gameState.currentCharT1)
+					{
+						gameState.p1Transformed = true;
+						gameState.currentCharT1 = currentChar; 
+					} else
+					{
+						gameState.p1Transformed = false;
+					}
 				}
 				else if(pid == 2)
 				{
 					gameState.player2IsBeingControlled = true;
 					gameState.player2State = state;
+					if(currentChar != gameState.currentCharT2)
+					{
+						gameState.p2Transformed = true;
+						gameState.currentCharT2 = currentChar; 
+					} else
+					{
+						gameState.p2Transformed = false;
+					}
 				}
 
 

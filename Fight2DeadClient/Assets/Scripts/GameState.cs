@@ -73,8 +73,19 @@ public sealed class GameState
 
 	public GameObject camPlayer1 = null;
 	public GameObject camPlayer2 = null;
+
+    public int currentCharT1 = 1;
+    public int currentCharT2 = 1;
+
 	public string p1CharName;
 	public string p2CharName;
+
+	public bool player1Transform;
+	public bool player2Transform;
+	public bool player3Transform;
+	public bool player4Transform;
+	public bool p1Transformed;
+	public bool p2Transformed;
 
 	private GameState()
     {
