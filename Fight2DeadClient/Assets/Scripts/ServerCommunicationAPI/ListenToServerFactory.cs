@@ -196,6 +196,7 @@ namespace SocketServer {
 				got hit(3)
 				idle(0)
 			*/
+
 			if (gameState.numPlayers == 2)
 			{
 				if (pid == 1)

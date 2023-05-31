@@ -242,10 +242,11 @@ namespace SocketServer
 
 					while (true)
 					{
+						Console.WriteLine("Waiting for something");
 						byte[] receiveData = server.Receive(ref clientEndPoint);
 						string receivedMessage = Encoding.ASCII.GetString(receiveData);
 
-						//Console.WriteLine("Received from {0}: {1}", clientEndPoint.ToString(), receivedMessage);
+						Console.WriteLine("Received from {0}: {1}", clientEndPoint.ToString(), receivedMessage);
 
 						string[] tokens = receivedMessage.Split(',');
 						string rid = tokens[0];

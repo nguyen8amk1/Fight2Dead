@@ -1,7 +1,39 @@
 TODAY: 
+	WHAT I REALLY WANT IN THE 4 PLAYER SYSTEM ?? 
+		init: 
+			team 1 player 1: player 1
+
+		start game: 
+			team 1: 	
+				if player 1 hit tab -> transform -> let player 2 play
+					what if player 1 hit again -> still let player 2 player -> no toggle 
+				if player 2 hit tab -> transform -> let player 1 play
+			team 2: 
+				if player 3 hit tab -> transform -> let player 4 player
+				if player 4 hit tab -> transform -> let player 3 player
+
+			-> the decision to switch is in the hand of the one who is currently control 
+
+		1. THE CURRENTLY PLAYER ON EACH TEAM NEED TO BE IN SYNC [] (SHOW THE CURRENT PLAYING ON SCREEN AS WELL)
+		2. UPDATE THE CURRENTLY CHARACTER ON SCREEN []
+		3. SEPARATE CONTROL FILE FOR EACH PLAYER [] 
+		4. if (playerId == 1) {input.getkey()} []
+
+		the one not in control can't control: 
+			-> how to block the control of the one who is not the current player 
+				-> if the character is not active -> can't control player character 
+				-> block the keyboard of the not playing character as well -> each character need it's own control file ? 
+
+		WHAT DOES PLAYER IN CONTROL REALLY MEANS ? 
+			the one who actually send state information
+
+
+	FIX THE STUCK SERVER [] -> the server is not stuck -> the client is stuck 
+
+	GET STUCK -> make the loop keep running (2h) []
+
 	GLOBAL MODE: 
 		LAG WHEN PLAYING IN GLOBAL MODE, -> lerp between position (2h) []
-		OFTEN GET STUCK -> make the loop keep running (2h) []
 		FIX THESE ASAP 
 		-> tong cong 8 tieng dong ho 
 
