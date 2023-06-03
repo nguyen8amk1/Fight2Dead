@@ -19,12 +19,12 @@ namespace SocketServer
         private static bool isRunning;
 		private static GameState globalGameState = GameState.Instance;
 
-		public static void Start()
+		public static void Start(string ip)
         {
             udpClient = new UdpClient();
             isRunning = true;
 			// Set the server IP address and port number
-			IPAddress serverIP = IPAddress.Parse("103.162.20.146"); // Server IP address
+			IPAddress serverIP = IPAddress.Parse(ip); // Server IP address
 			int serverPort = 8000; // Server port
 
 			// Start a new thread to send messages to the server
@@ -58,7 +58,7 @@ namespace SocketServer
 					udpClient.Send(sendData, sendData.Length, serverIP.ToString(), serverPort);
 					Debug.Log("Sent message to server: " + messageToSend);
 
-					//Thread.Sleep(1000); // Wait for 1 second before sending the next message
+					Thread.Sleep(1); // Wait for 1 second before sending the next message
 				}
 				catch (SocketException ex)
 				{

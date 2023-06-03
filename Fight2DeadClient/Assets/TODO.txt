@@ -1,5 +1,10 @@
 TODAY: 
 	LET'S UPDATE THE GAME CONTROL FIRST -> 2 players [X]
+	FIXED THE BLOCK ON THE SERVER []
+
+	MAKE LAN WORK ACROSS COMPUTERS []
+	MAKE 1v1 FIGHTING WORK []
+	FIX THE TRANSFORM PROBLEM AS WELL 
 
 	SEND TRANSFORM INFO TO THE OTHER PLAYER AS WELL -> whose turn to control the game 
 		how 2 player character transition should work ??  updating the state between the 2 is hard 

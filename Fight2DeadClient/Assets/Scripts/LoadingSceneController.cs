@@ -490,7 +490,7 @@ public class LoadingSceneController : MonoBehaviour
                 string message = PreGameMessageGenerator.toUDPMessage();
                 ServerCommute.connection.sendToServer(message);
 
-
+                /*
                 Debug.Log("TODO: There are udp connection bug right here");
 				UDPServerConnection.Instance.inheritPortFromLAN(LANTCPServerConnection.Instance);
 
@@ -502,10 +502,16 @@ public class LoadingSceneController : MonoBehaviour
 
                 ServerCommute.listenToServerThread = ServerCommute.connection.createListenToServerThread(ListenToServerFactory.tempUDPListening());
                 ServerCommute.listenToServerThread.Start();
+                */
+
+                IPEndPoint endpoint = LANTCPServerConnection.Instance.getTcpClient().Client.RemoteEndPoint as IPEndPoint;
+                ServerCommute.listenToServerThread.Abort();
+                TCPServerConnection.Instance.close();
+                GameUDPClient.Start(endpoint.Address.ToString());
             }
 			else if (globalGameState.onlineMode == "GLOBAL")
 			{
-                GameUDPClient.Start();
+                GameUDPClient.Start("103.162.20.146");
 			}
             
             Util.toNextScene();
