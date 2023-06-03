@@ -1,22 +1,27 @@
 TODAY: 
 	CHARACTER CHANGE SOME CHARACTER CAN'T CONTROL [], (luffy can't control at all)
-		-> tonight, gonna fix this
-	OPENSLL ENCRYPTION []
-		-> the other day
+	-> tonight, gonna fix this
 
-	HORRIBLE TRANSISION BUG WHEN CHANGING, THINGS GO OUT OF CONTROL (for some characters or position) []
-		-> hu Nam 
-
+	*** -> QUAY 1 VIDEO GUI NGHIA
 	FIX: PLAYER 2 HAVE LUFFY ON THE SCREEN SOME HOW, PLAYER 1 DOES NOT HAVE IT [] -> currently still usable
 		-> quay video gui Nghia coi 
 
-	FIX: THE MOVING OF THE CHARACTER IN THE BEGINNING IS NOT GOOD () [] -> currently still usable 
-
 	HANDLE DEATH STATE (2h) (camera), player respown and stuff like that [] -> @Current
-		-> hu Nam 
+		-> hu Nam (nhac Nam la trong file nao)
 
 	MAKE 1v1 FIGHTING WORK (2h) []
+		-> hu Nam (nhac Nam la trong file nao)
+
+	HORRIBLE TRANSISION BUG WHEN CHANGING, THINGS GO OUT OF CONTROL (for some characters or position) []
 		-> hu Nam 
+		-> quay video gui Nam 
+		(i think i can fix this)
+
+
+	OPENSLL ENCRYPTION []
+		-> the other day
+
+	FIX: THE MOVING OF THE CHARACTER IN THE BEGINNING IS NOT GOOD () [] -> currently still usable 
 
 
 	DATABASE encryption password ??  

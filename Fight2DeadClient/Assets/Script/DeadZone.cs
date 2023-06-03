@@ -31,7 +31,7 @@ public class DeadZone : MonoBehaviour
             }
             if (collision.gameObject.layer == LayerMask.NameToLayer("Player2"))
             {
-                Player2 player2 = collision.gameObject.GetComponent<Player2>();
+                P2ControlScript player2 = collision.gameObject.GetComponent<P2ControlScript>();
 
                 if (player2 != null)
                 {

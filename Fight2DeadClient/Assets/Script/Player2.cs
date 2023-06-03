@@ -444,6 +444,7 @@ public class Player2 : MonoBehaviour
         Vector2 attackPointPosition = (Vector2)transform.position + new Vector2(attackOffsetX * attackDirection.x, attackOffsetY);
         Gizmos.DrawWireCube(attackPointPosition, new Vector2(attackRangeX, attackRangeY));
     }
+
     public void Damage(int playerFacingDirection)
     {
         Instantiate(hitParticle, m_animator.transform.position, Quaternion.Euler(0.0f, 0.0f, Random.Range(0.0f, 360.0f)));

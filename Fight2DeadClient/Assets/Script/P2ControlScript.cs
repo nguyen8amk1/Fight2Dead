@@ -519,7 +519,7 @@ namespace SocketServer
 			Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(attackPointPosition, new Vector2(attackRangeX, attackRangeY), 0f, enemyLayers);
 			foreach (Collider2D enemy in hitEnemies)
 			{
-				Player2 hurtComponent = enemy.GetComponent<Player2>();
+				P1ControlScript hurtComponent = enemy.GetComponent<P1ControlScript>();
 				if (hurtComponent != null)
 				{
 					////Debug.Log("Gaara Attack");
