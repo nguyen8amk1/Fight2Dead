@@ -201,14 +201,18 @@ namespace SocketServer {
 				{
 					gameState.player1IsBeingControlled = true;
 					gameState.player1State = state;
-					if(currentChar != gameState.currentCharT1)
+					if (currentChar != gameState.currentCharT1)
 					{
 						gameState.p1Transformed = true;
-						gameState.currentCharT1 = currentChar; 
+						gameState.currentCharT1 = currentChar;
+					}
+
+					/*
 					} else
 					{
 						gameState.p1Transformed = false;
 					}
+					*/
 				}
 				else if(pid == 2)
 				{
@@ -218,10 +222,13 @@ namespace SocketServer {
 					{
 						gameState.p2Transformed = true;
 						gameState.currentCharT2 = currentChar; 
-					} else
+					} 
+					/*
+					else
 					{
 						gameState.p2Transformed = false;
 					}
+					*/
 				}
 
 

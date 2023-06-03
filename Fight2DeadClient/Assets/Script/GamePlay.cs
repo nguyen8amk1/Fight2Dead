@@ -223,15 +223,24 @@ public class GamePlay : MonoBehaviour
     {
         if(globalGameState.numPlayers == 4)
 		{
+
 		} else if(globalGameState.numPlayers == 2)
 		{
-            if(globalGameState.p1Transformed) { 
-				SwitchPlayersTeam1();
-            }
-            if (globalGameState.p2Transformed)
-            {
-                SwitchPlayersTeam2();
-            }
+            if(globalGameState.player1IsBeingControlled)
+			{
+				if(globalGameState.p1Transformed) { 
+					SwitchPlayersTeam1();
+                    globalGameState.p1Transformed = false;
+				}
+			}
+            if(globalGameState.player2IsBeingControlled)
+			{
+				if (globalGameState.p2Transformed)
+				{
+					SwitchPlayersTeam2();
+                    globalGameState.p2Transformed = false;
+				}
+			}
 		}
          
         if (Input.GetKeyDown(KeyCode.Tab))

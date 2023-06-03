@@ -1,19 +1,22 @@
 TODAY: 
-	MAKE 1v1 FIGHTING WORK (2h) []
 	FIX THE TRANSFORM PROBLEM AS WELL (2h) []
-	-> tonight, gonna fix this 
+		THE TRANSFORM COMPLETELY NOT WORKING ON GLOBAL [X] (2h) -> @Current 
+		THE MOVING OF THE CHARACTER IN THE BEGINNING IS NOT GOOD () [] -> @Current 
+		TRANSFORM KINDA WORKS ON LAN MODE (2h) -> not completely though 
 
+	TRY TO MERGE WITH THE ASSEMMLBY (FIRST CHECK WHAT THE ASSSEMBLY CURRENTLY LOOK LIKE) () []
 	HANDLE DEATH STATE (2h) []
+	MAKE 1v1 FIGHTING WORK (2h) []
+	-> tonight, gonna fix this
+
+	FIX THE GLOBAL SERVER SHUT DOWN PROBLEM AFTER SWITCH TO THE LAN CLIENT (2h) []
+
 	OPENSLL ENCRYPTION []
 	-> the other day
 
 	DATABASE encryption password ??  
 
 	KIP KO ?? 
-
-
-
-
 
 	LET'S SEE HOW EVERYTHING SHOULD WORKS ?
 		the same set of keys to control 
