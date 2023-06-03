@@ -134,8 +134,6 @@ public class GamePlay : MonoBehaviour
         throw new Exception("Map name not recognize: " + chosenMapName);
 	}
 
-	private string[] charName = new string[] { "capa", "venom", "sasori", "gaara", "ken", "ryu",
-        "link","reborn","jotaro" };
 	private string convertToCorrectName(string name)
 	{
         if (name.Equals("capa"))
@@ -146,7 +144,7 @@ public class GamePlay : MonoBehaviour
         {
             return "Link";
         }
-        else if (name.Equals("sasori")) // @Temp
+        else if (name.Equals("byakuya")) 
         {
             return "Byakuya";
         }
@@ -170,7 +168,7 @@ public class GamePlay : MonoBehaviour
         {
             return "Ryu";
         }
-        else if (name.Equals("reborn")) // @Temp
+        else if (name.Equals("luffy5th")) 
         {
             return "Luffy5th";
         }

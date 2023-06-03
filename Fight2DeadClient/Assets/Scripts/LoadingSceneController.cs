@@ -203,15 +203,15 @@ public class LoadingSceneController : MonoBehaviour
     public Sprite LinkBottomLeft;
     public Sprite LinkBottomRight;
 
-    public Sprite RebornTopLeft;
-    public Sprite RebornTopRight;
-    public Sprite RebornBottomLeft;
-    public Sprite RebornBottomRight;
+    public Sprite ByakuyaTopLeft;
+    public Sprite ByakuyaTopRight;
+    public Sprite ByakuyaBottomLeft;
+    public Sprite ByakuyaBottomRight;
 
-    public Sprite SasoriTopLeft;
-    public Sprite SasoriTopRight;
-    public Sprite SasoriBottomLeft;
-    public Sprite SasoriBottomRight;
+    public Sprite Luffy5thTopLeft;
+    public Sprite Luffy5thTopRight;
+    public Sprite Luffy5thBottomLeft;
+    public Sprite Luffy5thBottomRight;
 
     public Sprite orangeBackgroundSprite;
     public Sprite whiteBackgroundSprite;
@@ -364,15 +364,17 @@ public class LoadingSceneController : MonoBehaviour
         allPlayerSprites.Add("jotaro_top_right", JotaroTopRight);
         allPlayerSprites.Add("jotaro_bottom_right", JotaroBottomRight);
 
-        allPlayerSprites.Add("reborn_top_left", RebornTopLeft);
-        allPlayerSprites.Add("reborn_bottom_left", RebornBottomLeft);
-        allPlayerSprites.Add("reborn_top_right", RebornTopRight);
-        allPlayerSprites.Add("reborn_bottom_right", RebornBottomRight);
+        // TODO: UPDATE THE DAMN REBORN AND SASORI IMAGE TO BYAKUYA AND Luffy5th 
+        allPlayerSprites.Add("byakuya_top_left", ByakuyaTopLeft);
+        allPlayerSprites.Add("byakuya_bottom_left", ByakuyaBottomLeft);
+        allPlayerSprites.Add("byakuya_top_right", ByakuyaTopRight);
+        allPlayerSprites.Add("byakuya_bottom_right", ByakuyaBottomRight);
 
-        allPlayerSprites.Add("sasori_top_left", SasoriTopLeft);
-        allPlayerSprites.Add("sasori_bottom_left", SasoriBottomLeft);
-        allPlayerSprites.Add("sasori_top_right", SasoriTopRight);
-        allPlayerSprites.Add("sasori_bottom_right", SasoriBottomRight);
+        allPlayerSprites.Add("luffy5th_top_left", Luffy5thTopLeft);
+        allPlayerSprites.Add("luffy5th_bottom_left", Luffy5thBottomLeft);
+        allPlayerSprites.Add("luffy5th_top_right", Luffy5thTopRight);
+        allPlayerSprites.Add("luffy5th_bottom_right", Luffy5thBottomRight);
+        // END UPDATE
 
         allPlayerSprites.Add("link_top_left", LinkTopLeft);
         allPlayerSprites.Add("link_bottom_left", LinkBottomLeft);

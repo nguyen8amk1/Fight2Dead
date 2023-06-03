@@ -1,13 +1,16 @@
 TODAY: 
-	OPENSLL ENCRYPTION []
-	FIX: THE MOVING OF THE CHARACTER IN THE BEGINNING IS NOT GOOD () [] 
 	FIX: THE GLOBAL SERVER SHUT DOWN PROBLEM AFTER SWITCH TO THE LAN CLIENT (2h) []
 	-> tonight, gonna fix this
+	UPDATE THE PLAYER IMAGE () [X] -> 2 characters: Byakuya, Luffy5h instead of Reborn, Sasori 
+	CHARACTER CHANGE SOME CHARACTER CAN'T CONTROL []
 
+	FIX: PLAYER 2 HAVE LUFFY ON THE SCREEN SOME HOW, PLAYER 1 DOES NOT HAVE IT -> currently still usable
+	FIX: THE MOVING OF THE CHARACTER IN THE BEGINNING IS NOT GOOD () [] -> currently still usable 
 
 
 	HANDLE DEATH STATE (2h) (camera), player respown and stuff like that [] -> @Current
 	MAKE 1v1 FIGHTING WORK (2h) []
+	OPENSLL ENCRYPTION []
 	-> the other day
 
 	DATABASE encryption password ??  

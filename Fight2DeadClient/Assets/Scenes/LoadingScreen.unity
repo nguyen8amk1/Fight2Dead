@@ -478,14 +478,14 @@ MonoBehaviour:
   LinkTopRight: {fileID: 21300000, guid: 44877ccc60a552a4a90a2f290922666f, type: 3}
   LinkBottomLeft: {fileID: 21300000, guid: de604bf16017d14439bb56d440496879, type: 3}
   LinkBottomRight: {fileID: 21300000, guid: 2fcafee385ecdbe4a998a01c66374825, type: 3}
-  RebornTopLeft: {fileID: 21300000, guid: 6c38a842011048344bc91ac7aabed9cc, type: 3}
-  RebornTopRight: {fileID: 21300000, guid: e5c56ed189410c943a8dbaff7c85acce, type: 3}
-  RebornBottomLeft: {fileID: 21300000, guid: c05bd829c4e03d24ebc0212d3e6d180a, type: 3}
-  RebornBottomRight: {fileID: 21300000, guid: f0306c3c3efc6214b83dc50eac9103cd, type: 3}
-  SasoriTopLeft: {fileID: 21300000, guid: 4883a20f39b179b429cd1c941b1f8371, type: 3}
-  SasoriTopRight: {fileID: 21300000, guid: 798348e727b6a2f45820d1a0b097a422, type: 3}
-  SasoriBottomLeft: {fileID: 21300000, guid: 550b5f46180ff91459aac2db4953acb7, type: 3}
-  SasoriBottomRight: {fileID: 21300000, guid: 0fb3f0ae3e36c4d4da5915bbba14fe19, type: 3}
+  ByakuyaTopLeft: {fileID: 21300000, guid: 14fe7c46d3d35d547a7b576db1a2cfd8, type: 3}
+  ByakuyaTopRight: {fileID: 21300000, guid: 056fe635b7d9e3848b4e851f41406e8d, type: 3}
+  ByakuyaBottomLeft: {fileID: 21300000, guid: 68c125257d6acb24995343115fffacf4, type: 3}
+  ByakuyaBottomRight: {fileID: 21300000, guid: 1fb21412f64a9d74f8a7eec100709ff3, type: 3}
+  Luffy5thTopLeft: {fileID: 21300000, guid: 15114ee2ea94cdf498846a10c894cdb9, type: 3}
+  Luffy5thTopRight: {fileID: 21300000, guid: 8dbb3aeac8fd2304596483baed06487e, type: 3}
+  Luffy5thBottomLeft: {fileID: 21300000, guid: 31facef46ea4bb94f9e874b5b93526d8, type: 3}
+  Luffy5thBottomRight: {fileID: 21300000, guid: 2f7988336910977498b1c1c4cf66d8fe, type: 3}
   orangeBackgroundSprite: {fileID: 21300000, guid: 044df612d5d487340907e39178dcf1ac, type: 3}
   whiteBackgroundSprite: {fileID: 21300000, guid: b30b7a06c89406f49b1505648f2e36b1, type: 3}
   earth: {fileID: 1947183374}

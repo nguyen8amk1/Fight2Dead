@@ -32,8 +32,8 @@ public class CharacterSelect : MonoBehaviour
     private bool enterHitP1 = false, enterHitP2 = false;
     private int enterCount1 = 0, enterCount2 = 0;
 
-    string[] charName = new string[] { "capa", "venom", "sasori", "gaara", "ken", "ryu",
-        "link","reborn","jotaro" };
+    string[] charName = new string[] { "capa", "venom", "luffy5th", "gaara", "ken", "ryu",
+        "link","byakuya","jotaro" };
 
     private bool P1Log1 = false, P1Log2 = false, P2Log1 = false, P2Log2 = false;
     private GameState globalGameState = GameState.Instance;
@@ -127,6 +127,7 @@ public class CharacterSelect : MonoBehaviour
                 if (character == charName[i])
                 {
                     p1Char[i].SetActive(true);
+                    break;
                 }
 
             }
@@ -148,6 +149,7 @@ public class CharacterSelect : MonoBehaviour
                 if (character == charName[i])
                 {
                     p2Char[i].SetActive(true);
+                    break;
                 }
 
             }
@@ -160,6 +162,7 @@ public class CharacterSelect : MonoBehaviour
                 if (character == charName[i])
                 {
                     p3Char[i].SetActive(true);
+                    break;
                 }
 
             }
@@ -181,6 +184,7 @@ public class CharacterSelect : MonoBehaviour
                 if (character == charName[i])
                 {
                     p4Char[i].SetActive(true);
+                    break;
                 }
 
             }
