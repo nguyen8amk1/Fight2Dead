@@ -192,7 +192,7 @@ namespace SocketServer
 				m_body2d.velocity = new Vector2(inputX * m_speed, m_body2d.velocity.y);
 
 				//When the attack animation run the event in animation call the function Attack()
-				Debug.Log("Gaara Ultimate");
+				//Debug.Log("Gaara Ultimate");
 
 				// Wai until the animation attack end
 				yield return new WaitForSeconds(animUltimateTime);
@@ -210,7 +210,7 @@ namespace SocketServer
 
 				ChangeAnimationState(anim);
 				//When the attack animation run the event in animation call the function Attack()
-				Debug.Log("Gaara Attack");
+				//Debug.Log("Gaara Attack");
 
 				// Wai until the animation attack end
 				yield return new WaitForSeconds(norTime);
@@ -319,7 +319,7 @@ namespace SocketServer
 					// m_grounded = false;
 					ChangeAnimationState(PLAYER_FALL);
 					globalGameState.player1State = -2;
-					//Debug.Log("Gaara Fall");
+					////Debug.Log("Gaara Fall");
 					// m_animator.SetBool("Grounded", m_grounded);
 				}
 				// -- Handle input and movement --
@@ -351,7 +351,7 @@ namespace SocketServer
 				if (!isAttacking && !knockback && !isRespawn)
 				{
 					m_body2d.velocity = new Vector2(inputX * m_speed, m_body2d.velocity.y);
-					Debug.Log("Gaara Speed");
+					//Debug.Log("Gaara Speed");
 				}
 
 				// IEnumerator PerformAttack()
@@ -360,7 +360,7 @@ namespace SocketServer
 				//     // Call one of three attack animations "Attack1", "Attack2", "Attack3"
 				//     ChangeAnimationState(PLAYER_ATTACK + m_currentAttack.ToString());
 				//     //When the attack animation run the event in animation call the function Attack()
-				//     Debug.Log("Gaara Attack");
+				//     //Debug.Log("Gaara Attack");
 
 				//     // Wai until the animation attack end
 				//     yield return new WaitForSeconds(0.3f);
@@ -460,7 +460,7 @@ namespace SocketServer
 						// m_animator.SetTrigger("Jump");
 						ChangeAnimationState(PLAYER_JUMP);
 						globalGameState.player1State = 2;
-						//Debug.Log("Gaara Jump 1");
+						////Debug.Log("Gaara Jump 1");
 
 						m_grounded = false;
 						// m_animator.SetBool("Grounded", m_grounded);
@@ -472,7 +472,7 @@ namespace SocketServer
 						// m_animator.SetTrigger("Jump");
 						ChangeAnimationState(PLAYER_JUMP);
 						globalGameState.player1State = 2;
-						//Debug.Log("Gaara Jump 2");
+						////Debug.Log("Gaara Jump 2");
 						m_body2d.velocity = new Vector2(m_body2d.velocity.x, m_jumpForce);
 						m_jumpsLeft--;
 					}
@@ -481,7 +481,7 @@ namespace SocketServer
 				else if (Mathf.Abs(inputX) > Mathf.Epsilon && m_grounded && !isAttacking)
 				{
 					// Reset timer
-					Debug.Log("Gaara Walk");
+					//Debug.Log("Gaara Walk");
 					m_delayToIdle = 0.05f;
 					// m_animator.SetInteger("AnimState", 1);
 					if (inputX == 1f)
@@ -498,7 +498,7 @@ namespace SocketServer
 				//Idle
 				else if (m_grounded && !isAttacking && !knockback)
 				{
-					Debug.Log("Gaara Idle");
+					//Debug.Log("Gaara Idle");
 					// Prevents flickering transitions to idle
 					m_delayToIdle -= Time.deltaTime;
 					// if (m_delayToIdle < 0)
@@ -523,12 +523,12 @@ namespace SocketServer
 				Player2 hurtComponent = enemy.GetComponent<Player2>();
 				if (hurtComponent != null)
 				{
-					//Debug.Log("Gaara Attack");
+					////Debug.Log("Gaara Attack");
 					hurtComponent.Damage(m_facingDirection);
 				}
 				else
 				{
-					Debug.LogError("Player2 component is null");
+					//Debug.LogError("Player2 component is null");
 				}
 			}
 		}
@@ -593,7 +593,7 @@ namespace SocketServer
 				globalGameState.player1State = HURT_RIGHT;
 				ChangeAnimationState(PLAYER_HURT_RIGHT);
 			}
-			Debug.Log("Gaara Hurt");
+			//Debug.Log("Gaara Hurt");
 		}
 
 		private IEnumerator KnockbackCurve(float horizontalForce)
@@ -644,14 +644,14 @@ namespace SocketServer
 			}
 			else
 			{
-				Debug.Log("Gaara actually dead");
+				//Debug.Log("Gaara actually dead");
 				gameObject.SetActive(false);
 			}
 		}
 
 		private IEnumerator KeepObjectAtSpawnPosition()
 		{
-			Debug.Log("Gaara Respawn");
+			//Debug.Log("Gaara Respawn");
 			// Đặt vị trí nhân vật về spawnPosition
 			gameObject.transform.position = spawnPosition;
 			// Vô hiệu hóa trọng lực
@@ -669,7 +669,7 @@ namespace SocketServer
 		{
 
 			// Play the die animation
-			Debug.Log(gameObject.transform.position.y);
+			//Debug.Log(gameObject.transform.position.y);
 			if (gameObject.transform.position.y < -17f)
 			{
 				// m_animator.SetTrigger("die_bottom");

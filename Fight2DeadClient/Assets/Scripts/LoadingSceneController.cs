@@ -3,6 +3,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Net;
+using System.Net.Sockets;
+using System.Text;
 using System.Threading;
 using UnityEngine;
 
@@ -450,6 +453,8 @@ public class LoadingSceneController : MonoBehaviour
         }
     }
 
+    private static bool isRunning = false;
+
     private void handleTransitionWhiteBackgroundState()
     {
         float t = (float)(timingVar / transitionWhiteBgDuration);
@@ -473,7 +478,7 @@ public class LoadingSceneController : MonoBehaviour
 				//ServerCommute.listenToServerThread.Abort();
 
 				ServerCommute.connection = UDPServerConnection.Instance;
-				Console.WriteLine("Started UDP listen to server thread");
+				Debug.Log("Started UDP listen to server thread");
 				
 				ServerCommute.listenToServerThread.Abort();
 				//TCPServerConnection.Instance.close();
@@ -493,17 +498,14 @@ public class LoadingSceneController : MonoBehaviour
                 TCPServerConnection.Instance.close();
                 ServerCommute.connection = UDPServerConnection.Instance;
 
-                Console.WriteLine("Started UDP listen to server thread");
+                Debug.Log("Started UDP listen to server thread");
 
                 ServerCommute.listenToServerThread = ServerCommute.connection.createListenToServerThread(ListenToServerFactory.tempUDPListening());
                 ServerCommute.listenToServerThread.Start();
             }
 			else if (globalGameState.onlineMode == "GLOBAL")
 			{
-				//UDPServerConnection.Instance.inheritPortFromGLOBAL(TCPServerConnection.Instance);
-				globalGameState.playerMessage = $"{globalGameState.RoomId},{globalGameState.PlayerId},0,0,0,1,1";
-				Thread thread = new Thread(() => GlobalUDPServerConnection.listenToUDPServer(ListenToServerFactory.tempUDPListening()));
-				thread.Start();
+                GameUDPClient.Start();
 			}
             
             Util.toNextScene();
