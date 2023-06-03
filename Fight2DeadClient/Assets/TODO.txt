@@ -1,31 +1,13 @@
 TODAY: 
-	LET'S UPDATE THE GAME CONTROL FIRST -> 2 players [X]
-	FIXED THE BLOCK ON THE SERVER []
+	MAKE 1v1 FIGHTING WORK (2h) []
+	FIX THE TRANSFORM PROBLEM AS WELL (2h) []
+	-> tonight, gonna fix this 
 
-	MAKE LAN WORK ACROSS COMPUTERS []
-	MAKE 1v1 FIGHTING WORK []
-	FIX THE TRANSFORM PROBLEM AS WELL 
-
-	SEND TRANSFORM INFO TO THE OTHER PLAYER AS WELL -> whose turn to control the game 
-		how 2 player character transition should work ??  updating the state between the 2 is hard 
-		how 4 player control should works ?? 
-
-	GLOBAL MODE: 
-		LAG WHEN PLAYING IN GLOBAL MODE, -> lerp between position (2h) []
-		OFTEN GET STUCK -> make the loop keep running (2h) []
-		FIX THESE ASAP 
-		-> tong cong 8 tieng dong ho 
-
-	MAKE THE LAN MODE TRULY WORKS [], can play on different computers (2h) []
-		-> these 2 should be done today
-
-	-> HAVE TO DONE TOMORROW
-
-
+	HANDLE DEATH STATE (2h) []
 	OPENSLL ENCRYPTION []
 	-> the other day
 
-	DATABASE encryption password ?? 
+	DATABASE encryption password ??  
 
 	KIP KO ?? 
 
@@ -79,6 +61,10 @@ TODAY:
 TODO: 
 
 DONE: 
+	LET'S UPDATE THE GAME CONTROL FIRST -> 2 players [X]
+	FIXED THE BLOCK ON THE SERVER [X]
+	MAKE LAN WORK ACROSS COMPUTERS [X]
+
 	4 PLAYER CHOSING CHARACTER SYNC FROM CHOOSEN CHARACTER AND MAP AND STUFF LIKE THAT (2h) [X]
 		-> photoshop the little thing the fly around for Luffy  
 
