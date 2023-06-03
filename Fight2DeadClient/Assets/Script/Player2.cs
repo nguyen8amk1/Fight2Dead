@@ -1,3 +1,4 @@
+using SocketServer;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -422,7 +423,7 @@ public class Player2 : MonoBehaviour
         Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(attackPointPosition, new Vector2(attackRangeX, attackRangeY), 0f, enemyLayers);
         foreach (Collider2D enemy in hitEnemies)
         {
-            Player1 hurtComponent = enemy.GetComponent<Player1>();
+            P1ControlScript hurtComponent = enemy.GetComponent<P1ControlScript>();
             if (hurtComponent != null)
             {
                 //Debug.Log("Luffy Attack");

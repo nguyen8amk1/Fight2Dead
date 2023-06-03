@@ -8502,7 +8502,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1327495836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10931,10 +10931,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player1_Team1: Captain
-  Player2_Team1: Venom
+  Player2_Team1: Captain
   Player1_Team2: Byakuya
-  Player2_Team2: Luffy5th
-  mapName: Map2
+  Player2_Team2: Link
+  mapName: Map1
   Team1: {fileID: 1442773251}
   Team2: {fileID: 480607321}
   playerObjects:

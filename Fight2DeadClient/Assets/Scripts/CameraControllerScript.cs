@@ -22,6 +22,7 @@ public class CameraControllerScript : MonoBehaviour
     public GameObject player1, player2;
     public Camera cam;
 	private float theLeftPlayerPosX;
+    private GameState globalGameState = GameState.Instance;
 
     void Start()
     {
@@ -30,52 +31,57 @@ public class CameraControllerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float edgeGap = calculateGap(Mathf.Abs(player1.transform.position.x - player2.transform.position.x));
-        float twoPlayersDistX = Mathf.Abs(player1.transform.position.x - player2.transform.position.x) + edgeGap;
-        float twoPlayersDistY = Mathf.Abs(player1.transform.position.y - player2.transform.position.y);
-
-        // TODO: change how the x, y works, both are temporary solution, won't work in general cases 
-        // how should x, y works 
-        // x should offset from whoever on the left 
-		x = (Mathf.Min(player1.transform.position.x, player2.transform.position.x) + (twoPlayersDistX/2)) - edgeGap/2;
-
-		cam.orthographicSize = (twoPlayersDistX/cam.aspect)/2;
-
-        if(nearlyEqual(player1.transform.position.y, player2.transform.position.y, 0.1f))
+        player1 = globalGameState.camPlayer1;
+        player2 = globalGameState.camPlayer2;
+        if(player1 != null && player2 != null)
 		{
-			y = player1.transform.position.y;
-		} else
-		{
-			y = Mathf.Max(player1.transform.position.y,player2.transform.position.y) - (twoPlayersDistY/2);
+			float edgeGap = calculateGap(Mathf.Abs(player1.transform.position.x - player2.transform.position.x));
+			float twoPlayersDistX = Mathf.Abs(player1.transform.position.x - player2.transform.position.x) + edgeGap;
+			float twoPlayersDistY = Mathf.Abs(player1.transform.position.y - player2.transform.position.y);
+
+			// TODO: change how the x, y works, both are temporary solution, won't work in general cases 
+			// how should x, y works 
+			// x should offset from whoever on the left 
+			x = (Mathf.Min(player1.transform.position.x, player2.transform.position.x) + (twoPlayersDistX/2)) - edgeGap/2;
+
+			cam.orthographicSize = (twoPlayersDistX/cam.aspect)/2;
+
+			if(nearlyEqual(player1.transform.position.y, player2.transform.position.y, 0.1f))
+			{
+				y = player1.transform.position.y;
+			} else
+			{
+				y = Mathf.Max(player1.transform.position.y,player2.transform.position.y) - (twoPlayersDistY/2);
+			}
+
+
+			float halfH = cam.orthographicSize;
+			float halfW = halfH * cam.aspect;
+
+			float camUpperBorder = y + halfH;
+			float camBottomBorder = y - halfH;
+			float camLeftBorder = x - halfW;
+			float camRightBorder = x + halfW;
+
+			if(camUpperBorder > 18f) 
+			{
+				y = 18f - halfH;
+			} 
+			if(camBottomBorder < -18f) 
+			{
+				y = -18f + halfH;
+			} 
+			if(camLeftBorder < -41f) 
+			{
+				x = -41f + halfW;
+			} 
+			if(camRightBorder > 35f) 
+			{
+				x = 35f - halfW;
+			}
+
+			transform.position = new Vector3(x, y, 0);
 		}
-
-
-        float halfH = cam.orthographicSize;
-        float halfW = halfH * cam.aspect;
-
-        float camUpperBorder = y + halfH;
-        float camBottomBorder = y - halfH;
-        float camLeftBorder = x - halfW;
-        float camRightBorder = x + halfW;
-
-		if(camUpperBorder > 18f) 
-		{
-            y = 18f - halfH;
-		} 
-        if(camBottomBorder < -18f) 
-		{
-            y = -18f + halfH;
-		} 
-        if(camLeftBorder < -41f) 
-		{
-            x = -41f + halfW;
-		} 
-        if(camRightBorder > 35f) 
-		{
-            x = 35f - halfW;
-		}
-
-		transform.position = new Vector3(x, y, 0);
 
     }
 

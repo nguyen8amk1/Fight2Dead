@@ -245,7 +245,7 @@ namespace SocketServer
 						byte[] receiveData = server.Receive(ref clientEndPoint);
 						string receivedMessage = Encoding.ASCII.GetString(receiveData);
 
-						Console.WriteLine("Received from {0}: {1}", clientEndPoint.ToString(), receivedMessage);
+						//Console.WriteLine("Received from {0}: {1}", clientEndPoint.ToString(), receivedMessage);
 
 						string[] tokens = receivedMessage.Split(',');
 						string rid = tokens[0];
@@ -260,7 +260,7 @@ namespace SocketServer
 								if (pid == id)
 									continue;
 								string[] ts= receivedMessage.Split(',');
-								string message = $"{ts[1]},{ts[2]},{ts[3]},{ts[4]}"; 
+								string message = $"{ts[1]},{ts[2]},{ts[3]},{ts[4]},{ts[5]},{ts[6]}"; 
 								byte[] sendData = Encoding.ASCII.GetBytes(message);
 								server.Send(sendData, sendData.Length, rooms[rid].udpPlayers[id]);
 							}
@@ -283,7 +283,7 @@ namespace SocketServer
 										continue;
 
 									string[] ts= receivedMessage.Split(',');
-									string message = $"{ts[1]},{ts[2]},{ts[3]},{ts[4]}"; 
+									string message = $"{ts[1]},{ts[2]},{ts[3]},{ts[4]},{ts[5]},{ts[6]}"; 
 									byte[] sendData = Encoding.ASCII.GetBytes(message);
 									server.Send(sendData, sendData.Length, rooms[rid].udpPlayers[id]);
 								}

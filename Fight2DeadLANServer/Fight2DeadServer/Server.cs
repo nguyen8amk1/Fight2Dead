@@ -8,6 +8,10 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Runtime.CompilerServices;
 using System.Net.NetworkInformation;
+using System.Diagnostics.Eventing.Reader;
+using System.ComponentModel;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
 
 namespace SocketServer
 {
@@ -204,27 +208,117 @@ namespace SocketServer
 
         private void udpListening()
         {
+			// Create a UDP client and bind it to a specific port
+			UdpClient udpClient = new UdpClient(udpPort);
+			Console.WriteLine("Server started. Listening for incoming messages...");
+			Dictionary<string, IPEndPoint> players = new Dictionary<string, IPEndPoint>();
+
+			while (true)
+			{
+				try
+				{
+					// Receive incoming data
+					IPEndPoint remoteEndPoint = new IPEndPoint(IPAddress.Any, 0);
+					byte[] receivedData = udpClient.Receive(ref remoteEndPoint);
+
+					// Process the received data
+					string receivedMessage = Encoding.ASCII.GetString(receivedData);
+					//Console.WriteLine($"Receive: " + receivedMessage);
+
+					string[] tokens = receivedMessage.Split(',');
+					string rid = tokens[0];
+					string pid = tokens[1];
+
+					bool theRoomIsFull = players.Count == rooms[rid].playersNum;
+					if (theRoomIsFull)
+					{
+						// TODO: send the message to all the other clients in the room  
+						foreach (string id in players.Keys)
+						{
+							if (pid == id)
+								continue;
+							string[] ts = receivedMessage.Split(',');
+							string message = $"{ts[1]},{ts[2]},{ts[3]},{ts[4]},{ts[5]},{ts[6]}";
+							byte[] sendData = Encoding.ASCII.GetBytes(message);
+							udpClient.Send(sendData, sendData.Length, players[id]);
+						}
+					}
+					else
+					{
+						bool clientAlreadyExist = players.ContainsKey(pid);
+						if (!clientAlreadyExist)
+						{
+							// TODO: add the client into the server
+							Console.WriteLine("A client added to the udp clients");
+							players.Add(pid, remoteEndPoint);
+						}
+						bool roomfull = players.Count == rooms[rid].playersNum;
+						if (roomfull)
+						{
+							// TODO: send the message to all the other clients in the room  
+							foreach (string id in players.Keys)
+							{
+								if (pid == id)
+									continue;
+
+								string[] ts = receivedMessage.Split(',');
+								string message = $"{ts[1]},{ts[2]},{ts[3]},{ts[4]},{ts[5]},{ts[6]}";
+								byte[] sendData = Encoding.ASCII.GetBytes(message);
+								udpClient.Send(sendData, sendData.Length, players[id]);
+							}
+						}
+					}
+
+
+
+					/*
+                    string rid = tokens[0];
+                    //dlog.messageReceived("ditme", 3, message);
+                    rooms[rid].udpProcess(udpClient, tokens);
+					*/
+
+					/*
+					Console.WriteLine("Received message from client " + remoteEndPoint.Address + ":" + remoteEndPoint.Port + ": " + receivedMessage);
+
+					// Send a response back to the client
+					string responseMessage = "Hello client! Your address: " + remoteEndPoint.Address + ", Port: " + remoteEndPoint.Port;
+					byte[] responseData = Encoding.ASCII.GetBytes("Hello client!");
+					udpClient.Send(responseData, responseData.Length, remoteEndPoint);
+					Console.WriteLine("Sent response to client " + remoteEndPoint.Address + ":" + remoteEndPoint.Port + ": " + responseMessage);
+					*/
+				}
+				catch (SocketException ex)
+				{
+					Console.WriteLine("SocketException: " + ex.Message);
+				}
+				catch (Exception ex)
+				{
+					Console.WriteLine("Exception: " + ex.Message);
+				}
+			}
+
+			/*
 			UdpClient udpListener = new UdpClient(udpPort);
             while (true)
             {
                 if (udpListener.Available > 0)
                 {
-					//Console.WriteLine($"Listening at port: {udpPort}");
+					Console.WriteLine($"Listening at port: {udpPort}");
                     IPEndPoint remoteEP = new IPEndPoint(IPAddress.Any, 0);
                     byte[] buffer = udpListener.Receive(ref remoteEP);
                     string message = Encoding.ASCII.GetString(buffer);
-					//Console.WriteLine($"Receive: " + message);
+					Console.WriteLine($"Receive: " + message);
                     string[] tokens = message.Split(',');
 
                     string rid = tokens[0];
-
                     //dlog.messageReceived("ditme", 3, message);
                     rooms[rid].udpProcess(udpListener, tokens);
                 }
             }
+			*/
 		}
 
-        static void Main(string[] args)
+		static void Main(string[] args)
         {
             new Server().run();
         }

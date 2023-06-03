@@ -11,10 +11,13 @@ using System.Text;
 using System.Diagnostics;
 using System.Net;
 using System.IO;
+using UnityEngine.UI;
 
 public class MenuSelectButton : MonoBehaviour
 {
     private static GameState globalGameState = GameState.Instance;
+    public InputField ipInputField;
+
     public void clickedButton()
     {
         string clickedButtonName = EventSystem.current.currentSelectedGameObject.name;
@@ -68,7 +71,9 @@ public class MenuSelectButton : MonoBehaviour
 
 
             // connect to that lan server 
-            string serverIpAddress = "192.168.86.212"; // TODO: get the ip from a form that user typed into
+            // TODO: get the ip in the input text  
+
+            string serverIpAddress = ipInputField.text.Trim(); // TODO: get the ip from a form that user typed into
 
             if (!string.IsNullOrEmpty(serverIpAddress))
             {

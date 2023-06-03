@@ -1,3 +1,4 @@
+using SocketServer;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,7 +16,7 @@ public class DeadZone : MonoBehaviour
         {
             if (collision.gameObject.layer == LayerMask.NameToLayer("Player1"))
             {
-                Player1 player1 = collision.gameObject.GetComponent<Player1>();
+                P1ControlScript player1 = collision.gameObject.GetComponent<P1ControlScript>();
                 // test11 player1 = collision.gameObject.GetComponent<test11>();
                 if (player1 != null)
                 {
