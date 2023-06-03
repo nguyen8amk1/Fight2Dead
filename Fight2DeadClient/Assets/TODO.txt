@@ -1,12 +1,13 @@
 TODAY: 
-	HANDLE DEATH STATE (2h) (camera), player respown and stuff like that []
-	MAKE 1v1 FIGHTING WORK (2h) []
-	-> tonight, gonna fix this
-
+	OPENSLL ENCRYPTION []
 	FIX: THE MOVING OF THE CHARACTER IN THE BEGINNING IS NOT GOOD () [] 
 	FIX: THE GLOBAL SERVER SHUT DOWN PROBLEM AFTER SWITCH TO THE LAN CLIENT (2h) []
+	-> tonight, gonna fix this
 
-	OPENSLL ENCRYPTION []
+
+
+	HANDLE DEATH STATE (2h) (camera), player respown and stuff like that [] -> @Current
+	MAKE 1v1 FIGHTING WORK (2h) []
 	-> the other day
 
 	DATABASE encryption password ??  
