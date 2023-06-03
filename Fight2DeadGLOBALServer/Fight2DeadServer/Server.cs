@@ -72,38 +72,46 @@ namespace SocketServer
 			while (true)
 			{
 				Console.WriteLine("Server is listening....");
-				string message = receiveNewConnectionMessage(tcpClient);
-				Console.WriteLine($"Message: {message}");
-				dlog.newConnectionMessageReceived(tcpClient, 1, message);
-
-				string[] tokens = message.Split(',');
-
-				handleLoginMessage(tokens, tcpClient, true);
-				handleRegisterMessage(tokens, tcpClient, true);
-
-				bool isNumPlayersMessage = Util.getKeyFrom(tokens[0]).Equals("numsPlayer") && Util.getKeyFrom(tokens[1]).Equals("username");
-				if (isNumPlayersMessage)
+				try
 				{
-					int playersNum = Int32.Parse(Util.getValueFrom(tokens[0]));
-					string username = Util.getValueFrom(tokens[1]);
+					string message = receiveNewConnectionMessage(tcpClient);
+					Console.WriteLine($"Message: {message}");
+					dlog.newConnectionMessageReceived(tcpClient, 1, message);
 
-					// Console.WriteLine("Received TCP message: {0}, ip: {1}, port:{2}", message, ((IPEndPoint)tcpClient.Client.RemoteEndPoint).Address, ((IPEndPoint)tcpClient.Client.RemoteEndPoint).Port);
-					// @Refactor: refactor this into different message handlers 
-					// TODO: handle in game quit game message
+					string[] tokens = message.Split(',');
 
-					// what to do: stored the player in a global wait list and match it there  
-					// have another thread waiting for enough player 
-					if (playersNum == 2)
+					handleLoginMessage(tokens, tcpClient, true);
+					handleRegisterMessage(tokens, tcpClient, true);
+
+					bool isNumPlayersMessage = Util.getKeyFrom(tokens[0]).Equals("numsPlayer") && Util.getKeyFrom(tokens[1]).Equals("username");
+					if (isNumPlayersMessage)
 					{
-						twoPlayersRoomWaitList.Add(new Player(playerId.ToString(), username, tcpClient));
-						Console.WriteLine("Current 2player waiting count: " + twoPlayersRoomWaitList.Count);
+						int playersNum = Int32.Parse(Util.getValueFrom(tokens[0]));
+						string username = Util.getValueFrom(tokens[1]);
+
+						// Console.WriteLine("Received TCP message: {0}, ip: {1}, port:{2}", message, ((IPEndPoint)tcpClient.Client.RemoteEndPoint).Address, ((IPEndPoint)tcpClient.Client.RemoteEndPoint).Port);
+						// @Refactor: refactor this into different message handlers 
+						// TODO: handle in game quit game message
+
+						// what to do: stored the player in a global wait list and match it there  
+						// have another thread waiting for enough player 
+						if (playersNum == 2)
+						{
+							twoPlayersRoomWaitList.Add(new Player(playerId.ToString(), username, tcpClient));
+							Console.WriteLine("Current 2player waiting count: " + twoPlayersRoomWaitList.Count);
+						}
+						if (playersNum == 4)
+						{
+							fourPlayersRoomWaitList.Add(new Player(playerId.ToString(), username, tcpClient));
+						}
+						playerId++;
+						Console.WriteLine("Terminate login listening loop");
+						return;
 					}
-					if (playersNum == 4)
-					{
-						fourPlayersRoomWaitList.Add(new Player(playerId.ToString(), username, tcpClient));
-					}
-					playerId++;
-					Console.WriteLine("Terminate login listening loop");
+				}
+				catch (Exception e)
+				{
+					Console.WriteLine(e.Message + ", and now stop listen to this tcp");
 					return;
 				}
 			}
@@ -219,7 +227,7 @@ namespace SocketServer
 			if (bytesRead > 0)
 				return Encoding.ASCII.GetString(buffer, 0, bytesRead);
 			*/
-            throw new Exception("DITME DEO CO CAI LON GI HET V");
+            throw new Exception("RECEIVED NOTHING");
         }
 
         private void initConnections() {

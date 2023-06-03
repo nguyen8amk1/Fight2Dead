@@ -1,17 +1,23 @@
 TODAY: 
-	FIX: THE GLOBAL SERVER SHUT DOWN PROBLEM AFTER SWITCH TO THE LAN CLIENT (2h) []
-	-> tonight, gonna fix this
-	UPDATE THE PLAYER IMAGE () [X] -> 2 characters: Byakuya, Luffy5h instead of Reborn, Sasori 
-	CHARACTER CHANGE SOME CHARACTER CAN'T CONTROL []
+	CHARACTER CHANGE SOME CHARACTER CAN'T CONTROL [], (luffy can't control at all)
+		-> tonight, gonna fix this
+	OPENSLL ENCRYPTION []
+		-> the other day
 
-	FIX: PLAYER 2 HAVE LUFFY ON THE SCREEN SOME HOW, PLAYER 1 DOES NOT HAVE IT -> currently still usable
+	HORRIBLE TRANSISION BUG WHEN CHANGING, THINGS GO OUT OF CONTROL (for some characters or position) []
+		-> hu Nam 
+
+	FIX: PLAYER 2 HAVE LUFFY ON THE SCREEN SOME HOW, PLAYER 1 DOES NOT HAVE IT [] -> currently still usable
+		-> quay video gui Nghia coi 
+
 	FIX: THE MOVING OF THE CHARACTER IN THE BEGINNING IS NOT GOOD () [] -> currently still usable 
 
-
 	HANDLE DEATH STATE (2h) (camera), player respown and stuff like that [] -> @Current
+		-> hu Nam 
+
 	MAKE 1v1 FIGHTING WORK (2h) []
-	OPENSLL ENCRYPTION []
-	-> the other day
+		-> hu Nam 
+
 
 	DATABASE encryption password ??  
 
@@ -63,6 +69,8 @@ TODAY:
 TODO: 
 
 DONE: 
+	FIX: THE GLOBAL SERVER SHUT DOWN PROBLEM AFTER SWITCH TO THE LAN CLIENT AND QUIT GAME (2h) [X]
+	UPDATE THE PLAYER IMAGE () [X] -> 2 characters: Byakuya, Luffy5h instead of Reborn, Sasori 
 	FIX THE TRANSFORM PROBLEM AS WELL (2h) []
 		THE TRANSFORM COMPLETELY NOT WORKING ON GLOBAL [X] (2h) 
 		TRANSFORM KINDA WORKS ON LAN MODE (2h) [X] -> not completely though 

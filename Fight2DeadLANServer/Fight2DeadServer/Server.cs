@@ -197,7 +197,7 @@ namespace SocketServer
 				return messageBuilder.ToString();
 			} else
 			{
-				Console.WriteLine("DITME DEO CO CAI LON GI HET V");
+				Console.WriteLine("RECEIVED NOTHING");
 			}
 			return null;
 			/*

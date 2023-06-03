@@ -22,7 +22,10 @@ public class GamePlayerNetworkCommutor : MonoBehaviour
 
 	private void OnApplicationQuit()
 	{
-		GameUDPClient.Stop();
+		if(globalGameState.onlineMode == "LAN")
+		{
+			GameUDPClient.Stop();
+		}
 	}
 
 	// Update is called once per frame
