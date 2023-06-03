@@ -688,6 +688,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_speed: 10
   m_jumpForce: 14
+  m_animator: {fileID: 0}
+  m_body2d: {fileID: 0}
+  m_groundSensor: {fileID: 0}
+  m_grounded: 0
+  m_facingDirection: 1
+  m_currentAttack: 0
+  m_timeSinceAttack: 0
+  m_delayToIdle: 0
+  m_jumpsLeft: 2
+  canDoubleJump: 0
   attackPoint: {fileID: 574876014}
   attackRangeX: 4
   attackRangeY: 6
@@ -696,15 +706,24 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 2048
+  isAttacking: 0
   knockbackSpeedX: 2
   knockbackSpeedY: 2
   knockbackDuration: 0.01
   applyKnockback: 1
   hitParticle: {fileID: 6240072112886026631, guid: 25aeb624df7917e4aa9cbe2204b85ed6, type: 3}
+  knockbackStart: 0
+  playerFacingDirection: 0
+  mylayerFacingDirection: 0
+  playerOnLeft: 0
+  knockback: 0
   cooldownTime: 10
+  lastUltimateTime: 0
   gameObject: {fileID: 112796974}
   spawnPosition: {x: -25.08, y: 14.84, z: 0}
   numberRespawn: 1
+  isRespawn: 0
+  currentState: 
   animTime: 0
   nor1Time: 0.3
   nor2Time: 0.3
@@ -713,10 +732,6 @@ MonoBehaviour:
   attackSound: {fileID: 112796982}
   attackkSound_1: {fileID: 112796982}
   ultimateSound: {fileID: 112796981}
-  dieSound: {fileID: 112796983}
-  isTank: 0
-  textDame: {fileID: 188776363}
-  textRespawn: {fileID: 1686975766}
 --- !u!50 &112796976
 Rigidbody2D:
   serializedVersion: 4
@@ -2526,6 +2541,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_speed: 8
   m_jumpForce: 14
+  m_animator: {fileID: 0}
+  m_body2d: {fileID: 0}
+  m_groundSensor: {fileID: 0}
+  m_grounded: 0
+  m_facingDirection: 1
+  m_currentAttack: 0
+  m_timeSinceAttack: 0
+  m_delayToIdle: 0
+  m_jumpsLeft: 2
+  canDoubleJump: 0
   attackPoint: {fileID: 470126462}
   attackRangeX: 6
   attackRangeY: 6
@@ -2534,15 +2559,24 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 2048
+  isAttacking: 0
   knockbackSpeedX: 2
   knockbackSpeedY: 2
   knockbackDuration: 0.01
   applyKnockback: 1
   hitParticle: {fileID: 6240072112886026631, guid: 25aeb624df7917e4aa9cbe2204b85ed6, type: 3}
+  knockbackStart: 0
+  playerFacingDirection: 0
+  mylayerFacingDirection: 0
+  playerOnLeft: 0
+  knockback: 0
   cooldownTime: 10
+  lastUltimateTime: 0
   gameObject: {fileID: 402822089}
   spawnPosition: {x: -15.5, y: 7.6, z: 0}
   numberRespawn: 1
+  isRespawn: 0
+  currentState: 
   animTime: 0
   nor1Time: 0.2
   nor2Time: 0.3
@@ -2551,10 +2585,6 @@ MonoBehaviour:
   attackSound: {fileID: 402822098}
   attackkSound_1: {fileID: 402822096}
   ultimateSound: {fileID: 402822099}
-  dieSound: {fileID: 402822100}
-  isTank: 1
-  textDame: {fileID: 1308898522}
-  textRespawn: {fileID: 1710597198}
 --- !u!50 &402822091
 Rigidbody2D:
   serializedVersion: 4
@@ -4337,6 +4367,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_speed: 10
   m_jumpForce: 14
+  m_animator: {fileID: 0}
+  m_body2d: {fileID: 0}
+  m_groundSensor: {fileID: 0}
+  m_grounded: 0
+  m_facingDirection: 1
+  m_currentAttack: 0
+  m_timeSinceAttack: 0
+  m_delayToIdle: 0
+  m_jumpsLeft: 2
+  canDoubleJump: 0
   attackPoint: {fileID: 2101631600}
   attackRangeX: 4
   attackRangeY: 4
@@ -4345,15 +4385,24 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 2048
+  isAttacking: 0
   knockbackSpeedX: 2
   knockbackSpeedY: 2
   knockbackDuration: 0.01
   applyKnockback: 1
   hitParticle: {fileID: 6240072112886026631, guid: 25aeb624df7917e4aa9cbe2204b85ed6, type: 3}
+  knockbackStart: 0
+  playerFacingDirection: 0
+  mylayerFacingDirection: 0
+  playerOnLeft: 0
+  knockback: 0
   cooldownTime: 10
+  lastUltimateTime: 0
   gameObject: {fileID: 708356646}
   spawnPosition: {x: 0, y: 0, z: 0}
   numberRespawn: 1
+  isRespawn: 0
+  currentState: 
   animTime: 0
   nor1Time: 0.3
   nor2Time: 0.5
@@ -4362,10 +4411,6 @@ MonoBehaviour:
   attackSound: {fileID: 708356654}
   attackkSound_1: {fileID: 708356654}
   ultimateSound: {fileID: 708356653}
-  dieSound: {fileID: 708356655}
-  isTank: 0
-  textDame: {fileID: 546150279}
-  textRespawn: {fileID: 1550190609}
 --- !u!50 &708356652
 Rigidbody2D:
   serializedVersion: 4
@@ -5515,6 +5560,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_speed: 8
   m_jumpForce: 14
+  m_animator: {fileID: 0}
+  m_body2d: {fileID: 0}
+  m_groundSensor: {fileID: 0}
+  m_grounded: 0
+  m_facingDirection: 1
+  m_currentAttack: 0
+  m_timeSinceAttack: 0
+  m_delayToIdle: 0
+  m_jumpsLeft: 2
+  canDoubleJump: 0
   attackPoint: {fileID: 979353181}
   attackRangeX: 4.5
   attackRangeY: 3
@@ -5523,15 +5578,24 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 2048
+  isAttacking: 0
   knockbackSpeedX: 2
   knockbackSpeedY: 2
   knockbackDuration: 0.01
   applyKnockback: 1
   hitParticle: {fileID: 6240072112886026631, guid: 25aeb624df7917e4aa9cbe2204b85ed6, type: 3}
+  knockbackStart: 0
+  playerFacingDirection: 0
+  mylayerFacingDirection: 0
+  playerOnLeft: 0
+  knockback: 0
   cooldownTime: 10
+  lastUltimateTime: 0
   gameObject: {fileID: 863426591}
   spawnPosition: {x: -15.5, y: 7.6, z: 0}
   numberRespawn: 1
+  isRespawn: 0
+  currentState: 
   animTime: 0
   nor1Time: 0.25
   nor2Time: 0.25
@@ -5540,10 +5604,6 @@ MonoBehaviour:
   attackSound: {fileID: 863426600}
   attackkSound_1: {fileID: 863426598}
   ultimateSound: {fileID: 863426601}
-  dieSound: {fileID: 863426602}
-  isTank: 1
-  textDame: {fileID: 747774736}
-  textRespawn: {fileID: 1596994534}
 --- !u!95 &863426593
 Animator:
   serializedVersion: 5
@@ -7053,6 +7113,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_speed: 8
   m_jumpForce: 14
+  m_animator: {fileID: 0}
+  m_body2d: {fileID: 0}
+  m_groundSensor: {fileID: 0}
+  m_grounded: 0
+  m_facingDirection: 1
+  m_currentAttack: 0
+  m_timeSinceAttack: 0
+  m_delayToIdle: 0
+  m_jumpsLeft: 2
+  canDoubleJump: 0
   attackPoint: {fileID: 1797617322}
   attackRangeX: 8
   attackRangeY: 4
@@ -7061,15 +7131,24 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 2048
+  isAttacking: 0
   knockbackSpeedX: 2
   knockbackSpeedY: 2
   knockbackDuration: 0.01
   applyKnockback: 1
   hitParticle: {fileID: 6240072112886026631, guid: 25aeb624df7917e4aa9cbe2204b85ed6, type: 3}
+  knockbackStart: 0
+  playerFacingDirection: 0
+  mylayerFacingDirection: 0
+  playerOnLeft: 0
+  knockback: 0
   cooldownTime: 10
+  lastUltimateTime: 0
   gameObject: {fileID: 1199172084}
   spawnPosition: {x: 0, y: 0, z: 0}
   numberRespawn: 1
+  isRespawn: 0
+  currentState: 
   animTime: 0
   nor1Time: 0.2
   nor2Time: 0.2
@@ -7078,10 +7157,6 @@ MonoBehaviour:
   attackSound: {fileID: 1199172092}
   attackkSound_1: {fileID: 1199172092}
   ultimateSound: {fileID: 1199172091}
-  dieSound: {fileID: 1199172093}
-  isTank: 1
-  textDame: {fileID: 1745224143}
-  textRespawn: {fileID: 1429328440}
 --- !u!50 &1199172086
 Rigidbody2D:
   serializedVersion: 4
@@ -9523,6 +9598,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_speed: 10
   m_jumpForce: 14
+  m_animator: {fileID: 0}
+  m_body2d: {fileID: 0}
+  m_groundSensor: {fileID: 0}
+  m_grounded: 0
+  m_facingDirection: 1
+  m_currentAttack: 0
+  m_timeSinceAttack: 0
+  m_delayToIdle: 0
+  m_jumpsLeft: 2
+  canDoubleJump: 0
   attackPoint: {fileID: 1823579214}
   attackRangeX: 7
   attackRangeY: 2
@@ -9531,15 +9616,24 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 2048
+  isAttacking: 0
   knockbackSpeedX: 2
   knockbackSpeedY: 2
   knockbackDuration: 0.01
   applyKnockback: 1
   hitParticle: {fileID: 6240072112886026631, guid: 25aeb624df7917e4aa9cbe2204b85ed6, type: 3}
+  knockbackStart: 0
+  playerFacingDirection: 0
+  mylayerFacingDirection: 0
+  playerOnLeft: 0
+  knockback: 0
   cooldownTime: 10
+  lastUltimateTime: 0
   gameObject: {fileID: 1515664659}
   spawnPosition: {x: 0, y: 0, z: 0}
   numberRespawn: 1
+  isRespawn: 0
+  currentState: 
   animTime: 0
   nor1Time: 0.22
   nor2Time: 0.22
@@ -9548,10 +9642,6 @@ MonoBehaviour:
   attackSound: {fileID: 1515664667}
   attackkSound_1: {fileID: 1515664667}
   ultimateSound: {fileID: 1515664666}
-  dieSound: {fileID: 1515664668}
-  isTank: 0
-  textDame: {fileID: 1838885481}
-  textRespawn: {fileID: 1705946190}
 --- !u!61 &1515664661
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10312,6 +10402,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_speed: 10
   m_jumpForce: 14
+  m_animator: {fileID: 0}
+  m_body2d: {fileID: 0}
+  m_groundSensor: {fileID: 0}
+  m_grounded: 0
+  m_facingDirection: 1
+  m_currentAttack: 0
+  m_timeSinceAttack: 0
+  m_delayToIdle: 0
+  m_jumpsLeft: 2
+  canDoubleJump: 0
   attackPoint: {fileID: 1397589414}
   attackRangeX: 32
   attackRangeY: 10.3
@@ -10320,15 +10420,24 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 2048
+  isAttacking: 0
   knockbackSpeedX: 2
   knockbackSpeedY: 2
   knockbackDuration: 0.01
   applyKnockback: 1
   hitParticle: {fileID: 6240072112886026631, guid: 25aeb624df7917e4aa9cbe2204b85ed6, type: 3}
+  knockbackStart: 0
+  playerFacingDirection: 0
+  mylayerFacingDirection: 0
+  playerOnLeft: 0
+  knockback: 0
   cooldownTime: 10
+  lastUltimateTime: 0
   gameObject: {fileID: 1652342533}
   spawnPosition: {x: -15.5, y: 7.6, z: 0}
   numberRespawn: 3
+  isRespawn: 0
+  currentState: 
   animTime: 0
   nor1Time: 0.3
   nor2Time: 0.3
@@ -10337,10 +10446,6 @@ MonoBehaviour:
   attackSound: {fileID: 1652342542}
   attackkSound_1: {fileID: 1652342543}
   ultimateSound: {fileID: 1652342544}
-  dieSound: {fileID: 1652342546}
-  isTank: 0
-  textDame: {fileID: 1848677114}
-  textRespawn: {fileID: 920712578}
 --- !u!82 &1652342542
 AudioSource:
   m_ObjectHideFlags: 0
