@@ -7358,7 +7358,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1491003858
 Transform:
   m_ObjectHideFlags: 0
@@ -8242,7 +8242,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1710114941
 Transform:
   m_ObjectHideFlags: 0
@@ -9113,8 +9113,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edcb0f61e6b060d43aa47b9eb5245316, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: p3
-  character: Link
   textMode: 1
   Mode: 1
   twoPlayerID: 2
@@ -9198,7 +9196,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1924604759
 Transform:
   m_ObjectHideFlags: 0
