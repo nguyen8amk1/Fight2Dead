@@ -705,7 +705,7 @@ MonoBehaviour:
   attackOffsetY: 0
   enemyLayers:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 512
   isAttacking: 0
   knockbackSpeedX: 2
   knockbackSpeedY: 2
@@ -2558,7 +2558,7 @@ MonoBehaviour:
   attackOffsetY: 0
   enemyLayers:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 512
   isAttacking: 0
   knockbackSpeedX: 2
   knockbackSpeedY: 2
@@ -4384,7 +4384,7 @@ MonoBehaviour:
   attackOffsetY: 0
   enemyLayers:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 512
   isAttacking: 0
   knockbackSpeedX: 2
   knockbackSpeedY: 2
@@ -5577,7 +5577,7 @@ MonoBehaviour:
   attackOffsetY: -1
   enemyLayers:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 512
   isAttacking: 0
   knockbackSpeedX: 2
   knockbackSpeedY: 2
@@ -7130,7 +7130,7 @@ MonoBehaviour:
   attackOffsetY: 0
   enemyLayers:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 512
   isAttacking: 0
   knockbackSpeedX: 2
   knockbackSpeedY: 2
@@ -8816,6 +8816,7 @@ GameObject:
   - component: {fileID: 1438621609}
   - component: {fileID: 1438621611}
   - component: {fileID: 1438621612}
+  - component: {fileID: 1438621613}
   m_Layer: 11
   m_Name: Byakuya
   m_TagString: Player
@@ -9385,6 +9386,64 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1438621613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1438621602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ae4a11131eb0ce458273b29e987be56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_speed: 10
+  m_jumpForce: 14
+  m_animator: {fileID: 0}
+  m_body2d: {fileID: 0}
+  m_groundSensor: {fileID: 0}
+  m_grounded: 0
+  m_facingDirection: 1
+  m_currentAttack: 0
+  m_timeSinceAttack: 0
+  m_delayToIdle: 0
+  m_jumpsLeft: 2
+  canDoubleJump: 0
+  attackPoint: {fileID: 0}
+  attackRangeX: 0
+  attackRangeY: 0
+  attackOffsetX: 0
+  attackOffsetY: 0
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  isAttacking: 0
+  knockbackSpeedX: 2
+  knockbackSpeedY: 2
+  knockbackDuration: 0.01
+  applyKnockback: 0
+  hitParticle: {fileID: 0}
+  knockbackStart: 0
+  playerFacingDirection: 0
+  mylayerFacingDirection: 0
+  playerOnLeft: 0
+  knockback: 0
+  cooldownTime: 10
+  lastUltimateTime: 0
+  gameObject: {fileID: 0}
+  spawnPosition: {x: 0, y: 0, z: 0}
+  numberRespawn: 1
+  isRespawn: 0
+  currentState: 
+  animTime: 0
+  nor1Time: 0.37
+  nor2Time: 0.37
+  nor3Time: 0.37
+  ultimateTime: 2.02
+  attackSound: {fileID: 1438621610}
+  attackkSound_1: {fileID: 1438621610}
+  ultimateSound: {fileID: 1438621609}
 --- !u!1 &1442773251
 GameObject:
   m_ObjectHideFlags: 0
@@ -9615,7 +9674,7 @@ MonoBehaviour:
   attackOffsetY: -1
   enemyLayers:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 512
   isAttacking: 0
   knockbackSpeedX: 2
   knockbackSpeedY: 2
@@ -10419,7 +10478,7 @@ MonoBehaviour:
   attackOffsetY: 6
   enemyLayers:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 512
   isAttacking: 0
   knockbackSpeedX: 2
   knockbackSpeedY: 2
