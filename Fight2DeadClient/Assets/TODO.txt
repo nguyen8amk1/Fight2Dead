@@ -1,6 +1,9 @@
 TODAY: 
 	CHARACTER CHANGE SOME CHARACTER CAN'T CONTROL [], (luffy can't control at all)
 		-> tonight, gonna fix this
+		CHECK IF PLAYER 2 AND BYAKYA CAN BE CONTROLLED NOW ?? (1h) []
+
+	FIX: FIGHTING DIRECTION PROBLEM (2h) []
 
 	*** -> QUAY 1 VIDEO GUI NGHIA
 	FIX: PLAYER 2 HAVE LUFFY ON THE SCREEN SOME HOW, PLAYER 1 DOES NOT HAVE IT [] -> currently still usable
@@ -12,13 +15,14 @@ TODAY:
 	MAKE 1v1 FIGHTING WORK (2h) []
 		-> hu Nam (nhac Nam la trong file nao)
 
+	OPENSLL ENCRYPTION []
+		-> the other day
+
+
 	HORRIBLE TRANSISION BUG WHEN CHANGING, THINGS GO OUT OF CONTROL (for some characters or position) []
 		-> hu Nam 
 		-> quay video gui Nam 
 		(i think i can fix this)
-
-	OPENSLL ENCRYPTION []
-		-> the other day
 
 	FIX: THE MOVING OF THE CHARACTER IN THE BEGINNING IS NOT GOOD () [] -> currently still usable 
 
