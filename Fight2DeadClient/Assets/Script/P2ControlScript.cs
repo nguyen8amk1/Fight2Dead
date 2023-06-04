@@ -119,61 +119,119 @@ namespace SocketServer
 		public void initControlScript(string charname)
 		{
 			GameObject c = GameObject.Find(charname);
-			Player1 cs = c.GetComponent<Player1>();
+			Player1 cs1 = c.GetComponent<Player1>();
+			Player2 cs2 = c.GetComponent<Player2>();
+			if(cs1 != null)
+			{
+				m_speed = cs1.m_speed;
+				m_jumpForce = cs1.m_jumpForce;
+				m_animator = cs1.m_animator;
+				m_body2d = cs1.m_body2d;
+				m_groundSensor = cs1.m_groundSensor;
+				m_grounded = cs1.m_grounded;
+				m_facingDirection = cs1.m_facingDirection;
+				m_currentAttack = cs1.m_currentAttack;
+				m_timeSinceAttack = cs1.m_timeSinceAttack;
+				m_delayToIdle = cs1.m_delayToIdle;
+				//DOUBLE JUMP
+				m_jumpsLeft = cs1.m_jumpsLeft;
+				canDoubleJump = cs1.canDoubleJump;
+				//FIGHT1
+				attackPoint = cs1.attackPoint;
+				attackRangeX = cs1.attackRangeX;
+				attackRangeY = cs1.attackRangeY;
+				// public float attackoffset;
+				attackOffsetX = cs1.attackOffsetX;
+				attackOffsetY = cs1.attackOffsetY;
 
-			m_speed = cs.m_speed;
-			m_jumpForce = cs.m_jumpForce;
-			m_animator = cs.m_animator;
-			m_body2d = cs.m_body2d;
-			m_groundSensor = cs.m_groundSensor;
-			m_grounded = cs.m_grounded;
-			m_facingDirection = cs.m_facingDirection;
-			m_currentAttack = cs.m_currentAttack;
-			m_timeSinceAttack = cs.m_timeSinceAttack;
-			m_delayToIdle = cs.m_delayToIdle;
-			//DOUBLE JUMP
-			m_jumpsLeft = cs.m_jumpsLeft;
-			canDoubleJump = cs.canDoubleJump;
-			//FIGHT1
-			attackPoint = cs.attackPoint;
-			attackRangeX = cs.attackRangeX;
-			attackRangeY = cs.attackRangeY;
-			// public float attackoffset;
-			attackOffsetX = cs.attackOffsetX;
-			attackOffsetY = cs.attackOffsetY;
+				enemyLayers = cs1.enemyLayers;
+				isAttacking = false;
 
-			enemyLayers = cs.enemyLayers;
-			isAttacking = false;
+				knockbackSpeedX = cs1.knockbackSpeedX;
+				knockbackSpeedY = cs1.knockbackSpeedY;
+				knockbackDuration = cs1.knockbackDuration;
+				applyKnockback = cs1.applyKnockback;
+				hitParticle = cs1.hitParticle;
 
-			knockbackSpeedX = cs.knockbackSpeedX;
-			knockbackSpeedY = cs.knockbackSpeedY;
-			knockbackDuration = cs.knockbackDuration;
-			applyKnockback = cs.applyKnockback;
-			hitParticle = cs.hitParticle;
+				knockbackStart = cs1.knockbackStart;
 
-			knockbackStart = cs.knockbackStart;
+				playerFacingDirection = cs1.playerFacingDirection;
+				mylayerFacingDirection = cs1.mylayerFacingDirection;
+				playerOnLeft = cs1.playerOnLeft;
+				knockback = cs1.knockback;
 
-			playerFacingDirection = cs.playerFacingDirection;
-			mylayerFacingDirection = cs.mylayerFacingDirection;
-			playerOnLeft = cs.playerOnLeft;
-			knockback = cs.knockback;
+				cooldownTime = 10f;
+				lastUltimateTime = 0f;
 
-			cooldownTime = 10f;
-			lastUltimateTime = 0f;
+				spawnPosition = cs1.spawnPosition;
+				numberRespawn = cs1.numberRespawn;
+				isRespawn = cs1.isRespawn;
+				currentState = cs1.currentState;
 
-			spawnPosition = cs.spawnPosition;
-			numberRespawn = cs.numberRespawn;
-			isRespawn = cs.isRespawn;
-			currentState = cs.currentState;
+				attackSound = cs1.attackSound;
+				attackSound = cs1.attackkSound_1;
+				ultimateSound = cs1.ultimateSound;
+				animTime = cs1.animTime;
+				nor1Time = cs1.nor1Time;
+				nor2Time = cs1.nor2Time;
+				nor3Time = cs1.nor3Time;
+				ultimateTime = cs1.ultimateTime;
+			} else if(cs2 != null)
+			{
+				m_speed = cs2.m_speed;
+				m_jumpForce = cs2.m_jumpForce;
+				m_animator = cs2.m_animator;
+				m_body2d = cs2.m_body2d;
+				m_groundSensor = cs2.m_groundSensor;
+				m_grounded = cs2.m_grounded;
+				m_facingDirection = cs2.m_facingDirection;
+				m_currentAttack = cs2.m_currentAttack;
+				m_timeSinceAttack = cs2.m_timeSinceAttack;
+				m_delayToIdle = cs2.m_delayToIdle;
+				//DOUBLE JUMP
+				m_jumpsLeft = cs2.m_jumpsLeft;
+				canDoubleJump = cs2.canDoubleJump;
+				//FIGHT1
+				attackPoint = cs2.attackPoint;
+				attackRangeX = cs2.attackRangeX;
+				attackRangeY = cs2.attackRangeY;
+				// public float attackoffset;
+				attackOffsetX = cs2.attackOffsetX;
+				attackOffsetY = cs2.attackOffsetY;
 
-			attackSound = cs.attackSound;
-			attackSound = cs.attackkSound_1;
-			ultimateSound = cs.ultimateSound;
-			animTime = cs.animTime;
-			nor1Time = cs.nor1Time;
-			nor2Time = cs.nor2Time;
-			nor3Time = cs.nor3Time;
-			ultimateTime = cs.ultimateTime;
+				enemyLayers = cs2.enemyLayers;
+				isAttacking = false;
+
+				knockbackSpeedX = cs2.knockbackSpeedX;
+				knockbackSpeedY = cs2.knockbackSpeedY;
+				knockbackDuration = cs2.knockbackDuration;
+				applyKnockback = cs2.applyKnockback;
+				hitParticle = cs2.hitParticle;
+
+				knockbackStart = cs2.knockbackStart;
+
+				playerFacingDirection = cs2.playerFacingDirection;
+				mylayerFacingDirection = cs2.mylayerFacingDirection;
+				playerOnLeft = cs2.playerOnLeft;
+				knockback = cs2.knockback;
+
+				cooldownTime = 10f;
+				lastUltimateTime = 0f;
+
+				spawnPosition = cs2.spawnPosition;
+				numberRespawn = cs2.numberRespawn;
+				isRespawn = cs2.isRespawn;
+				currentState = cs2.currentState;
+
+				attackSound = cs2.attackSound;
+				attackSound = cs2.attackkSound_1;
+				ultimateSound = cs2.ultimateSound;
+				animTime = cs2.animTime;
+				nor1Time = cs2.nor1Time;
+				nor2Time = cs2.nor2Time;
+				nor3Time = cs2.nor3Time;
+				ultimateTime = cs2.ultimateTime;
+			}
 
 			ChangeAnimationState(PLAYER_INTRO);
 		}

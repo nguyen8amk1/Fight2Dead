@@ -1,6 +1,6 @@
 TODAY: 
 	CHARACTER CHANGE SOME CHARACTER CAN'T CONTROL [], (luffy can't control at all)
-	-> tonight, gonna fix this
+		-> tonight, gonna fix this
 
 	*** -> QUAY 1 VIDEO GUI NGHIA
 	FIX: PLAYER 2 HAVE LUFFY ON THE SCREEN SOME HOW, PLAYER 1 DOES NOT HAVE IT [] -> currently still usable
@@ -16,7 +16,6 @@ TODAY:
 		-> hu Nam 
 		-> quay video gui Nam 
 		(i think i can fix this)
-
 
 	OPENSLL ENCRYPTION []
 		-> the other day
