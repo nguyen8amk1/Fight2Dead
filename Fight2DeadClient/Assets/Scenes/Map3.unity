@@ -705,7 +705,7 @@ MonoBehaviour:
   attackOffsetY: 0
   enemyLayers:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 512
   isAttacking: 0
   knockbackSpeedX: 2
   knockbackSpeedY: 2
@@ -2558,7 +2558,7 @@ MonoBehaviour:
   attackOffsetY: 0
   enemyLayers:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 512
   isAttacking: 0
   knockbackSpeedX: 2
   knockbackSpeedY: 2
@@ -4384,7 +4384,7 @@ MonoBehaviour:
   attackOffsetY: 0
   enemyLayers:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 512
   isAttacking: 0
   knockbackSpeedX: 2
   knockbackSpeedY: 2
@@ -5577,7 +5577,7 @@ MonoBehaviour:
   attackOffsetY: -1
   enemyLayers:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 512
   isAttacking: 0
   knockbackSpeedX: 2
   knockbackSpeedY: 2
@@ -7130,7 +7130,7 @@ MonoBehaviour:
   attackOffsetY: 0
   enemyLayers:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 512
   isAttacking: 0
   knockbackSpeedX: 2
   knockbackSpeedY: 2
@@ -9615,7 +9615,7 @@ MonoBehaviour:
   attackOffsetY: -1
   enemyLayers:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 512
   isAttacking: 0
   knockbackSpeedX: 2
   knockbackSpeedY: 2
@@ -10419,7 +10419,7 @@ MonoBehaviour:
   attackOffsetY: 6
   enemyLayers:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 512
   isAttacking: 0
   knockbackSpeedX: 2
   knockbackSpeedY: 2
