@@ -8607,6 +8607,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1327891084
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1327891085}
+  m_Layer: 0
+  m_Name: AttackPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1327891085
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1327891084}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -15.245505, y: 1.5522768, z: 0.78006744}
+  m_LocalScale: {x: 0.8506897, y: 0.89438516, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1438621607}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1397589413
 GameObject:
   m_ObjectHideFlags: 0
@@ -8809,7 +8840,6 @@ GameObject:
   - component: {fileID: 1438621607}
   - component: {fileID: 1438621606}
   - component: {fileID: 1438621605}
-  - component: {fileID: 1438621604}
   - component: {fileID: 1438621603}
   - component: {fileID: 1438621608}
   - component: {fileID: 1438621610}
@@ -8817,7 +8847,7 @@ GameObject:
   - component: {fileID: 1438621611}
   - component: {fileID: 1438621612}
   - component: {fileID: 1438621613}
-  m_Layer: 11
+  m_Layer: 9
   m_Name: Byakuya
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -8850,49 +8880,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.3755163, y: 0.8304975}
   m_EdgeRadius: 0
---- !u!114 &1438621604
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1438621602}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d5552137563b6145b5048c0a0830ce1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_speed: 10
-  m_jumpForce: 14
-  attackPoint: {fileID: 979353181}
-  attackRangeX: 38
-  attackRangeY: 3
-  attackOffsetX: 19
-  attackOffsetY: 0
-  enemyLayers:
-    serializedVersion: 2
-    m_Bits: 512
-  knockbackSpeedX: 2
-  knockbackSpeedY: 2
-  knockbackDuration: 0.01
-  applyKnockback: 1
-  hitParticle: {fileID: 6240072112886026631, guid: 25aeb624df7917e4aa9cbe2204b85ed6, type: 3}
-  cooldownTime: 10
-  gameObject: {fileID: 1438621602}
-  spawnPosition: {x: 15.2, y: 7.6, z: 0}
-  numberRespawn: 1
-  animTime: 0
-  nor1Time: 0.37
-  nor2Time: 0.37
-  nor3Time: 0.37
-  ultimateTime: 2.02
-  attackSound: {fileID: 1438621610}
-  attackkSound_1: {fileID: 1438621610}
-  ultimateSound: {fileID: 1438621609}
-  dieSound: {fileID: 1438621612}
-  isTank: 0
-  textDame: {fileID: 1275591368}
-  textRespawn: {fileID: 1304138713}
 --- !u!95 &1438621605
 Animator:
   serializedVersion: 5
@@ -8978,6 +8965,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 204953580}
+  - {fileID: 1327891085}
   m_Father: {fileID: 0}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9410,20 +9398,20 @@ MonoBehaviour:
   m_delayToIdle: 0
   m_jumpsLeft: 2
   canDoubleJump: 0
-  attackPoint: {fileID: 0}
+  attackPoint: {fileID: 1327891085}
   attackRangeX: 0
   attackRangeY: 0
   attackOffsetX: 0
   attackOffsetY: 0
   enemyLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   isAttacking: 0
   knockbackSpeedX: 2
   knockbackSpeedY: 2
   knockbackDuration: 0.01
-  applyKnockback: 0
-  hitParticle: {fileID: 0}
+  applyKnockback: 1
+  hitParticle: {fileID: 6240072112886026631, guid: 25aeb624df7917e4aa9cbe2204b85ed6, type: 3}
   knockbackStart: 0
   playerFacingDirection: 0
   mylayerFacingDirection: 0
@@ -9431,8 +9419,8 @@ MonoBehaviour:
   knockback: 0
   cooldownTime: 10
   lastUltimateTime: 0
-  gameObject: {fileID: 0}
-  spawnPosition: {x: 0, y: 0, z: 0}
+  gameObject: {fileID: 1438621602}
+  spawnPosition: {x: 15.2, y: 7.6, z: 0}
   numberRespawn: 1
   isRespawn: 0
   currentState: 
@@ -13492,13 +13480,13 @@ GameObject:
   - component: {fileID: 2144307033}
   - component: {fileID: 2144307038}
   - component: {fileID: 2144307037}
-  - component: {fileID: 2144307036}
   - component: {fileID: 2144307039}
   - component: {fileID: 2144307041}
   - component: {fileID: 2144307040}
   - component: {fileID: 2144307042}
   - component: {fileID: 2144307043}
-  m_Layer: 11
+  - component: {fileID: 2144307044}
+  m_Layer: 9
   m_Name: Luffy5th
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -13594,49 +13582,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2144307036
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2144307032}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d5552137563b6145b5048c0a0830ce1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_speed: 10
-  m_jumpForce: 14
-  attackPoint: {fileID: 1270831110}
-  attackRangeX: 24
-  attackRangeY: 60
-  attackOffsetX: 1
-  attackOffsetY: 21
-  enemyLayers:
-    serializedVersion: 2
-    m_Bits: 512
-  knockbackSpeedX: 2
-  knockbackSpeedY: 2
-  knockbackDuration: 0.01
-  applyKnockback: 1
-  hitParticle: {fileID: 6240072112886026631, guid: 25aeb624df7917e4aa9cbe2204b85ed6, type: 3}
-  cooldownTime: 10
-  gameObject: {fileID: 2144307032}
-  spawnPosition: {x: 15.2, y: 7.6, z: 0}
-  numberRespawn: 1
-  animTime: 0
-  nor1Time: 0.25
-  nor2Time: 0.35
-  nor3Time: 1
-  ultimateTime: 1.3
-  attackSound: {fileID: 2144307039}
-  attackkSound_1: {fileID: 2144307041}
-  ultimateSound: {fileID: 2144307040}
-  dieSound: {fileID: 2144307043}
-  isTank: 0
-  textDame: {fileID: 1659446894}
-  textRespawn: {fileID: 1413463176}
 --- !u!50 &2144307037
 Rigidbody2D:
   serializedVersion: 4
@@ -14164,3 +14109,61 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2144307044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2144307032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ae4a11131eb0ce458273b29e987be56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_speed: 4
+  m_jumpForce: 7.5
+  m_animator: {fileID: 0}
+  m_body2d: {fileID: 0}
+  m_groundSensor: {fileID: 0}
+  m_grounded: 0
+  m_facingDirection: 1
+  m_currentAttack: 0
+  m_timeSinceAttack: 0
+  m_delayToIdle: 0
+  m_jumpsLeft: 2
+  canDoubleJump: 0
+  attackPoint: {fileID: 1270831110}
+  attackRangeX: 0
+  attackRangeY: 0
+  attackOffsetX: 0
+  attackOffsetY: 0
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 512
+  isAttacking: 0
+  knockbackSpeedX: 2
+  knockbackSpeedY: 2
+  knockbackDuration: 0.01
+  applyKnockback: 1
+  hitParticle: {fileID: 6240072112886026631, guid: 25aeb624df7917e4aa9cbe2204b85ed6, type: 3}
+  knockbackStart: 0
+  playerFacingDirection: 0
+  mylayerFacingDirection: 0
+  playerOnLeft: 0
+  knockback: 0
+  cooldownTime: 10
+  lastUltimateTime: 0
+  gameObject: {fileID: 2144307032}
+  spawnPosition: {x: 15.3, y: 7.6, z: 0}
+  numberRespawn: 1
+  isRespawn: 0
+  currentState: 
+  animTime: 0
+  nor1Time: 0.25
+  nor2Time: 0.35
+  nor3Time: 1
+  ultimateTime: 1.3
+  attackSound: {fileID: 2144307039}
+  attackkSound_1: {fileID: 2144307041}
+  ultimateSound: {fileID: 2144307040}
