@@ -45,7 +45,9 @@ public class GamePlay : MonoBehaviour
 
     public GameObject swtichParticle;
     private GameState globalGameState = GameState.Instance;
-
+    //team win UI
+    public GameObject team1win;
+    public GameObject team2win;
     void Start()
     {
         Player1_Team1 = convertToCorrectName(globalGameState.chosenCharacters[0]);
@@ -76,10 +78,10 @@ public class GamePlay : MonoBehaviour
         UI_p1t2 = FindUIObjectByName(Player1_Team2 + "UI");
         UI_p2t2 = FindUIObjectByName(Player2_Team2 + "UI");
 
-        SetUI(UI_p1t1,1);
-        SetUI(UI_p2t1,1);
-        SetUI(UI_p1t2,2);
-        SetUI(UI_p2t2,2);
+        SetUI(UI_p1t1, 1);
+        SetUI(UI_p2t1, 1);
+        SetUI(UI_p1t2, 2);
+        SetUI(UI_p2t2, 2);
 
         UI_p2t1.SetActive(false);
         UI_p2t2.SetActive(false);
@@ -90,13 +92,13 @@ public class GamePlay : MonoBehaviour
         globalGameState.p1CharName = Player1_Team1;
         globalGameState.p2CharName = Player1_Team2;
 
-        if(globalGameState.numPlayers == 2)
-		{
-			p1t1.AddComponent<P1ControlScript>();
-			p2t1.AddComponent<P1ControlScript>();
-			p1t2.AddComponent<P2ControlScript>();
-			p2t2.AddComponent<P2ControlScript>();
-		}
+        if (globalGameState.numPlayers == 2)
+        {
+            p1t1.AddComponent<P1ControlScript>();
+            p2t1.AddComponent<P1ControlScript>();
+            p1t2.AddComponent<P2ControlScript>();
+            p2t2.AddComponent<P2ControlScript>();
+        }
     }
 
     private string convertToCorrectMapName(string chosenMapName)
@@ -132,10 +134,10 @@ public class GamePlay : MonoBehaviour
             return "Map5";
         }
         throw new Exception("Map name not recognize: " + chosenMapName);
-	}
+    }
 
-	private string convertToCorrectName(string name)
-	{
+    private string convertToCorrectName(string name)
+    {
         if (name.Equals("capa"))
         {
             return "Captain";
@@ -144,7 +146,7 @@ public class GamePlay : MonoBehaviour
         {
             return "Link";
         }
-        else if (name.Equals("byakuya")) 
+        else if (name.Equals("byakuya"))
         {
             return "Byakuya";
         }
@@ -168,15 +170,15 @@ public class GamePlay : MonoBehaviour
         {
             return "Ryu";
         }
-        else if (name.Equals("luffy5th")) 
+        else if (name.Equals("luffy5th"))
         {
             return "Luffy5th";
         }
 
         throw new Exception("Name not recognize: " + name);
-	}
+    }
 
-	private void SetMap(string objectName)
+    private void SetMap(string objectName)
     {
         foreach (GameObject obj in mapObjects)
         {
@@ -276,55 +278,58 @@ public class GamePlay : MonoBehaviour
 
     void Update()
     {
-        if(globalGameState.numPlayers == 4)
-		{
+        if (globalGameState.numPlayers == 4)
+        {
 
-		} else if(globalGameState.numPlayers == 2)
-		{
-            if(globalGameState.player1IsBeingControlled)
-			{
-				if(globalGameState.p1Transformed) { 
-					SwitchPlayersTeam1();
+        }
+        else if (globalGameState.numPlayers == 2)
+        {
+            if (globalGameState.player1IsBeingControlled)
+            {
+                if (globalGameState.p1Transformed)
+                {
+                    SwitchPlayersTeam1();
                     globalGameState.p1Transformed = false;
-				}
-			}
-            if(globalGameState.player2IsBeingControlled)
-			{
-				if (globalGameState.p2Transformed)
-				{
-					SwitchPlayersTeam2();
+                }
+            }
+            if (globalGameState.player2IsBeingControlled)
+            {
+                if (globalGameState.p2Transformed)
+                {
+                    SwitchPlayersTeam2();
                     globalGameState.p2Transformed = false;
-				}
-			}
-		}
-         
+                }
+            }
+        }
+
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            if(globalGameState.numPlayers == 4)
-			{
-				if(globalGameState.PlayerId == 1 || globalGameState.PlayerId == 2)
-				{
-					// TODO: set some info to send to the other side
-					//SwitchPlayersTeam1(globalGameState.PlayerId == 1);
-				}
-				if(globalGameState.PlayerId == 3 || globalGameState.PlayerId == 4)
-				{
-					// TODO: set some info to send to the other side
-					//SwitchPlayersTeam2(globalGameState.PlayerId == 3);
-				}
-			} else if(globalGameState.numPlayers == 2)
-			{
-				if(globalGameState.PlayerId == 1)
-				{
-					// TODO: set some info to send to the other side
-					SwitchPlayersTeam1();
-				}
-				if(globalGameState.PlayerId == 2)
-				{
-					// TODO: set some info to send to the other side
-					SwitchPlayersTeam2();
-				}
-			}
+            if (globalGameState.numPlayers == 4)
+            {
+                if (globalGameState.PlayerId == 1 || globalGameState.PlayerId == 2)
+                {
+                    // TODO: set some info to send to the other side
+                    //SwitchPlayersTeam1(globalGameState.PlayerId == 1);
+                }
+                if (globalGameState.PlayerId == 3 || globalGameState.PlayerId == 4)
+                {
+                    // TODO: set some info to send to the other side
+                    //SwitchPlayersTeam2(globalGameState.PlayerId == 3);
+                }
+            }
+            else if (globalGameState.numPlayers == 2)
+            {
+                if (globalGameState.PlayerId == 1)
+                {
+                    // TODO: set some info to send to the other side
+                    SwitchPlayersTeam1();
+                }
+                if (globalGameState.PlayerId == 2)
+                {
+                    // TODO: set some info to send to the other side
+                    SwitchPlayersTeam2();
+                }
+            }
         }
 
         /*
@@ -371,15 +376,21 @@ public class GamePlay : MonoBehaviour
                 UI_p1t2.SetActive(true);
         }
 
+        */
         if (p1t1 == null && p2t1 == null)
         {
-            Debug.Log("TEAM 2 WIN");
+            // Debug.Log("TEAM 2 WIN");
+            gameObject.team2win(true);
+
+            //Scene transition 
         }
         if (p1t2 == null && p2t2 == null)
         {
-            Debug.Log("TEAM 1 WIN");
+            // Debug.Log("TEAM 1 WIN");
+            gameObject.team1win(true);
+
+            //Scene transition 
         }
-        */
     }
     void SwitchPlayersTeam1()
     {
@@ -400,8 +411,8 @@ public class GamePlay : MonoBehaviour
             Instantiate(swtichParticle, currentPlayerPosition, Quaternion.identity);
 
             Debug.Log("TEAM1: PLAYER 1 SWITCH TO PLAYER 2");
-			globalGameState.camPlayer1 = p2t1;
-            globalGameState.currentCharT1 = 2; 
+            globalGameState.camPlayer1 = p2t1;
+            globalGameState.currentCharT1 = 2;
             GamePlayerNetworkCommutor.count1 = 0;
             p2t1.GetComponent<P1ControlScript>().initControlScript(Player2_Team1);
         }
@@ -420,8 +431,8 @@ public class GamePlay : MonoBehaviour
             currentPlayerPosition.y -= 1.0f;
             Instantiate(swtichParticle, currentPlayerPosition, Quaternion.identity);
             Debug.Log("TEAM1: PLAYER 2 SWITCH TO PLAYER 1");
-			globalGameState.camPlayer1 = p1t1;
-            globalGameState.currentCharT1 = 1; 
+            globalGameState.camPlayer1 = p1t1;
+            globalGameState.currentCharT1 = 1;
             GamePlayerNetworkCommutor.count1 = 0;
             GamePlayerNetworkCommutor.count1 = 0;
             p1t1.GetComponent<P1ControlScript>().initControlScript(Player1_Team1);
@@ -450,8 +461,8 @@ public class GamePlay : MonoBehaviour
             currentPlayerPosition.y -= 1.0f;
             Instantiate(swtichParticle, currentPlayerPosition, Quaternion.identity);
             Debug.Log("TEAM2: PLAYER 1 SWITCH TO PLAYER 2");
-			globalGameState.camPlayer2 = p2t2;
-            globalGameState.currentCharT2 = 2; 
+            globalGameState.camPlayer2 = p2t2;
+            globalGameState.currentCharT2 = 2;
             p2t2.GetComponent<P2ControlScript>().initControlScript(Player2_Team2);
             GamePlayerNetworkCommutor.count2 = 0;
         }
@@ -471,8 +482,8 @@ public class GamePlay : MonoBehaviour
             currentPlayerPosition.y -= 1.0f;
             Instantiate(swtichParticle, currentPlayerPosition, Quaternion.identity);
             Debug.Log("TEAM2: PLAYER 2 SWITCH TO PLAYER 1");
-			globalGameState.camPlayer2 = p1t2;
-            globalGameState.currentCharT2 = 1; 
+            globalGameState.camPlayer2 = p1t2;
+            globalGameState.currentCharT2 = 1;
             p1t2.GetComponent<P2ControlScript>().initControlScript(Player1_Team2);
             GamePlayerNetworkCommutor.count2 = 0;
         }
@@ -494,7 +505,7 @@ public class GamePlay : MonoBehaviour
         }
     }
 
-    void SetUI(GameObject parentObject,int team)
+    void SetUI(GameObject parentObject, int team)
     {
         if (parentObject != null)
         {
@@ -505,10 +516,10 @@ public class GamePlay : MonoBehaviour
             {
                 //Get the RectTransform of the child object
                 RectTransform childRectTransform = childTransform.GetComponent<RectTransform>();
-                if(team==1)
-                SetUIPositionTeam1(childRectTransform);
-                if(team==2)
-                SetUIPositionTeam2(childRectTransform);
+                if (team == 1)
+                    SetUIPositionTeam1(childRectTransform);
+                if (team == 2)
+                    SetUIPositionTeam2(childRectTransform);
                 if (childRectTransform == null)
                 {
                     Debug.LogError("Child object does not have a RectTransform component.");
@@ -538,66 +549,66 @@ public class GamePlay : MonoBehaviour
     {
         if (childRectTransform != null)
         {
-            Vector2 newPosition = new Vector2(1500f, 67.32f);
+            Vector2 newPosition = new Vector2(400f, 67.32f);
             childRectTransform.anchoredPosition = newPosition;
         }
     }
 
-        /*
-    void SwitchPlayersTeam1(bool isP1)
+    /*
+void SwitchPlayersTeam1(bool isP1)
+{
+    if (isP1)
     {
-        if (isP1)
-        {
-            currentPlayerPosition = p1t1.transform.position;
+        currentPlayerPosition = p1t1.transform.position;
 
-            //isPlayer1Active_Team1 = false;
-            //isPlayer2Active_Team1 = true;
-            p1t1.SetActive(false);
-            p2t1.SetActive(true);
+        //isPlayer1Active_Team1 = false;
+        //isPlayer2Active_Team1 = true;
+        p1t1.SetActive(false);
+        p2t1.SetActive(true);
 
-            p2t1.transform.position = currentPlayerPosition;
-            Debug.Log("TEAM1: PLAYER 1 SWITCH TO PLAYER 2");
-			globalGameState.camPlayer1 = p2t1;
-        }
-        else 
-        {
-            currentPlayerPosition = p2t1.transform.position;
-            //isPlayer1Active_Team1 = true;
-            //isPlayer2Active_Team1 = false;
-            p2t1.SetActive(false);
-            p1t1.SetActive(true);
-            p1t1.transform.position = currentPlayerPosition;
-            Debug.Log("TEAM1: PLAYER 2 SWITCH TO PLAYER 1");
-			globalGameState.camPlayer1 = p1t1;
-        }
+        p2t1.transform.position = currentPlayerPosition;
+        Debug.Log("TEAM1: PLAYER 1 SWITCH TO PLAYER 2");
+        globalGameState.camPlayer1 = p2t1;
     }
-
-    void SwitchPlayersTeam2(bool isP3)
+    else 
     {
-        if (isP3)
-        {
-            currentPlayerPosition = p1t2.transform.position;
-
-            //isPlayer1Active_Team2 = false;
-            //isPlayer2Active_Team2 = true;
-            p1t2.SetActive(false);
-            p2t2.SetActive(true);
-            p2t2.transform.position = currentPlayerPosition;
-            Debug.Log("TEAM2: PLAYER 1 SWITCH TO PLAYER 2");
-			globalGameState.camPlayer2 = p2t2;
-        }
-        else 
-        {
-            currentPlayerPosition = p2t2.transform.position;
-
-            //isPlayer1Active_Team2 = true;
-            //isPlayer2Active_Team2 = false;
-            p2t2.SetActive(false);
-            p1t2.SetActive(true);
-            p1t2.transform.position = currentPlayerPosition;
-            Debug.Log("TEAM2: PLAYER 2 SWITCH TO PLAYER 1");
-			globalGameState.camPlayer2 = p1t2;
-        }
+        currentPlayerPosition = p2t1.transform.position;
+        //isPlayer1Active_Team1 = true;
+        //isPlayer2Active_Team1 = false;
+        p2t1.SetActive(false);
+        p1t1.SetActive(true);
+        p1t1.transform.position = currentPlayerPosition;
+        Debug.Log("TEAM1: PLAYER 2 SWITCH TO PLAYER 1");
+        globalGameState.camPlayer1 = p1t1;
     }
-        */
+}
+
+void SwitchPlayersTeam2(bool isP3)
+{
+    if (isP3)
+    {
+        currentPlayerPosition = p1t2.transform.position;
+
+        //isPlayer1Active_Team2 = false;
+        //isPlayer2Active_Team2 = true;
+        p1t2.SetActive(false);
+        p2t2.SetActive(true);
+        p2t2.transform.position = currentPlayerPosition;
+        Debug.Log("TEAM2: PLAYER 1 SWITCH TO PLAYER 2");
+        globalGameState.camPlayer2 = p2t2;
+    }
+    else 
+    {
+        currentPlayerPosition = p2t2.transform.position;
+
+        //isPlayer1Active_Team2 = true;
+        //isPlayer2Active_Team2 = false;
+        p2t2.SetActive(false);
+        p1t2.SetActive(true);
+        p1t2.transform.position = currentPlayerPosition;
+        Debug.Log("TEAM2: PLAYER 2 SWITCH TO PLAYER 1");
+        globalGameState.camPlayer2 = p1t2;
+    }
+}
+    */
 }
