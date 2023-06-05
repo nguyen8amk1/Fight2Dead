@@ -5,71 +5,72 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace SocketServer
 {
 	class P2ControlScript: MonoBehaviour
 	{
-		static float m_speed = 4.0f;
-		static float m_jumpForce = 7.5f;
-		private static Animator m_animator;
-		private static Rigidbody2D m_body2d;
-		private static Sensor m_groundSensor;
-		private static bool m_grounded = false;
-		private static int m_facingDirection = 1;
-		private static int m_currentAttack = 0;
-		private static float m_timeSinceAttack = 0.0f;
-		private static float m_delayToIdle = 0.0f;
+		 float m_speed = 4.0f;
+		 float m_jumpForce = 7.5f;
+		private  Animator m_animator;
+		private  Rigidbody2D m_body2d;
+		private  Sensor m_groundSensor;
+		private  bool m_grounded = false;
+		private  int m_facingDirection = 1;
+		private  int m_currentAttack = 0;
+		private  float m_timeSinceAttack = 0.0f;
+		private  float m_delayToIdle = 0.0f;
 		//DOUBLE JUMP
-		private static int m_jumpsLeft = 2;
-		private static bool canDoubleJump;
+		private  int m_jumpsLeft = 2;
+		private  bool canDoubleJump;
 		//FIGHT1
-		public static Transform attackPoint;
-		public static float attackRangeX;
-		public static float attackRangeY;
+		public  Transform attackPoint;
+		public  float attackRangeX;
+		public  float attackRangeY;
 		// public float attackoffset;
-		[SerializeField] private static float attackOffsetX;
-		[SerializeField] private static float attackOffsetY;
+		[SerializeField] private  float attackOffsetX;
+		[SerializeField] private  float attackOffsetY;
 
-		public static LayerMask enemyLayers;
-		private static bool isAttacking = false;
+		public  LayerMask enemyLayers;
+		private  bool isAttacking = false;
 		//Knockback
 		[SerializeField]
-		public static float knockbackSpeedX, knockbackSpeedY, knockbackDuration;
+		public  float knockbackSpeedX, knockbackSpeedY, knockbackDuration;
 		[SerializeField]
-		private static bool applyKnockback;
+		private  bool applyKnockback;
 		[SerializeField]
-		private static GameObject hitParticle;
+		private  GameObject hitParticle;
 
-		private static float knockbackStart;
+		private  float knockbackStart;
 
-		private static int playerFacingDirection;
-		private static int mylayerFacingDirection;
-		private static bool playerOnLeft, knockback;
+		private  int playerFacingDirection;
+		private  int mylayerFacingDirection;
+		private  bool playerOnLeft, knockback;
 		//Ultimate cooldown
-		public static float cooldownTime = 10f;
-		private static float lastUltimateTime = 0f;
+		public  float cooldownTime = 10f;
+		private  float lastUltimateTime = 0f;
 
 		//Spawn
-		public static Vector3 spawnPosition;
-		public static int numberRespawn = 1;
-		private static bool isRespawn = false;
-		private static string currentState;
+		public  Vector3 spawnPosition;
+		public  int numberRespawn = 1;
+		private  bool isRespawn = false;
+		private  string currentState;
 
 
-		private static GameState globalGameState = GameState.Instance;
+		private  GameState globalGameState = GameState.Instance;
 		const string PLAYER_ULTIMATE = "Ultimate";
 		//time animation of attack
-		public static float animTime;
-		public static float nor1Time;
-		public static float nor2Time;
-		public static float nor3Time;
-		public static float ultimateTime;
+		public  float animTime;
+		public  float nor1Time;
+		public  float nor2Time;
+		public  float nor3Time;
+		public  float ultimateTime;
 
 		//sound effect
-		public static AudioSource attackSound;
-		public static AudioSource attackkSound_1;
-		public static AudioSource ultimateSound;
+		public  AudioSource attackSound;
+		public  AudioSource attackkSound_1;
+		public  AudioSource ultimateSound;
 
 		//animation
 		const string PLAYER_IDLE = "Idle";
@@ -98,7 +99,10 @@ namespace SocketServer
 		const int ATTACK3 = (5);
 		const int ULTIMATE = (9);
 
-		public static void ChangeAnimationState(string newState)
+		public Text textDame;
+		public Text textRespawn;
+
+		public  void ChangeAnimationState(string newState)
 		{
 			if (currentState == newState) return;
 
@@ -239,6 +243,7 @@ namespace SocketServer
 		// Update is called once per frame
 		void Update()
 		{
+			UpdateText();
 			float inputX = 0f;
 			IEnumerator PerformUltimate(float animUltimateTime)
 			{
@@ -761,5 +766,17 @@ namespace SocketServer
 		{
 			animTime = a;
 		}
+		void UpdateText()
+		{
+			if (textDame != null)
+			{
+				textDame.text = knockbackSpeedX.ToString() + "%";
+			}
+			if (textRespawn != null)
+			{
+				textRespawn.text = "x" + numberRespawn.ToString();
+			}
+		}
+
 	}
 }

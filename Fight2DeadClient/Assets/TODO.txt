@@ -1,8 +1,9 @@
 TODAY: 
-	UPDATE THE UI INFO WHEN FIGHTING (1h) []
-
 	FIX: FIGHTING DIRECTION PROBLEM (2h) []
+
 	FIX: WHEN CHOSING BYAKUYAN THE FORMAT IS NOT CORRECT []
+
+	UPDATE THE UI INFO WHEN FIGHTING (1h) []
 
 	HANDLE DEATH STATE (2h) (camera), player respown and stuff like that [] -> @Current
 		-> hu Nam (nhac Nam la trong file nao)
