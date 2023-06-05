@@ -45,9 +45,15 @@ public class GamePlay : MonoBehaviour
 
     public GameObject swtichParticle;
     private GameState globalGameState = GameState.Instance;
+
     //team win UI
     public GameObject team1win;
     public GameObject team2win;
+
+    // Winning mechs  
+    public static int p1Lives = 2;
+    public static int p2Lives = 2;
+
     void Start()
     {
         Player1_Team1 = convertToCorrectName(globalGameState.chosenCharacters[0]);
@@ -276,6 +282,8 @@ public class GamePlay : MonoBehaviour
         return null;
     }
 
+    public int counter1 = 0;
+
     void Update()
     {
         if (globalGameState.numPlayers == 4)
@@ -377,6 +385,7 @@ public class GamePlay : MonoBehaviour
         }
 
         */
+
         if (p1t1 == null && p2t1 == null)
         {
             // Debug.Log("TEAM 2 WIN");

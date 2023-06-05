@@ -9,8 +9,10 @@ public class DeadZone : MonoBehaviour
     public Collider2D Right;
     public Collider2D Bottom;
     public Collider2D Top;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        *
         // Kiểm tra nếu nhân vật va chạm với vùng chết
         if (collision.gameObject.CompareTag("Player"))
         {
@@ -37,7 +39,6 @@ public class DeadZone : MonoBehaviour
                 {
                     Debug.Log("Luffy Die");
                     player2.Die();
-
                 }
                 else
                 {
