@@ -238,7 +238,7 @@ namespace SocketServer
 							if (pid == id)
 								continue;
 							string[] ts = receivedMessage.Split(',');
-							string message = $"{ts[1]},{ts[2]},{ts[3]},{ts[4]},{ts[5]},{ts[6]},{ts[7]},{ts[8]}";
+							string message = $"{ts[1]},{ts[2]},{ts[3]},{ts[4]},{ts[5]},{ts[6]},{ts[7]}";
 							byte[] sendData = Encoding.ASCII.GetBytes(message);
 							udpClient.Send(sendData, sendData.Length, players[id]);
 						}
@@ -262,7 +262,7 @@ namespace SocketServer
 									continue;
 
 								string[] ts = receivedMessage.Split(',');
-								string message = $"{ts[1]},{ts[2]},{ts[3]},{ts[4]},{ts[5]},{ts[6]},{ts[7]},{ts[8]}";
+								string message = $"{ts[1]},{ts[2]},{ts[3]},{ts[4]},{ts[5]},{ts[6]},{ts[7]}";
 								byte[] sendData = Encoding.ASCII.GetBytes(message);
 								udpClient.Send(sendData, sendData.Length, players[id]);
 							}
