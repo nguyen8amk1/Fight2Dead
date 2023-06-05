@@ -1,11 +1,19 @@
 TODAY: 
 	HANDLE DEATH STATE (2h) (camera), player respown and stuff like that [] 
 		-> hoi Nam khi nao no chet 
+		DEATH STATE NOT IN SYNC -> player not spawn on the other player screen  
+			-> LET'S MAKE IT SPAWN CORRECTLY FIRST
+			-> LET HAVE THE OTHER PLAYER DIE AND THEN SEE WHAT'S THE UNITY ENGINE IS DOING -> @Current
+			-> seems like the player is just change position when 
+
+	HANDLE WIN (2h) []
 
 	GAME OVER SCREEN Nam () []
 
+	-> BOTH OF THESE WILL BE DONE 
+
+
 	OPENSLL ENCRYPTION []
-		-> the other day
 
 	/*
 	HORRIBLE TRANSISION BUG WHEN CHANGING, THINGS GO OUT OF CONTROL (for some characters or position) []
