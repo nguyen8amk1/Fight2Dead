@@ -12,13 +12,13 @@ public class DeadZone : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        
         // Kiểm tra nếu nhân vật va chạm với vùng chết
         if (collision.gameObject.CompareTag("Player"))
         {
-            if (collision.gameObject.layer == LayerMask.NameToLayer("Player1"))
-            {
                 P1ControlScript player1 = collision.gameObject.GetComponent<P1ControlScript>();
-                // test11 player1 = collision.gameObject.GetComponent<test11>();
+                P2ControlScript player2 = collision.gameObject.GetComponent<P2ControlScript>();
+                
                 if (player1 != null)
                 {
                     Debug.Log("Gaara Die");
@@ -29,21 +29,31 @@ public class DeadZone : MonoBehaviour
                 {
                     Debug.Log("Error");
                 }
-            }
-            if (collision.gameObject.layer == LayerMask.NameToLayer("Player2"))
-            {
-                P2ControlScript player2 = collision.gameObject.GetComponent<P2ControlScript>();
 
                 if (player2 != null)
                 {
-                    Debug.Log("Luffy Die");
+                    Debug.Log("Gaara Die");
                     player2.Die();
+
                 }
                 else
                 {
                     Debug.Log("Error");
                 }
-            }
+            // if (collision.gameObject.layer == LayerMask.NameToLayer("Player2"))
+            // {
+            //     P2ControlScript player2 = collision.gameObject.GetComponent<P2ControlScript>();
+
+            //     if (player2 != null)
+            //     {
+            //         Debug.Log("Luffy Die");
+            //         player2.Die();
+            //     }
+            //     else
+            //     {
+            //         Debug.Log("Error");
+            //     }
+            // }
 
         }
     }
