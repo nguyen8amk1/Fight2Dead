@@ -712,12 +712,12 @@ namespace SocketServer
 
 		private void MoveObjectToSpawnPosition()
 		{
-			if (GamePlay.p2Lives > 0)
+			if (numberRespawn > 0)
 			{
 				knockbackSpeedX = 2;
 				knockbackSpeedY = 2;
 				StartCoroutine(KeepObjectAtSpawnPosition());
-				GamePlay.p2Lives--;
+				numberRespawn--;
 			}
 			else
 			{
@@ -804,7 +804,7 @@ namespace SocketServer
 				}
 				if (textRespawn != null)
 				{
-					textRespawn.text = "x" + GamePlay.p2Lives.ToString();
+					textRespawn.text = "x" + numberRespawn.ToString();
 					globalGameState.p2respawn = textRespawn.text;
 				}
 			}

@@ -340,13 +340,6 @@ public class GamePlay : MonoBehaviour
             }
         }
 
-        /*
-        if (Input.GetKeyDown(KeyCode.RightShift))
-        {
-
-            SwitchPlayersTeam2();
-        }
-        Debug.Log(isPlayer1Active_Team1);
         //auto switch to another player if 1 player left all numberRespawn
         if (p1t1 == null)
         {
@@ -384,7 +377,6 @@ public class GamePlay : MonoBehaviour
                 UI_p1t2.SetActive(true);
         }
 
-        */
 
         if (p1t1 == null && p2t1 == null)
         {

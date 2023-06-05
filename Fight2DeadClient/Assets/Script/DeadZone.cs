@@ -12,7 +12,6 @@ public class DeadZone : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        *
         // Kiểm tra nếu nhân vật va chạm với vùng chết
         if (collision.gameObject.CompareTag("Player"))
         {
