@@ -78,9 +78,9 @@ public class Player2 : MonoBehaviour
     public AudioSource dieSound;
     //tanker check
     public bool isTank;
+
     //dame UI
     public Text textDame;
-
     public Text textRespawn;
 
     public int playerFacingDirection;

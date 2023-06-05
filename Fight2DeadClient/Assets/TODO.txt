@@ -1,24 +1,27 @@
 TODAY: 
-	UPDATE THE UI INFO WHEN FIGHTING (1h) []
+	THE DAMAGE PERCENTAGE NOT UPDATE CORRECTLY () [] -> make it sync correctly 
+		after this merge to ASSEMBLY 
+		-> it is calculated on both player but not in sync because... 
+			vd: player1 can decrease the thing but not update to the other one 
+			-> sync the damn thing and update it when it's controlled 
+			-> add more info to the server :)) 
 
 	HANDLE DEATH STATE (2h) (camera), player respown and stuff like that [] 
-		-> hu Nam (nhac Nam la trong file nao)
-
+		-> hoi Nam khi nao no chet 
 	GAME OVER SCREEN Nam () []
 
+
 	FIX: WHEN CHOSING BYAKUYAN THE FORMAT IS NOT CORRECT []
-
-	-> FINISH THIS TODAY (tong cong: 7 hours -> 12h dem phai xong het, mong la v)
-
 
 	OPENSLL ENCRYPTION []
 		-> the other day
 
-
+	/*
 	HORRIBLE TRANSISION BUG WHEN CHANGING, THINGS GO OUT OF CONTROL (for some characters or position) []
 		-> hu Nam 
 		-> quay video gui Nam 
 		(i think i can fix this)
+		*/
 
 	FIX: THE MOVING OF THE CHARACTER IN THE BEGINNING IS NOT GOOD () [] -> currently still usable 
 
@@ -73,6 +76,10 @@ TODAY:
 TODO: 
 
 DONE: 
+	FIX: KNOCKBACK ANIMATION NOT UPDATED ON THE ONE WHO ACTUALLY FIGHT (ONLY THE ONE GET'S HURT SCREEN SEE IT) [] -> current it's a feature :v 
+	UPDATE THE UI INFO WHEN FIGHTING (1h) [X]
+		-> CHINH LAI UI INFO SIZE -> NAM
+
 	FIX: FIGHTING DIRECTION PROBLEM (2h) [X]
 	CHANGE SOME CHARACTER CAN'T CONTROL [X], (luffy can't control at all)
 		-> tonight, gonna fix this

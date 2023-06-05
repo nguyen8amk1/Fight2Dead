@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player1 : MonoBehaviour
 {
@@ -63,7 +64,10 @@ public class Player1 : MonoBehaviour
     public AudioSource attackkSound_1;
     public AudioSource ultimateSound;
 
-    void Start()
+	public Text textDame;
+	public Text textRespawn;
+
+	void Start()
     {
 
         m_animator = GetComponent<Animator>();
