@@ -380,14 +380,14 @@ public class GamePlay : MonoBehaviour
         if (p1t1 == null && p2t1 == null)
         {
             // Debug.Log("TEAM 2 WIN");
-            gameObject.team2win(true);
+            team2win.SetActive(false);
 
             //Scene transition 
         }
         if (p1t2 == null && p2t2 == null)
         {
             // Debug.Log("TEAM 1 WIN");
-            gameObject.team1win(true);
+            team1win.SetActive(false);
 
             //Scene transition 
         }
