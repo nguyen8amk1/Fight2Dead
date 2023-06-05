@@ -58,11 +58,11 @@ public class GamePlayerNetworkCommutor : MonoBehaviour
 				//player1State.text = $"Player1 State: {globalGameState.player1State}";
 				if(globalGameState.onlineMode == "GLOBAL")
 				{
-					globalGameState.playerMessage = InGameMessageGenerator.tempInGameMessage(playerA.transform.position.x, playerA.transform.position.y, globalGameState.player1State, globalGameState.currentCharT1);
+					globalGameState.playerMessage = InGameMessageGenerator.tempInGameMessage(playerA.transform.position.x, playerA.transform.position.y, globalGameState.player1State, globalGameState.currentCharT1, globalGameState.p1dame, globalGameState.p1respawn);
 
 				} else if (globalGameState.onlineMode == "LAN")
 				{
-					string message = InGameMessageGenerator.tempInGameMessage(playerA.transform.position.x, playerA.transform.position.y, globalGameState.player1State, globalGameState.currentCharT1);
+					string message = InGameMessageGenerator.tempInGameMessage(playerA.transform.position.x, playerA.transform.position.y, globalGameState.player1State, globalGameState.currentCharT1, globalGameState.p1dame, globalGameState.p1respawn);
 					//ServerCommute.connection.sendToServer(message);
 					globalGameState.playerMessage = message;
 				}
@@ -78,10 +78,10 @@ public class GamePlayerNetworkCommutor : MonoBehaviour
 				//player2State.text = $"Player2 State: {globalGameState.player2State}";
 				if(globalGameState.onlineMode == "GLOBAL")
 				{
-					globalGameState.playerMessage = InGameMessageGenerator.tempInGameMessage(playerB.transform.position.x, playerB.transform.position.y, globalGameState.player2State, globalGameState.currentCharT2);
+					globalGameState.playerMessage = InGameMessageGenerator.tempInGameMessage(playerB.transform.position.x, playerB.transform.position.y, globalGameState.player2State, globalGameState.currentCharT2, globalGameState.p2dame, globalGameState.p2respawn);
 				} else if (globalGameState.onlineMode == "LAN")
 				{
-					string message = InGameMessageGenerator.tempInGameMessage(playerB.transform.position.x, playerB.transform.position.y, globalGameState.player2State, globalGameState.currentCharT2);
+					string message = InGameMessageGenerator.tempInGameMessage(playerB.transform.position.x, playerB.transform.position.y, globalGameState.player2State, globalGameState.currentCharT2, globalGameState.p2dame, globalGameState.p2respawn);
 					//ServerCommute.connection.sendToServer(message);
 					globalGameState.playerMessage = message;
 				}

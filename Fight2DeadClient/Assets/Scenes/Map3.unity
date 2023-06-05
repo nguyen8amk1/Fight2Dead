@@ -8845,7 +8845,7 @@ GameObject:
   - component: {fileID: 1438621609}
   - component: {fileID: 1438621611}
   - component: {fileID: 1438621612}
-  m_Layer: 11
+  m_Layer: 9
   m_Name: Byakuya
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -13491,7 +13491,7 @@ GameObject:
   - component: {fileID: 2144307040}
   - component: {fileID: 2144307042}
   - component: {fileID: 2144307043}
-  m_Layer: 11
+  m_Layer: 9
   m_Name: Luffy5th
   m_TagString: Player
   m_Icon: {fileID: 0}

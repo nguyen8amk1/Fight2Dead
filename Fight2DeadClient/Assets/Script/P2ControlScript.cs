@@ -778,13 +778,28 @@ namespace SocketServer
 		}
 		void UpdateText()
 		{
-			if (textDame != null)
+			if(globalGameState.player2IsBeingControlled)
 			{
-				textDame.text = knockbackSpeedX.ToString() + "%";
-			}
-			if (textRespawn != null)
+				if (textDame != null)
+				{
+					textDame.text = globalGameState.p2dame;
+				}
+				if (textRespawn != null)
+				{
+					textRespawn.text = globalGameState.p2respawn;
+				}
+			} else
 			{
-				textRespawn.text = "x" + numberRespawn.ToString();
+				if (textDame != null)
+				{
+					textDame.text = knockbackSpeedX.ToString() + "%";
+					globalGameState.p2dame = textDame.text;
+				}
+				if (textRespawn != null)
+				{
+					textRespawn.text = "x" + numberRespawn.ToString();
+					globalGameState.p2respawn = textRespawn.text;
+				}
 			}
 		}
 

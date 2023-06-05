@@ -186,7 +186,9 @@ namespace SocketServer {
 				float x = float.Parse(tokens[1]);
 				float y = float.Parse(tokens[2]);
 				int state = Int32.Parse(tokens[3]);
-				int currentChar = Int32.Parse(tokens[4]); 
+				int currentChar = Int32.Parse(tokens[4]);
+				string dame = tokens[5];
+				string respawn = tokens[6];
 
 				/*
 					walk left(-1)
@@ -200,6 +202,9 @@ namespace SocketServer {
 				if(pid == 1)
 				{
 					gameState.player1IsBeingControlled = true;
+					gameState.p1dame = dame;
+					gameState.p1respawn = respawn;
+
 					gameState.player1State = state;
 					if (currentChar != gameState.currentCharT1)
 					{
@@ -217,6 +222,10 @@ namespace SocketServer {
 				else if(pid == 2)
 				{
 					gameState.player2IsBeingControlled = true;
+
+					gameState.p2dame = dame;
+					gameState.p2respawn = respawn;
+
 					gameState.player2State = state;
 					if(currentChar != gameState.currentCharT2)
 					{

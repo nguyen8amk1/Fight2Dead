@@ -1,17 +1,8 @@
 TODAY: 
-	THE DAMAGE PERCENTAGE NOT UPDATE CORRECTLY () [] -> make it sync correctly 
-		after this merge to ASSEMBLY 
-		-> it is calculated on both player but not in sync because... 
-			vd: player1 can decrease the thing but not update to the other one 
-			-> sync the damn thing and update it when it's controlled 
-			-> add more info to the server :)) 
-
 	HANDLE DEATH STATE (2h) (camera), player respown and stuff like that [] 
 		-> hoi Nam khi nao no chet 
+
 	GAME OVER SCREEN Nam () []
-
-
-	FIX: WHEN CHOSING BYAKUYAN THE FORMAT IS NOT CORRECT []
 
 	OPENSLL ENCRYPTION []
 		-> the other day
@@ -76,6 +67,15 @@ TODAY:
 TODO: 
 
 DONE: 
+	PLAYER 2 CAN'T BE FIGHT :v [X]
+	THE DAMAGE PERCENTAGE NOT UPDATE CORRECTLY () [X] -> make it sync correctly 
+		after this merge to ASSEMBLY 
+		-> it is calculated on both player but not in sync because... 
+			vd: player1 can decrease the thing but not update to the other one 
+			-> sync the damn thing and update it when it's controlled 
+			-> add more info to the server :)) 
+
+		UPDATE THE GLOBAL/LAN SERVER [X] 
 	FIX: KNOCKBACK ANIMATION NOT UPDATED ON THE ONE WHO ACTUALLY FIGHT (ONLY THE ONE GET'S HURT SCREEN SEE IT) [] -> current it's a feature :v 
 	UPDATE THE UI INFO WHEN FIGHTING (1h) [X]
 		-> CHINH LAI UI INFO SIZE -> NAM

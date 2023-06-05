@@ -87,6 +87,12 @@ public sealed class GameState
 	public bool p1Transformed;
 	public bool p2Transformed;
 
+	public string p1dame;
+	public string p1respawn;
+
+	public string p2dame;
+	public string p2respawn;
+
 	private GameState()
     {
 

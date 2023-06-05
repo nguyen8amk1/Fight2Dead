@@ -775,15 +775,32 @@ namespace SocketServer
 		{
 			animTime = a;
 		}
+
 		void UpdateText()
 		{
-			if (textDame != null)
+			if(globalGameState.player1IsBeingControlled)
 			{
-				textDame.text = knockbackSpeedX.ToString() + "%";
-			}
-			if (textRespawn != null)
+				if (textDame != null)
+				{
+					textDame.text = globalGameState.p1dame;
+				}
+				if (textRespawn != null)
+				{
+					textRespawn.text = globalGameState.p1respawn;
+				}
+			} else
 			{
-				textRespawn.text = "x" + numberRespawn.ToString();
+				if (textDame != null)
+				{
+					textDame.text = knockbackSpeedX.ToString() + "%";
+					globalGameState.p1dame = textDame.text;
+				}
+				if (textRespawn != null)
+				{
+					textRespawn.text = "x" + numberRespawn.ToString();
+					globalGameState.p1respawn = textRespawn.text;
+				}
+
 			}
 		}
 	}
