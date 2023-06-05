@@ -529,7 +529,7 @@ public class GamePlay : MonoBehaviour
     {
         if (childRectTransform != null)
         {
-            Vector2 newPosition = new Vector2(192.155f, 136.57f);
+            Vector2 newPosition = new Vector2(93.055f, 67.32f);
             childRectTransform.anchoredPosition = newPosition;
         }
     }
@@ -538,7 +538,7 @@ public class GamePlay : MonoBehaviour
     {
         if (childRectTransform != null)
         {
-            Vector2 newPosition = new Vector2(1730f, 136.57f);
+            Vector2 newPosition = new Vector2(1500f, 67.32f);
             childRectTransform.anchoredPosition = newPosition;
         }
     }
