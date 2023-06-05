@@ -1,15 +1,12 @@
 TODAY: 
-	FIX: FIGHTING DIRECTION PROBLEM (2h) []
-
-	FIX: WHEN CHOSING BYAKUYAN THE FORMAT IS NOT CORRECT []
-
 	UPDATE THE UI INFO WHEN FIGHTING (1h) []
 
-	HANDLE DEATH STATE (2h) (camera), player respown and stuff like that [] -> @Current
+	HANDLE DEATH STATE (2h) (camera), player respown and stuff like that [] 
 		-> hu Nam (nhac Nam la trong file nao)
 
-	MAKE 1v1 FIGHTING WORK (2h) []
-		-> hu Nam (nhac Nam la trong file nao)
+	GAME OVER SCREEN Nam () []
+
+	FIX: WHEN CHOSING BYAKUYAN THE FORMAT IS NOT CORRECT []
 
 	-> FINISH THIS TODAY (tong cong: 7 hours -> 12h dem phai xong het, mong la v)
 
@@ -76,6 +73,7 @@ TODAY:
 TODO: 
 
 DONE: 
+	FIX: FIGHTING DIRECTION PROBLEM (2h) [X]
 	CHANGE SOME CHARACTER CAN'T CONTROL [X], (luffy can't control at all)
 		-> tonight, gonna fix this
 		CHECK IF PLAYER 2 AND BYAKYA CAN BE CONTROLLED NOW ?? (1h) []

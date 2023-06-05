@@ -45,7 +45,7 @@ namespace SocketServer
 
 		private  float knockbackStart;
 
-		private  int playerFacingDirection;
+		// private  int m_facingDirection;
 		private  int mylayerFacingDirection;
 		private  bool playerOnLeft, knockback;
 		//Ultimate cooldown
@@ -132,7 +132,7 @@ namespace SocketServer
 			m_body2d = cs.m_body2d;
 			m_groundSensor = cs.m_groundSensor;
 			m_grounded = cs.m_grounded;
-			m_facingDirection = cs.m_facingDirection;
+			//m_facingDirection = cs.m_facingDirection;
 			m_currentAttack = cs.m_currentAttack;
 			m_timeSinceAttack = cs.m_timeSinceAttack;
 			m_delayToIdle = cs.m_delayToIdle;
@@ -158,7 +158,7 @@ namespace SocketServer
 
 			knockbackStart = cs.knockbackStart;
 
-			playerFacingDirection = cs.playerFacingDirection;
+			m_facingDirection = cs.m_facingDirection;
 			mylayerFacingDirection = cs.mylayerFacingDirection;
 			playerOnLeft = cs.playerOnLeft;
 			knockback = cs.knockback;
@@ -232,11 +232,15 @@ namespace SocketServer
 			{
 				if (globalGameState.player1State == -1)
 				{
+					inputX = -1f;
+					m_facingDirection = -1;
 					GetComponent<SpriteRenderer>().flipX = true;
 					ChangeAnimationState(PLAYER_RUN);
 				}
 				else if (globalGameState.player1State == 1)
 				{
+					inputX = 1f;
+					m_facingDirection = 1;
 					GetComponent<SpriteRenderer>().flipX = false;
 					ChangeAnimationState(PLAYER_RUN);
 				}
@@ -554,15 +558,15 @@ namespace SocketServer
 			return knockback;
 		}
 
-		public void Damage(int playerFacingDirection)
+		public void Damage(int m_facingDirection)
 		{
 			Instantiate(hitParticle, m_animator.transform.position, Quaternion.Euler(0.0f, 0.0f, UnityEngine.Random.Range(0.0f, 360.0f)));
 
-			if (playerFacingDirection == 1 && m_facingDirection == 1 || playerFacingDirection != 1 && m_facingDirection != 1)
+			if (m_facingDirection == 1 && m_facingDirection == 1 || m_facingDirection != 1 && m_facingDirection != 1)
 			{
 				playerOnLeft = true;
 			}
-			if (playerFacingDirection != 1 && m_facingDirection == 1 || playerFacingDirection == 1 && m_facingDirection != 1)
+			if (m_facingDirection != 1 && m_facingDirection == 1 || m_facingDirection == 1 && m_facingDirection != 1)
 			{
 				playerOnLeft = false;
 			}
@@ -574,18 +578,18 @@ namespace SocketServer
 			{
 
 				//Knockback
-				Knockback(playerFacingDirection);
+				Knockback(m_facingDirection);
 				knockbackSpeedX++;
 			}
 
 		}
 
-		public void Knockback(int playerFacingDirection)
+		public void Knockback(int m_facingDirection)
 		{
 			knockback = true;
 			knockbackStart = Time.time;
 
-			float horizontalForce = knockbackSpeedX * playerFacingDirection;
+			float horizontalForce = knockbackSpeedX * m_facingDirection;
 
 			StartCoroutine(KnockbackCurve(horizontalForce));
 			if (playerOnLeft)

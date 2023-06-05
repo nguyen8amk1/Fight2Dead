@@ -289,11 +289,15 @@ namespace SocketServer
 			{
 				if (globalGameState.player2State == -1)
 				{
+					inputX = -1f;
+					m_facingDirection = -1;
 					GetComponent<SpriteRenderer>().flipX = true;
 					ChangeAnimationState(PLAYER_RUN);
 				}
 				else if (globalGameState.player2State == 1)
 				{
+					inputX = 1f;
+					m_facingDirection = 1;
 					GetComponent<SpriteRenderer>().flipX = false;
 					ChangeAnimationState(PLAYER_RUN);
 				}
