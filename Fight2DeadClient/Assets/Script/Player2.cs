@@ -76,6 +76,7 @@ public class Player2 : MonoBehaviour
     public AudioSource attackkSound_1;
     public AudioSource ultimateSound;
     public AudioSource dieSound;
+
     //tanker check
     public bool isTank;
 

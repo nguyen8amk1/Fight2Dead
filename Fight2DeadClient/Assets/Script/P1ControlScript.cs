@@ -72,6 +72,7 @@ namespace SocketServer
 		public static AudioSource attackSound;
 		public static AudioSource attackkSound_1;
 		public static AudioSource ultimateSound;
+		public static AudioSource dieSound;
 
 		//animation
 		const string PLAYER_IDLE = "Idle";
@@ -175,6 +176,8 @@ namespace SocketServer
 				attackSound = cs1.attackSound;
 				attackSound = cs1.attackkSound_1;
 				ultimateSound = cs1.ultimateSound;
+				dieSound = cs1.dieSound;
+
 				animTime = cs1.animTime;
 				nor1Time = cs1.nor1Time;
 				nor2Time = cs1.nor2Time;
@@ -232,6 +235,8 @@ namespace SocketServer
 				attackSound = cs2.attackSound;
 				attackSound = cs2.attackkSound_1;
 				ultimateSound = cs2.ultimateSound;
+				dieSound = cs2.dieSound;
+
 				animTime = cs2.animTime;
 				nor1Time = cs2.nor1Time;
 				nor2Time = cs2.nor2Time;
@@ -710,13 +715,16 @@ namespace SocketServer
 		{
 			if (numberRespawn > 0)
 			{
+				knockbackSpeedX = 2;
+				knockbackSpeedY = 2;
 				StartCoroutine(KeepObjectAtSpawnPosition());
 				numberRespawn--;
 			}
 			else
 			{
 				//Debug.Log("Gaara actually dead");
-				gameObject.SetActive(false);
+				//gameObject.SetActive(false);
+				Destroy(gameObject);
 			}
 		}
 
@@ -741,6 +749,7 @@ namespace SocketServer
 
 			// Play the die animation
 			//Debug.Log(gameObject.transform.position.y);
+			dieSound.Play();
 			if (gameObject.transform.position.y < -17f)
 			{
 				// m_animator.SetTrigger("die_bottom");

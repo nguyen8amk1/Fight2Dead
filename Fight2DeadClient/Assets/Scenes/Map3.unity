@@ -732,6 +732,7 @@ MonoBehaviour:
   attackSound: {fileID: 112796982}
   attackkSound_1: {fileID: 112796982}
   ultimateSound: {fileID: 112796981}
+  dieSound: {fileID: 112796983}
   textDame: {fileID: 188776363}
   textRespawn: {fileID: 1686975766}
 --- !u!50 &112796976
@@ -2606,6 +2607,7 @@ MonoBehaviour:
   attackSound: {fileID: 402822098}
   attackkSound_1: {fileID: 402822096}
   ultimateSound: {fileID: 402822099}
+  dieSound: {fileID: 402822100}
   textDame: {fileID: 1308898522}
   textRespawn: {fileID: 1710597198}
 --- !u!50 &402822091
@@ -4434,6 +4436,7 @@ MonoBehaviour:
   attackSound: {fileID: 708356654}
   attackkSound_1: {fileID: 708356654}
   ultimateSound: {fileID: 708356653}
+  dieSound: {fileID: 708356655}
   textDame: {fileID: 546150279}
   textRespawn: {fileID: 1550190609}
 --- !u!50 &708356652
@@ -5629,6 +5632,7 @@ MonoBehaviour:
   attackSound: {fileID: 863426600}
   attackkSound_1: {fileID: 863426598}
   ultimateSound: {fileID: 863426601}
+  dieSound: {fileID: 863426602}
   textDame: {fileID: 747774736}
   textRespawn: {fileID: 1596994534}
 --- !u!95 &863426593
@@ -7184,6 +7188,7 @@ MonoBehaviour:
   attackSound: {fileID: 1199172092}
   attackkSound_1: {fileID: 1199172092}
   ultimateSound: {fileID: 1199172091}
+  dieSound: {fileID: 1199172093}
   textDame: {fileID: 1745224143}
   textRespawn: {fileID: 1429328440}
 --- !u!50 &1199172086
@@ -9690,6 +9695,7 @@ MonoBehaviour:
   attackSound: {fileID: 1515664667}
   attackkSound_1: {fileID: 1515664667}
   ultimateSound: {fileID: 1515664666}
+  dieSound: {fileID: 1515664668}
   textDame: {fileID: 1838885481}
   textRespawn: {fileID: 1705946190}
 --- !u!61 &1515664661
@@ -10496,6 +10502,7 @@ MonoBehaviour:
   attackSound: {fileID: 1652342542}
   attackkSound_1: {fileID: 1652342543}
   ultimateSound: {fileID: 1652342544}
+  dieSound: {fileID: 1652342546}
   textDame: {fileID: 1848677114}
   textRespawn: {fileID: 920712578}
 --- !u!82 &1652342542

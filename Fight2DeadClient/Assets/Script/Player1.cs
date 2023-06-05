@@ -63,8 +63,9 @@ public class Player1 : MonoBehaviour
     public AudioSource attackSound;
     public AudioSource attackkSound_1;
     public AudioSource ultimateSound;
+    public AudioSource dieSound;
 
-	public Text textDame;
+    public Text textDame;
 	public Text textRespawn;
 
 	void Start()
