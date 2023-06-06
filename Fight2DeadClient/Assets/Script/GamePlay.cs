@@ -2,6 +2,7 @@ using SocketServer;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class GamePlay : MonoBehaviour
@@ -341,6 +342,7 @@ public class GamePlay : MonoBehaviour
         }
 
         //auto switch to another player if 1 player left all numberRespawn
+        /*
         if (p1t1 == null)
         {
             Destroy(UI_p1t1);
@@ -376,19 +378,45 @@ public class GamePlay : MonoBehaviour
             if (UI_p1t2 != null)
                 UI_p1t2.SetActive(true);
         }
+        */
 
 
-        if (p1t1 == null && p2t1 == null)
+        if (p1t1 == null || p2t1 == null)
         {
             // Debug.Log("TEAM 2 WIN");
             team2win.SetActive(true);
 
+            /*
             //Scene transition 
+            while(true)
+			{
+                if(Input.GetKeyDown(KeyCode.Return))
+				{
+                    Thread.Sleep(10);
+                    break;
+				}
+			}
+            Util.toSceneWithIndex(globalGameState.scenesOrder["MENU"]);
+            */
+			if(Input.GetKeyDown(KeyCode.Return))
+			{
+				Util.toSceneWithIndex(globalGameState.scenesOrder["MENU"]);
+			}
         }
-        if (p1t2 == null && p2t2 == null)
+        if (p1t2 == null || p2t2 == null)
         {
             // Debug.Log("TEAM 1 WIN");
             team1win.SetActive(true);
+            //Scene transition 
+            /*
+            while(true)
+			{
+			}
+            */
+			if(Input.GetKeyDown(KeyCode.Return))
+			{
+				Util.toSceneWithIndex(globalGameState.scenesOrder["MENU"]);
+			}
 
             //Scene transition 
         }
