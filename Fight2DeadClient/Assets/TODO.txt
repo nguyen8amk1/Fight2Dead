@@ -1,0 +1,144 @@
+TODAY: 
+	HANDLE DEATH STATE (2h) (camera), player respown and stuff like that [] 
+		-> hoi Nam khi nao no chet 
+		DEATH STATE NOT IN SYNC -> player not spawn on the other player screen  
+			-> LET'S MAKE IT SPAWN CORRECTLY FIRST
+			-> LET HAVE THE OTHER PLAYER DIE AND THEN SEE WHAT'S THE UNITY ENGINE IS DOING -> @Current
+			-> seems like the player is just change position when 
+
+	HANDLE WIN (2h) []
+
+	GAME OVER SCREEN Nam () []
+
+	-> BOTH OF THESE WILL BE DONE 
+
+
+	OPENSLL ENCRYPTION []
+
+	/*
+	HORRIBLE TRANSISION BUG WHEN CHANGING, THINGS GO OUT OF CONTROL (for some characters or position) []
+		-> hu Nam 
+		-> quay video gui Nam 
+		(i think i can fix this)
+		*/
+
+	FIX: THE MOVING OF THE CHARACTER IN THE BEGINNING IS NOT GOOD () [] -> currently still usable 
+
+
+	DATABASE encryption password ??  
+
+	KIP KO ?? 
+
+	LET'S SEE HOW EVERYTHING SHOULD WORKS ?
+		the same set of keys to control 
+		2players: 
+			-> attach control script into player dynamically 
+
+			if on player1 window -> player 1 move 
+			if on player2 window -> player 2 move 
+
+		4players: 
+
+	IF CHOOSE THE SAME CHARACTER ON THEN THE CAMERA IS FLICKERING SINCE THERE ARE ONLY ONE CHARACTER ON THE SCREEN  
+
+	4 PLAYER MODE HAVE TO BE PLAYABLE (2h) []
+		-> decide how 4 player control works ?  (player switch and stuff like that)
+
+
+	QUIT MESSAGE AND HANDLE ROOM EXIT PROPERLY (2H) [X] -> @temporary done :v 
+		-> how server should response to quit event of client ?? 
+		-> how client should repsonse to quit event of them or other players quit ?? 
+
+		when could a player exit the game:  
+			after they finish a match -> send tcp message to quit and remove them from room 
+
+
+			*ONLY HANDLE THE GLOBAL FOR THE MOMENT 
+			
+			WHAT HAPPPENED TO THE SERVER WHEN CLOSE THE GAME RIGHT NOW ? 
+				*currently nothing happen when close in the global 
+
+			-> works on global first (1h) 
+				-> send tcp message when close the game 
+			-> then LAN (1h) 
+
+	-> DONE ALL TODAY -> 8 hours of work 
+
+	MAKE THE LAN MODE TRULY WORKS [], can play on different computers (2h) []
+	-> these 2 should be done today
+
+	OPENSLL ENCRYPTION []
+	-> the other day
+
+	have 2 days left 
+
+TODO: 
+
+DONE: 
+	PLAYER 2 CAN'T BE FIGHT :v [X]
+	THE DAMAGE PERCENTAGE NOT UPDATE CORRECTLY () [X] -> make it sync correctly 
+		after this merge to ASSEMBLY 
+		-> it is calculated on both player but not in sync because... 
+			vd: player1 can decrease the thing but not update to the other one 
+			-> sync the damn thing and update it when it's controlled 
+			-> add more info to the server :)) 
+
+		UPDATE THE GLOBAL/LAN SERVER [X] 
+	FIX: KNOCKBACK ANIMATION NOT UPDATED ON THE ONE WHO ACTUALLY FIGHT (ONLY THE ONE GET'S HURT SCREEN SEE IT) [] -> current it's a feature :v 
+	UPDATE THE UI INFO WHEN FIGHTING (1h) [X]
+		-> CHINH LAI UI INFO SIZE -> NAM
+
+	FIX: FIGHTING DIRECTION PROBLEM (2h) [X]
+	CHANGE SOME CHARACTER CAN'T CONTROL [X], (luffy can't control at all)
+		-> tonight, gonna fix this
+		CHECK IF PLAYER 2 AND BYAKYA CAN BE CONTROLLED NOW ?? (1h) []
+	FIX: PLAYER 2 HAVE LUFFY ON THE SCREEN SOME HOW, PLAYER 1 DOES NOT HAVE IT [X] 
+		-> quay video gui Nghia coi 
+	FIX: THE GLOBAL SERVER SHUT DOWN PROBLEM AFTER SWITCH TO THE LAN CLIENT AND QUIT GAME (2h) [X]
+	UPDATE THE PLAYER IMAGE () [X] -> 2 characters: Byakuya, Luffy5h instead of Reborn, Sasori 
+	FIX THE TRANSFORM PROBLEM AS WELL (2h) []
+		THE TRANSFORM COMPLETELY NOT WORKING ON GLOBAL [X] (2h) 
+		TRANSFORM KINDA WORKS ON LAN MODE (2h) [X] -> not completely though 
+	TRY TO MERGE WITH THE ASSEMMLBY (FIRST CHECK WHAT THE ASSSEMBLY CURRENTLY LOOK LIKE) () [X] -> @Current  
+
+	LET'S UPDATE THE GAME CONTROL FIRST -> 2 players [X]
+	FIXED THE BLOCK ON THE SERVER [X]
+	MAKE LAN WORK ACROSS COMPUTERS [X]
+
+	4 PLAYER CHOSING CHARACTER SYNC FROM CHOOSEN CHARACTER AND MAP AND STUFF LIKE THAT (2h) [X]
+		-> photoshop the little thing the fly around for Luffy  
+
+	FIND OUT THE CORRECT PATH TO LANSERVER FOLDER (1h) [X] 
+	FIX THE GLOBAL UDP CONNECTION [X]
+	GLOBAL SERVER TCP CLOSE AND STUFF (2H) [X] 
+	SEND FIGHTING DATA TO SERVER AND UPDATE IT ON THE OTHER SCREEN (2h) [X]
+
+	actually find the LAN SERVER when join (1h) [X]
+	// ACTUALLY FIX THE SAMPLE GAMEPLAY SCENE FIRST :v  (1h) [X] 
+/*
+TODO: Determine what the client received and format for each of them 
+
+How many scenes with network and its received format:  
+	WAITING FOR MATCH, received format: "rid:{},pid:{}" 
+
+	LOBBY, received format: "pid:{},stat{}"
+
+	CHOOSE CHARACTER, received format: "pid:{},cn:{}" // cn = character name
+
+	MAP SELECT, received format: "pid:{},mn:{}" // mn = map name 
+
+	LOADING SCREEN, received format: "" // 
+
+Which scenes actually received quit status of other players -> scenes after having rooms (Server other clients quit message to client)
+(lobby, choose character, map select)
+
+-> TODO: HANDLE OTHER CLIENTS QUIT MESSAGES TO THIS CLIENT 
+
+
+[CLIENT TO SERVER PLAYER'S QUIT MESSAGE] ALREADY HANDLED 
+
+ */
+
+put the quit code to the connection singleton (2h) []
+-> reuse the quit code for every scene 
+

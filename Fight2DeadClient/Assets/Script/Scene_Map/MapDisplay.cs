@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Threading;
 using System;
+using SocketServer;
 
 public class MapDisplay : MonoBehaviour
 {
@@ -14,64 +15,50 @@ public class MapDisplay : MonoBehaviour
 
     // TODO: send the message for map  
     // format: "rid:{roomId},stg:{},pid:{}"
-    private GameState playerInfo = GameState.Instance;
-    private ServerConnection connection = ServerConnection.Instance;
-    private Thread listenToServerThread;
+    private GameState globalGameState = GameState.Instance;
 
     private bool allPlayersChosen = false;
-    private bool otherPlayerMakeChoice = false;
-    private bool hostPlayerMakeChoice = false;
+
        
 	private void Start()
 	{
-        listenToServerThread = new Thread(new ThreadStart(listenToServer));
-        listenToServerThread.Start();
 	}
 
 	private void OnApplicationQuit()
 	{
-        connection.quitGame();
-	}
-
-	private void listenToServer()
-	{
-        while(true)
-		{
-
-            string message = connection.receiveMessage();
-
-            // nhan message tu server thi: "pid:{oppid},mapName:{1}" 
-            string[] tokens = message.Split(',');
-            int pid = Int32.Parse(Util.getValueFrom(tokens[0]));
-            string mapName = Util.getValueFrom(tokens[1]);
-
-            // TODO: check if is message with map name or quit message
-
-            otherPlayerMakeChoice = !string.IsNullOrEmpty(mapName);
-
-            // TODO: check for quit message from other players
-            // format: "pid:{},st:quit"
-
-            /*
-            if()
-			{
-
-			}
-            */
-		}
+		Debug.Log("Send quit message from map choose scene");
+		string quitMessage = PreGameMessageGenerator.quitMessage();
+		ServerCommute.connection.sendToServer(quitMessage);
 	}
 
 	private void Update()
 	{
-		allPlayersChosen = hostPlayerMakeChoice && otherPlayerMakeChoice;
+		if (globalGameState.onlineMode.Equals("LAN"))
+		{
+			if (globalGameState.lobby_P1Quit)
+			{
+				Debug.Log("TODO: remove the P1 on screen");
+			}
+
+			if (globalGameState.lobby_P2Quit)
+			{
+				Debug.Log("TODO: remove the P2 on screen");
+			}
+		}
+		else if (globalGameState.onlineMode.Equals("GLOBAL"))
+		{
+			if (globalGameState.lobby_P1Quit ||
+				globalGameState.lobby_P2Quit)
+			{
+				Debug.Log("Go back to menu");
+				Util.toSceneWithIndex(globalGameState.scenesOrder["MENU"]);
+			}
+		}
+
+		allPlayersChosen = globalGameState.hostPlayerMapChosen && globalGameState.opponentMapChosen;
 	    if(allPlayersChosen)
 		{
-            // TODO: to next scene 
             Util.toNextScene();
-            listenToServerThread.Abort();
-            // Test only
-            allPlayersChosen = false;
-            hostPlayerMakeChoice = false;
 		}
 	}
 
@@ -83,12 +70,12 @@ public class MapDisplay : MonoBehaviour
         playButton.onClick.RemoveAllListeners();
 
         playButton.onClick.AddListener(() => {
-            hostPlayerMakeChoice = true;
+            globalGameState.hostPlayerMapChosen = true;
 
-            string message = $"rid:{playerInfo.RoomId},stg:{mapName.text},pid:{playerInfo.PlayerId}";
-            connection.sendToServer(message);
+            string message = PreGameMessageGenerator.chooseMapMessage(mapName.text);
+            ServerCommute.connection.sendToServer(message);
 
-            Debug.Log($"Send this message to server: {message}");
+            Debug.Log($"TODO: Send this message to server: {message}");
         });
     }
 }
